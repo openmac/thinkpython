@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc44"></a><a class="calibre14" id="htoc50"><span class="calibre18">4.6</span></a><span class="calibre18">&nbsp;&nbsp;Interface design</span></h2>
+
+  <p class="calibre15"><span class="calibre4">The next step is to write <tt class="calibre7">circle</tt>, which takes a radius, <tt class="calibre7">r</tt>, as a parameter. Here is a simple solution that uses <tt class="calibre7">polygon</tt> to draw a 50-sided polygon:</span></p>
+  <pre class="verbatim"><span class="calibre20">def circle(t, r):
+    circumference = 2 * math.pi * r
+    n = 50
+    length = circumference / n
+    polygon(t, n, length)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first line computes the circumference of a circle with radius <tt class="calibre7">r</tt> using the formula 2 π <i class="calibre9">r</i>. Since we use <tt class="calibre7">math.pi</tt>, we have to import <tt class="calibre7">math</tt>. By convention, <tt class="calibre7">import</tt> statements are usually at the beginning of the script.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">n</tt> is the number of line segments in our approximation of a circle, so <tt class="calibre7">length</tt> is the length of each segment. Thus, <tt class="calibre7">polygon</tt> draws a 50-sides polygon that approximates a circle with radius <tt class="calibre7">r</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">One limitation of this solution is that <tt class="calibre7">n</tt> is a constant, which means that for very big circles, the line segments are too long, and for small circles, we waste time drawing very small segments. One solution would be to generalize the function by taking <tt class="calibre7">n</tt> as a parameter. This would give the user (whoever calls <tt class="calibre7">circle</tt>) more control, but the interface would be less clean.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default310"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <b class="calibre19">interface</b> of a function is a summary of how it is used: what are the parameters? What does the function do? And what is the return value? An interface is “clean” if it is “as simple as possible, but not simpler. (Einstein)”</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default311"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In this example, <tt class="calibre7">r</tt> belongs in the interface because it specifies the circle to be drawn. <tt class="calibre7">n</tt> is less appropriate because it pertains to the details of <em class="calibre9">how</em> the circle should be rendered.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Rather than clutter up the interface, it is better to choose an appropriate value of <tt class="calibre7">n</tt> depending on <tt class="calibre7">circumference</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def circle(t, r):
+    circumference = 2 * math.pi * r
+    n = int(circumference / 3) + 1
+    length = circumference / n
+    polygon(t, n, length)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Now the number of segments is (approximately) <tt class="calibre7">circumference/3</tt>, so the length of each segment is (approximately) 3, which is small enough that the circles look good, but big enough to be efficient, and appropriate for any size circle.</span></p>
+</body>
+</html>

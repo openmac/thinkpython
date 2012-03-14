@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc178"></a><a class="calibre14" id="htoc196"><span class="calibre18">16.5</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1473"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A Time object is well-formed if the values of <tt class="calibre7">minutes</tt> and <tt class="calibre7">seconds</tt> are between 0 and 60 (including 0 but not 60) and if <tt class="calibre7">hours</tt> is positive. <tt class="calibre7">hours</tt> and <tt class="calibre7">minutes</tt> should be integral values, but we might allow <tt class="calibre7">seconds</tt> to have a fraction part.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1474"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Requirements like these are called <b class="calibre19">invariants</b> because they should always be true. To put it a different way, if they are not true, then something has gone wrong.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Writing code to check your invariants can help you detect errors and find their causes. For example, you might have a function like <code class="calibre7">valid_time</code> that takes a Time object and returns <tt class="calibre7">False</tt> if it violates an invariant:</span></p>
+  <pre class="verbatim"><span class="calibre20">def valid_time(time):
+    if time.hours &lt; 0 or time.minutes &lt; 0 or time.seconds &lt; 0:
+        return False
+    if time.minutes &gt;= 60 or time.seconds &gt;= 60:
+        return False
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Then at the beginning of each function you could check the arguments to make sure they are valid:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1475"></a> <a class="calibre16" id="@default1476"></a></p>
+  <pre class="verbatim"><span class="calibre20">def add_time(t1, t2):
+    if not valid_time(t1) or not valid_time(t2):
+        raise ValueError, 'invalid Time object in add_time'
+    seconds = time_to_int(t1) + time_to_int(t2)
+    return int_to_time(seconds)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Or you could use an <tt class="calibre7">assert</tt> statement, which checks a given invariant and raises an exception if it fails:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1477"></a> <a class="calibre16" id="@default1478"></a></p>
+  <pre class="verbatim"><span class="calibre20">def add_time(t1, t2):
+    assert valid_time(t1) and valid_time(t2)
+    seconds = time_to_int(t1) + time_to_int(t2)
+    return int_to_time(seconds)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">assert</tt> statements are useful because they distinguish code that deals with normal conditions from code that checks for errors.</span></p>
+</body>
+</html>

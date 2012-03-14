@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc41"></a><a class="calibre14" id="htoc47"><span class="calibre18">4.3</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <p class="calibre15"><span class="calibre4">The following is a series of exercises using TurtleWorld. They are meant to be fun, but they have a point, too. While you are working on them, think about what the point is.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The following sections have solutions to the exercises, so don’t look until you have finished (or at least tried).</span></p>
+
+  <ol class="enumerate" type="1">
+    <li class="li-itemize">
+      <span class="calibre4">Write a function called <tt class="calibre7">square</tt> that takes a parameter named <tt class="calibre7">t</tt>, which is a turtle. It should use the turtle to draw a square.</span>
+
+      <p class="calibre15"><span class="calibre4">Write a function call that passes <tt class="calibre7">bob</tt> as an argument to <tt class="calibre7">square</tt>, and then run the program again.</span></p>
+    </li>
+
+    <li class="li-itemize"><span class="calibre4">Add another parameter, named <tt class="calibre7">length</tt>, to <tt class="calibre7">square</tt>. Modify the body so length of the sides is <tt class="calibre7">length</tt>, and then modify the function call to provide a second argument. Run the program again. Test your program with a range of values for <tt class="calibre7">length</tt>.</span></li>
+
+    <li class="li-itemize">
+      <span class="calibre4">The functions <tt class="calibre7">lt</tt> and <tt class="calibre7">rt</tt> make 90-degree turns by default, but you can provide a second argument that specifies the number of degrees. For example, <tt class="calibre7">lt(bob, 45)</tt> turns <tt class="calibre7">bob</tt> 45 degrees to the left.</span>
+
+      <p class="calibre15"><span class="calibre4">Make a copy of <tt class="calibre7">square</tt> and change the name to <tt class="calibre7">polygon</tt>. Add another parameter named <tt class="calibre7">n</tt> and modify the body so it draws an n-sided regular polygon. Hint: The exterior angles of an n-sided regular polygon are 360.0 / <i class="calibre9">n</i> degrees.</span></p>
+
+      <p class="calibre15"><a class="calibre16" id="@default300"></a> <a class="calibre16" id="@default301"></a></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Write a function called <tt class="calibre7">circle</tt> that takes a turtle, <tt class="calibre7">t</tt>, and radius, <tt class="calibre7">r</tt>, as parameters and that draws an approximate circle by invoking <tt class="calibre7">polygon</tt> with an appropriate length and number of sides. Test your function with a range of values of <tt class="calibre7">r</tt>.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default302"></a> <a class="calibre16" id="@default303"></a></p>
+
+      <p class="calibre15"><span class="calibre4">Hint: figure out the circumference of the circle and make sure that <tt class="calibre7">length * n = circumference</tt>.</span></p>
+
+      <p class="calibre15"><span class="calibre4">Another hint: if <tt class="calibre7">bob</tt> is too slow for you, you can speed him up by changing <tt class="calibre7">bob.delay</tt>, which is the time between moves, in seconds. <tt class="calibre7">bob.delay = 0.01</tt> ought to get him moving.</span></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Make a more general version of <tt class="calibre7">circle</tt> called <tt class="calibre7">arc</tt> that takes an additional parameter <tt class="calibre7">angle</tt>, which determines what fraction of a circle to draw. <tt class="calibre7">angle</tt> is in units of degrees, so when <tt class="calibre7">angle=360</tt>, <tt class="calibre7">arc</tt> should draw a complete circle.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default304"></a> <a class="calibre16" id="@default305"></a></p>
+    </li>
+  </ol>
+</body>
+</html>

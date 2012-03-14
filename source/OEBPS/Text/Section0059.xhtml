@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_16"><a class="calibre14" id="toc64"></a><a class="calibre14" id="htoc71"><span class="calibre18">5.14</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default436"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Fermat’s Last Theorem says that there are no integers <i class="calibre9">a</i>, <i class="calibre9">b</i>, and <i class="calibre9">c</i> such that</em></span></p>
+
+    <table class="display">
+      <tbody class="calibre23">
+        <tr class="calibre24" valign="middle">
+          <td class="dcell"><span class="calibre4"><em class="calibre9"><i class="calibre9">a<sup class="calibre10">n</sup></i>&nbsp;+&nbsp;<i class="calibre9">b<sup class="calibre10">n</sup></i>&nbsp;=&nbsp;<i class="calibre9">c<sup class="calibre10">n</sup></i>&nbsp;</em></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">for any values of <i class="calibre9">n</i> greater than 2.</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Write a function named <code class="calibre7">check_fermat</code> that takes four parameters&mdash;<tt class="calibre7">a</tt>, <tt class="calibre7">b</tt>, <tt class="calibre7">c</tt> and <tt class="calibre7">n</tt>&mdash;and that checks to see if Fermat’s theorem holds. If <i class="calibre9">n</i> is greater than 2 and it turns out to be true that</em></span>
+
+        <table class="display">
+          <tbody class="calibre23">
+            <tr class="calibre24" valign="middle">
+              <td class="dcell"><span class="calibre4"><em class="calibre9"><i class="calibre9">a<sup class="calibre10">n</sup></i>&nbsp;+&nbsp;<i class="calibre9">b<sup class="calibre10">n</sup></i>&nbsp;=&nbsp;<i class="calibre9">c<sup class="calibre10">n</sup></i>&nbsp;</em></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">the program should print, “Holy smokes, Fermat was wrong!” Otherwise the program should print, “No, that doesn’t work.”</em></span></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a function that prompts the user to input values for <tt class="calibre7">a</tt>, <tt class="calibre7">b</tt>, <tt class="calibre7">c</tt> and <tt class="calibre7">n</tt>, converts them to integers, and uses <code class="calibre7">check_fermat</code> to check whether they violate Fermat’s theorem.</em></span></li>
+    </ol>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default437"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">If you are given three sticks, you may or may not be able to arrange them in a triangle. For example, if one of the sticks is 12 inches long and the other two are one inch long, it is clear that you will not be able to get the short sticks to meet in the middle. For any three lengths, there is a simple test to see if it is possible to form a triangle:</em></span></p>
+
+    <blockquote class="quote">
+      <em class="calibre9"><span class="calibre4">“If any of the three lengths is greater than the sum of the other two, then you cannot form a triangle. Otherwise, you can</span><sup class="calibre10"><a class="calibre3" href="#note10" id="text10"><span class="calibre4">3</span></a></sup><span class="calibre4">.”</span></em>
+    </blockquote>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a function named <code class="calibre7">is_triangle</code> that takes three integers as arguments, and that prints either “Yes” or “No,” depending on whether you can or cannot form a triangle from sticks with the given lengths.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a function that prompts the user to input three stick lengths, converts them to integers, and uses <code class="calibre7">is_triangle</code> to check whether sticks with the given lengths can form a triangle.</em></span></li>
+    </ol>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">The following exercises use TurtleWorld from Chapter&nbsp;</span><a class="calibre3" href="../Text/book005.html#turtlechap"><span class="calibre4">4</span></a><span class="calibre4">:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default438"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">Read the following function and see if you can figure out what it does. Then run it (see the examples in Chapter&nbsp;</span><a class="calibre3" href="../Text/book005.html#turtlechap"><span class="calibre4">4</span></a><span class="calibre4">).</span></em></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">def draw(t, length, n):
+    if n == 0:
+        return
+    angle = 50
+    fd(t, length*n)
+    lt(t, angle)
+    draw(t, length, n-1)
+    rt(t, 2*angle)
+    draw(t, length, n-1)
+    lt(t, angle)
+    bk(t, length*n)
+</em></span></pre>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default439"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The Koch curve is a fractal that looks something like this:</em></span></p>
+
+    <div class="center">
+      <span class="calibre4"><em class="calibre9"><img alt="" class="calibre21" src="../Images/book008.gif" /></em></span>
+    </div>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">To draw a Koch curve with length <i class="calibre9">x</i>, all you have to do is</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Draw a Koch curve with length <i class="calibre9">x</i>/3.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Turn left 60 degrees.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Draw a Koch curve with length <i class="calibre9">x</i>/3.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Turn right 120 degrees.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Draw a Koch curve with length <i class="calibre9">x</i>/3.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Turn left 60 degrees.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Draw a Koch curve with length <i class="calibre9">x</i>/3.</em></span></li>
+    </ol>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The only exception is if <i class="calibre9">x</i> is less than 3. In that case, you can just draw a straight line with length <i class="calibre9">x</i>.</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a function called <tt class="calibre7">koch</tt> that takes a turtle and a length as parameters, and that uses the turtle to draw a Koch curve with the given length.</em></span></li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Write a function called <tt class="calibre7">snowflake</tt> that draws three Koch curves to make the outline of a snowflake.</em></span>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">You can see my solution at <tt class="calibre7">thinkpython.com/code/koch.py</tt>.</em></span></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">The Koch curve can be generalized in several ways. See <tt class="calibre7">wikipedia.org/wiki/Koch_snowflake</tt> for examples and implement your favorite.</em></span></li>
+    </ol>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text8" id="note8"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">In Python 3.0, this function is named <tt class="calibre7">input</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text9" id="note9"><span class="calibre4">2</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">In Python 3.0, you no longer get an error message; the division operator performs floating-point division even with integer operands.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text10" id="note10"><span class="calibre4">3</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">If the sum of two lengths equals the third, they form what is called a “degenerate” triangle.</span></dd>
+  </dl>
+</body>
+</html>

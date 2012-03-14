@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc57"></a><a class="calibre14" id="htoc64"><span class="calibre18">5.7</span></a><span class="calibre18">&nbsp;&nbsp;Nested conditionals</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default384"></a> <a class="calibre16" id="@default385"></a></p>
+
+  <p class="calibre15"><span class="calibre4">One conditional can also be nested within another. We could have written the trichotomy example like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">if x == y:
+    print 'x and y are equal'
+else:
+    if x &lt; y:
+        print 'x is less than y'
+    else:
+        print 'x is greater than y'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The outer conditional contains two branches. The first branch contains a simple statement. The second branch contains another <tt class="calibre7">if</tt> statement, which has two branches of its own. Those two branches are both simple statements, although they could have been conditional statements as well.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Although the indentation of the statements makes the structure apparent, <b class="calibre19">nested conditionals</b> become difficult to read very quickly. In general, it is a good idea to avoid them when you can.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Logical operators often provide a way to simplify nested conditional statements. For example, we can rewrite the following code using a single conditional:</span></p>
+  <pre class="verbatim"><span class="calibre20">if 0 &lt; x:
+    if x &lt; 10:
+        print 'x is a positive single-digit number.'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">print</tt> statement is executed only if we make it past both conditionals, so we can get the same effect with the <tt class="calibre7">and</tt> operator:</span></p>
+  <pre class="verbatim"><span class="calibre20">if 0 &lt; x and x &lt; 10:
+    print 'x is a positive single-digit number.'
+</span></pre>
+</body>
+</html>

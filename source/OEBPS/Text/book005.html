@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc44">Chapter&nbsp;4</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc44"></a>Case study: interface design</h1>
+
+  <p class="calibre15"><a class="calibre16" id="turtlechap"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc39"></a><a class="calibre14" id="htoc45"><span class="calibre18">4.1</span></a><span class="calibre18">&nbsp;&nbsp;TurtleWorld</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default290"></a> <a class="calibre16" id="@default291"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To accompany this book, I have written a suite of modules called Swampy. One of these modules is TurtleWorld, which provides a set of functions for drawing lines by steering turtles around the screen.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You can download Swampy from <tt class="calibre7">thinkpython.com/swampy</tt>; follow the instructions there to install Swampy on your system.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Move into the directory that contains <tt class="calibre7">TurtleWorld.py</tt>, create a file named <tt class="calibre7">polygon.py</tt> and type in the following code:</span></p>
+  <pre class="verbatim"><span class="calibre20">from TurtleWorld import *
+
+world = TurtleWorld()
+bob = Turtle()
+print bob
+
+wait_for_user()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first line is a variation of the <tt class="calibre7">import</tt> statement we saw before; instead of creating a module object, it imports the functions from the module directly, so you can access them without using dot notation.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default292"></a> <a class="calibre16" id="@default293"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The next lines create a TurtleWorld assigned to <tt class="calibre7">world</tt> and a Turtle assigned to <tt class="calibre7">bob</tt>. Printing <tt class="calibre7">bob</tt> yields something like:</span></p>
+  <pre class="verbatim"><span class="calibre20">&lt;TurtleWorld.Turtle instance at 0xb7bfbf4c&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This means that <tt class="calibre7">bob</tt> refers to an <b class="calibre19">instance</b> of a Turtle as defined in module <tt class="calibre7">TurtleWorld</tt>. In this context, “instance” means a member of a set; this Turtle is one of the set of possible Turtles.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default294"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">wait_for_user</code> tells TurtleWorld to wait for the user to do something, although in this case there’s not much for the user to do except close the window.</span></p>
+
+  <p class="calibre15"><span class="calibre4">TurtleWorld provides several turtle-steering functions: <tt class="calibre7">fd</tt> and <tt class="calibre7">bk</tt> for forward and backward, and <tt class="calibre7">lt</tt> and <tt class="calibre7">rt</tt> for left and right turns. Also, each Turtle is holding a pen, which is either down or up; if the pen is down, the Turtle leaves a trail when it moves. The functions <tt class="calibre7">pu</tt> and <tt class="calibre7">pd</tt> stand for “pen up” and “pen down.”</span></p>
+
+  <p class="calibre15"><span class="calibre4">To draw a right angle, add these lines to the program (after creating <tt class="calibre7">bob</tt> and before calling <code class="calibre7">wait_for_user</code>):</span></p>
+  <pre class="verbatim"><span class="calibre20">fd(bob, 100)
+lt(bob)
+fd(bob, 100)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first line tells <tt class="calibre7">bob</tt> to take 100 steps forward. The second line tells him to turn left.</span></p>
+
+  <p class="calibre15"><span class="calibre4">When you run this program, you should see <tt class="calibre7">bob</tt> move east and then north, leaving two line segments behind.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Now modify the program to draw a square. Don’t go on until you’ve got it working!</span></p>
+</body>
+</html>

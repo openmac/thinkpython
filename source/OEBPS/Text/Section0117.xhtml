@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc127"></a><a class="calibre14" id="htoc140"><span class="calibre18">11.8</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default996"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As you work with bigger datasets it can become unwieldy to debug by printing and checking data by hand. Here are some suggestions for debugging large datasets:</span></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Scale down the input:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">If possible, reduce the size of the dataset. For example if the program reads a text file, start with just the first 10 lines, or with the smallest example you can find. You can either edit the files themselves, or (better) modify the program so it reads only the first <tt class="calibre7">n</tt> lines.</span>
+
+      <p class="calibre15"><span class="calibre4">If there is an error, you can reduce <tt class="calibre7">n</tt> to the smallest value that manifests the error, and then increase it gradually as you find and correct errors.</span></p>
+    </dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Check summaries and types:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">Instead of printing and checking the entire dataset, consider printing summaries of the data: for example, the number of items in a dictionary or the total of a list of numbers.</span>
+
+      <p class="calibre15"><span class="calibre4">A common cause of runtime errors is a value that is not the right type. For debugging this kind of error, it is often enough to print the type of a value.</span></p>
+    </dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Write self-checks:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">Sometimes you can write code to check for errors automatically. For example, if you are computing the average of a list of numbers, you could check that the result is not greater than the largest element in the list or less than the smallest. This is called a “sanity check” because it detects results that are “insane.”</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default997"></a> <a class="calibre16" id="@default998"></a></p>
+
+      <p class="calibre15"><span class="calibre4">Another kind of check compares the results of two different computations to see if they are consistent. This is called a “consistency check.”</span></p>
+    </dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Pretty print the output:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">Formatting debugging output can make it easier to spot an error. We saw an example in Section&nbsp;</span><a class="calibre3" href="../Text/Section0067.xhtml#factdebug"><span class="calibre4">6.9</span></a><span class="calibre4">. The <tt class="calibre7">pprint</tt> module provides a <tt class="calibre7">pprint</tt> function that displays built-in types in a more human-readable format.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default999"></a> <a class="calibre16" id="@default1000"></a> <a class="calibre16" id="@default1001"></a></p>
+    </dd>
+  </dl>
+
+  <p class="calibre15"><span class="calibre4">Again, time you spend building scaffolding can reduce the time you spend debugging.</span></p>
+</body>
+</html>

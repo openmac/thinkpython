@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_17"><a class="calibre14" id="toc119"></a><a class="calibre14" id="htoc131"><span class="calibre18">10.15</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Write a function called <code class="calibre7">is_sorted</code> that takes a list as a parameter and returns <tt class="calibre7">True</tt> if the list is sorted in ascending order and <tt class="calibre7">False</tt> otherwise. You can assume (as a precondition) that the elements of the list can be compared with the relational operators <tt class="calibre7">&lt;</tt>, <tt class="calibre7">&gt;</tt>, etc.</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default885"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">For example, <code class="calibre7">is_sorted([1,2,2])</code> should return <tt class="calibre7">True</tt> and <code class="calibre7">is_sorted(['b','a'])</code> should return <tt class="calibre7">False</tt>.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp;</span> <a class="calibre16" id="anagram"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default886"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Two words are anagrams if you can rearrange the letters from one to spell the other. Write a function called <code class="calibre7">is_anagram</code> that takes two strings and returns <tt class="calibre7">True</tt> if they are anagrams.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span> <a class="calibre16" id="duplicate"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The (so-called) Birthday Paradox:</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <p class="calibre15"><a class="calibre16" id="@default887"></a> <a class="calibre16" id="@default888"></a></p><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">has_duplicates</code> that takes a list and returns <tt class="calibre7">True</tt> if there is any element that appears more than once. It should not modify the original list.</em></span>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">If there are 23 students in your class, what are the chances that two of you have the same birthday? You can estimate this probability by generating random samples of 23 birthdays and checking for matches. Hint: you can generate random birthdays with the <tt class="calibre7">randint</tt> function in the <tt class="calibre7">random</tt> module.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default889"></a> <a class="calibre16" id="@default890"></a> <a class="calibre16" id="@default891"></a> <a class="calibre16" id="@default892"></a></p>
+      </li>
+    </ol>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can read about this problem at <tt class="calibre7">wikipedia.org/wiki/Birthday_paradox</tt>, and you can see my solution at <tt class="calibre7">thinkpython.com/code/birthday.py</tt>.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default893"></a> <a class="calibre16" id="@default894"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">remove_duplicates</code> that takes a list and returns a new list with only the unique elements from the original. Hint: they don’t have to be in the same order.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;7</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default895"></a> <a class="calibre16" id="@default896"></a> <a class="calibre16" id="@default897"></a> <a class="calibre16" id="@default898"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function that reads the file <tt class="calibre7">words.txt</tt> and builds a list with one element per word. Write two versions of this function, one using the <tt class="calibre7">append</tt> method and the other using the idiom <tt class="calibre7">t = t + [x]</tt>. Which one takes longer to run? Why?</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can see my solution at <tt class="calibre7">thinkpython.com/code/wordlist.py</tt>.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;8</b>&nbsp;&nbsp;</span> <a class="calibre16" id="wordlist1"></a> <a class="calibre16" id="bisection"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default899"></a> <a class="calibre16" id="@default900"></a> <a class="calibre16" id="@default901"></a></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default902"></a> <a class="calibre16" id="@default903"></a> <a class="calibre16" id="@default904"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">To check whether a word is in the word list, you could use the <tt class="calibre7">in</tt> operator, but it would be slow because it searches through the words in order.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Because the words are in alphabetical order, we can speed things up with a bisection search (also known as binary search), which is similar to what you do when you look a word up in the dictionary. You start in the middle and check to see whether the word you are looking for comes before the word in the middle of the list. If so, then you search the first half of the list the same way. Otherwise you search the second half.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Either way, you cut the remaining search space in half. If the word list has 113,809 words, it will take about 17 steps to find the word or conclude that it’s not there.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function called <tt class="calibre7">bisect</tt> that takes a sorted list and a target value and returns the index of the value in the list, if it’s there, or <tt class="calibre7">None</tt> if it’s not.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default905"></a> <a class="calibre16" id="@default906"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Or you could read the documentation of the <tt class="calibre7">bisect</tt> module and use that!</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;9</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default907"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Two words are a “reverse pair” if each is the reverse of the other. Write a program that finds all the reverse pairs in the word list.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;10</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default908"></a>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">Two words “interlock” if taking alternating letters from each forms a new word</span><sup class="calibre10"><a class="calibre3" href="#note22" id="text22"><span class="calibre4">1</span></a></sup><span class="calibre4">. For example, “shoe” and “cold” interlock to form “schooled.”</span></em></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a program that finds all pairs of words that interlock. Hint: don’t enumerate all pairs!</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Can you find any words that are three-way interlocked; that is, every third letter forms a word, starting from the first, second or third?</em></span></li>
+    </ol>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text22" id="note22"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">This exercise is inspired by an example at <tt class="calibre7">puzzlers.org</tt>.</span></dd>
+  </dl>
+</body>
+</html>

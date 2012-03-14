@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc26"></a><a class="calibre14" id="htoc31"><span class="calibre18">3.3</span></a><span class="calibre18">&nbsp;&nbsp;Math functions</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default197"></a> <a class="calibre16" id="@default198"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Python has a math module that provides most of the familiar mathematical functions. A <b class="calibre19">module</b> is a file that contains a collection of related functions.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default199"></a> <a class="calibre16" id="@default200"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Before we can use the module, we have to import it:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; import math
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This statement creates a <b class="calibre19">module object</b> named math. If you print the module object, you get some information about it:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print math
+&lt;module 'math' from '/usr/lib/python2.5/lib-dynload/math.so'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The module object contains the functions and variables defined in the module. To access one of the functions, you have to specify the name of the module and the name of the function, separated by a dot (also known as a period). This format is called <b class="calibre19">dot notation</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default201"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; ratio = signal_power / noise_power
+&gt;&gt;&gt; decibels = 10 * math.log10(ratio)
+
+&gt;&gt;&gt; radians = 0.7
+&gt;&gt;&gt; height = math.sin(radians)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first example uses <code class="calibre7">log10</code> to compute a signal-to-noise ratio in decibels (assuming that <code class="calibre7">signal_power</code> and <code class="calibre7">noise_power</code> are defined). The math module also provides <tt class="calibre7">log</tt>, which computes logarithms base <tt class="calibre7">e</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default202"></a> <a class="calibre16" id="@default203"></a> <a class="calibre16" id="@default204"></a> <a class="calibre16" id="@default205"></a> <a class="calibre16" id="@default206"></a> <a class="calibre16" id="@default207"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The second example finds the sine of <tt class="calibre7">radians</tt>. The name of the variable is a hint that <tt class="calibre7">sin</tt> and the other trigonometric functions (<tt class="calibre7">cos</tt>, <tt class="calibre7">tan</tt>, etc.) take arguments in radians. To convert from degrees to radians, divide by 360 and multiply by 2 π:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; degrees = 45
+&gt;&gt;&gt; radians = degrees / 360.0 * 2 * math.pi
+&gt;&gt;&gt; math.sin(radians)
+0.707106781187
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The expression <tt class="calibre7">math.pi</tt> gets the variable <tt class="calibre7">pi</tt> from the math module. The value of this variable is an approximation of π, accurate to about 15 digits.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default208"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you know your trigonometry, you can check the previous result by comparing it to the square root of two divided by two:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default209"></a> <a class="calibre16" id="@default210"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; math.sqrt(2) / 2.0
+0.707106781187
+</span></pre>
+</body>
+</html>

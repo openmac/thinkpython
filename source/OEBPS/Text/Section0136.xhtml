@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc148"></a><a class="calibre14" id="htoc163"><span class="calibre18">13.8</span></a><span class="calibre18">&nbsp;&nbsp;Markov analysis</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1208"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you choose words from the book at random, you can get a sense of the vocabulary, you probably won’t get a sentence:</span></p>
+  <pre class="verbatim"><span class="calibre20">this the small regard harriet which knightley's it most things
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">A series of random words seldom makes sense because there is no relationship between successive words. For example, in a real sentence you would expect an article like “the” to be followed by an adjective or a noun, and probably not a verb or adverb.</span></p>
+
+  <p class="calibre15"><span class="calibre4">One way to measure these kinds of relationships is Markov analysis</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0140.xhtml#note31" id="text31"><span class="calibre4">1</span></a></sup><span class="calibre4">, which characterizes, for a given sequence of words, the probability of the word that comes next. For example, the song <em class="calibre9">Eric, the Half a Bee</em> begins:</span></p>
+
+  <blockquote class="quote">
+    <span class="calibre4">Half a bee, philosophically,<br class="calibre17" />
+    Must, ipso facto, half not be.<br class="calibre17" />
+    But half the bee has got to be<br class="calibre17" />
+    Vis a vis, its entity. D’you see?<br class="calibre17" />
+    <br class="calibre17" />
+    But can a bee be said to be<br class="calibre17" />
+    Or not to be an entire bee<br class="calibre17" />
+    When half the bee is not a bee<br class="calibre17" />
+    Due to some ancient injury?<br class="calibre17" /></span>
+  </blockquote>
+
+  <p class="calibre15"><span class="calibre4">In this text, the phrase “half the” is always followed by the word “bee,” but the phrase “the bee” might be followed by either “has” or “is”.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1209"></a> <a class="calibre16" id="@default1210"></a> <a class="calibre16" id="@default1211"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The result of Markov analysis is a mapping from each prefix (like “half the” and “the bee”) to all possible suffixes (like “has” and “is”).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1212"></a> <a class="calibre16" id="@default1213"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Given this mapping, you can generate a random text by starting with any prefix and choosing at random from the possible suffixes. Next, you can combine the end of the prefix and the new suffix to form the next prefix, and repeat.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, if you start with the prefix “Half a,” then the next word has to be “bee,” because the prefix only appears once in the text. The next prefix is “a bee,” so the next suffix might be “philosophically,” “be” or “due.”</span></p>
+
+  <p class="calibre15"><span class="calibre4">In this example the length of the prefix is always two, but you can do Markov analysis with any prefix length. The length of the prefix is called the “order” of the analysis.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;8</b>&nbsp;&nbsp; <em class="calibre9">Markov analysis:</em></span>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a program to read a text from a file and perform Markov analysis. The result should be a dictionary that maps from prefixes to a collection of possible suffixes. The collection might be a list, tuple, or dictionary; it is up to you to make an appropriate choice. You can test your program with prefix length two, but you should write the program in a way that makes it easy to try other lengths.</em></span></li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Add a function to the previous program to generate random text based on the Markov analysis. Here is an example from</em> Emma <em class="calibre9">with prefix length 2:</em></span>
+
+        <blockquote class="quote">
+          <span class="calibre4"><em class="calibre9">He was very clever, be it sweetness or be angry, ashamed or only amused, at such a stroke. She had never thought of Hannah till you were never meant for me?" "I cannot make speeches, Emma:" he soon cut it all himself.</em></span>
+        </blockquote>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">For this example, I left the punctuation attached to the words. The result is almost syntactically correct, but not quite. Semantically, it almost makes sense, but not quite.</em></span></p>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">What happens if you increase the prefix length? Does the random text make more sense?</em></span></p>
+
+        <p class="calibre15"><a class="calibre16" id="@default1214"></a></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Once your program is working, you might want to try a mash-up: if you analyze text from two or more books, the random text you generate will blend the vocabulary and phrases from the sources in interesting ways.</em></span></li>
+    </ol>
+  </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc71"></a><a class="calibre14" id="htoc79"><span class="calibre18">6.7</span></a><span class="calibre18">&nbsp;&nbsp;One more example</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="one more example"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default482"></a> <a class="calibre16" id="@default483"></a></p>
+
+  <p class="calibre15"><span class="calibre4">After <tt class="calibre7">factorial</tt>, the most common example of a recursively defined mathematical function is <tt class="calibre7">fibonacci</tt>, which has the following definition</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0069.xhtml#note11" id="text11"><span class="calibre4">1</span></a></sup><span class="calibre4">:</span></p>
+
+  <table class="display">
+    <tbody class="calibre23">
+      <tr class="calibre24" valign="middle">
+        <td class="dcell">
+          <table cellpadding="0" cellspacing="6" class="calibre26">
+            <tbody class="calibre23">
+              <tr class="calibre24">
+                <td class="calibre28" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre27" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre29" nowrap="nowrap"><span class="calibre4"><i class="calibre9">fibonacci</i>(0)&nbsp;=&nbsp;0&nbsp;</span></td>
+              </tr>
+
+              <tr class="calibre24">
+                <td class="calibre28" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre27" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre29" nowrap="nowrap"><span class="calibre4"><i class="calibre9">fibonacci</i>(1)&nbsp;=&nbsp;1&nbsp;</span></td>
+              </tr>
+
+              <tr class="calibre24">
+                <td class="calibre28" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre27" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre29" nowrap="nowrap"><span class="calibre4"><i class="calibre9">fibonacci</i>(<i class="calibre9">n</i>)&nbsp;=&nbsp;<i class="calibre9">fibonacci</i>(<i class="calibre9">n</i>−1)&nbsp;+&nbsp;<i class="calibre9">fibonacci</i>(<i class="calibre9">n</i>−2);</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="calibre15"><span class="calibre4">Translated into Python, it looks like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">def fibonacci (n):
+    if n == 0:
+        return 0
+    elif  n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you try to follow the flow of execution here, even for fairly small values of <i class="calibre9">n</i>, your head explodes. But according to the leap of faith, if you assume that the two recursive calls work correctly, then it is clear that you get the right result by adding them together.</span></p>
+</body>
+</html>

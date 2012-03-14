@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_13"><a class="calibre14" id="toc61"></a><a class="calibre14" id="htoc68"><span class="calibre18">5.11</span></a><span class="calibre18">&nbsp;&nbsp;Keyboard input</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default403"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The programs we have written so far are a bit rude in the sense that they accept no input from the user. They just do the same thing every time.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Python provides a built-in function called <code class="calibre7">raw_input</code> that gets input from the keyboard</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0059.xhtml#note8" id="text8"><span class="calibre4">1</span></a></sup><span class="calibre4">. When this function is called, the program stops and waits for the user to type something. When the user presses <span class="calibre31">Return</span> or <span class="calibre31">Enter</span>, the program resumes and <code class="calibre7">raw_input</code> returns what the user typed as a string.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default404"></a> <a class="calibre16" id="@default405"></a> <a class="calibre16" id="@default406"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; input = raw_input()
+What are you waiting for?
+&gt;&gt;&gt; print input
+What are you waiting for?
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Before getting input from the user, it is a good idea to print a prompt telling the user what to input. <code class="calibre7">raw_input</code> can take a prompt as an argument:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default407"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; name = raw_input('What...is your name?\n')
+What...is your name?
+Arthur, King of the Britons!
+&gt;&gt;&gt; print name
+Arthur, King of the Britons!
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The sequence <code class="calibre7">\n</code> at the end of the prompt represents a <b class="calibre19">newline</b>, which is a special character that causes a line break. That’s why the user’s input appears below the prompt.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default408"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you expect the user to type an integer, you can try to convert the return value to <tt class="calibre7">int</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; prompt = 'What...is the airspeed velocity of an unladen swallow?\n'
+&gt;&gt;&gt; speed = raw_input(prompt)
+What...is the airspeed velocity of an unladen swallow?
+17
+&gt;&gt;&gt; int(speed)
+17
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But if the user types something other than a string of digits, you get an error:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; speed = raw_input(prompt)
+What...is the airspeed velocity of an unladen swallow?
+What do you mean, an African or a European swallow?
+&gt;&gt;&gt; int(speed)
+ValueError: invalid literal for int()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">We will see how to handle this kind of error later.</span></p>
+</body>
+</html>

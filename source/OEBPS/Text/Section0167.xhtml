@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc183"></a><a class="calibre14" id="htoc202"><span class="calibre18">17.3</span></a><span class="calibre18">&nbsp;&nbsp;Another example</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1505"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s a version of <tt class="calibre7">increment</tt> (from Section&nbsp;</span><a class="calibre3" href="../Text/Section0161.xhtml#increment"><span class="calibre4">16.3</span></a><span class="calibre4">) rewritten as a method:</span></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Time:
+
+    def increment(self, seconds):
+        seconds += self.time_to_int()
+        return int_to_time(seconds)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This version assumes that <code class="calibre7">time_to_int</code> is written as a method, as in Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0176.xhtml#convert"><span class="calibre4">17.1</span></a><span class="calibre4">. Also, note that it is a pure function, not a modifier.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s how you would invoke <tt class="calibre7">increment</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; start.print_time()
+09:45:00
+&gt;&gt;&gt; end = start.increment(1337)
+&gt;&gt;&gt; end.print_time()
+10:07:17
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The subject, <tt class="calibre7">start</tt>, gets assigned to the first parameter, <tt class="calibre7">self</tt>. The argument, <tt class="calibre7">1337</tt>, gets assigned to the second parameter, <tt class="calibre7">seconds</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This mechanism can be confusing, especially if you make an error. For example, if you invoke <tt class="calibre7">increment</tt> with two arguments, you get:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1506"></a> <a class="calibre16" id="@default1507"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; end = start.increment(1337, 460)
+TypeError: increment() takes exactly 2 arguments (3 given)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The error message is initially confusing, because there are only two arguments in parentheses. But the subject is also considered an argument, so all together that’s three.</span></p>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>The way of the program</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc6"></a><a class="calibre14" id="htoc5"><span class="calibre18">1.3</span></a><span class="calibre18">&nbsp;&nbsp;What is debugging?</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default25"></a> <a class="calibre16" id="@default26"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Programming is error-prone. For whimsical reasons, programming errors are called <b class="calibre19">bugs</b> and the process of tracking them down is called <b class="calibre19">debugging</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default27"></a> <a class="calibre16" id="@default28"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Three kinds of errors can occur in a program: syntax errors, runtime errors, and semantic errors. It is useful to distinguish between them in order to track them down more quickly.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc6"><span class="calibre18">1.3.1</span></a><span class="calibre18">&nbsp;&nbsp;Syntax errors</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="@default29"></a> <a class="calibre16" id="@default30"></a> <a class="calibre16" id="@default31"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Python can only execute a program if the syntax is correct; otherwise, the interpreter displays an error message. <b class="calibre19">Syntax</b> refers to the structure of a program and the rules about that structure. <a class="calibre16" id="@default32"></a> For example, parentheses have to come in matching pairs, so <tt class="calibre7">(1 + 2)</tt> is legal, but <tt class="calibre7">8)</tt> is a <b class="calibre19">syntax error</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default33"></a> <a class="calibre16" id="@default34"></a> <a class="calibre16" id="@default35"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In English readers can tolerate most syntax errors, which is why we can read the poetry of e. e. cummings without spewing error messages. Python is not so forgiving. If there is a single syntax error anywhere in your program, Python will display an error message and quit, and you will not be able to run your program. During the first few weeks of your programming career, you will probably spend a lot of time tracking down syntax errors. As you gain experience, you will make fewer errors and find them faster.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc7"><span class="calibre18">1.3.2</span></a><span class="calibre18">&nbsp;&nbsp;Runtime errors</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="runtime"></a> <a class="calibre16" id="@default36"></a> <a class="calibre16" id="@default37"></a> <a class="calibre16" id="@default38"></a> <a class="calibre16" id="@default39"></a> <a class="calibre16" id="@default40"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The second type of error is a runtime error, so called because the error does not appear until after the program has started running. These errors are also called <b class="calibre19">exceptions</b> because they usually indicate that something exceptional (and bad) has happened.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Runtime errors are rare in the simple programs you will see in the first few chapters, so it might be a while before you encounter one.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc8"><span class="calibre18">1.3.3</span></a><span class="calibre18">&nbsp;&nbsp;Semantic errors</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="@default41"></a> <a class="calibre16" id="@default42"></a> <a class="calibre16" id="@default43"></a> <a class="calibre16" id="@default44"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The third type of error is the <b class="calibre19">semantic error</b>. If there is a semantic error in your program, it will run successfully in the sense that the computer will not generate any error messages, but it will not do the right thing. It will do something else. Specifically, it will do what you told it to do.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The problem is that the program you wrote is not the program you wanted to write. The meaning of the program (its semantics) is wrong. Identifying semantic errors can be tricky because it requires you to work backward by looking at the output of the program and trying to figure out what it is doing.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc9"><span class="calibre18">1.3.4</span></a><span class="calibre18">&nbsp;&nbsp;Experimental debugging</span></h3>
+
+  <p class="calibre15"><span class="calibre4">One of the most important skills you will acquire is debugging. Although it can be frustrating, debugging is one of the most intellectually rich, challenging, and interesting parts of programming.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default45"></a> <a class="calibre16" id="@default46"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In some ways, debugging is like detective work. You are confronted with clues, and you have to infer the processes and events that led to the results you see.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Debugging is also like an experimental science. Once you have an idea about what is going wrong, you modify your program and try again. If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program. If your hypothesis was wrong, you have to come up with a new one. As Sherlock Holmes pointed out, “When you have eliminated the impossible, whatever remains, however improbable, must be the truth.” (A. Conan Doyle, <em class="calibre9">The Sign of Four</em>)</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default47"></a> <a class="calibre16" id="@default48"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For some people, programming and debugging are the same thing. That is, programming is the process of gradually debugging a program until it does what you want. The idea is that you should start with a program that does <em class="calibre9">something</em> and make small modifications, debugging them as you go, so that you always have a working program.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, Linux is an operating system that contains thousands of lines of code, but it started out as a simple program Linus Torvalds used to explore the Intel 80386 chip. According to Larry Greenfield, “One of Linus’s earlier projects was a program that would switch between printing AAAA and BBBB. This later evolved to Linux.” (<em class="calibre9">The Linux Users’ Guide</em> Beta Version 1).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default49"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Later chapters will make more suggestions about debugging and other programming practices.</span></p>
+</body>
+</html>

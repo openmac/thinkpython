@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc89"></a><a class="calibre14" id="htoc99"><span class="calibre18">8.5</span></a><span class="calibre18">&nbsp;&nbsp;Strings are immutable</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default602"></a> <a class="calibre16" id="@default603"></a> <a class="calibre16" id="@default604"></a></p>
+
+  <p class="calibre15"><span class="calibre4">It is tempting to use the <tt class="calibre7">[]</tt> operator on the left side of an assignment, with the intention of changing a character in a string. For example:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default605"></a> <a class="calibre16" id="@default606"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; greeting = 'Hello, world!'
+&gt;&gt;&gt; greeting[0] = 'J'
+TypeError: object does not support item assignment
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The “object” in this case is the string and the “item” is the character you tried to assign. For now, an <b class="calibre19">object</b> is the same thing as a value, but we will refine that definition later. An <b class="calibre19">item</b> is one of the values in a sequence.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default607"></a> <a class="calibre16" id="@default608"></a> <a class="calibre16" id="@default609"></a> <a class="calibre16" id="@default610"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The reason for the error is that strings are <b class="calibre19">immutable</b>, which means you can’t change an existing string. The best you can do is create a new string that is a variation on the original:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; greeting = 'Hello, world!'
+&gt;&gt;&gt; new_greeting = 'J' + greeting[1:]
+&gt;&gt;&gt; print new_greeting
+Jello, world!
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This example concatenates a new first letter onto a slice of <tt class="calibre7">greeting</tt>. It has no effect on the original string.</span></p>
+</body>
+</html>

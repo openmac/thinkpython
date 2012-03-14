@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default1373"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc166"></a><a class="calibre14" id="htoc183"><span class="calibre18">15.2</span></a><span class="calibre18">&nbsp;&nbsp;Attributes</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1374"></a> <a class="calibre16" id="@default1375"></a> <a class="calibre16" id="@default1376"></a></p>
+
+  <p class="calibre15"><span class="calibre4">You can assign values to an instance using dot notation:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; blank.x = 3.0
+&gt;&gt;&gt; blank.y = 4.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This syntax is similar to the syntax for selecting a variable from a module, such as <tt class="calibre7">math.pi</tt> or <tt class="calibre7">string.whitespace</tt>. In this case, though, we are assigning values to named elements of an object. These elements are called <b class="calibre19">attributes</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">As a noun, “AT-trib-ute” is pronounced with emphasis on the first syllable, as opposed to “a-TRIB-ute,” which is a verb.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The following diagram shows the result of these assignments. A state diagram that shows an object and its attributes is called an <b class="calibre19">object diagram</b>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1377"></a> <a class="calibre16" id="@default1378"></a> <a class="calibre16" id="@default1379"></a> <a class="calibre16" id="@default1380"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book022.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">The variable <tt class="calibre7">blank</tt> refers to a Point object, which contains two attributes. Each attribute refers to a floating-point number.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You can read the value of an attribute using the same syntax:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print blank.y
+4.0
+&gt;&gt;&gt; x = blank.x
+&gt;&gt;&gt; print x
+3.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The expression <tt class="calibre7">blank.x</tt> means, “Go to the object <tt class="calibre7">blank</tt> refers to and get the value of <tt class="calibre7">x</tt>.” In this case, we assign that value to a variable named <tt class="calibre7">x</tt>. There is no conflict between the variable <tt class="calibre7">x</tt> and the attribute <tt class="calibre7">x</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You can use dot notation as part of any expression. For example:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print '(%g, %g)' % (blank.x, blank.y)
+(3.0, 4.0)
+&gt;&gt;&gt; distance = math.sqrt(blank.x**2 + blank.y**2)
+&gt;&gt;&gt; print distance
+5.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can pass an instance as an argument in the usual way. For example:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1381"></a></p>
+  <pre class="verbatim"><span class="calibre20">def print_point(p):
+    print '(%g, %g)' % (p.x, p.y)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">print_point</code> takes a point as an argument and displays it in mathematical notation. To invoke it, you can pass <tt class="calibre7">blank</tt> as an argument:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print_point(blank)
+(3.0, 4.0)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Inside the function, <tt class="calibre7">p</tt> is an alias for <tt class="calibre7">blank</tt>, so if the function modifies <tt class="calibre7">p</tt>, <tt class="calibre7">blank</tt> changes.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1382"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Write a function called <tt class="calibre7">distance</tt> that takes two Points as arguments and returns the distance between them.</em></span>
+  </div>
+</body>
+</html>

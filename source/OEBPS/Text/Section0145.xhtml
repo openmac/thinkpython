@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc158"></a><a class="calibre14" id="htoc174"><span class="calibre18">14.6</span></a><span class="calibre18">&nbsp;&nbsp;Databases</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1278"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">database</b> is a file that is organized for storing data. Most databases are organized like a dictionary in the sense that they map from keys to values. The biggest difference is that the database is on disk (or other permanent storage), so it persists after the program ends.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1279"></a> <a class="calibre16" id="@default1280"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The module <tt class="calibre7">anydbm</tt> provides an interface for creating and updating database files. As an example, I’ll create a database that contains captions for image files.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1281"></a> <a class="calibre16" id="@default1282"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Opening a database is similar to opening other files:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; import anydbm
+&gt;&gt;&gt; db = anydbm.open('captions.db', 'c')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The mode <code class="calibre7">'c'</code> means that the database should be created if it doesn’t already exist. The result is a database object that can be used (for most operations) like a dictionary. If you create a new item, <tt class="calibre7">anydbm</tt> updates the database file.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1283"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; db['cleese.png'] = 'Photo of John Cleese.'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you access one of the items, <tt class="calibre7">anydbm</tt> reads the file:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print db['cleese.png']
+Photo of John Cleese.
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you make another assignment to an existing key, <tt class="calibre7">anydbm</tt> replaces the old value:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; db['cleese.png'] = 'Photo of John Cleese doing a silly walk.'
+&gt;&gt;&gt; print db['cleese.png']
+Photo of John Cleese doing a silly walk.
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Many dictionary methods, like <tt class="calibre7">keys</tt> and <tt class="calibre7">items</tt>, also work with database objects. So does iteration with a <tt class="calibre7">for</tt> statement.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1284"></a></p>
+  <pre class="verbatim"><span class="calibre20">for key in db:
+    print key
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">As with other files, you should close the database when you are done:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; db.close()
+</span></pre>
+</body>
+</html>

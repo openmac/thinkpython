@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc173"></a><a class="calibre14" id="htoc190"><span class="calibre18">15.9</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp;</span> <a class="calibre16" id="canvas"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default1432"></a> <a class="calibre16" id="@default1433"></a> <a class="calibre16" id="@default1434"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4"><tt class="calibre7">World.py</tt>, which is part of Swampy (see Chapter&nbsp;</span><a class="calibre3" href="../Text/book005.html#turtlechap"><span class="calibre4">4</span></a><span class="calibre4">), contains a class definition for a user-defined type called <tt class="calibre7">World</tt>. You can import it like this:</span></em></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">from World import World
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">This version of the <tt class="calibre7">import</tt> statement imports the <tt class="calibre7">World</tt> class from the <tt class="calibre7">World</tt> module. The following code creates a World object and calls the <tt class="calibre7">mainloop</tt> method, which waits for the user.</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">world = World()
+world.mainloop()
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">A window should appear with a title bar and an empty square. We will use this window to draw Points, Rectangles and other shapes. Add the following lines before calling <code class="calibre7">mainloop</code> and run the program again.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1435"></a> <a class="calibre16" id="@default1436"></a></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">canvas = world.ca(width=500, height=500, background='white')
+bbox = [[-150,-100], [150, 100]]
+canvas.rectangle(bbox, outline='black', width=2, fill='green4')
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You should see a green rectangle with a black outline. The first line creates a Canvas, which appears in the window as a white square. The Canvas object provides methods like <tt class="calibre7">rectangle</tt> for drawing various shapes.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1437"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9"><tt class="calibre7">bbox</tt> is a list of lists that represents the “bounding box” of the rectangle. The first pair of coordinates is the lower-left corner of the rectangle; the second pair is the upper-right corner.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can draw a circle like this:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">canvas.circle([-25,0], 70, outline=None, fill='red')
+</em></span></pre>
+
+    <p class="calibre15"><a class="calibre16" id="@default1438"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The first parameter is the coordinate pair for the center of the circle; the second parameter is the radius.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">If you add this line to the program, the result should resemble the national flag of Bangladesh (see <tt class="calibre7">wikipedia.org/wiki/Gallery_of_sovereign-state_flags</tt>).</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">draw_rectangle</code> that takes a Canvas and a Rectangle as arguments and draws a representation of the Rectangle on the Canvas.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Add an attribute named <tt class="calibre7">color</tt> to your Rectangle objects and modify <code class="calibre7">draw_rectangle</code> so that it uses the color attribute as the fill color.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">draw_point</code> that takes a Canvas and a Point as arguments and draws a representation of the Point on the Canvas.</em></span></li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Define a new class called Circle with appropriate attributes and instantiate a few Circle objects. Write a function called <code class="calibre7">draw_circle</code> that draws circles on the canvas.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1439"></a></p>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Write a program that draws the national flag of the Czech Republic. Hint: you can draw a polygon like this:</em></span>
+        <pre class="verbatim"><span class="calibre20"><em class="calibre9">points = [[-150,-100], [150, 100], [150, -100]]
+canvas.polygon(points, fill='blue')
+</em></span></pre>
+      </li>
+    </ol>
+
+    <p class="calibre15"><a class="calibre16" id="@default1440"></a> <a class="calibre16" id="@default1441"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">I have written a small program that lists the available colors; you can download it from <tt class="calibre7">thinkpython.com/code/color_list.py</tt>.</em></span></p>
+  </div>
+</body>
+</html>

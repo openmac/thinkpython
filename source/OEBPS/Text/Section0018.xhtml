@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default151"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc20"></a><a class="calibre14" id="htoc24"><span class="calibre18">2.9</span></a><span class="calibre18">&nbsp;&nbsp;Comments</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default152"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As programs get bigger and more complicated, they get more difficult to read. Formal languages are dense, and it is often difficult to look at a piece of code and figure out what it is doing, or why.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing. These notes are called <b class="calibre19">comments</b>, and they start with the <code class="calibre7">#</code> symbol:</span></p>
+  <pre class="verbatim"><span class="calibre20"># compute the percentage of the hour that has elapsed
+percentage = (minute * 100) / 60
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In this case, the comment appears on a line by itself. You can also put comments at the end of a line:</span></p>
+  <pre class="verbatim"><span class="calibre20">percentage = (minute * 100) / 60     # percentage of an hour
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Everything from the <tt class="calibre7">#</tt> to the end of the line is ignored&mdash;it has no effect on the program.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Comments are most useful when they document non-obvious features of the code. It is reasonable to assume that the reader can figure out <em class="calibre9">what</em> the code does; it is much more useful to explain <em class="calibre9">why</em>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This comment is redundant with the code and useless:</span></p>
+  <pre class="verbatim"><span class="calibre20">v = 5     # assign 5 to v
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This comment contains useful information that is not in the code:</span></p>
+  <pre class="verbatim"><span class="calibre20">v = 5     # velocity in meters/second. 
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Good variable names can reduce the need for comments, but long names can make complex expressions hard to read, so there is a tradeoff.</span></p>
+</body>
+</html>

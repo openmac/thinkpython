@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default836"></a> <a class="calibre16" id="@default837"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_13"><a class="calibre14" id="toc115"></a><a class="calibre14" id="htoc127"><span class="calibre18">10.11</span></a><span class="calibre18">&nbsp;&nbsp;Aliasing</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default838"></a> <a class="calibre16" id="@default839"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If <tt class="calibre7">a</tt> refers to an object and you assign <tt class="calibre7">b = a</tt>, then both variables refer to the same object:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; b is a
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The state diagram looks like this:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default840"></a> <a class="calibre16" id="@default841"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book016.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">The association of a variable with an object is called a <b class="calibre19">reference</b>. In this example, there are two references to the same object.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default842"></a></p>
+
+  <p class="calibre15"><span class="calibre4">An object with more than one reference has more than one name, so we say that the object is <b class="calibre19">aliased</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default843"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If the aliased object is mutable, changes made with one alias affect the other:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; b[0] = 17
+&gt;&gt;&gt; print a
+[17, 2, 3]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Although this behavior can be useful, it is error-prone. In general, it is safer to avoid aliasing when you are working with mutable objects.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default844"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For immutable objects like strings, aliasing is not as much of a problem. In this example:</span></p>
+  <pre class="verbatim"><span class="calibre20">a = 'banana'
+b = 'banana'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">It almost never makes a difference whether <tt class="calibre7">a</tt> and <tt class="calibre7">b</tt> refer to the same string or not.</span></p>
+</body>
+</html>

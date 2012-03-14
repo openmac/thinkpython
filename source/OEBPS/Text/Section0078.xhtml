@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc86"></a><a class="calibre14" id="htoc96"><span class="calibre18">8.2</span></a><span class="calibre18">&nbsp;&nbsp;<tt class="calibre22">len</tt></span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default579"></a> <a class="calibre16" id="@default580"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">len</tt> is a built-in function that returns the number of characters in a string:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fruit = 'banana'
+&gt;&gt;&gt; len(fruit)
+6
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">To get the last letter of a string, you might be tempted to try something like this:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default581"></a> <a class="calibre16" id="@default582"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; length = len(fruit)
+&gt;&gt;&gt; last = fruit[length]
+IndexError: string index out of range
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The reason for the <tt class="calibre7">IndexError</tt> is that there is no letter in <tt class="calibre7">’banana’</tt> with the index 6. Since we started counting at zero, the six letters are numbered 0 to 5. To get the last character, you have to subtract 1 from <tt class="calibre7">length</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; last = fruit[length-1]
+&gt;&gt;&gt; print last
+a
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Alternatively, you can use negative indices, which count backward from the end of the string. The expression <tt class="calibre7">fruit[-1]</tt> yields the last letter, <tt class="calibre7">fruit[-2]</tt> yields the second to last, and so on.</span></p>
+</body>
+</html>

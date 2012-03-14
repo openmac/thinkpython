@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default1066"></a> <a class="calibre16" id="@default1067"></a> <a class="calibre16" id="@default1068"></a> <a class="calibre16" id="@default1069"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc133"></a><a class="calibre14" id="htoc147"><span class="calibre18">12.4</span></a><span class="calibre18">&nbsp;&nbsp;Variable-length argument tuples</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1070"></a> <a class="calibre16" id="@default1071"></a> <a class="calibre16" id="@default1072"></a> <a class="calibre16" id="@default1073"></a> <a class="calibre16" id="@default1074"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Functions can take a variable number of arguments. A parameter name that begins with <tt class="calibre7">*</tt> <b class="calibre19">gathers</b> arguments into a tuple. For example, <tt class="calibre7">printall</tt> takes any number of arguments and prints them:</span></p>
+  <pre class="verbatim"><span class="calibre20">def printall(*args):
+    print args
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The gather parameter can have any name you like, but <tt class="calibre7">args</tt> is conventional. Here’s how the function works:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; printall(1, 2.0, '3')
+(1, 2.0, '3')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The complement of gather is <b class="calibre19">scatter</b>. If you have a sequence of values and you want to pass it to a function as multiple arguments, you can use the <tt class="calibre7">*</tt> operator. For example, <tt class="calibre7">divmod</tt> takes exactly two arguments; it doesn’t work with a tuple:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1075"></a> <a class="calibre16" id="@default1076"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1077"></a> <a class="calibre16" id="@default1078"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = (7, 3)
+&gt;&gt;&gt; divmod(t)
+TypeError: divmod expected 2 arguments, got 1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But if you scatter the tuple, it works:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; divmod(*t)
+(2, 1)
+</span></pre>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Many of the built-in functions use variable-length argument tuples. For example, <tt class="calibre7">max</tt> and <tt class="calibre7">min</tt> can take any number of arguments:</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1079"></a> <a class="calibre16" id="@default1080"></a> <a class="calibre16" id="@default1081"></a> <a class="calibre16" id="@default1082"></a></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">&gt;&gt;&gt; max(1,2,3)
+3
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">But <tt class="calibre7">sum</tt> does not.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1083"></a> <a class="calibre16" id="@default1084"></a></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">&gt;&gt;&gt; sum(1,2,3)
+TypeError: sum expected at most 2 arguments, got 3
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function called <tt class="calibre7">sumall</tt> that takes any number of arguments and returns their sum.</em></span></p>
+  </div>
+</body>
+</html>

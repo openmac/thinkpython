@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Debugging</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc217"></a><a class="calibre14" id="htoc244"><span class="calibre18">A.3</span></a><span class="calibre18">&nbsp;&nbsp;Semantic errors</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1840"></a> <a class="calibre16" id="@default1841"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In some ways, semantic errors are the hardest to debug, because the interpreter provides no information about what is wrong. Only you know what the program is supposed to do.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The first step is to make a connection between the program text and the behavior you are seeing. You need a hypothesis about what the program is actually doing. One of the things that makes that hard is that computers run so fast.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You will often wish that you could slow the program down to human speed, and with some debuggers you can. But the time it takes to insert a few well-placed <tt class="calibre7">print</tt> statements is often short compared to setting up the debugger, inserting and removing breakpoints, and “stepping” the program to where the error is occurring.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc245"><span class="calibre18">A.3.1</span></a><span class="calibre18">&nbsp;&nbsp;My program doesn’t work.</span></h3>
+
+  <p class="calibre15"><span class="calibre4">You should ask yourself these questions:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">Is there something the program was supposed to do but which doesn’t seem to be happening? Find the section of the code that performs that function and make sure it is executing when you think it should.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">Is something happening that shouldn’t? Find code in your program that performs that function and see if it is executing when it shouldn’t.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">Is a section of code producing an effect that is not what you expected? Make sure that you understand the code in question, especially if it involves invocations to functions or methods in other Python modules. Read the documentation for the functions you invoke. Try them out by writing simple test cases and checking the results.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">In order to program, you need to have a mental model of how programs work. If you write a program that doesn’t do what you expect, very often the problem is not in the program; it’s in your mental model.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1842"></a> <a class="calibre16" id="@default1843"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The best way to correct your mental model is to break the program into its components (usually the functions and methods) and test each component independently. Once you find the discrepancy between your model and reality, you can solve the problem.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Of course, you should be building and testing components as you develop the program. If you encounter a problem, there should be only a small amount of new code that is not known to be correct.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc246"><span class="calibre18">A.3.2</span></a><span class="calibre18">&nbsp;&nbsp;I’ve got a big hairy expression and it doesn’t do what I expect.</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="@default1844"></a> <a class="calibre16" id="@default1845"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Writing complex expressions is fine as long as they are readable, but they can be hard to debug. It is often a good idea to break a complex expression into a series of assignments to temporary variables.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example:</span></p>
+  <pre class="verbatim"><span class="calibre20">self.hands[i].addCard(self.hands[self.findNeighbor(i)].popCard())
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This can be rewritten as:</span></p>
+  <pre class="verbatim"><span class="calibre20">neighbor = self.findNeighbor(i)
+pickedCard = self.hands[neighbor].popCard()
+self.hands[i].addCard(pickedCard)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The explicit version is easier to read because the variable names provide additional documentation, and it is easier to debug because you can check the types of the intermediate variables and display their values.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1846"></a> <a class="calibre16" id="@default1847"></a> <a class="calibre16" id="@default1848"></a> <a class="calibre16" id="@default1849"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Another problem that can occur with big expressions is that the order of evaluation may not be what you expect. For example, if you are translating the expression <i class="calibre9">x</i>/2 π into Python, you might write:</span></p>
+  <pre class="verbatim"><span class="calibre20">y = x / 2 * math.pi
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">That is not correct because multiplication and division have the same precedence and are evaluated from left to right. So this expression computes <i class="calibre9">x</i> π / 2.</span></p>
+
+  <p class="calibre15"><span class="calibre4">A good way to debug expressions is to add parentheses to make the order of evaluation explicit:</span></p>
+  <pre class="verbatim"><span class="calibre20"> y = x / (2 * math.pi)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Whenever you are not sure of the order of evaluation, use parentheses. Not only will the program be correct (in the sense of doing what you intended), it will also be more readable for other people who haven’t memorized the rules of precedence.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc247"><span class="calibre18">A.3.3</span></a><span class="calibre18">&nbsp;&nbsp;I’ve got a function or method that doesn’t return what I expect.</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="@default1850"></a> <a class="calibre16" id="@default1851"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you have a <tt class="calibre7">return</tt> statement with a complex expression, you don’t have a chance to print the <tt class="calibre7">return</tt> value before returning. Again, you can use a temporary variable. For example, instead of:</span></p>
+  <pre class="verbatim"><span class="calibre20">return self.hands[i].removeMatches()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">you could write:</span></p>
+  <pre class="verbatim"><span class="calibre20">count = self.hands[i].removeMatches()
+return count
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Now you have the opportunity to display the value of <tt class="calibre7">count</tt> before returning.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc248"><span class="calibre18">A.3.4</span></a><span class="calibre18">&nbsp;&nbsp;I’m really, really stuck and I need help.</span></h3>
+
+  <p class="calibre15"><span class="calibre4">First, try getting away from the computer for a few minutes. Computers emit waves that affect the brain, causing these symptoms:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize">
+      <span class="calibre4">Frustration and rage.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1852"></a> <a class="calibre16" id="@default1853"></a> <a class="calibre16" id="@default1854"></a> <a class="calibre16" id="@default1855"></a></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Superstitious beliefs (“the computer hates me”) and magical thinking (“the program only works when I wear my hat backward”).</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1856"></a> <a class="calibre16" id="@default1857"></a></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Random walk programming (the attempt to program by writing every possible program and choosing the one that does the right thing).</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1858"></a> <a class="calibre16" id="@default1859"></a></p>
+    </li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">If you find yourself suffering from any of these symptoms, get up and go for a walk. When you are calm, think about the program. What is it doing? What are some possible causes of that behavior? When was the last time you had a working program, and what did you do next?</span></p>
+
+  <p class="calibre15"><span class="calibre4">Sometimes it just takes time to find a bug. I often find bugs when I am away from the computer and let my mind wander. Some of the best places to find bugs are trains, showers, and in bed, just before you fall asleep.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc249"><span class="calibre18">A.3.5</span></a><span class="calibre18">&nbsp;&nbsp;No, I really need help.</span></h3>
+
+  <p class="calibre15"><span class="calibre4">It happens. Even the best programmers occasionally get stuck. Sometimes you work on a program so long that you can’t see the error. A fresh pair of eyes is just the thing.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Before you bring someone else in, make sure you are prepared. Your program should be as simple as possible, and you should be working on the smallest input that causes the error. You should have <tt class="calibre7">print</tt> statements in the appropriate places (and the output they produce should be comprehensible). You should understand the problem well enough to describe it concisely.</span></p>
+
+  <p class="calibre15"><span class="calibre4">When you bring someone in to help, be sure to give them the information they need:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">If there is an error message, what is it and what part of the program does it indicate?</span></li>
+
+    <li class="li-itemize"><span class="calibre4">What was the last thing you did before this error occurred? What were the last lines of code that you wrote, or what is the new test case that fails?</span></li>
+
+    <li class="li-itemize"><span class="calibre4">What have you tried so far, and what have you learned?</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">When you find the bug, take a second to think about what you could have done to find it faster. Next time you see something similar, you will be able to find the bug more quickly.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Remember, the goal is not just to make the program work. The goal is to learn how to make the program work.</span></p>
+</body>
+</html>

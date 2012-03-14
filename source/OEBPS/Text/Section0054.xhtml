@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc59"></a><a class="calibre14" id="htoc66"><span class="calibre18">5.9</span></a><span class="calibre18">&nbsp;&nbsp;Stack diagrams for recursive functions</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default391"></a> <a class="calibre16" id="@default392"></a> <a class="calibre16" id="@default393"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In Section&nbsp;</span><a class="calibre3" href="../Text/Section0030.xhtml#stackdiagram"><span class="calibre4">3.10</span></a><span class="calibre4">, we used a stack diagram to represent the state of a program during a function call. The same kind of diagram can help interpret a recursive function.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Every time a function gets called, Python creates a new function frame, which contains the function’s local variables and parameters. For a recursive function, there might be more than one frame on the stack at the same time.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This figure shows a stack diagram for <tt class="calibre7">countdown</tt> called with <tt class="calibre7">n = 3</tt>:</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book007.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">As usual, the top of the stack is the frame for <code class="calibre7">__main__</code>. It is empty because we did not create any variables in <code class="calibre7">__main__</code> or pass any arguments to it.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default394"></a> <a class="calibre16" id="@default395"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The four <tt class="calibre7">countdown</tt> frames have different values for the parameter <tt class="calibre7">n</tt>. The bottom of the stack, where <tt class="calibre7">n=0</tt>, is called the <b class="calibre19">base case</b>. It does not make a recursive call, so there are no more frames.</span></p>
+
+  <blockquote class="quote">
+    <span class="calibre4">Draw a stack diagram for <code class="calibre7">print_n</code> called with <code class="calibre7">s = 'Hello'</code> and <tt class="calibre7">n=2</tt>.</span>
+  </blockquote>
+
+  <blockquote class="quote">
+    <span class="calibre4">Write a function called <code class="calibre7">do_n</code> that takes a function object and a number, <tt class="calibre7">n</tt>, as arguments, and that calls the given function <tt class="calibre7">n</tt> times.</span>
+  </blockquote>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc191">Chapter&nbsp;16</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc191"></a>Classes and functions</h1>
+
+  <p class="calibre15"><a class="calibre16" id="time"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc174"></a><a class="calibre14" id="htoc192"><span class="calibre18">16.1</span></a><span class="calibre18">&nbsp;&nbsp;Time</span></h2>
+
+  <p class="calibre15"><span class="calibre4">As another example of a user-defined type, we’ll define a class called <tt class="calibre7">Time</tt> that records the time of day. The class definition looks like this:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1442"></a> <a class="calibre16" id="@default1443"></a> <a class="calibre16" id="@default1444"></a> <a class="calibre16" id="@default1445"></a></p>
+  <pre class="verbatim"><span class="calibre20">class Time(object):
+    """represents the time of day.
+       attributes: hour, minute, second"""
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">We can create a new <tt class="calibre7">Time</tt> object and assign attributes for hours, minutes, and seconds:</span></p>
+  <pre class="verbatim"><span class="calibre20">time = Time()
+time.hour = 11
+time.minute = 59
+time.second = 30
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The state diagram for the <tt class="calibre7">Time</tt> object looks like this:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1446"></a> <a class="calibre16" id="@default1447"></a> <a class="calibre16" id="@default1448"></a> <a class="calibre16" id="@default1449"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book025.gif" /></span>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <a class="calibre16" id="printtime"></a> <em class="calibre9">Write a function called <code class="calibre7">print_time</code> that takes a Time object and prints it in the form <tt class="calibre7">hour:minute:second</tt>. Hint: the format sequence <code class="calibre7">'%.2d'</code> prints an integer using at least two digits, including a leading zero if necessary.</em></span>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span> <a class="calibre16" id="is_after"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default1450"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a boolean function called <code class="calibre7">is_after</code> that takes two Time objects, <tt class="calibre7">t1</tt> and <tt class="calibre7">t2</tt>, and returns <tt class="calibre7">True</tt> if <tt class="calibre7">t1</tt> follows <tt class="calibre7">t2</tt> chronologically and <tt class="calibre7">False</tt> otherwise. Challenge: don’t use an <tt class="calibre7">if</tt> statement.</em></span></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc107"></a><a class="calibre14" id="htoc119"><span class="calibre18">10.3</span></a><span class="calibre18">&nbsp;&nbsp;Traversing a list</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default748"></a> <a class="calibre16" id="@default749"></a> <a class="calibre16" id="@default750"></a> <a class="calibre16" id="@default751"></a> <a class="calibre16" id="@default752"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The most common way to traverse the elements of a list is with a <tt class="calibre7">for</tt> loop. The syntax is the same as for strings:</span></p>
+  <pre class="verbatim"><span class="calibre20">for cheese in cheeses:
+    print cheese
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This works well if you only need to read the elements of the list. But if you want to write or update the elements, you need the indices. A common way to do that is to combine the functions <tt class="calibre7">range</tt> and <tt class="calibre7">len</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default753"></a> <a class="calibre16" id="@default754"></a></p>
+  <pre class="verbatim"><span class="calibre20">for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This loop traverses the list and updates each element. <tt class="calibre7">len</tt> returns the number of elements in the list. <tt class="calibre7">range</tt> returns a list of indices from 0 to <i class="calibre9">n</i>−1, where <i class="calibre9">n</i> is the length of the list. Each time through the loop <tt class="calibre7">i</tt> gets the index of the next element. The assignment statement in the body uses <tt class="calibre7">i</tt> to read the old value of the element and to assign the new value.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default755"></a> <a class="calibre16" id="@default756"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <tt class="calibre7">for</tt> loop over an empty list never executes the body:</span></p>
+  <pre class="verbatim"><span class="calibre20">for x in []:
+    print 'This never happens.'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Although a list can contain another list, the nested list still counts as a single element. The length of this list is four:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default757"></a> <a class="calibre16" id="@default758"></a></p>
+  <pre class="verbatim"><span class="calibre20">['spam', 1, ['Brie', 'Roquefort', 'Pol le Veq'], [1, 2, 3]]
+</span></pre>
+</body>
+</html>

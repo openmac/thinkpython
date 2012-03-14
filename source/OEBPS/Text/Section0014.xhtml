@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc16"></a><a class="calibre14" id="htoc20"><span class="calibre18">2.5</span></a><span class="calibre18">&nbsp;&nbsp;Operators and operands</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default131"></a> <a class="calibre16" id="@default132"></a> <a class="calibre16" id="@default133"></a> <a class="calibre16" id="@default134"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><b class="calibre19">Operators</b> are special symbols that represent computations like addition and multiplication. The values the operator is applied to are called <b class="calibre19">operands</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The operators <tt class="calibre7">+</tt>, <tt class="calibre7">-</tt>, <tt class="calibre7">*</tt>, <tt class="calibre7">/</tt> and <tt class="calibre7">**</tt> perform addition, subtraction, multiplication, division and exponentiation, as in the following examples:</span></p>
+  <pre class="verbatim"><span class="calibre20">20+32   hour-1   hour*60+minute   minute/60   5**2   (5+9)*(15-7)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In some other languages, <code class="calibre7">^</code> is used for exponentiation, but in Python it is a bitwise operator called XOR. I won’t cover bitwise operators in this book, but you can read about them at <tt class="calibre7">wiki.python.org/moin/BitwiseOperators</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default135"></a> <a class="calibre16" id="@default136"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The division operator might not do what you expect:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; minute = 59
+&gt;&gt;&gt; minute/60
+0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The value of <tt class="calibre7">minute</tt> is 59, and in conventional arithmetic 59 divided by 60 is 0.98333, not 0. The reason for the discrepancy is that Python is performing <b class="calibre19">floor division</b></span><sup class="calibre10"><a class="calibre3" href="../Text/Section0021.xhtml#note5" id="text5"><span class="calibre4">2</span></a></sup><span class="calibre4">.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default137"></a> <a class="calibre16" id="@default138"></a> <a class="calibre16" id="@default139"></a> <a class="calibre16" id="@default140"></a> <a class="calibre16" id="@default141"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When both of the operands are integers, the result is also an integer; floor division chops off the fraction part, so in this example it rounds down to zero.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If either of the operands is a floating-point number, Python performs floating-point division, and the result is a <tt class="calibre7">float</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; minute/60.0
+0.98333333333333328
+</span></pre>
+</body>
+</html>

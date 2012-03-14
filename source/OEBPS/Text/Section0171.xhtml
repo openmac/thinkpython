@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc187"></a><a class="calibre14" id="htoc206"><span class="calibre18">17.7</span></a><span class="calibre18">&nbsp;&nbsp;Operator overloading</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="operator overloading"></a></p>
+
+  <p class="calibre15"><span class="calibre4">By defining other special methods, you can specify the behavior of operators on user-defined types. For example, if you define a method named <code class="calibre7">__add__</code> for the <tt class="calibre7">Time</tt> class, you can use the <tt class="calibre7">+</tt> operator on Time objects.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is what the definition might look like:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1523"></a> <a class="calibre16" id="@default1524"></a></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Time:
+
+    def __add__(self, other):
+        seconds = self.time_to_int() + other.time_to_int()
+        return int_to_time(seconds)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And here is how you could use it:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; start = Time(9, 45)
+&gt;&gt;&gt; duration = Time(1, 35)
+&gt;&gt;&gt; print start + duration
+11:20:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you apply the <tt class="calibre7">+</tt> operator to Time objects, Python invokes <code class="calibre7">__add__</code>. When you print the result, Python invokes <code class="calibre7">__str__</code>. So there is quite a lot happening behind the scenes!</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1525"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Changing the behavior of an operator so that it works with user-defined types is called <b class="calibre19">operator overloading</b>. For every operator in Python there is a corresponding special method, like <code class="calibre7">__add__</code>. For more details, see <tt class="calibre7">docs.python.org/ref/specialnames.html</tt>.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp; <em class="calibre9">Write an <tt class="calibre7">add</tt> method for the Point class.</em></span>
+  </div>
+</body>
+</html>

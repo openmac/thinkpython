@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc136"></a><a class="calibre14" id="htoc150"><span class="calibre18">12.7</span></a><span class="calibre18">&nbsp;&nbsp;Comparing tuples</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1112"></a> <a class="calibre16" id="@default1113"></a> <a class="calibre16" id="@default1114"></a> <a class="calibre16" id="@default1115"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The relational operators work with tuples and other sequences; Python starts by comparing the first element from each sequence. If they are equal, it goes on to the next elements, and so on, until it finds elements that differ. Subsequent elements are not considered (even if they are really big).</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; (0, 1, 2) &lt; (0, 3, 4)
+True
+&gt;&gt;&gt; (0, 1, 2000000) &lt; (0, 3, 4)
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">sort</tt> function works the same way. It sorts primarily by first element, but in the case of a tie, it sorts by second element, and so on.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This feature lends itself to a pattern called <b class="calibre19">DSU</b> for</span></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Decorate</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">a sequence by building a list of tuples with one or more sort keys preceding the elements from the sequence,</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Sort</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">the list of tuples, and</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Undecorate</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">by extracting the sorted elements of the sequence.</span></dd>
+  </dl>
+
+  <p class="calibre15"><a class="calibre16" id="DSU"></a> <a class="calibre16" id="@default1116"></a> <a class="calibre16" id="@default1117"></a> <a class="calibre16" id="@default1118"></a> <a class="calibre16" id="@default1119"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For example, suppose you have a list of words and you want to sort them from longest to shortest:</span></p>
+  <pre class="verbatim"><span class="calibre20">def sort_by_length(words):
+    t = []
+    for word in words:
+       t.append((len(word), word))
+
+    t.sort(reverse=True)
+
+    res = []
+    for length, word in t:
+        res.append(word)
+    return res
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first loop builds a list of tuples, where each tuple is a word preceded by its length.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">sort</tt> compares the first element, length, first, and only considers the second element to break ties. The keyword argument <tt class="calibre7">reverse=True</tt> tells <tt class="calibre7">sort</tt> to go in decreasing order.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1120"></a> <a class="calibre16" id="@default1121"></a> <a class="calibre16" id="@default1122"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The second loop traverses the list of tuples and builds a list of words in descending order of length.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp; <em class="calibre9">In this example, ties are broken by comparing words, so words with the same length appear in reverse alphabetical order. For other applications you might want to break ties at random. Modify this example so that words with the same length appear in random order. Hint: see the <tt class="calibre7">random</tt> function in the <tt class="calibre7">random</tt> module.</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1123"></a> <a class="calibre16" id="@default1124"></a> <a class="calibre16" id="@default1125"></a> <a class="calibre16" id="@default1126"></a></p>
+  </div>
+</body>
+</html>

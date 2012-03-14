@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc143">Chapter&nbsp;12</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc143"></a>Tuples</h1>
+
+  <p class="calibre15"><a class="calibre16" id="tuplechap"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc130"></a><a class="calibre14" id="htoc144"><span class="calibre18">12.1</span></a><span class="calibre18">&nbsp;&nbsp;Tuples are immutable</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1030"></a> <a class="calibre16" id="@default1031"></a> <a class="calibre16" id="@default1032"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A tuple is a sequence of values. The values can be any type, and they are indexed by integers, so in that respect tuples are a lot like lists. The important difference is that tuples are immutable.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1033"></a> <a class="calibre16" id="@default1034"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Syntactically, a tuple is a comma-separated list of values:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = 'a', 'b', 'c', 'd', 'e'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Although it is not necessary, it is common to enclose tuples in parentheses:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1035"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ('a', 'b', 'c', 'd', 'e')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">To create a tuple with a single element, you have to include a final comma:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1036"></a> <a class="calibre16" id="@default1037"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t1 = 'a',
+&gt;&gt;&gt; type(t1)
+&lt;type 'tuple'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">A value in parentheses is not a tuple:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t2 = ('a')
+&gt;&gt;&gt; type(t2)
+&lt;type 'str'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Another way to create a tuple is the built-in function <tt class="calibre7">tuple</tt>. With no argument, it creates an empty tuple:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1038"></a> <a class="calibre16" id="@default1039"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = tuple()
+&gt;&gt;&gt; print t
+()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If the argument is a sequence (string, list or tuple), the result is a tuple with the elements of the sequence:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = tuple('lupins')
+&gt;&gt;&gt; print t
+('l', 'u', 'p', 'i', 'n', 's')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Because <tt class="calibre7">tuple</tt> is the name of a built-in function, you should avoid using it as a variable name.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Most list operators also work on tuples. The bracket operator indexes an element:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1040"></a> <a class="calibre16" id="@default1041"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ('a', 'b', 'c', 'd', 'e')
+&gt;&gt;&gt; print t[0]
+'a'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And the slice operator selects a range of elements.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1042"></a> <a class="calibre16" id="@default1043"></a> <a class="calibre16" id="@default1044"></a> <a class="calibre16" id="@default1045"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print t[1:3]
+('b', 'c')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But if you try to modify one of the elements of the tuple, you get an error:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1046"></a> <a class="calibre16" id="@default1047"></a> <a class="calibre16" id="@default1048"></a> <a class="calibre16" id="@default1049"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t[0] = 'A'
+TypeError: object doesn't support item assignment
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can’t modify the elements of a tuple, but you can replace one tuple with another:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ('A',) + t[1:]
+&gt;&gt;&gt; print t
+('A', 'b', 'c', 'd', 'e')
+</span></pre>
+</body>
+</html>

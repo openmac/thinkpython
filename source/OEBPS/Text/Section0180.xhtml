@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <p class="calibre15"><a class="calibre16" id="@default1610"></a> <a class="calibre16" id="@default1611"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc197"></a><a class="calibre14" id="htoc217"><span class="calibre18">18.5</span></a><span class="calibre18">&nbsp;&nbsp;Printing the deck</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="printdeck"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1612"></a> <a class="calibre16" id="@default1613"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a <code class="calibre7">__str__</code> method for <tt class="calibre7">Deck</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">#inside class Deck:
+
+    def __str__(self):
+        res = []
+        for card in self.cards:
+            res.append(str(card))
+        return '\n'.join(res)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This method demonstrates an efficient way to accumulate a large string: building a list of strings and then using <tt class="calibre7">join</tt>. The built-in function <tt class="calibre7">str</tt> invokes the <code class="calibre7">__str__</code> method on each card and returns the string representation.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1614"></a> <a class="calibre16" id="@default1615"></a> <a class="calibre16" id="@default1616"></a> <a class="calibre16" id="@default1617"></a> <a class="calibre16" id="@default1618"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Since we invoke <tt class="calibre7">join</tt> on a newline character, the cards are separated by newlines. Here’s what the result looks like:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; deck = Deck()
+&gt;&gt;&gt; print deck
+Ace of Clubs
+2 of Clubs
+3 of Clubs
+...
+10 of Spades
+Jack of Spades
+Queen of Spades
+King of Spades
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Even though the result appears on 52 lines, it is one long string that contains newlines.</span></p>
+</body>
+</html>

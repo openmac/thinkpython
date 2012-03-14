@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc147"></a><a class="calibre14" id="htoc162"><span class="calibre18">13.7</span></a><span class="calibre18">&nbsp;&nbsp;Random words</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="randomwords"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1206"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To choose a random word from the histogram, the simplest algorithm is to build a list with multiple copies of each word, according to the observed frequency, and then choose from the list:</span></p>
+  <pre class="verbatim"><span class="calibre20">def random_word(h):
+    t = []
+    for word, freq in h.items():
+        t.extend([word] * freq)
+
+    return random.choice(t)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The expression <tt class="calibre7">[word] * freq</tt> creates a list with <tt class="calibre7">freq</tt> copies of the string <tt class="calibre7">word</tt>. The <tt class="calibre7">extend</tt> method is similar to <tt class="calibre7">append</tt> except that the argument is a sequence.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;7</b>&nbsp;&nbsp;</span> <a class="calibre16" id="randhist"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default1207"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">This algorithm works, but it is not very efficient; each time you choose a random word, it rebuilds the list, which is as big as the original book. An obvious improvement is to build the list once and then make multiple selections, but the list is still big.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">An alternative is:</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Use <tt class="calibre7">keys</tt> to get a list of the words in the book.</em></span></li>
+
+      <li class="li-itemize"><em class="calibre9"><span class="calibre4">Build a list that contains the cumulative sum of the word frequencies (see Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0101.xhtml#cumulative"><span class="calibre4">10.1</span></a><span class="calibre4">). The last item in this list is the total number of words in the book, <i class="calibre9">n</i>.</span></em></li>
+
+      <li class="li-itemize"><em class="calibre9"><span class="calibre4">Choose a random number from 1 to <i class="calibre9">n</i>. Use a bisection search (See Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0109.xhtml#bisection"><span class="calibre4">10.8</span></a><span class="calibre4">) to find the index where the random number would be inserted in the cumulative sum.</span></em></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Use the index to find the corresponding word in the word list.</em></span></li>
+    </ol>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a program that uses this algorithm to choose a random word from the book.</em></span></p>
+  </div>
+</body>
+</html>

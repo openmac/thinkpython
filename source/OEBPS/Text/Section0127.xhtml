@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default1133"></a> <a class="calibre16" id="@default1134"></a> <a class="calibre16" id="@default1135"></a> <a class="calibre16" id="@default1136"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc138"></a><a class="calibre14" id="htoc152"><span class="calibre18">12.9</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1137"></a> <a class="calibre16" id="@default1138"></a> <a class="calibre16" id="@default1139"></a> <a class="calibre16" id="@default1140"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Lists, dictionaries and tuples are known generically as <b class="calibre19">data structures</b>; in this chapter we are starting to see compound data structures, like lists of tuples, and dictionaries that contain tuples as keys and lists as values. Compound data structures are useful, but they are prone to what I call <b class="calibre19">shape errors</b>; that is, errors caused when a data structure has the wrong type, size or composition. For example, if you are expecting a list with one integer and I give you a plain old integer (not in a list), it won’t work.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1141"></a> <a class="calibre16" id="@default1142"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To help debug these kinds of errors, I have written a module called <tt class="calibre7">structshape</tt> that provides a function, also called <tt class="calibre7">structshape</tt>, that takes any kind of data structure as an argument and returns a string that summarizes its shape. You can download it from <tt class="calibre7">thinkpython.com/code/structshape.py</tt></span></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s the result for a simple list:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; from structshape import structshape
+&gt;&gt;&gt; t = [1,2,3]
+&gt;&gt;&gt; print structshape(t)
+list of 3 int
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">A fancier program might write “list of 3 int<em class="calibre9">s</em>,” but it was easier not to deal with plurals. Here’s a list of lists:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t2 = [[1,2], [3,4], [5,6]]
+&gt;&gt;&gt; print structshape(t2)
+list of 3 list of 2 int
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If the elements of the list are not the same type, <tt class="calibre7">structshape</tt> groups them, in order, by type:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t3 = [1, 2, 3, 4.0, '5', '6', [7], [8], 9]
+&gt;&gt;&gt; print structshape(t3)
+list of (3 int, float, 2 str, 2 list of int, int)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here’s a list of tuples:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; s = 'abc'
+&gt;&gt;&gt; lt = zip(t, s)
+&gt;&gt;&gt; print structshape(lt)
+list of 3 tuple of (int, str)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And here’s a dictionary with 3 items that map integers to strings.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; d = dict(lt) 
+&gt;&gt;&gt; print structshape(d)
+dict of 3 int-&gt;str
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you are having trouble keeping track of your data structures, <tt class="calibre7">structshape</tt> can help.</span></p>
+</body>
+</html>

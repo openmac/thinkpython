@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc160"></a><a class="calibre14" id="htoc176"><span class="calibre18">14.8</span></a><span class="calibre18">&nbsp;&nbsp;Pipes</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1294"></a> <a class="calibre16" id="@default1295"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Most operating systems provide a command-line interface, also known as a <b class="calibre19">shell</b>. Shells usually provide commands to navigate the file system and launch applications. For example, in Unix, you can change directories with <tt class="calibre7">cd</tt>, display the contents of a directory with <tt class="calibre7">ls</tt>, and launch a web browser by typing (for example) <tt class="calibre7">firefox</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1296"></a> <a class="calibre16" id="@default1297"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Any program that you can launch from the shell can also be launched from Python using a <b class="calibre19">pipe</b>. A pipe is an object that represents a running process.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, the Unix command <tt class="calibre7">ls -l</tt> normally displays the contents of the current directory (in long format). You can launch <tt class="calibre7">ls</tt> with <tt class="calibre7">os.popen</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1298"></a> <a class="calibre16" id="@default1299"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; cmd = 'ls -l'
+&gt;&gt;&gt; fp = os.popen(cmd)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The argument is a string that contains a shell command. The return value is an object that behaves just like an open file. You can read the output from the <tt class="calibre7">ls</tt> process one line at a time with <tt class="calibre7">readline</tt> or get the whole thing at once with <tt class="calibre7">read</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1300"></a> <a class="calibre16" id="@default1301"></a> <a class="calibre16" id="@default1302"></a> <a class="calibre16" id="@default1303"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; res = fp.read()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you are done, you close the pipe like a file:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1304"></a> <a class="calibre16" id="@default1305"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; stat = fp.close()
+&gt;&gt;&gt; print stat
+None
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The return value is the final status of the <tt class="calibre7">ls</tt> process; <tt class="calibre7">None</tt> means that it ended normally (with no errors).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1306"></a> <a class="calibre16" id="@default1307"></a> <a class="calibre16" id="@default1308"></a> <a class="calibre16" id="@default1309"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A common use of pipes is to read a compressed file incrementally; that is, without uncompressing the whole thing at once. The following function takes the name of a compressed file as a parameter and returns a pipe that uses <tt class="calibre7">gunzip</tt> to decompress the contents:</span></p>
+  <pre class="verbatim"><span class="calibre20">def open_gunzip(filename):
+    cmd = 'gunzip -c ' + filename
+    fp = os.popen(cmd)
+    return fp
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you read lines from <tt class="calibre7">fp</tt> one at a time, you never have to store the uncompressed file in memory or on disk.</span></p>
+</body>
+</html>

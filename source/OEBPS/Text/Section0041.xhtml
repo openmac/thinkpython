@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc45"></a><a class="calibre14" id="htoc51"><span class="calibre18">4.7</span></a><span class="calibre18">&nbsp;&nbsp;Refactoring</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="refactoring"></a> <a class="calibre16" id="@default312"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When I wrote <tt class="calibre7">circle</tt>, I was able to re-use <tt class="calibre7">polygon</tt> because a many-sided polygon is a good approximation of a circle. But <tt class="calibre7">arc</tt> is not as cooperative; we can’t use <tt class="calibre7">polygon</tt> or <tt class="calibre7">circle</tt> to draw an arc.</span></p>
+
+  <p class="calibre15"><span class="calibre4">One alternative is to start with a copy of <tt class="calibre7">polygon</tt> and transform it into <tt class="calibre7">arc</tt>. The result might look like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">def arc(t, r, angle):
+    arc_length = 2 * math.pi * r * angle / 360
+    n = int(arc_length / 3) + 1
+    step_length = arc_length / n
+    step_angle = float(angle) / n
+    
+    for i in range(n):
+        fd(t, step_length)
+        lt(t, step_angle)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The second half of this function looks like <tt class="calibre7">polygon</tt>, but we can’t re-use <tt class="calibre7">polygon</tt> without changing the interface. We could generalize <tt class="calibre7">polygon</tt> to take an angle as a third argument, but then <tt class="calibre7">polygon</tt> would no longer be an appropriate name! Instead, let’s call the more general function <tt class="calibre7">polyline</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def polyline(t, n, length, angle):
+    for i in range(n):
+        fd(t, length)
+        lt(t, angle)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Now we can rewrite <tt class="calibre7">polygon</tt> and <tt class="calibre7">arc</tt> to use <tt class="calibre7">polyline</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def polygon(t, n, length):
+    angle = 360.0 / n
+    polyline(t, n, length, angle)
+
+def arc(t, r, angle):
+    arc_length = 2 * math.pi * r * angle / 360
+    n = int(arc_length / 3) + 1
+    step_length = arc_length / n
+    step_angle = float(angle) / n
+    polyline(t, n, step_length, step_angle)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Finally, we can rewrite <tt class="calibre7">circle</tt> to use <tt class="calibre7">arc</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def circle(t, r):
+    arc(t, r, 360)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This process&mdash;rearranging a program to improve function interfaces and facilitate code re-use&mdash;is called <b class="calibre19">refactoring</b>. In this case, we noticed that there was similar code in <tt class="calibre7">arc</tt> and <tt class="calibre7">polygon</tt>, so we “factored it out” into <tt class="calibre7">polyline</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default313"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If we had planned ahead, we might have written <tt class="calibre7">polyline</tt> first and avoided refactoring, but often you don’t know enough at the beginning of a project to design all the interfaces. Once you start coding, you understand the problem better. Sometimes refactoring is a sign that you have learned something.</span></p>
+</body>
+</html>

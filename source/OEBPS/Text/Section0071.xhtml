@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Iteration</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default528"></a> <a class="calibre16" id="@default529"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc78"></a><a class="calibre14" id="htoc87"><span class="calibre18">7.3</span></a><span class="calibre18">&nbsp;&nbsp;The <tt class="calibre22">while</tt> statement</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default530"></a> <a class="calibre16" id="@default531"></a> <a class="calibre16" id="@default532"></a> <a class="calibre16" id="@default533"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Computers are often used to automate repetitive tasks. Repeating identical or similar tasks without making errors is something that computers do well and people do poorly.</span></p>
+
+  <p class="calibre15"><span class="calibre4">We have seen two programs, <tt class="calibre7">countdown</tt> and <code class="calibre7">print_n</code>, that use recursion to perform repetition, which is also called <b class="calibre19">iteration</b>. Because iteration is so common, Python provides several language features to make it easier. One is the <tt class="calibre7">for</tt> statement we saw in Section&nbsp;</span><a class="calibre3" href="../Text/Section0036.xhtml#repetition"><span class="calibre4">4.2</span></a><span class="calibre4">. We’ll get back to that later.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Another is the <tt class="calibre7">while</tt> statement. Here is a version of <tt class="calibre7">countdown</tt> that uses a <tt class="calibre7">while</tt> statement:</span></p>
+  <pre class="verbatim"><span class="calibre20">def countdown(n):
+    while n &gt; 0:
+        print n
+        n = n-1
+    print 'Blastoff!'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can almost read the <tt class="calibre7">while</tt> statement as if it were English. It means, “While <tt class="calibre7">n</tt> is greater than 0, display the value of <tt class="calibre7">n</tt> and then reduce the value of <tt class="calibre7">n</tt> by 1. When you get to 0, display the word <tt class="calibre7">Blastoff!</tt>”</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default534"></a></p>
+
+  <p class="calibre15"><span class="calibre4">More formally, here is the flow of execution for a <tt class="calibre7">while</tt> statement:</span></p>
+
+  <ol class="enumerate" type="1">
+    <li class="li-itemize"><span class="calibre4">Evaluate the condition, yielding <tt class="calibre7">True</tt> or <tt class="calibre7">False</tt>.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">If the condition is false, exit the <tt class="calibre7">while</tt> statement and continue execution at the next statement.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">If the condition is true, execute the body and then go back to step 1.</span></li>
+  </ol>
+
+  <p class="calibre15"><span class="calibre4">This type of flow is called a <b class="calibre19">loop</b> because the third step loops back around to the top.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default535"></a> <a class="calibre16" id="@default536"></a> <a class="calibre16" id="@default537"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The body of the loop should change the value of one or more variables so that eventually the condition becomes false and the loop terminates. Otherwise the loop will repeat forever, which is called an <b class="calibre19">infinite loop</b>. An endless source of amusement for computer scientists is the observation that the directions on shampoo, “Lather, rinse, repeat,” are an infinite loop.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default538"></a> <a class="calibre16" id="@default539"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In the case of <tt class="calibre7">countdown</tt>, we can prove that the loop terminates because we know that the value of <tt class="calibre7">n</tt> is finite, and we can see that the value of <tt class="calibre7">n</tt> gets smaller each time through the loop, so eventually we have to get to 0. In other cases, it is not so easy to tell:</span></p>
+  <pre class="verbatim"><span class="calibre20">def sequence(n):
+    while n != 1:
+        print n,
+        if n%2 == 0:        # n is even
+            n = n/2
+        else:               # n is odd
+            n = n*3+1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The condition for this loop is <tt class="calibre7">n != 1</tt>, so the loop will continue until <tt class="calibre7">n</tt> is <tt class="calibre7">1</tt>, which makes the condition false.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Each time through the loop, the program outputs the value of <tt class="calibre7">n</tt> and then checks whether it is even or odd. If it is even, <tt class="calibre7">n</tt> is divided by 2. If it is odd, the value of <tt class="calibre7">n</tt> is replaced with <tt class="calibre7">n*3+1</tt>. For example, if the argument passed to <tt class="calibre7">sequence</tt> is 3, the resulting sequence is 3, 10, 5, 16, 8, 4, 2, 1.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Since <tt class="calibre7">n</tt> sometimes increases and sometimes decreases, there is no obvious proof that <tt class="calibre7">n</tt> will ever reach 1, or that the program terminates. For some particular values of <tt class="calibre7">n</tt>, we can prove termination. For example, if the starting value is a power of two, then the value of <tt class="calibre7">n</tt> will be even each time through the loop until it reaches 1. The previous example ends with such a sequence, starting with 16.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default540"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The hard question is whether we can prove that this program terminates for <em class="calibre9">all positive values</em> of <tt class="calibre7">n</tt>. So far</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0077.xhtml#note15" id="text15"><span class="calibre4">1</span></a></sup><span class="calibre4">, no one has been able to prove it <em class="calibre9">or</em> disprove it!</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Rewrite the function <code class="calibre7">print_n</code> from Section&nbsp;</em></span><em class="calibre9"><a class="calibre3" href="../Text/Section0053.xhtml#recursion"><span class="calibre4">5.8</span></a></em> <span class="calibre4"><em class="calibre9">using iteration instead of recursion.</em></span>
+  </div>
+</body>
+</html>

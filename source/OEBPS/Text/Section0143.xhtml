@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc156"></a><a class="calibre14" id="htoc172"><span class="calibre18">14.4</span></a><span class="calibre18">&nbsp;&nbsp;Filenames and paths</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="paths"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1251"></a> <a class="calibre16" id="@default1252"></a> <a class="calibre16" id="@default1253"></a> <a class="calibre16" id="@default1254"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Files are organized into <b class="calibre19">directories</b> (also called “folders”). Every running program has a “current directory,” which is the default directory for most operations. For example, when you open a file for reading, Python looks for it in the current directory.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1255"></a> <a class="calibre16" id="@default1256"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">os</tt> module provides functions for working with files and directories (“os” stands for “operating system”). <tt class="calibre7">os.getcwd</tt> returns the name of the current directory:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1257"></a> <a class="calibre16" id="@default1258"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; import os
+&gt;&gt;&gt; cwd = os.getcwd()
+&gt;&gt;&gt; print cwd
+/home/dinsdale
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">cwd</tt> stands for “current working directory.” The result in this example is <tt class="calibre7">/home/dinsdale</tt>, which is the home directory of a user named <tt class="calibre7">dinsdale</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1259"></a> <a class="calibre16" id="@default1260"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A string like <tt class="calibre7">cwd</tt> that identifies a file is called a <b class="calibre19">path</b>. A <b class="calibre19">relative path</b> starts from the current directory; an <b class="calibre19">absolute path</b> starts from the topmost directory in the file system.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1261"></a> <a class="calibre16" id="@default1262"></a> <a class="calibre16" id="@default1263"></a> <a class="calibre16" id="@default1264"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The paths we have seen so far are simple filenames, so they are relative to the current directory. To find the absolute path to a file, you can use <tt class="calibre7">os.path.abspath</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; os.path.abspath('memo.txt')
+'/home/dinsdale/memo.txt'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">os.path.exists</tt> checks whether a file or directory exists:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1265"></a> <a class="calibre16" id="@default1266"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; os.path.exists('memo.txt')
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If it exists, <tt class="calibre7">os.path.isdir</tt> checks whether it’s a directory:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; os.path.isdir('memo.txt')
+False
+&gt;&gt;&gt; os.path.isdir('music')
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Similarly, <tt class="calibre7">os.path.isfile</tt> checks whether it’s a file.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">os.listdir</tt> returns a list of the files (and other directories) in the given directory:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; os.listdir(cwd)
+['music', 'photos', 'memo.txt']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">To demonstrate these functions, the following example “walks” through a directory, prints the names of all the files, and calls itself recursively on all the directories.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1267"></a> <a class="calibre16" id="@default1268"></a></p>
+  <pre class="verbatim"><span class="calibre20">def walk(dir):
+    for name in os.listdir(dir):
+        path = os.path.join(dir, name)
+
+        if os.path.isfile(path):
+            print path
+        else:
+            walk(path)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">os.path.join</tt> takes a directory and a file name and joins them into a complete path.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Modify <tt class="calibre7">walk</tt> so that instead of printing the names of the files, it returns a list of names.</em></span>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp; <em class="calibre9">The <tt class="calibre7">os</tt> module provides a function called <tt class="calibre7">walk</tt> that is similar to this one but more versatile. Read the documentation and use it to print the names of the files in a given directory and its subdirectories.</em></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default727"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc106"></a><a class="calibre14" id="htoc118"><span class="calibre18">10.2</span></a><span class="calibre18">&nbsp;&nbsp;Lists are mutable</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default728"></a> <a class="calibre16" id="@default729"></a> <a class="calibre16" id="@default730"></a> <a class="calibre16" id="@default731"></a> <a class="calibre16" id="@default732"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The syntax for accessing the elements of a list is the same as for accessing the characters of a string&mdash;the bracket operator. The expression inside the brackets specifies the index. Remember that the indices start at 0:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print cheeses[0]
+Cheddar
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Unlike strings, lists are mutable. When the bracket operator appears on the left side of an assignment, it identifies the element of the list that will be assigned.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default733"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; numbers = [17, 123]
+&gt;&gt;&gt; numbers[1] = 5
+&gt;&gt;&gt; print numbers
+[17, 5]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The one-eth element of <tt class="calibre7">numbers</tt>, which used to be 123, is now 5.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default734"></a> <a class="calibre16" id="@default735"></a></p>
+
+  <p class="calibre15"><span class="calibre4">You can think of a list as a relationship between indices and elements. This relationship is called a <b class="calibre19">mapping</b>; each index “maps to” one of the elements. Here is a state diagram showing <tt class="calibre7">cheeses</tt>, <tt class="calibre7">numbers</tt> and <tt class="calibre7">empty</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default736"></a> <a class="calibre16" id="@default737"></a> <a class="calibre16" id="@default738"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book013.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">Lists are represented by boxes with the word “list” outside and the elements of the list inside. <tt class="calibre7">cheeses</tt> refers to a list with three elements indexed 0, 1 and 2. <tt class="calibre7">numbers</tt> contains two elements; the diagram shows that the value of the second element has been reassigned from 123 to 5. <tt class="calibre7">empty</tt> refers to a list with no elements.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default739"></a> <a class="calibre16" id="@default740"></a></p>
+
+  <p class="calibre15"><span class="calibre4">List indices work the same way as string indices:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">Any integer expression can be used as an index.</span></li>
+
+    <li class="li-itemize">
+      <span class="calibre4">If you try to read or write an element that does not exist, you get an <tt class="calibre7">IndexError</tt>.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default741"></a> <a class="calibre16" id="@default742"></a></p>
+    </li>
+
+    <li class="li-itemize"><span class="calibre4">If an index has a negative value, it counts backward from the end of the list.</span></li>
+  </ul>
+
+  <p class="calibre15"><a class="calibre16" id="@default743"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default744"></a> <a class="calibre16" id="@default745"></a> <a class="calibre16" id="@default746"></a> <a class="calibre16" id="@default747"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">in</tt> operator also works on lists.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; cheeses = ['Cheddar', 'Edam', 'Gouda']
+&gt;&gt;&gt; 'Edam' in cheeses
+True
+&gt;&gt;&gt; 'Brie' in cheeses
+False
+</span></pre>
+</body>
+</html>

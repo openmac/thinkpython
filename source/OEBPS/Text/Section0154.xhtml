@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default1390"></a> <a class="calibre16" id="@default1391"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc168"></a><a class="calibre14" id="htoc185"><span class="calibre18">15.4</span></a><span class="calibre18">&nbsp;&nbsp;Instances as return values</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1392"></a> <a class="calibre16" id="@default1393"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Functions can return instances. For example, <code class="calibre7">find_center</code> takes a <tt class="calibre7">Rectangle</tt> as an argument and returns a <tt class="calibre7">Point</tt> that contains the coordinates of the center of the <tt class="calibre7">Rectangle</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def find_center(box):
+    p = Point()
+    p.x = box.corner.x + box.width/2.0
+    p.y = box.corner.y + box.height/2.0
+    return p
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here is an example that passes <tt class="calibre7">box</tt> as an argument and assigns the resulting Point to <tt class="calibre7">center</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; center = find_center(box)
+&gt;&gt;&gt; print_point(center)
+(50.0, 100.0)
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc199">Chapter&nbsp;17</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc199"></a>Classes and methods</h1>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc181"></a><a class="calibre14" id="htoc200"><span class="calibre18">17.1</span></a><span class="calibre18">&nbsp;&nbsp;Object-oriented features</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1491"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Python is an <b class="calibre19">object-oriented programming language</b>, which means that it provides features that support object-oriented programming.</span></p>
+
+  <p class="calibre15"><span class="calibre4">It is not easy to define object-oriented programming, but we have already seen some of its characteristics:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">Programs are made up of object definitions and function definitions, and most of the computation is expressed in terms of operations on objects.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">Each object definition corresponds to some object or concept in the real world, and the functions that operate on that object correspond to the ways real-world objects interact.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">For example, the <tt class="calibre7">Time</tt> class defined in Chapter&nbsp;</span><a class="calibre3" href="../Text/book017.html#time"><span class="calibre4">16</span></a> <span class="calibre4">corresponds to the way people record the time of day, and the functions we defined correspond to the kinds of things people do with times. Similarly, the <tt class="calibre7">Point</tt> and <tt class="calibre7">Rectangle</tt> classes correspond to the mathematical concepts of a point and a rectangle.</span></p>
+
+  <p class="calibre15"><span class="calibre4">So far, we have not taken advantage of the features Python provides to support object-oriented programming. These features are not strictly necessary; most of them provide alternative syntax for things we have already done. But in many cases, the alternative is more concise and more accurately conveys the structure of the program.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, in the <tt class="calibre7">Time</tt> program, there is no obvious connection between the class definition and the function definitions that follow. With some examination, it is apparent that every function takes at least one <tt class="calibre7">Time</tt> object as an argument.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1492"></a> <a class="calibre16" id="@default1493"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This observation is the motivation for <b class="calibre19">methods</b>; a method is a function that is associated with a particular class. We have seen methods for strings, lists, dictionaries and tuples. In this chapter, we will define methods for user-defined types.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1494"></a> <a class="calibre16" id="@default1495"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Methods are semantically the same as functions, but there are two syntactic differences:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">Methods are defined inside a class definition in order to make the relationship between the class and the method explicit.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">The syntax for invoking a method is different from the syntax for calling a function.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">In the next few sections, we will take the functions from the previous two chapters and transform them into methods. This transformation is purely mechanical; you can do it simply by following a sequence of steps. If you are comfortable converting from one form to another, you will be able to choose the best form for whatever you are doing.</span></p>
+</body>
+</html>

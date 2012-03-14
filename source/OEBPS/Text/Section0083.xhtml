@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc91"></a><a class="calibre14" id="htoc101"><span class="calibre18">8.7</span></a><span class="calibre18">&nbsp;&nbsp;Looping and counting</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="counter"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default617"></a> <a class="calibre16" id="@default618"></a> <a class="calibre16" id="@default619"></a> <a class="calibre16" id="@default620"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The following program counts the number of times the letter <tt class="calibre7">a</tt> appears in a string:</span></p>
+  <pre class="verbatim"><span class="calibre20">word = 'banana'
+count = 0
+for letter in word:
+    if letter == 'a':
+        count = count + 1
+print count
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This program demonstrates another pattern of computation called a <b class="calibre19">counter</b>. The variable <tt class="calibre7">count</tt> is initialized to 0 and then incremented each time an <tt class="calibre7">a</tt> is found. When the loop exits, <tt class="calibre7">count</tt> contains the result&mdash;the total number of <tt class="calibre7">a</tt>’s.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default621"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Encapsulate this code in a function named <tt class="calibre7">count</tt>, and generalize it so that it accepts the string and the letter as arguments.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp; <em class="calibre9">Rewrite this function so that instead of traversing the string, it uses the three-parameter version of <tt class="calibre7">find</tt> from the previous section.</em></span>
+  </div>
+</body>
+</html>

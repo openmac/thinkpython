@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: word play</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc108">Chapter&nbsp;9</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc108"></a>Case study: word play</h1>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc98"></a><a class="calibre14" id="htoc109"><span class="calibre18">9.1</span></a><span class="calibre18">&nbsp;&nbsp;Reading word lists</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="wordlist"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For the exercises in this chapter we need a list of English words. There are lots of word lists available on the Web, but the one most suitable for our purpose is one of the word lists collected and contributed to the public domain by Grady Ward as part of the Moby lexicon project</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0095.xhtml#note18" id="text18"><span class="calibre4">1</span></a></sup><span class="calibre4">. It is a list of 113,809 official crosswords; that is, words that are considered valid in crossword puzzles and other word games. In the Moby collection, the filename is <tt class="calibre7">113809of.fic</tt>; I include a copy of this file, with the simpler name <tt class="calibre7">words.txt</tt>, along with Swampy.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default669"></a> <a class="calibre16" id="@default670"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This file is in plain text, so you can open it with a text editor, but you can also read it from Python. The built-in function <tt class="calibre7">open</tt> takes the name of the file as a parameter and returns a <b class="calibre19">file object</b> you can use to read the file.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default671"></a> <a class="calibre16" id="@default672"></a> <a class="calibre16" id="@default673"></a> <a class="calibre16" id="@default674"></a> <a class="calibre16" id="@default675"></a> <a class="calibre16" id="@default676"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fin = open('words.txt')
+&gt;&gt;&gt; print fin
+&lt;open file 'words.txt', mode 'r' at 0xb7f4b380&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">fin</tt> is a common name for a file object used for input. Mode <code class="calibre7">'r'</code> indicates that this file is open for reading (as opposed to <code class="calibre7">'w'</code> for writing).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default677"></a> <a class="calibre16" id="@default678"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The file object provides several methods for reading, including <tt class="calibre7">readline</tt>, which reads characters from the file until it gets to a newline and returns the result as a string:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fin.readline()
+'aa\r\n'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first word in this particular list is “aa,” which is a kind of lava. The sequence <code class="calibre7">\r\n</code> represents two whitespace characters, a carriage return and a newline, that separate this word from the next.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The file object keeps track of where it is in the file, so if you call <tt class="calibre7">readline</tt> again, you get the next word:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fin.readline()
+'aah\r\n'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The next word is “aah,” which is a perfectly legitimate word, so stop looking at me like that. Or, if it’s the whitespace that’s bothering you, we can get rid of it with the string method <tt class="calibre7">strip</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default679"></a> <a class="calibre16" id="@default680"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; line = fin.readline()
+&gt;&gt;&gt; word = line.strip()
+&gt;&gt;&gt; print word
+aahed
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can also use a file object as part of a <tt class="calibre7">for</tt> loop. This program reads <tt class="calibre7">words.txt</tt> and prints each word, one per line:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default681"></a> <a class="calibre16" id="@default682"></a></p>
+  <pre class="verbatim"><span class="calibre20">fin = open('words.txt')
+for line in fin:
+    word = line.strip()
+    print word
+</span></pre>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Write a program that reads <tt class="calibre7">words.txt</tt> and prints only the words with more than 20 characters (not counting whitespace).</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default683"></a></p>
+  </div>
+</body>
+</html>

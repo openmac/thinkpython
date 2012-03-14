@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc195"></a><a class="calibre14" id="htoc215"><span class="calibre18">18.3</span></a><span class="calibre18">&nbsp;&nbsp;Comparing cards</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="comparecard"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1592"></a> <a class="calibre16" id="@default1593"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For built-in types, there are relational operators (<tt class="calibre7">&lt;</tt>, <tt class="calibre7">&gt;</tt>, <tt class="calibre7">==</tt>, etc.) that compare values and determine when one is greater than, less than, or equal to another. For user-defined types, we can override the behavior of the built-in operators by providing a method named <code class="calibre7">__cmp__</code>.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">__cmp__</code> takes two parameters, <tt class="calibre7">self</tt> and <tt class="calibre7">other</tt>, and returns a positive number if the first object is greater, a negative number if the second object is greater, and 0 if they are equal to each other.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1594"></a> <a class="calibre16" id="@default1595"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The correct ordering for cards is not obvious. For example, which is better, the 3 of Clubs or the 2 of Diamonds? One has a higher rank, but the other has a higher suit. In order to compare cards, you have to decide whether rank or suit is more important.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The answer might depend on what game you are playing, but to keep things simple, we’ll make the arbitrary choice that suit is more important, so all of the Spades outrank all of the Diamonds, and so on.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1596"></a> <a class="calibre16" id="@default1597"></a></p>
+
+  <p class="calibre15"><span class="calibre4">With that decided, we can write <code class="calibre7">__cmp__</code>:</span></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Card:
+
+    def __cmp__(self, other):
+        # check the suits
+        if self.suit &gt; other.suit: return 1
+        if self.suit &lt; other.suit: return -1
+
+        # suits are the same... check ranks
+        if self.rank &gt; other.rank: return 1
+        if self.rank &lt; other.rank: return -1
+
+        # ranks are the same... it's a tie
+        return 0    
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can write this more concisely using tuple comparison:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1598"></a> <a class="calibre16" id="@default1599"></a></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Card:
+
+    def __cmp__(self, other):
+        t1 = self.suit, self.rank
+        t2 = other.suit, other.rank
+        return cmp(t1, t2)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The built-in function <tt class="calibre7">cmp</tt> has the same interface as the method <code class="calibre7">__cmp__</code>: it takes two values and returns a positive number if the first is larger, a negative number if the second is larger, and 0 if they are equal.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1600"></a> <a class="calibre16" id="@default1601"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Write a <code class="calibre7">__cmp__</code> method for Time objects. Hint: you can use tuple comparison, but you also might consider using integer subtraction.</em></span>
+  </div>
+</body>
+</html>

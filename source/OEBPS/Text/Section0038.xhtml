@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc42"></a><a class="calibre14" id="htoc48"><span class="calibre18">4.4</span></a><span class="calibre18">&nbsp;&nbsp;Encapsulation</span></h2>
+
+  <p class="calibre15"><span class="calibre4">The first exercise asks you to put your square-drawing code into a function definition and then call the function, passing the turtle as a parameter. Here is a solution:</span></p>
+  <pre class="verbatim"><span class="calibre20">def square(t):
+    for i in range(4):
+        fd(t, 100)
+        lt(t)
+
+square(bob)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The innermost statements, <tt class="calibre7">fd</tt> and <tt class="calibre7">lt</tt> are indented twice to show that they are inside the <tt class="calibre7">for</tt> loop, which is inside the function definition. The next line, <tt class="calibre7">square(bob)</tt>, is flush with the left margin, so that is the end of both the <tt class="calibre7">for</tt> loop and the function definition.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Inside the function, <tt class="calibre7">t</tt> refers to the same turtle <tt class="calibre7">bob</tt> refers to, so <tt class="calibre7">lt(t)</tt> has the same effect as <tt class="calibre7">lt(bob)</tt>. So why not call the parameter <tt class="calibre7">bob</tt>? The idea is that <tt class="calibre7">t</tt> can be any turtle, not just <tt class="calibre7">bob</tt>, so you could create a second turtle and pass it as an argument to <tt class="calibre7">square</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">ray = Turtle()
+square(ray)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Wrapping a piece of code up in a function is called <b class="calibre19">encapsulation</b>. One of the benefits of encapsulation is that it attaches a name to the code, which serves as a kind of documentation. Another advantage is that if you re-use the code, it is more concise to call a function twice than to copy and paste the body!</span></p>
+</body>
+</html>

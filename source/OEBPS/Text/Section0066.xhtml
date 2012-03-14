@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default484"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc72"></a><a class="calibre14" id="htoc80"><span class="calibre18">6.8</span></a><span class="calibre18">&nbsp;&nbsp;Checking types</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="guardian"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default485"></a> <a class="calibre16" id="@default486"></a> <a class="calibre16" id="@default487"></a></p>
+
+  <p class="calibre15"><span class="calibre4">What happens if we call <tt class="calibre7">factorial</tt> and give it 1.5 as an argument?</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default488"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; factorial(1.5)
+RuntimeError: Maximum recursion depth exceeded
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">It looks like an infinite recursion. But how can that be? There is a base case&mdash;when <tt class="calibre7">n == 0</tt>. But if <tt class="calibre7">n</tt> is not an integer, we can <em class="calibre9">miss</em> the base case and recurse forever.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default489"></a> <a class="calibre16" id="@default490"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In the first recursive call, the value of <tt class="calibre7">n</tt> is 0.5. In the next, it is -0.5. From there, it gets smaller (more negative), but it will never be 0.</span></p>
+
+  <p class="calibre15"><span class="calibre4">We have two choices. We can try to generalize the <tt class="calibre7">factorial</tt> function to work with floating-point numbers, or we can make <tt class="calibre7">factorial</tt> check the type of its argument. The first option is called the gamma function</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0069.xhtml#note12" id="text12"><span class="calibre4">2</span></a></sup> <span class="calibre4">and it’s a little beyond the scope of this book. So we’ll go for the second.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default491"></a></p>
+
+  <p class="calibre15"><span class="calibre4">We can use the built-in function <tt class="calibre7">isinstance</tt> to verify the type of the argument. While we’re at it, we can also make sure the argument is positive:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default492"></a> <a class="calibre16" id="@default493"></a></p>
+  <pre class="verbatim"><span class="calibre20">def factorial (n):
+    if not isinstance(n, int):
+        print 'Factorial is only defined for integers.'
+        return None
+    elif n &lt; 0:
+        print 'Factorial is not defined for negative integers.'
+        return None
+    elif n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first base case handles nonintegers; the second catches negative integers. In both cases, the program prints an error message and returns <tt class="calibre7">None</tt> to indicate that something went wrong:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; factorial('fred')
+Factorial is only defined for integers.
+None
+&gt;&gt;&gt; factorial(-2)
+Factorial is not defined for negative integers.
+None
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If we get past both checks, then we know that <i class="calibre9">n</i> is positive or zero, so we can prove that the recursion terminates.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default494"></a> <a class="calibre16" id="@default495"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This program demonstrates a pattern sometimes called a <b class="calibre19">guardian</b>. The first two conditionals act as guardians, protecting the code that follows from values that might cause an error. The guardians make it possible to prove the correctness of the code.</span></p>
+</body>
+</html>

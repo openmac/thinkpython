@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd"><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+  <head>
+    <meta content="a57c98b7-6dae-485c-a374-ee38258a24e5" name="dtb:uid"/>
+    <meta content="1" name="dtb:depth"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>Think Python</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="navPoint-1" playOrder="1">
+      <navLabel>
+        <text>Chapter 0 Preface</text>
+      </navLabel>
+      <content src="Text/book001.html"/>
+    </navPoint>
+    <navPoint id="navPoint-2" playOrder="2">
+      <navLabel>
+        <text>Chapter 1 The way of the program</text>
+      </navLabel>
+      <content src="Text/book002.html"/>
+    </navPoint>
+    <navPoint id="navPoint-3" playOrder="3">
+      <navLabel>
+        <text>Chapter 2 Variables, expressions and statements</text>
+      </navLabel>
+      <content src="Text/book003.html"/>
+    </navPoint>
+    <navPoint id="navPoint-4" playOrder="4">
+      <navLabel>
+        <text>Chapter 3 Functions</text>
+      </navLabel>
+      <content src="Text/book004.html"/>
+    </navPoint>
+    <navPoint id="navPoint-5" playOrder="5">
+      <navLabel>
+        <text>Chapter 4 Case study: interface design</text>
+      </navLabel>
+      <content src="Text/book005.html"/>
+    </navPoint>
+    <navPoint id="navPoint-6" playOrder="6">
+      <navLabel>
+        <text>Chapter 5 Conditionals and recursion</text>
+      </navLabel>
+      <content src="Text/book006.html"/>
+    </navPoint>
+    <navPoint id="navPoint-7" playOrder="7">
+      <navLabel>
+        <text>Chapter 6 Fruitful functions</text>
+      </navLabel>
+      <content src="Text/book007.html"/>
+    </navPoint>
+    <navPoint id="navPoint-8" playOrder="8">
+      <navLabel>
+        <text>Chapter 7 Iteration</text>
+      </navLabel>
+      <content src="Text/book008.html"/>
+    </navPoint>
+    <navPoint id="navPoint-9" playOrder="9">
+      <navLabel>
+        <text>Chapter 8 Strings</text>
+      </navLabel>
+      <content src="Text/book009.html"/>
+    </navPoint>
+    <navPoint id="navPoint-10" playOrder="10">
+      <navLabel>
+        <text>Chapter 9 Case study: word play</text>
+      </navLabel>
+      <content src="Text/book010.html"/>
+    </navPoint>
+    <navPoint id="navPoint-11" playOrder="11">
+      <navLabel>
+        <text>Chapter 10 Lists</text>
+      </navLabel>
+      <content src="Text/book011.html"/>
+    </navPoint>
+    <navPoint id="navPoint-12" playOrder="12">
+      <navLabel>
+        <text>Chapter 11 Dictionaries</text>
+      </navLabel>
+      <content src="Text/book012.html"/>
+    </navPoint>
+    <navPoint id="navPoint-13" playOrder="13">
+      <navLabel>
+        <text>Chapter 12 Tuples</text>
+      </navLabel>
+      <content src="Text/book013.html"/>
+    </navPoint>
+    <navPoint id="navPoint-14" playOrder="14">
+      <navLabel>
+        <text>Chapter 13 Case study: data structure selection</text>
+      </navLabel>
+      <content src="Text/book014.html"/>
+    </navPoint>
+    <navPoint id="navPoint-15" playOrder="15">
+      <navLabel>
+        <text>Chapter 14 Files</text>
+      </navLabel>
+      <content src="Text/book015.html"/>
+    </navPoint>
+    <navPoint id="navPoint-16" playOrder="16">
+      <navLabel>
+        <text>Chapter 15 Classes and objects</text>
+      </navLabel>
+      <content src="Text/book016.html"/>
+    </navPoint>
+    <navPoint id="navPoint-17" playOrder="17">
+      <navLabel>
+        <text>Chapter 16 Classes and functions</text>
+      </navLabel>
+      <content src="Text/book017.html"/>
+    </navPoint>
+    <navPoint id="navPoint-18" playOrder="18">
+      <navLabel>
+        <text>Chapter 17 Classes and methods</text>
+      </navLabel>
+      <content src="Text/book018.html"/>
+    </navPoint>
+    <navPoint id="navPoint-19" playOrder="19">
+      <navLabel>
+        <text>Chapter 18 Inheritance</text>
+      </navLabel>
+      <content src="Text/book019.html"/>
+    </navPoint>
+    <navPoint id="navPoint-20" playOrder="20">
+      <navLabel>
+        <text>Chapter 19 Case study: Tkinter</text>
+      </navLabel>
+      <content src="Text/book020.html"/>
+    </navPoint>
+    <navPoint id="navPoint-21" playOrder="21">
+      <navLabel>
+        <text>Appendix A Debugging</text>
+      </navLabel>
+      <content src="Text/book021.html"/>
+    </navPoint>
+    <navPoint id="navPoint-22" playOrder="22">
+      <navLabel>
+        <text>Index</text>
+      </navLabel>
+      <content src="Text/book022_split_000.html"/>
+    </navPoint>
+  </navMap>
+</ncx>

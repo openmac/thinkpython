@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default583"></a> <a class="calibre16" id="@default584"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc87"></a><a class="calibre14" id="htoc97"><span class="calibre18">8.3</span></a><span class="calibre18">&nbsp;&nbsp;Traversal with a <tt class="calibre22">for</tt> loop</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="for"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default585"></a> <a class="calibre16" id="@default586"></a> <a class="calibre16" id="@default587"></a> <a class="calibre16" id="@default588"></a> <a class="calibre16" id="@default589"></a> <a class="calibre16" id="@default590"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A lot of computations involve processing a string one character at a time. Often they start at the beginning, select each character in turn, do something to it, and continue until the end. This pattern of processing is called a <b class="calibre19">traversal</b>. One way to write a traversal is with a <tt class="calibre7">while</tt> loop:</span></p>
+  <pre class="verbatim"><span class="calibre20">index = 0
+while index &lt; len(fruit):
+    letter = fruit[index]
+    print letter
+    index = index + 1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This loop traverses the string and displays each letter on a line by itself. The loop condition is <tt class="calibre7">index &lt; len(fruit)</tt>, so when <tt class="calibre7">index</tt> is equal to the length of the string, the condition is false, and the body of the loop is not executed. The last character accessed is the one with the index <tt class="calibre7">len(fruit)-1</tt>, which is the last character in the string.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Write a function that takes a string as an argument and displays the letters backward, one per line.</em></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">Another way to write a traversal is with a <tt class="calibre7">for</tt> loop:</span></p>
+  <pre class="verbatim"><span class="calibre20">for char in fruit:
+    print char
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Each time through the loop, the next character in the string is assigned to the variable <tt class="calibre7">char</tt>. The loop continues until no characters are left.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default591"></a> <a class="calibre16" id="@default592"></a> <a class="calibre16" id="@default593"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The following example shows how to use concatenation (string addition) and a <tt class="calibre7">for</tt> loop to generate an abecedarian series (that is, in alphabetical order). In Robert McCloskey’s book <em class="calibre9">Make Way for Ducklings</em>, the names of the ducklings are Jack, Kack, Lack, Mack, Nack, Ouack, Pack, and Quack. This loop outputs these names in order:</span></p>
+  <pre class="verbatim"><span class="calibre20">prefixes = 'JKLMNOPQ'
+suffix = 'ack'
+
+for letter in prefixes:
+    print letter + suffix
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The output is:</span></p>
+  <pre class="verbatim"><span class="calibre20">Jack
+Kack
+Lack
+Mack
+Nack
+Oack
+Pack
+Qack
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Of course, that’s not quite right because “Ouack” and “Quack” are misspelled.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp; <em class="calibre9">Modify the program to fix this error.</em></span>
+  </div>
+</body>
+</html>

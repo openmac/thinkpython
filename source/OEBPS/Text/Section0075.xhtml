@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Iteration</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc82"></a><a class="calibre14" id="htoc91"><span class="calibre18">7.7</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><span class="calibre4">As you start writing bigger programs, you might find yourself spending more time debugging. More code means more chances to make an error and more place for bugs to hide.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default554"></a> <a class="calibre16" id="@default555"></a></p>
+
+  <p class="calibre15"><span class="calibre4">One way to cut your debugging time is “debugging by bisection.” For example, if there are 100 lines in your program and you check them one at a time, it would take 100 steps.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Instead, try to break the problem in half. Look at the middle of the program, or near it, for an intermediate value you can check. Add a <tt class="calibre7">print</tt> statement (or something else that has a verifiable effect) and run the program.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If the mid-point check is incorrect, there must be a problem in the first half of the program. If it is correct, the problem is in the second half.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Every time you perform a check like this, you halve the number of lines you have to search. After six steps (which is fewer than 100), you would be down to one or two lines of code, at least in theory.</span></p>
+
+  <p class="calibre15"><span class="calibre4">In practice it is not always clear what the “middle of the program” is and not always possible to check it. It doesn’t make sense to count lines and find the exact midpoint. Instead, think about places in the program where there might be errors and places where it is easy to put a check. Then choose a spot where you think the chances are about the same that the bug is before or after the check.</span></p>
+</body>
+</html>

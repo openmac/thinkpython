@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc210"></a><a class="calibre14" id="htoc231"><span class="calibre18">19.7</span></a><span class="calibre18">&nbsp;&nbsp;Menus and Callables</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1727"></a> <a class="calibre16" id="@default1728"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A Menubutton is a widget that looks like a button, but when pressed it pops up a menu. After the user selects an item, the menu disappears.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is code that creates a color selection Menubutton (you can download it from <tt class="calibre7">thinkpython.com/code/menubutton_demo.py</tt>):</span></p>
+  <pre class="verbatim"><span class="calibre20">g = Gui()
+g.la('Select a color:')
+colors = ['red', 'green', 'blue']
+mb = g.mb(text=colors[0])
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">mb</tt> creates the Menubutton. Initially, the text on the button is the name of the default color. The following loop creates one menu item for each color:</span></p>
+  <pre class="verbatim"><span class="calibre20">for color in colors:
+    g.mi(mb, text=color, command=Callable(set_color, color))
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first argument of <tt class="calibre7">mi</tt> is the Menubutton these items are associated with.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1729"></a> <a class="calibre16" id="@default1730"></a> <a class="calibre16" id="@default1731"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">command</tt> option is a Callable object, which is something new. So far we have seen functions and bound methods used as callbacks, which works fine if you don’t have to pass any arguments to the function. Otherwise you have to construct a Callable object that contains a function, like <code class="calibre7">set_color</code>, and its arguments, like <tt class="calibre7">color</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The Callable object stores a reference to the function and the arguments as attributes. Later, when the user clicks on a menu item, the callback calls the function and passes the stored arguments.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is what <code class="calibre7">set_color</code> might look like:</span></p>
+  <pre class="verbatim"><span class="calibre20">def set_color(color):
+    mb.config(text=color)
+    print color
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When the user selects a menu item and <code class="calibre7">set_color</code> is called, it configures the Menubutton to display the newly-selected color. It also print the color; if you try this example, you can confirm that <code class="calibre7">set_color</code> is called when you select an item (and <em class="calibre9">not</em> called when you create the Callable object).</span></p>
+</body>
+</html>

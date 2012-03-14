@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default306"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc43"></a><a class="calibre14" id="htoc49"><span class="calibre18">4.5</span></a><span class="calibre18">&nbsp;&nbsp;Generalization</span></h2>
+
+  <p class="calibre15"><span class="calibre4">The next step is to add a <tt class="calibre7">length</tt> parameter to <tt class="calibre7">square</tt>. Here is a solution:</span></p>
+  <pre class="verbatim"><span class="calibre20">def square(t, length):
+    for i in range(4):
+        fd(t, length)
+        lt(t)
+
+square(bob, 100)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Adding a parameter to a function is called <b class="calibre19">generalization</b> because it makes the function more general: in the previous version, the square is always the same size; in this version it can be any size.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default307"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The next step is also a generalization. Instead of drawing squares, <tt class="calibre7">polygon</tt> draws regular polygons with any number of sides. Here is a solution:</span></p>
+  <pre class="verbatim"><span class="calibre20">def polygon(t, n, length):
+    angle = 360.0 / n
+    for i in range(n):
+        fd(t, length)
+        lt(t, angle)
+
+polygon(bob, 7, 70)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This draws a 7-sided polygon with side length 70. If you have more than a few numeric arguments, it is easy to forget what they are, or what order they should be in. It is legal, and sometimes helpful, to include the names of the parameters in the argument list:</span></p>
+  <pre class="verbatim"><span class="calibre20">polygon(bob, n=7, length=70)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">These are called <b class="calibre19">keyword arguments</b> because they include the parameter names as “keywords” (not to be confused with Python keywords like <tt class="calibre7">while</tt> and <tt class="calibre7">def</tt>).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default308"></a> <a class="calibre16" id="@default309"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This syntax makes the program more readable. It is also a reminder about how arguments and parameters work: when you call a function, the arguments are assigned to the parameters.</span></p>
+</body>
+</html>

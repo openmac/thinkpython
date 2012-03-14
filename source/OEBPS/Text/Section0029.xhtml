@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc32"></a><a class="calibre14" id="htoc37"><span class="calibre18">3.9</span></a><span class="calibre18">&nbsp;&nbsp;Variables and parameters are local</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default238"></a> <a class="calibre16" id="@default239"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you create a variable inside a function, it is <b class="calibre19">local</b>, which means that it only exists inside the function. For example:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default240"></a></p>
+  <pre class="verbatim"><span class="calibre20">def cat_twice(part1, part2):
+    cat = part1 + part2
+    print_twice(cat)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This function takes two arguments, concatenates them, and prints the result twice. Here is an example that uses it:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default241"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; line1 = 'Bing tiddle '
+&gt;&gt;&gt; line2 = 'tiddle bang.'
+&gt;&gt;&gt; cat_twice(line1, line2)
+Bing tiddle tiddle bang.
+Bing tiddle tiddle bang.
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When <code class="calibre7">cat_twice</code> terminates, the variable <tt class="calibre7">cat</tt> is destroyed. If we try to print it, we get an exception:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default242"></a> <a class="calibre16" id="@default243"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print cat
+NameError: name 'cat' is not defined
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Parameters are also local. For example, outside <code class="calibre7">print_twice</code>, there is no such thing as <tt class="calibre7">bruce</tt>.</span></p>
+</body>
+</html>

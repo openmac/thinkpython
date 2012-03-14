@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc123"></a><a class="calibre14" id="htoc136"><span class="calibre18">11.4</span></a><span class="calibre18">&nbsp;&nbsp;Dictionaries and lists</span></h2>
+
+  <p class="calibre15"><span class="calibre4">Lists can appear as values in a dictionary. For example, if you were given a dictionary that maps from letters to frequencies, you might want to invert it; that is, create a dictionary that maps from frequencies to letters. Since there might be several letters with the same frequency, each value in the inverted dictionary should be a list of letters.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default957"></a> <a class="calibre16" id="@default958"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a function that inverts a dictionary:</span></p>
+  <pre class="verbatim"><span class="calibre20">def invert_dict(d):
+    inv = dict()
+    for key in d:
+        val = d[key]
+        if val not in inv:
+            inv[val] = [key]
+        else:
+            inv[val].append(key)
+    return inv
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Each time through the loop, <tt class="calibre7">key</tt> gets a key from <tt class="calibre7">d</tt> and <tt class="calibre7">val</tt> gets the corresponding value. If <tt class="calibre7">val</tt> is not in <tt class="calibre7">inv</tt>, that means we haven’t seen it before, so we create a new item and initialize it with a <b class="calibre19">singleton</b> (a list that contains a single element). Otherwise we have seen this value before, so we append the corresponding key to the list.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default959"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here is an example:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; hist = histogram('parrot')
+&gt;&gt;&gt; print hist
+{'a': 1, 'p': 1, 'r': 2, 't': 1, 'o': 1}
+&gt;&gt;&gt; inv = invert_dict(hist)
+&gt;&gt;&gt; print inv
+{1: ['a', 'p', 't', 'o'], 2: ['r']}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And here is a diagram showing <tt class="calibre7">hist</tt> and <tt class="calibre7">inv</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default960"></a> <a class="calibre16" id="@default961"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book018.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">A dictionary is represented as a box with the type <tt class="calibre7">dict</tt> above it and the key-value pairs inside. If the values are integers, floats or strings, I usually draw them inside the box, but I usually draw lists outside the box, just to keep the diagram simple.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Lists can be values in a dictionary, as this example shows, but they cannot be keys. Here’s what happens if you try:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default962"></a> <a class="calibre16" id="@default963"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; d = dict()
+&gt;&gt;&gt; d[t] = 'oops'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+TypeError: list objects are unhashable
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">I mentioned earlier that a dictionary is implemented using a hashtable and that means that the keys have to be <b class="calibre19">hashable</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default964"></a> <a class="calibre16" id="@default965"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">hash</b> is a function that takes a value (of any kind) and returns an integer. Dictionaries use these integers, called hash values, to store and look up key-value pairs.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default966"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This system works fine if the keys are immutable. But if the keys are mutable, like lists, bad things happen. For example, when you create a key-value pair, Python hashes the key and stores it in the corresponding location. If you modify the key and then hash it again, it would go to a different location. In that case you might have two entries for the same key, or you might not be able to find a key. Either way, the dictionary wouldn’t work correctly.</span></p>
+
+  <p class="calibre15"><span class="calibre4">That’s why the keys have to be hashable, and why mutable types like lists aren’t. The simplest way to get around this limitation is to use tuples, which we will see in the next chapter.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Since dictionaries are mutable, they can’t be used as keys, but they <em class="calibre9">can</em> be used as values.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp; <em class="calibre9">Read the documentation of the dictionary method <tt class="calibre7">setdefault</tt> and use it to write a more concise version of <code class="calibre7">invert_dict</code>.</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default967"></a> <a class="calibre16" id="@default968"></a></p>
+  </div>
+</body>
+</html>

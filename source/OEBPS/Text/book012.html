@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc132">Chapter&nbsp;11</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc132"></a>Dictionaries</h1>
+
+  <p class="calibre15"><a class="calibre16" id="@default909"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default910"></a> <a class="calibre16" id="@default911"></a> <a class="calibre16" id="@default912"></a> <a class="calibre16" id="@default913"></a> <a class="calibre16" id="@default914"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">dictionary</b> is like a list, but more general. In a list, the indices have to be integers; in a dictionary they can be (almost) any type.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You can think of a dictionary as a mapping between a set of indices (which are called <b class="calibre19">keys</b>) and a set of values. Each key maps to a value. The association of a key and a value is called a <b class="calibre19">key-value pair</b> or sometimes an <b class="calibre19">item</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">As an example, we’ll build a dictionary that maps from English to Spanish words, so the keys and the values are all strings.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The function <tt class="calibre7">dict</tt> creates a new dictionary with no items. Because <tt class="calibre7">dict</tt> is the name of a built-in function, you should avoid using it as a variable name.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default915"></a> <a class="calibre16" id="@default916"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; eng2sp = dict()
+&gt;&gt;&gt; print eng2sp
+{}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The squiggly-brackets, <code class="calibre7">{}</code>, represent an empty dictionary. To add items to the dictionary, you can use square brackets:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default917"></a> <a class="calibre16" id="@default918"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; eng2sp['one'] = 'uno'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This line creates an item that maps from the key <tt class="calibre7">’one’</tt> to the value <code class="calibre7">'uno'</code>. If we print the dictionary again, we see a key-value pair with a colon between the key and value:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print eng2sp
+{'one': 'uno'}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This output format is also an input format. For example, you can create a new dictionary with three items:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But if you print <tt class="calibre7">eng2sp</tt>, you might be surprised:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print eng2sp
+{'one': 'uno', 'three': 'tres', 'two': 'dos'}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The order of the key-value pairs is not the same. In fact, if you type the same example on your computer, you might get a different result. In general, the order of items in a dictionary is unpredictable.</span></p>
+
+  <p class="calibre15"><span class="calibre4">But that’s not a problem because the elements of a dictionary are never indexed with integer indices. Instead, you use the keys to look up the corresponding values:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print eng2sp['two']
+'dos'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The key <tt class="calibre7">’two’</tt> always maps to the value <code class="calibre7">'dos'</code> so the order of the items doesn’t matter.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If the key isn’t in the dictionary, you get an exception:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default919"></a> <a class="calibre16" id="@default920"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print eng2sp['four']
+KeyError: 'four'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">len</tt> function works on dictionaries; it returns the number of key-value pairs:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default921"></a> <a class="calibre16" id="@default922"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; len(eng2sp)
+3
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">in</tt> operator works on dictionaries; it tells you whether something appears as a <em class="calibre9">key</em> in the dictionary (appearing as a value is not good enough).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default923"></a> <a class="calibre16" id="@default924"></a> <a class="calibre16" id="@default925"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; 'one' in eng2sp
+True
+&gt;&gt;&gt; 'uno' in eng2sp
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">To see whether something appears as a value in a dictionary, you can use the method <tt class="calibre7">values</tt>, which returns the values as a list, and then use the <tt class="calibre7">in</tt> operator:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default926"></a> <a class="calibre16" id="@default927"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; vals = eng2sp.values()
+&gt;&gt;&gt; 'uno' in vals
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">in</tt> operator uses different algorithms for lists and dictionaries. For lists, it uses a search algorithm, as in Section&nbsp;</span><a class="calibre3" href="../Text/Section0082.xhtml#find"><span class="calibre4">8.6</span></a><span class="calibre4">. As the list gets longer, the search time gets longer in direct proportion. For dictionaries, Python uses an algorithm called a <b class="calibre19">hashtable</b> that has a remarkable property: the <tt class="calibre7">in</tt> operator takes about the same amount of time no matter how many items there are in a dictionary. I won’t explain how that’s possible, but you can read more about it at <tt class="calibre7">wikipedia.org/wiki/Hash_table</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default928"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp;</span> <a class="calibre16" id="wordlist2"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default929"></a> <a class="calibre16" id="@default930"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function that reads the words in <tt class="calibre7">words.txt</tt> and stores them as keys in a dictionary. It doesn’t matter what the values are. Then you can use the <tt class="calibre7">in</tt> operator as a fast way to check whether a string is in the dictionary.</em></span></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">If you did Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0109.xhtml#wordlist1"><span class="calibre4">10.8</span></a><span class="calibre4">, you can compare the speed of this implementation with the list <tt class="calibre7">in</tt> operator and the bisection search.</span></em></p>
+  </div>
+</body>
+</html>

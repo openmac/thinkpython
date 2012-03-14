@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc70"></a><a class="calibre14" id="htoc78"><span class="calibre18">6.6</span></a><span class="calibre18">&nbsp;&nbsp;Leap of faith</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default479"></a> <a class="calibre16" id="@default480"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Following the flow of execution is one way to read programs, but it can quickly become labyrinthine. An alternative is what I call the “leap of faith.” When you come to a function call, instead of following the flow of execution, you <em class="calibre9">assume</em> that the function works correctly and returns the right result.</span></p>
+
+  <p class="calibre15"><span class="calibre4">In fact, you are already practicing this leap of faith when you use built-in functions. When you call <tt class="calibre7">math.cos</tt> or <tt class="calibre7">math.exp</tt>, you don’t examine the bodies of those functions. You just assume that they work because the people who wrote the built-in functions were good programmers.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The same is true when you call one of your own functions. For example, in Section&nbsp;</span><a class="calibre3" href="../Text/Section0069.xhtml#boolean"><span class="calibre4">6.4</span></a><span class="calibre4">, we wrote a function called <code class="calibre7">is_divisible</code> that determines whether one number is divisible by another. Once we have convinced ourselves that this function is correct&mdash;by examining the code and testing&mdash;we can use the function without looking at the body again.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default481"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The same is true of recursive programs. When you get to the recursive call, instead of following the flow of execution, you should assume that the recursive call works (yields the correct result) and then ask yourself, “Assuming that I can find the factorial of <i class="calibre9">n</i>−1, can I compute the factorial of <i class="calibre9">n</i>?” In this case, it is clear that you can, by multiplying by <i class="calibre9">n</i>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Of course, it’s a bit strange to assume that the function works correctly when you haven’t finished writing it, but that’s why it’s called a leap of faith!</span></p>
+</body>
+</html>

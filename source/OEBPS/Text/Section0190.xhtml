@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc208"></a><a class="calibre14" id="htoc229"><span class="calibre18">19.5</span></a><span class="calibre18">&nbsp;&nbsp;More widgets</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1712"></a> <a class="calibre16" id="@default1713"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Tkinter provides two widgets that let users type text: an Entry, which is a single line, and a Text widget, which has multiple lines.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1714"></a> <a class="calibre16" id="@default1715"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">en</tt> creates a new Entry:</span></p>
+  <pre class="verbatim"><span class="calibre20">entry = g.en(text='Default text.')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">text</tt> option allows you to put text into the entry when it is created. The <tt class="calibre7">get</tt> method returns the contents of the Entry (which may have been changed by the user):</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; entry.get()
+'Default text.'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">te</tt> creates a Text widget:</span></p>
+  <pre class="verbatim"><span class="calibre20">text = g.te(width=100, height=5)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">width</tt> and <tt class="calibre7">height</tt> are the dimensions of the widget in characters and lines.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">insert</tt> puts text into the Text widget:</span></p>
+  <pre class="verbatim"><span class="calibre20">text.insert(END, 'A line of text.')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">END</tt> is a special index that indicates the last character in the Text widget.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You can also specify a character using a dotted index, like <tt class="calibre7">1.1</tt>, which has the line number before the dot and the column number after. The following example adds the letters <code class="calibre7">'nother'</code> after the first character of the first line.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; text.insert(1.1, 'nother')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">get</tt> method reads the text in the widget; it takes a start and end index as arguments. The following example returns all the text in the widget, including the newline character:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; text.get(0.0, END)
+'Another line of text.\n'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">delete</tt> method removes text from the widget; the following example deletes all but the first two characters:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; text.delete(1.2, END)
+&gt;&gt;&gt; text.get(0.0, END)
+'An\n'
+</span></pre>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp;</span> <a class="calibre16" id="circle2"></a>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">Modify your solution to Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0196.xhtml#circle"><span class="calibre4">19.2</span></a> <span class="calibre4">by adding an Entry widget and a second button. When the user presses the second button, it should read a color name from the Entry and use it to change the fill color of the circle. Use <tt class="calibre7">config</tt> to modify the existing circle; don’t create a new one.</span></em></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Your program should handle the case where the user tries to change the color of a circle that hasn’t been created, and the case where the color name is invalid.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can see my solution at <tt class="calibre7">thinkpython.com/code/circle_demo.py</tt>.</em></span></p>
+  </div>
+</body>
+</html>

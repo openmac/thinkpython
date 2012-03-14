@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc176"></a><a class="calibre14" id="htoc194"><span class="calibre18">16.3</span></a><span class="calibre18">&nbsp;&nbsp;Modifiers</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="increment"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1457"></a> <a class="calibre16" id="@default1458"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Sometimes it is useful for a function to modify the objects it gets as parameters. In that case, the changes are visible to the caller. Functions that work this way are called <b class="calibre19">modifiers</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1459"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">increment</tt>, which adds a given number of seconds to a <tt class="calibre7">Time</tt> object, can be written naturally as a modifier. Here is a rough draft:</span></p>
+  <pre class="verbatim"><span class="calibre20">def increment(time, seconds):
+    time.second += seconds
+
+    if time.second &gt;= 60:
+        time.second -= 60
+        time.minute += 1
+
+    if time.minute &gt;= 60:
+        time.minute -= 60
+        time.hour += 1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first line performs the basic operation; the remainder deals with the special cases we saw before.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1460"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Is this function correct? What happens if the parameter <tt class="calibre7">seconds</tt> is much greater than sixty?</span></p>
+
+  <p class="calibre15"><span class="calibre4">In that case, it is not enough to carry once; we have to keep doing it until <tt class="calibre7">time.second</tt> is less than sixty. One solution is to replace the <tt class="calibre7">if</tt> statements with <tt class="calibre7">while</tt> statements. That would make the function correct, but not very efficient.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Write a correct version of <tt class="calibre7">increment</tt> that doesn’t contain any loops.</em></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">Anything that can be done with modifiers can also be done with pure functions. In fact, some programming languages only allow pure functions. There is some evidence that programs that use pure functions are faster to develop and less error-prone than programs that use modifiers. But modifiers are convenient at times, and functional programs tend to be less efficient.</span></p>
+
+  <p class="calibre15"><span class="calibre4">In general, I recommend that you write pure functions whenever it is reasonable and resort to modifiers only if there is a compelling advantage. This approach might be called a <b class="calibre19">functional programming style</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1461"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp; <em class="calibre9">Write a “pure” version of <tt class="calibre7">increment</tt> that creates and returns a new Time object rather than modifying the parameter.</em></span>
+  </div>
+</body>
+</html>

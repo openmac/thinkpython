@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc198"></a><a class="calibre14" id="htoc218"><span class="calibre18">18.6</span></a><span class="calibre18">&nbsp;&nbsp;Add, remove, shuffle and sort</span></h2>
+
+  <p class="calibre15"><span class="calibre4">To deal cards, we would like a method that removes a card from the deck and returns it. The list method <tt class="calibre7">pop</tt> provides a convenient way to do that:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1619"></a> <a class="calibre16" id="@default1620"></a></p>
+  <pre class="verbatim"><span class="calibre20">#inside class Deck:
+
+    def pop_card(self):
+        return self.cards.pop()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Since <tt class="calibre7">pop</tt> removes the <em class="calibre9">last</em> card in the list, we are dealing from the bottom of the deck. In real life bottom dealing is frowned upon</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0186.xhtml#note33" id="text33"><span class="calibre4">1</span></a></sup><span class="calibre4">, but in this context it’s ok.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1621"></a> <a class="calibre16" id="@default1622"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To add a card, we can use the list method <tt class="calibre7">append</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">#inside class Deck:
+
+    def add_card(self, card):
+        self.cards.append(card)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">A method like this that uses another function without doing much real work is sometimes called a <b class="calibre19">veneer</b>. The metaphor comes from woodworking, where it is common to glue a thin layer of good quality wood to the surface of a cheaper piece of wood.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1623"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In this case we are defining a “thin” method that expresses a list operation in terms that are appropriate for decks.</span></p>
+
+  <p class="calibre15"><span class="calibre4">As another example, we can write a Deck method named <tt class="calibre7">shuffle</tt> using the function <tt class="calibre7">shuffle</tt> from the <tt class="calibre7">random</tt> module:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1624"></a> <a class="calibre16" id="@default1625"></a> <a class="calibre16" id="@default1626"></a> <a class="calibre16" id="@default1627"></a></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Deck:
+            
+    def shuffle(self):
+        random.shuffle(self.cards)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Don’t forget to import <tt class="calibre7">random</tt>.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default1628"></a> <a class="calibre16" id="@default1629"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a Deck method named <tt class="calibre7">sort</tt> that uses the list method <tt class="calibre7">sort</tt> to sort the cards in a <tt class="calibre7">Deck</tt>. <tt class="calibre7">sort</tt> uses the <code class="calibre7">__cmp__</code> method we defined to determine sort order.</em></span></p>
+  </div>
+</body>
+</html>

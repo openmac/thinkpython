@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc175"></a><a class="calibre14" id="htoc193"><span class="calibre18">16.2</span></a><span class="calibre18">&nbsp;&nbsp;Pure functions</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1451"></a> <a class="calibre16" id="@default1452"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In the next few sections, we’ll write two functions that add time values. They demonstrate two kinds of functions: pure functions and modifiers. They also demonstrate a development plan I’ll call <b class="calibre19">prototype and patch</b>, which is a way of tackling a complex problem by starting with a simple prototype and incrementally dealing with the complications.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a simple prototype of <code class="calibre7">add_time</code>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def add_time(t1, t2):
+    sum = Time()
+    sum.hour = t1.hour + t2.hour
+    sum.minute = t1.minute + t2.minute
+    sum.second = t1.second + t2.second
+    return sum
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The function creates a new <tt class="calibre7">Time</tt> object, initializes its attributes, and returns a reference to the new object. This is called a <b class="calibre19">pure function</b> because it does not modify any of the objects passed to it as arguments and it has no effect, like displaying a value or getting user input, other than returning a value.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1453"></a> <a class="calibre16" id="@default1454"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To test this function, I’ll create two Time objects: <tt class="calibre7">start</tt> contains the start time of a movie, like <em class="calibre9">Monty Python and the Holy Grail</em>, and <tt class="calibre7">duration</tt> contains the run time of the movie, which is one hour 35 minutes.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1455"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">add_time</code> figures out when the movie will be done.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; start = Time()
+&gt;&gt;&gt; start.hour = 9
+&gt;&gt;&gt; start.minute = 45
+&gt;&gt;&gt; start.second =  0
+
+&gt;&gt;&gt; duration = Time()
+&gt;&gt;&gt; duration.hour = 1
+&gt;&gt;&gt; duration.minute = 35
+&gt;&gt;&gt; duration.second = 0
+
+&gt;&gt;&gt; done = add_time(start, duration)
+&gt;&gt;&gt; print_time(done)
+10:80:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The result, <tt class="calibre7">10:80:00</tt> might not be what you were hoping for. The problem is that this function does not deal with cases where the number of seconds or minutes adds up to more than sixty. When that happens, we have to “carry” the extra seconds into the minute column or the extra minutes into the hour column.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1456"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s an improved version:</span></p>
+  <pre class="verbatim"><span class="calibre20">def add_time(t1, t2):
+    sum = Time()
+    sum.hour = t1.hour + t2.hour
+    sum.minute = t1.minute + t2.minute
+    sum.second = t1.second + t2.second
+
+    if sum.second &gt;= 60:
+        sum.second -= 60
+        sum.minute += 1
+
+    if sum.minute &gt;= 60:
+        sum.minute -= 60
+        sum.hour += 1
+
+    return sum
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Although this function is correct, it is starting to get big. We will see a shorter alternative later.</span></p>
+</body>
+</html>

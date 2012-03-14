@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Debugging</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc215"></a><a class="calibre14" id="htoc237"><span class="calibre18">A.1</span></a><span class="calibre18">&nbsp;&nbsp;Syntax errors</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1789"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Syntax errors are usually easy to fix once you figure out what they are. Unfortunately, the error messages are often not helpful. The most common messages are <tt class="calibre7">SyntaxError: invalid syntax</tt> and <tt class="calibre7">SyntaxError: invalid token</tt>, neither of which is very informative.</span></p>
+
+  <p class="calibre15"><span class="calibre4">On the other hand, the message does tell you where in the program the problem occurred. Actually, it tells you where Python noticed a problem, which is not necessarily where the error is. Sometimes the error is prior to the location of the error message, often on the preceding line.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1790"></a> <a class="calibre16" id="@default1791"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you are building the program incrementally, you should have a good idea about where the error is. It will be in the last line you added.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If you are copying code from a book, start by comparing your code to the book’s code very carefully. Check every character. At the same time, remember that the book might be wrong, so if you see something that looks like a syntax error, it might be.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here are some ways to avoid the most common syntax errors:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1792"></a></p>
+
+  <ol class="enumerate" type="1">
+    <li class="li-itemize">
+      <span class="calibre4">Make sure you are not using a Python keyword for a variable name.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1793"></a></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Check that you have a colon at the end of the header of every compound statement, including <tt class="calibre7">for</tt>, <tt class="calibre7">while</tt>, <tt class="calibre7">if</tt>, and <tt class="calibre7">def</tt> statements.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1794"></a> <a class="calibre16" id="@default1795"></a></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Make sure that any strings in the code have matching quotation marks.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1796"></a></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">If you have multiline strings with triple quotes (single or double), make sure you have terminated the string properly. An unterminated string may cause an <tt class="calibre7">invalid token</tt> error at the end of your program, or it may treat the following part of the program as a string until it comes to the next string. In the second case, it might not produce an error message at all!</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1797"></a> <a class="calibre16" id="@default1798"></a></p>
+    </li>
+
+    <li class="li-itemize"><span class="calibre4">An unclosed opening operator&mdash;<code class="calibre7">(</code>, <code class="calibre7">{</code>, or <code class="calibre7">[</code>&mdash;makes Python continue with the next line as part of the current statement. Generally, an error occurs almost immediately in the next line.</span></li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Check for the classic <tt class="calibre7">=</tt> instead of <tt class="calibre7">==</tt> inside a conditional.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1799"></a></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Check the indentation to make sure it lines up the way it is supposed to. Python can handle space and tabs, but if you mix them it can cause problems. The best way to avoid this problem is to use a text editor that knows about Python and generates consistent indentation.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1800"></a> <a class="calibre16" id="@default1801"></a></p>
+    </li>
+  </ol>
+
+  <p class="calibre15"><span class="calibre4">If nothing works, move on to the next section...</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc238"><span class="calibre18">A.1.1</span></a><span class="calibre18">&nbsp;&nbsp;I keep making changes and it makes no difference.</span></h3>
+
+  <p class="calibre15"><span class="calibre4">If the interpreter says there is an error and you don’t see it, that might be because you and the interpreter are not looking at the same code. Check your programming environment to make sure that the program you are editing is the one Python is trying to run.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If you are not sure, try putting an obvious and deliberate syntax error at the beginning of the program. Now run it again. If the interpreter doesn’t find the new error, you are not running the new code.</span></p>
+
+  <p class="calibre15"><span class="calibre4">There are a few likely culprits:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">You edited the file and forgot to save the changes before running it again. Some programming environments do this for you, but some don’t.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">You changed the name of the file, but you are still running the old name.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">Something in your development environment is configured incorrectly.</span></li>
+
+    <li class="li-itemize">
+      <span class="calibre4">If you are writing a module and using <tt class="calibre7">import</tt>, make sure you don’t give your module the same name as one of the standard Python modules.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1802"></a> <a class="calibre16" id="@default1803"></a> <a class="calibre16" id="@default1804"></a></p>
+    </li>
+
+    <li class="li-itemize"><span class="calibre4">If you are using <tt class="calibre7">import</tt> to read a module, remember that you have to restart the interpreter or use <tt class="calibre7">reload</tt> to read a modified file. If you import the module again, it doesn’t do anything.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">If you get stuck and you can’t figure out what is going on, one approach is to start again with a new program like “Hello, World!,” and make sure you can get a known program to run. Then gradually add the pieces of the original program to the new one.</span></p>
+</body>
+</html>

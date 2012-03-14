@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc19"></a><a class="calibre14" id="htoc23"><span class="calibre18">2.8</span></a><span class="calibre18">&nbsp;&nbsp;String operations</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default148"></a> <a class="calibre16" id="@default149"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In general, you cannot perform mathematical operations on strings, even if the strings look like numbers, so the following are illegal:</span></p>
+  <pre class="verbatim"><span class="calibre20">'2'-'1'    'eggs'/'easy'    'third'*'a charm'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">+</tt> operator works with strings, but it might not do what you expect: it performs <b class="calibre19">concatenation</b>, which means joining the strings by linking them end-to-end. For example:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default150"></a></p>
+  <pre class="verbatim"><span class="calibre20">first = 'throat'
+second = 'warbler'
+print first + second
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The output of this program is <tt class="calibre7">throatwarbler</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">*</tt> operator also works on strings; it performs repetition. For example, <code class="calibre7">'Spam'*3</code> is <code class="calibre7">'SpamSpamSpam'</code>. If one of the operands is a string, the other has to be an integer.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This use of <tt class="calibre7">+</tt> and <tt class="calibre7">*</tt> makes sense by analogy with addition and multiplication. Just as <tt class="calibre7">4*3</tt> is equivalent to <tt class="calibre7">4+4+4</tt>, we expect <code class="calibre7">'Spam'*3</code> to be the same as <code class="calibre7">'Spam'+'Spam'+'Spam'</code>, and it is. On the other hand, there is a significant way in which string concatenation and repetition are different from integer addition and multiplication. Can you think of a property that addition has that string concatenation does not?</span></p>
+</body>
+</html>

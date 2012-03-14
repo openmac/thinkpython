@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc196"></a><a class="calibre14" id="htoc216"><span class="calibre18">18.4</span></a><span class="calibre18">&nbsp;&nbsp;Decks</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1602"></a> <a class="calibre16" id="@default1603"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Now that we have Cards, the next step is to define Decks. Since a deck is made up of cards, it is natural for each Deck to contain a list of cards as an attribute.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1604"></a> <a class="calibre16" id="@default1605"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The following is a class definition for <tt class="calibre7">Deck</tt>. The init method creates the attribute <tt class="calibre7">cards</tt> and generates the standard set of fifty-two cards:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1606"></a> <a class="calibre16" id="@default1607"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1608"></a> <a class="calibre16" id="@default1609"></a></p>
+  <pre class="verbatim"><span class="calibre20">class Deck(object):
+
+    def __init__(self):
+        self.cards = []
+        for suit in range(4):
+            for rank in range(1, 14):
+                card = Card(suit, rank)
+                self.cards.append(card)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The easiest way to populate the deck is with a nested loop. The outer loop enumerates the suits from 0 to 3. The inner loop enumerates the ranks from 1 to 13. Each iteration creates a new Card with the current suit and rank, and appends it to <tt class="calibre7">self.cards</tt>.</span></p>
+</body>
+</html>

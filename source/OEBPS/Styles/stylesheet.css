@@ -1,0 +1,402 @@
+@namespace h "http://www.w3.org/1999/xhtml";
+.calibre {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 0;
+    margin-left: 5pt;
+    margin-right: 5pt;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0
+    }
+.calibre1 {
+    display: block;
+    font-size: 1.29167em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.83em
+    }
+.calibre10 {
+    font-size: 0.75em;
+    line-height: normal;
+    vertical-align: super
+    }
+.calibre11 {
+    font-size: 0.75em;
+    line-height: normal;
+    vertical-align: sub
+    }
+.calibre12 {
+    font-size: 0.75em
+    }
+.calibre13 {
+    font-size: 1em;
+    line-height: normal;
+    vertical-align: super
+    }
+.calibre14 {
+    color: inherit;
+    cursor: inherit;
+    line-height: 1.2;
+    text-decoration: inherit
+    }
+.calibre15 {
+    display: block;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.calibre16 {
+    color: inherit;
+    cursor: inherit;
+    text-decoration: inherit
+    }
+.calibre17 {
+    display: block
+    }
+.calibre18 {
+    color: black;
+    line-height: 1.2
+    }
+.calibre19 {
+    font-weight: bolder
+    }
+.calibre2 {
+    display: list-item
+    }
+.calibre20 {
+    color: blue;
+    font-size: 1.29167em;
+    line-height: 1.2
+    }
+.calibre21 {
+    border: 0;
+    height: auto;
+    width: auto
+    }
+.calibre22 {
+    font-family: monospace;
+    line-height: 1.2
+    }
+.calibre23 {
+    display: table-row-group;
+    vertical-align: middle
+    }
+.calibre24 {
+    display: table-row;
+    vertical-align: inherit
+    }
+.calibre25 {
+    color: black;
+    font-size: 1.29167em;
+    line-height: 1.2
+    }
+.calibre26 {
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-indent: 0
+    }
+.calibre27 {
+    display: table-cell;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: center;
+    vertical-align: inherit
+    }
+.calibre28 {
+    display: table-cell;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: right;
+    vertical-align: inherit
+    }
+.calibre29 {
+    display: table-cell;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: left;
+    vertical-align: inherit
+    }
+.calibre3 {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline
+    }
+.calibre30 {
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 0;
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: 0;
+    text-indent: 0
+    }
+.calibre31 {
+    color: purple
+    }
+.calibre32 {
+    text-decoration: overline
+    }
+.calibre33 {
+    color: black;
+    font-size: 1.66667em;
+    line-height: 1.2
+    }
+.calibre4 {
+    color: black
+    }
+.calibre5 {
+    font-size: 1em
+    }
+.calibre6 {
+    display: block;
+    list-style-type: disc;
+    margin-bottom: 1em;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.calibre7 {
+    font-family: monospace
+    }
+.calibre8 {
+    border: 1px inset;
+    color: gray;
+    display: block;
+    height: 2px;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5em
+    }
+.calibre9 {
+    font-style: italic
+    }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
+    }
+.chapter {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.67em
+    }
+.dcell {
+    border: none;
+    display: table-cell;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: inherit;
+    vertical-align: inherit;
+    white-space: nowrap;
+    width: auto
+    }
+.dcell1 {
+    border: none;
+    display: table-cell;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    vertical-align: inherit;
+    white-space: nowrap;
+    width: auto
+    }
+.dd-description {
+    display: block;
+    margin-bottom: 1ex;
+    margin-left: 4ex;
+    margin-right: 0;
+    margin-top: 0
+    }
+.dd-thefootnotes {
+    display: block;
+    margin-bottom: 0;
+    margin-left: 2em;
+    margin-right: 0;
+    margin-top: 0
+    }
+.display {
+    border: none;
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    text-indent: 0;
+    width: auto
+    }
+.display1 {
+    border: none;
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 0;
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: 0;
+    text-indent: 0;
+    width: auto
+    }
+.display2 {
+    border: none;
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-indent: 0;
+    width: auto
+    }
+.dt-description {
+    display: block;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0
+    }
+.enumerate {
+    display: block;
+    list-style-type: decimal;
+    margin-bottom: 1em;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.enumerate1 {
+    display: block;
+    list-style-type: decimal;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 0
+    }
+.footnoterule {
+    border: 1px inset;
+    color: gray;
+    display: block;
+    height: 2px;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 1em;
+    width: 50%
+    }
+.hbar {
+    background-color: black;
+    border: none;
+    display: table-cell;
+    height: 2px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: inherit;
+    vertical-align: inherit;
+    width: 100%
+    }
+.indexenv {
+    display: block;
+    list-style-type: circle;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 0
+    }
+.itemize {
+    display: block;
+    list-style-type: disc;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 0
+    }
+.li-itemize {
+    display: list-item;
+    margin-bottom: 1ex;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1ex
+    }
+.quote {
+    display: block;
+    margin-bottom: 1em;
+    margin-left: 4ex;
+    margin-right: 4ex;
+    margin-top: 1em;
+    text-align: left
+    }
+.section {
+    display: block;
+    font-size: 1.66667em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.83em
+    }
+.subsection {
+    display: block;
+    font-size: 1.29167em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.subsubsection {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.33em
+    }
+.thefootnotes {
+    display: block;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    text-align: left
+    }
+.theorem {
+    display: block;
+    margin-bottom: 1ex;
+    margin-left: 0;
+    margin-top: 1ex;
+    text-align: left
+    }
+.verbatim {
+    display: block;
+    font-family: monospace;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 1em;
+    text-align: left;
+    white-space: pre-wrap
+    }

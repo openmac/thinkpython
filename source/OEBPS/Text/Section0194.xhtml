@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc212"></a><a class="calibre14" id="htoc233"><span class="calibre18">19.9</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1744"></a></p>
+
+  <p class="calibre15"><span class="calibre4">One of the challenges of GUI programming is keeping track of which things happen while the GUI is being built and which things happen later in response to user events.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1745"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For example, when you are setting up a callback, it is a common error to call the function rather than passing a reference to it:</span></p>
+  <pre class="verbatim"><span class="calibre20">def the_callback():
+    print 'Called.'
+
+g.bu(text='This is wrong!', command=the_callback())
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you run this code, you will see that it calls <code class="calibre7">the_callback</code> immediately, and <em class="calibre9">then</em> creates the button. When you press the button, it does nothing because the return value from <code class="calibre7">the_callback</code> is <tt class="calibre7">None</tt>. Usually you do not want to invoke a callback while you are setting up the GUI; it should only be invoked later in response to a user event.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1746"></a> <a class="calibre16" id="@default1747"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Another challenge of GUI programming is that you don’t have control of the flow of execution. Which parts of the program execute and their order are determined by user actions. That means that you have to design your program to work correctly for any possible sequence of events.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, the GUI in Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0196.xhtml#circle2"><span class="calibre4">19.3</span></a> <span class="calibre4">has two widgets: one creates a Circle item and the other changes the color of the Circle. If the user creates the circle and then changes its color, there’s no problem. But what if the user changes the color of a circle that doesn’t exist yet? Or creates more than one circle?</span></p>
+
+  <p class="calibre15"><span class="calibre4">As the number of widgets grows, it is increasingly difficult to imagine all possible sequences of events. One way to manage this complexity is to encapsulate the state of the system in an object and then consider:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">What are the possible states? In the Circle example, we might consider two states: before and after the user creates the first circle.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">In each state, what events can occur? In the example, the user can press either of the buttons, or quit.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">For each state-event pair, what is the desired outcome? Since there are two states and two buttons, there are four state-event pairs to consider.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">What can cause a transition from one state to another? In this case, there is a transition when the user creates the first circle.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">You might also find it useful to define, and check, invariants that should hold regardless of the sequence of events.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1748"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This approach to GUI programming can help you write correct code without taking the time to test every possible sequence of user events!</span></p>
+</body>
+</html>

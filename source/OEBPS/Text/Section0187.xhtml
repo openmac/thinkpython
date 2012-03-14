@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc205"></a><a class="calibre14" id="htoc226"><span class="calibre18">19.2</span></a><span class="calibre18">&nbsp;&nbsp;Buttons and callbacks</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1692"></a> <a class="calibre16" id="@default1693"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The method <tt class="calibre7">bu</tt> creates a Button widget:</span></p>
+  <pre class="verbatim"><span class="calibre20">button = g.bu(text='Press me.')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The return value from <tt class="calibre7">bu</tt> is a Button object. The button that appears in the Frame is a graphical representation of this object; you can control the button by invoking methods on it.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1694"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">bu</tt> takes up to 32 parameters that control the appearance and function of the button. These parameters are called <b class="calibre19">options</b>. Instead of providing values for all 32 options, you can use keyword arguments, like <code class="calibre7">text='Press me.'</code>, to specify only the options you need and use the default values for the rest.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1695"></a> <a class="calibre16" id="@default1696"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you add a widget to the Frame, it gets “shrink-wrapped;” that is, the Frame shrinks to the size of the Button. If you add more widgets, the Frame grows to accommodate them.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1697"></a> <a class="calibre16" id="@default1698"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The method <tt class="calibre7">la</tt> creates a Label widget:</span></p>
+  <pre class="verbatim"><span class="calibre20">label = g.la(text='Press the button.')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">By default, Tkinter stacks the widgets top-to-bottom and centers them. We’ll see how to override that behavior soon.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If you press the button, you will see that it doesn’t do much. That’s because you haven’t “wired it up;” that is, you haven’t told it what to do!</span></p>
+
+  <p class="calibre15"><span class="calibre4">The option that controls the behavior of a button is <tt class="calibre7">command</tt>. The value of <tt class="calibre7">command</tt> is a function that gets executed when the button is pressed. For example, here is a function that creates a new Label:</span></p>
+  <pre class="verbatim"><span class="calibre20">def make_label():
+    g.la(text='Thank you.')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Now we can create a button with this function as its command:</span></p>
+  <pre class="verbatim"><span class="calibre20">button2 = g.bu(text='No, press me!', command=make_label)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you press this button, it should execute <code class="calibre7">make_label</code> and a new label should appear.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1699"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The value of the <tt class="calibre7">command</tt> option is a function object, which is known as a <b class="calibre19">callback</b> because after you call <tt class="calibre7">bu</tt> to create the button, the flow of execution “calls back” when the user presses the button.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1700"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This kind of flow is characteristic of <b class="calibre19">event-driven programming</b>. User actions, like button presses and key strokes, are called <b class="calibre19">events</b>. In event-driven programming, the flow of execution is determined by user actions rather than by the programmer.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The challenge of event-driven programming is to construct a set of widgets and callbacks that work correctly (or at least generate appropriate error messages) for any sequence of user actions.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Write a program that creates a GUI with a single button. When the button is pressed it should create a second button. When</em> that <em class="calibre9">button is pressed, it should create a label that says, “Nice job!”.</em></span>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">What happens if you press the buttons more than once? You can see my solution at <tt class="calibre7">thinkpython.com/code/button_demo.py</tt></em></span></p>
+  </div>
+</body>
+</html>

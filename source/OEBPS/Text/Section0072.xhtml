@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Iteration</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc79"></a><a class="calibre14" id="htoc88"><span class="calibre18">7.4</span></a><span class="calibre18">&nbsp;&nbsp;<tt class="calibre22">break</tt></span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default541"></a> <a class="calibre16" id="@default542"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Sometimes you don’t know it’s time to end a loop until you get half way through the body. In that case you can use the <tt class="calibre7">break</tt> statement to jump out of the loop.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, suppose you want to take input from the user until they type <tt class="calibre7">done</tt>. You could write:</span></p>
+  <pre class="verbatim"><span class="calibre20">while True:
+    line = raw_input('&gt; ')
+    if line == 'done':
+        break
+    print line
+
+print 'Done!'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The loop condition is <tt class="calibre7">True</tt>, which is always true, so the loop runs until it hits the break statement.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Each time through, it prompts the user with an angle bracket. If the user types <tt class="calibre7">done</tt>, the <tt class="calibre7">break</tt> statement exits the loop. Otherwise the program echoes whatever the user types and goes back to the top of the loop. Here’s a sample run:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt; not done
+not done
+&gt; done
+Done!
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This way of writing <tt class="calibre7">while</tt> loops is common because you can check the condition anywhere in the loop (not just at the top) and you can express the stop condition affirmatively (“stop when this happens”) rather than negatively (“keep going until that happens.”).</span></p>
+</body>
+</html>

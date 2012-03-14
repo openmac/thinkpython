@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc66"></a><a class="calibre14" id="htoc74"><span class="calibre18">6.2</span></a><span class="calibre18">&nbsp;&nbsp;Incremental development</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="incremental development"></a> <a class="calibre16" id="@default452"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As you write larger functions, you might find yourself spending more time debugging.</span></p>
+
+  <p class="calibre15"><span class="calibre4">To deal with increasingly complex programs, you might want to try a process called <b class="calibre19">incremental development</b>. The goal of incremental development is to avoid long debugging sessions by adding and testing only a small amount of code at a time.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default453"></a> <a class="calibre16" id="@default454"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As an example, suppose you want to find the distance between two points, given by the coordinates (<i class="calibre9">x</i><sub class="calibre11">1</sub>, <i class="calibre9">y</i><sub class="calibre11">1</sub>) and (<i class="calibre9">x</i><sub class="calibre11">2</sub>, <i class="calibre9">y</i><sub class="calibre11">2</sub>). By the Pythagorean theorem, the distance is:</span></p>
+
+  <table class="display">
+    <tbody class="calibre23">
+      <tr class="calibre24" valign="middle">
+        <td class="dcell"><span class="calibre4"><i class="calibre9">distance</i>&nbsp;=&nbsp;</span></td>
+
+        <td class="dcell"><span class="calibre25">√</span></td>
+
+        <td class="dcell">
+          <table border="0" cellpadding="0" cellspacing="1" class="calibre26">
+            <tbody class="calibre23">
+              <tr class="calibre24">
+                <td class="hbar"></td>
+              </tr>
+
+              <tr class="calibre24">
+                <td class="calibre27" nowrap="nowrap"><span class="calibre4">(<i class="calibre9">x</i><sub class="calibre11">2</sub>&nbsp;−&nbsp;<i class="calibre9">x</i><sub class="calibre11">1</sub>)<sup class="calibre10">2</sup>&nbsp;+&nbsp;(<i class="calibre9">y</i><sub class="calibre11">2</sub>&nbsp;−&nbsp;<i class="calibre9">y</i><sub class="calibre11">1</sub>)<sup class="calibre10">2</sup></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="calibre15"><span class="calibre4">The first step is to consider what a <tt class="calibre7">distance</tt> function should look like in Python. In other words, what are the inputs (parameters) and what is the output (return value)?</span></p>
+
+  <p class="calibre15"><span class="calibre4">In this case, the inputs are two points, which you can represent using four numbers. The return value is the distance, which is a floating-point value.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Already you can write an outline of the function:</span></p>
+  <pre class="verbatim"><span class="calibre20">def distance(x1, y1, x2, y2):
+    return 0.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Obviously, this version doesn’t compute distances; it always returns zero. But it is syntactically correct, and it runs, which means that you can test it before you make it more complicated.</span></p>
+
+  <p class="calibre15"><span class="calibre4">To test the new function, call it with sample arguments:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; distance(1, 2, 4, 6)
+0.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">I chose these values so that the horizontal distance is 3 and the vertical distance is 4; that way, the result is 5 (the hypotenuse of a 3-4-5 triangle). When testing a function, it is useful to know the right answer.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default455"></a></p>
+
+  <p class="calibre15"><span class="calibre4">At this point we have confirmed that the function is syntactically correct, and we can start adding code to the body. A reasonable next step is to find the differences <i class="calibre9">x</i><sub class="calibre11">2</sub> − <i class="calibre9">x</i><sub class="calibre11">1</sub> and <i class="calibre9">y</i><sub class="calibre11">2</sub> − <i class="calibre9">y</i><sub class="calibre11">1</sub>. The next version stores those values in temporary variables and prints them.</span></p>
+  <pre class="verbatim"><span class="calibre20">def distance(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    print 'dx is', dx
+    print 'dy is', dy
+    return 0.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If the function is working, it should display <code class="calibre7">'dx is 3'</code> and <tt class="calibre7">’dy is 4’</tt>. If so, we know that the function is getting the right arguments and performing the first computation correctly. If not, there are only a few lines to check.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Next we compute the sum of squares of <tt class="calibre7">dx</tt> and <tt class="calibre7">dy</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def distance(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    dsquared = dx**2 + dy**2
+    print 'dsquared is: ', dsquared
+    return 0.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Again, you would run the program at this stage and check the output (which should be 25). Finally, you can use <tt class="calibre7">math.sqrt</tt> to compute and return the result:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default456"></a> <a class="calibre16" id="@default457"></a></p>
+  <pre class="verbatim"><span class="calibre20">def distance(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    dsquared = dx**2 + dy**2
+    result = math.sqrt(dsquared)
+    return result
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If that works correctly, you are done. Otherwise, you might want to print the value of <tt class="calibre7">result</tt> before the return statement.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The final version of the function doesn’t display anything when it runs; it only returns a value. The <tt class="calibre7">print</tt> statements we wrote are useful for debugging, but once you get the function working, you should remove them. Code like that is called <b class="calibre19">scaffolding</b> because it is helpful for building the program but is not part of the final product.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default458"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you start out, you should add only a line or two of code at a time. As you gain more experience, you might find yourself writing and debugging bigger chunks. Either way, incremental development can save you a lot of debugging time.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The key aspects of the process are:</span></p>
+
+  <ol class="enumerate" type="1">
+    <li class="li-itemize"><span class="calibre4">Start with a working program and make small incremental changes. At any point, if there is an error, you should have a good idea where it is.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">Use temporary variables to hold intermediate values so you can display and check them.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">Once the program is working, you might want to remove some of the scaffolding or consolidate multiple statements into compound expressions, but only if it does not make the program difficult to read.</span></li>
+  </ol>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default459"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Use incremental development to write a function called <tt class="calibre7">hypotenuse</tt> that returns the length of the hypotenuse of a right triangle given the lengths of the two legs as arguments. Record each stage of the development process as you go.</em></span></p>
+  </div>
+</body>
+</html>

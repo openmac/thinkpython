@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc94">Chapter&nbsp;8</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc94"></a>Strings</h1>
+
+  <p class="calibre15"><a class="calibre16" id="strings"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc85"></a><a class="calibre14" id="htoc95"><span class="calibre18">8.1</span></a><span class="calibre18">&nbsp;&nbsp;A string is a sequence</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default569"></a> <a class="calibre16" id="@default570"></a> <a class="calibre16" id="@default571"></a> <a class="calibre16" id="@default572"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A string is a <b class="calibre19">sequence</b> of characters. You can access the characters one at a time with the bracket operator:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fruit = 'banana'
+&gt;&gt;&gt; letter = fruit[1]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The second statement selects character number 1 from <tt class="calibre7">fruit</tt> and assigns it to <tt class="calibre7">letter</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default573"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The expression in brackets is called an <b class="calibre19">index</b>. The index indicates which character in the sequence you want (hence the name).</span></p>
+
+  <p class="calibre15"><span class="calibre4">But you might not get what you expect:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print letter
+a
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">For most people, the first letter of <code class="calibre7">'banana'</code> is <tt class="calibre7">b</tt>, not <tt class="calibre7">a</tt>. But for computer scientists, the index is an offset from the beginning of the string, and the offset of the first letter is zero.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; letter = fruit[0]
+&gt;&gt;&gt; print letter
+b
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">So <tt class="calibre7">b</tt> is the 0th letter (“zero-eth”) of <code class="calibre7">'banana'</code>, <tt class="calibre7">a</tt> is the 1th letter (“one-eth”), and <tt class="calibre7">n</tt> is the 2th (“two-eth”) letter.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default574"></a> <a class="calibre16" id="@default575"></a></p>
+
+  <p class="calibre15"><span class="calibre4">You can use any expression, including variables and operators, as an index, but the value of the index has to be an integer. Otherwise you get:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default576"></a> <a class="calibre16" id="@default577"></a> <a class="calibre16" id="@default578"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; letter = fruit[1.5]
+TypeError: string indices must be integers
+</span></pre>
+</body>
+</html>

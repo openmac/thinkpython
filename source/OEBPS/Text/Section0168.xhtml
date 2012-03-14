@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc184"></a><a class="calibre14" id="htoc203"><span class="calibre18">17.4</span></a><span class="calibre18">&nbsp;&nbsp;A more complicated example</span></h2>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">is_after</code> (from Exercise&nbsp;</span><a class="calibre3" href="../Text/book017.html#is_after"><span class="calibre4">16.2</span></a><span class="calibre4">) is slightly more complicated because it takes two Time objects as parameters. In this case it is conventional to name the first parameter <tt class="calibre7">self</tt> and the second parameter <tt class="calibre7">other</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1508"></a> <a class="calibre16" id="@default1509"></a></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Time:
+
+    def is_after(self, other):
+        return self.time_to_int() &gt; other.time_to_int()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">To use this method, you have to invoke it on one object and pass the other as an argument:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; end.is_after(start)
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">One nice thing about this syntax is that it almost reads like English: “end is after start?”</span></p>
+</body>
+</html>

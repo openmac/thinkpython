@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc224">Chapter&nbsp;19</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc224"></a>Case study: Tkinter</h1>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc204"></a><a class="calibre14" id="htoc225"><span class="calibre18">19.1</span></a><span class="calibre18">&nbsp;&nbsp;GUI</span></h2>
+
+  <p class="calibre15"><span class="calibre4">Most of the programs we have seen so far are text-based, but many programs use <b class="calibre19">graphical user interfaces</b>, also known as <b class="calibre19">GUIs</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1681"></a> <a class="calibre16" id="@default1682"></a> <a class="calibre16" id="@default1683"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Python provides several choices for writing GUI-based programs, including wxPython, Tkinter, and Qt. Each has pros and cons, which is why Python has not converged on a standard.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The one I will present in this chapter is Tkinter because I think it is the easiest to get started with. Most of the concepts in this chapter apply to the other GUI modules, too.</span></p>
+
+  <p class="calibre15"><span class="calibre4">There are several books and web pages about Tkinter. One of the best online resources is <em class="calibre9">An Introduction to Tkinter</em> by Fredrik Lundh.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1684"></a> <a class="calibre16" id="@default1685"></a> <a class="calibre16" id="@default1686"></a></p>
+
+  <p class="calibre15"><span class="calibre4">I have written a module called <tt class="calibre7">Gui.py</tt> that comes with Swampy. It provides a simplified interface to the functions and classes in Tkinter. The examples in this chapter are based on this module.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a simple example that creates and displays a Gui:</span></p>
+
+  <p class="calibre15"><span class="calibre4">To create a GUI, you have to import <tt class="calibre7">Gui</tt> and instantiate a Gui object:</span></p>
+  <pre class="verbatim"><span class="calibre20">from Gui import *
+
+g = Gui()
+g.title('Gui')
+g.mainloop()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you run this code, a window should appear with an empty gray square and the title <span class="calibre31">Gui</span>. <tt class="calibre7">mainloop</tt> runs the <b class="calibre19">event loop</b>, which waits for the user to do something and responds accordingly. It is an infinite loop; it runs until the user closes the window, or presses Control-C, or does something that causes the program to quit.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1687"></a> <a class="calibre16" id="@default1688"></a> <a class="calibre16" id="@default1689"></a> <a class="calibre16" id="@default1690"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This Gui doesn’t do much because it doesn’t have any <b class="calibre19">widgets</b>. Widgets are the elements that make up a GUI; they include:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1691"></a></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Button:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">A widget, containing text or an image, that performs an action when pressed.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Canvas:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">A region that can display lines, rectangles, circles and other shapes.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Entry:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">A region where users can type text.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Scrollbar:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">A widget that controls the visible part of another widget.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Frame:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">A container, often invisible, that contains other widgets.</span></dd>
+  </dl>
+
+  <p class="calibre15"><span class="calibre4">The empty gray square you see when you create a Gui is a Frame. When you create a new widget, it is added to this Frame.</span></p>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_13"><a class="calibre14" id="toc140"></a><a class="calibre14" id="htoc154"><span class="calibre18">12.11</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Write a function called <code class="calibre7">most_frequent</code> that takes a string and prints the letters in decreasing order of frequency. Find text samples from several different languages and see how letter frequency varies between languages. Compare your results with the tables at <tt class="calibre7">wikipedia.org/wiki/Letter_frequencies</tt>.</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1151"></a> <a class="calibre16" id="@default1152"></a></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp;</span> <a class="calibre16" id="anagrams"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default1153"></a> <a class="calibre16" id="@default1154"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">More anagrams!</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <em class="calibre9"><span class="calibre4">Write a program that reads a word list from a file (see Section&nbsp;</span><a class="calibre3" href="../Text/book010.html#wordlist"><span class="calibre4">9.1</span></a><span class="calibre4">) and prints all the sets of words that are anagrams.</span></em>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">Here is an example of what the output might look like:</em></span></p>
+        <pre class="verbatim"><span class="calibre20"><em class="calibre9">['deltas', 'desalt', 'lasted', 'salted', 'slated', 'staled']
+['retainers', 'ternaries']
+['generating', 'greatening']
+['resmelts', 'smelters', 'termless']
+</em></span></pre>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">Hint: you might want to build a dictionary that maps from a set of letters to a list of words that can be spelled with those letters. The question is, how can you represent the set of letters in a way that can be used as a key?</em></span></p>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Modify the previous program so that it prints the largest set of anagrams first, followed by the second largest set, and so on.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1155"></a> <a class="calibre16" id="@default1156"></a></p>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">In Scrabble a “bingo” is when you play all seven tiles in your rack, along with a letter on the board, to form an eight-letter word. What set of 8 letters forms the most possible bingos? Hint: there are seven.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1157"></a></p>
+      </li>
+
+      <li class="li-itemize">
+        <em class="calibre9"><span class="calibre4">Two words form a “metathesis pair” if you can transform one into the other by swapping two letters</span><sup class="calibre10"><a class="calibre3" href="#note29" id="text29"><span class="calibre4">3</span></a></sup><span class="calibre4">; for example, “converse” and “conserve.” Write a program that finds all of the metathesis pairs in the dictionary. Hint: don’t test all pairs of words, and don’t test all possible swaps.</span></em>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">You can download a solution from <tt class="calibre7">thinkpython.com/code/anagram_sets.py</tt>.</em></span></p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1158"></a> <a class="calibre16" id="@default1159"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">Here’s another Car Talk Puzzler</span><sup class="calibre10"><a class="calibre3" href="#note30" id="text30"><span class="calibre4">4</span></a></sup><span class="calibre4">:</span></em></p>
+
+    <blockquote class="quote">
+      <span class="calibre4"><em class="calibre9">What is the longest English word, that remains a valid English word, as you remove its letters one at a time?</em></span>
+
+      <p class="calibre15"><span class="calibre4"><em class="calibre9">Now, letters can be removed from either end, or the middle, but you can’t rearrange any of the letters. Every time you drop a letter, you wind up with another English word. If you do that, you’re eventually going to wind up with one letter and that too is going to be an English word&mdash;one that’s found in the dictionary. I want to know what’s the longest word and how many letters does it have?</em></span></p>
+
+      <p class="calibre15"><span class="calibre4"><em class="calibre9">I’m going to give you a little modest example: Sprite. Ok? You start off with sprite, you take a letter off, one from the interior of the word, take the r away, and we’re left with the word spite, then we take the e off the end, we’re left with spit, we take the s off, we’re left with pit, it, and I.</em></span></p>
+    </blockquote>
+
+    <p class="calibre15"><a class="calibre16" id="@default1160"></a> <a class="calibre16" id="@default1161"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a program to find all words that can be reduced in this way, and then find the longest one.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">This exercise is a little more challenging than most, so here are some suggestions:</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">You might want to write a function that takes a word and computes a list of all the words that can be formed by removing one letter. These are the “children” of the word.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1162"></a> <a class="calibre16" id="@default1163"></a></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Recursively, a word is reducible if any of its children are reducible. As a base case, you can consider the empty string reducible.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">The wordlist I provided, <tt class="calibre7">words.txt</tt>, doesn’t contain single letter words. So you might want to add “I”, “a”, and the empty string.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">To improve the performance of your program, you might want to memoize the words that are known to be reducible.</em></span></li>
+    </ol>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can see my solution at <tt class="calibre7">thinkpython.com/code/reducible.py</tt>.</em></span></p>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text27" id="note27"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">In Python 3.0, <tt class="calibre7">zip</tt> returns an iterator of tuples, but for most purposes, an iterator behaves like a list.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text28" id="note28"><span class="calibre4">2</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">This behavior is slightly different in Python 3.0.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text29" id="note29"><span class="calibre4">3</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">This exercise is inspired by an example at <tt class="calibre7">puzzlers.org</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text30" id="note30"><span class="calibre4">4</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4"><tt class="calibre7">www.cartalk.com/content/puzzler/transcripts/200651</tt>.</span></dd>
+  </dl>
+</body>
+</html>

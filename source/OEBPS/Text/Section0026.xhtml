@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc29"></a><a class="calibre14" id="htoc34"><span class="calibre18">3.6</span></a><span class="calibre18">&nbsp;&nbsp;Definitions and uses</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default228"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Pulling together the code fragments from the previous section, the whole program looks like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">def print_lyrics():
+    print "I'm a lumberjack, and I'm okay."
+    print "I sleep all night and I work all day."
+
+def repeat_lyrics():
+    print_lyrics()
+    print_lyrics()
+
+repeat_lyrics()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This program contains two function definitions: <code class="calibre7">print_lyrics</code> and <code class="calibre7">repeat_lyrics</code>. Function definitions get executed just like other statements, but the effect is to create function objects. The statements inside the function do not get executed until the function is called, and the function definition generates no output.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default229"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As you might expect, you have to create a function before you can execute it. In other words, the function definition has to be executed before the first time it is called.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Move the last line of this program to the top, so the function call appears before the definitions. Run the program and see what error message you get.</em></span>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp; <em class="calibre9">Move the function call back to the bottom and move the definition of <code class="calibre7">print_lyrics</code> after the definition of <code class="calibre7">repeat_lyrics</code>. What happens when you run this program?</em></span>
+  </div>
+</body>
+</html>

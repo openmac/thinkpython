@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc18"></a><a class="calibre14" id="htoc22"><span class="calibre18">2.7</span></a><span class="calibre18">&nbsp;&nbsp;Order of operations</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default144"></a> <a class="calibre16" id="@default145"></a> <a class="calibre16" id="@default146"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When more than one operator appears in an expression, the order of evaluation depends on the <b class="calibre19">rules of precedence</b>. For mathematical operators, Python follows mathematical convention. The acronym <b class="calibre19">PEMDAS</b> is a useful way to remember the rules:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default147"></a></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4"><b class="calibre19">P</b>arentheses have the highest precedence and can be used to force an expression to evaluate in the order you want. Since expressions in parentheses are evaluated first, <tt class="calibre7">2 * (3-1)</tt> is 4, and <tt class="calibre7">(1+1)**(5-2)</tt> is 8. You can also use parentheses to make an expression easier to read, as in <tt class="calibre7">(minute * 100) / 60</tt>, even if it doesn’t change the result.</span></li>
+
+    <li class="li-itemize"><span class="calibre4"><b class="calibre19">E</b>xponentiation has the next highest precedence, so <tt class="calibre7">2**1+1</tt> is 3, not 4, and <tt class="calibre7">3*1**3</tt> is 3, not 27.</span></li>
+
+    <li class="li-itemize"><span class="calibre4"><b class="calibre19">M</b>ultiplication and <b class="calibre19">D</b>ivision have the same precedence, which is higher than <b class="calibre19">A</b>ddition and <b class="calibre19">S</b>ubtraction, which also have the same precedence. So <tt class="calibre7">2*3-1</tt> is 5, not 4, and <tt class="calibre7">6+4/2</tt> is 8, not 5.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">Operators with the same precedence are evaluated from left to right (except exponentiation). So in the expression <tt class="calibre7">degrees / 2 * pi</tt>, the division happens first and the result is multiplied by <tt class="calibre7">pi</tt>. To divide by 2 π, you can use parentheses or write <tt class="calibre7">degrees / 2 / pi</tt>.</span></li>
+  </ul>
+</body>
+</html>

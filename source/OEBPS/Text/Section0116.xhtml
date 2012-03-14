@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc126"></a><a class="calibre14" id="htoc139"><span class="calibre18">11.7</span></a><span class="calibre18">&nbsp;&nbsp;Long integers</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default989"></a> <a class="calibre16" id="@default990"></a> <a class="calibre16" id="@default991"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you compute <tt class="calibre7">fibonacci(50)</tt>, you get:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fibonacci(50)
+12586269025L
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">L</tt> at the end indicates that the result is a long integer</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0119.xhtml#note24" id="text24"><span class="calibre4">2</span></a></sup><span class="calibre4">, or type <tt class="calibre7">long</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default992"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Values with type <tt class="calibre7">int</tt> have a limited range; long integers can be arbitrarily big, but as they get bigger they consume more space and time.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The mathematical operators work on long integers, and the functions in the <tt class="calibre7">math</tt> module, too, so in general any code that works with <tt class="calibre7">int</tt> will also work with <tt class="calibre7">long</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Any time the result of a computation is too big to be represented with an integer, Python converts the result as a long integer:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; 1000 * 1000
+1000000
+&gt;&gt;&gt; 100000 * 100000
+10000000000L
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In the first case the result has type <tt class="calibre7">int</tt>; in the second case it is <tt class="calibre7">long</tt>.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;7</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default993"></a> <a class="calibre16" id="@default994"></a> <a class="calibre16" id="@default995"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">Exponentiation of large integers is the basis of common algorithms for public-key encryption. Read the Wikipedia page on the RSA algorithm</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0119.xhtml#note25" id="text25"><span class="calibre4">3</span></a></sup> <span class="calibre4">and write functions to encode and decode messages.</span></em></p>
+  </div>
+</body>
+</html>

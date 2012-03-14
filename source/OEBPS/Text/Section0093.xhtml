@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: word play</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc102"></a><a class="calibre14" id="htoc113"><span class="calibre18">9.5</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default698"></a> <a class="calibre16" id="@default699"></a> <a class="calibre16" id="@default700"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Testing programs is hard. The functions in this chapter are relatively easy to test because you can check the results by hand. Even so, it is somewhere between difficult and impossible to choose a set of words that test for all possible errors.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Taking <code class="calibre7">has_no_e</code> as an example, there are two obvious cases to check: words that have an ’e’ should return <tt class="calibre7">False</tt>; words that don’t should return <tt class="calibre7">True</tt>. You should have no trouble coming up with one of each.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Within each case, there are some less obvious subcases. Among the words that have an “e,” you should test words with an “e” at the beginning, the end, and somewhere in the middle. You should test long words, short words, and very short words, like the empty string. The empty string is an example of a <b class="calibre19">special case</b>, which is one of the non-obvious cases where errors often lurk.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default701"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In addition to the test cases you generate, you can also test your program with a word list like <tt class="calibre7">words.txt</tt>. By scanning the output, you might be able to catch errors, but be careful: you might catch one kind of error (words that should not be included, but are) and not another (words that should be included, but aren’t).</span></p>
+
+  <p class="calibre15"><span class="calibre4">In general, testing can help you find bugs, but it is not easy to generate a good set of test cases, and even if you do, you can’t be sure your program is correct.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default702"></a></p>
+
+  <p class="calibre15"><span class="calibre4">According to a legendary computer scientist:</span></p>
+
+  <blockquote class="quote">
+    <span class="calibre4">Program testing can be used to show the presence of bugs, but never to show their absence!</span>
+
+    <p class="calibre15"><span class="calibre4">&mdash; Edsger W. Dijkstra</span></p>
+  </blockquote>
+</body>
+</html>

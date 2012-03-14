@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Iteration</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc77"></a><a class="calibre14" id="htoc86"><span class="calibre18">7.2</span></a><span class="calibre18">&nbsp;&nbsp;Updating variables</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="update"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default525"></a> <a class="calibre16" id="@default526"></a></p>
+
+  <p class="calibre15"><span class="calibre4">One of the most common forms of multiple assignment is an <b class="calibre19">update</b>, where the new value of the variable depends on the old.</span></p>
+  <pre class="verbatim"><span class="calibre20">x = x+1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This means “get the current value of <tt class="calibre7">x</tt>, add one, and then update <tt class="calibre7">x</tt> with the new value.”</span></p>
+
+  <p class="calibre15"><span class="calibre4">If you try to update a variable that doesn’t exist, you get an error, because Python evaluates the right side before it assigns a value to <tt class="calibre7">x</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; x = x+1
+NameError: name 'x' is not defined
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Before you can update a variable, you have to <b class="calibre19">initialize</b> it, usually with a simple assignment:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default527"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; x = 0
+&gt;&gt;&gt; x = x+1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Updating a variable by adding 1 is called an <b class="calibre19">increment</b>; subtracting 1 is called a <b class="calibre19">decrement</b>.</span></p>
+</body>
+</html>

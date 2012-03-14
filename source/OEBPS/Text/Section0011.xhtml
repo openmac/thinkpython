@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc13"></a><a class="calibre14" id="htoc17"><span class="calibre18">2.2</span></a><span class="calibre18">&nbsp;&nbsp;Variables</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default119"></a> <a class="calibre16" id="@default120"></a> <a class="calibre16" id="@default121"></a></p>
+
+  <p class="calibre15"><span class="calibre4">One of the most powerful features of a programming language is the ability to manipulate <b class="calibre19">variables</b>. A variable is a name that refers to a value.</span></p>
+
+  <p class="calibre15"><span class="calibre4">An <b class="calibre19">assignment statement</b> creates new variables and gives them values:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; message = 'And now for something completely different'
+&gt;&gt;&gt; n = 17
+&gt;&gt;&gt; pi = 3.1415926535897932
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This example makes three assignments. The first assigns a string to a new variable named <tt class="calibre7">message</tt>; the second gives the integer <tt class="calibre7">17</tt> to <tt class="calibre7">n</tt>; the third assigns the (approximate) value of π to <tt class="calibre7">pi</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default122"></a> <a class="calibre16" id="@default123"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A common way to represent variables on paper is to write the name with an arrow pointing to the variable’s value. This kind of figure is called a <b class="calibre19">state diagram</b> because it shows what state each of the variables is in (think of it as the variable’s state of mind). This diagram shows the result of the previous example:</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book003.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">To display the value of a variable, you can use a print statement:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print n
+17
+&gt;&gt;&gt; print pi
+3.14159265359
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The type of a variable is the type of the value it refers to.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; type(message)
+&lt;type 'str'&gt;
+&gt;&gt;&gt; type(n)
+&lt;type 'int'&gt;
+&gt;&gt;&gt; type(pi)
+&lt;type 'float'&gt;
+</span></pre>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">If you type an integer with a leading zero, you might get a confusing error:</em></span>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">&gt;&gt;&gt; zipcode = 02492
+                  ^
+SyntaxError: invalid token
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Other numbers seem to work, but the results are bizarre:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">&gt;&gt;&gt; zipcode = 02132
+&gt;&gt;&gt; print zipcode
+1114
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Can you figure out what is going on? Hint: print the values <tt class="calibre7">01</tt>, <tt class="calibre7">010</tt>, <tt class="calibre7">0100</tt> and <tt class="calibre7">01000</tt>.</em></span></p>
+  </div>
+</body>
+</html>

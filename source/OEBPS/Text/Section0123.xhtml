@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc134"></a><a class="calibre14" id="htoc148"><span class="calibre18">12.5</span></a><span class="calibre18">&nbsp;&nbsp;Lists and tuples</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1085"></a> <a class="calibre16" id="@default1086"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">zip</tt> is a built-in function that takes two or more sequences and “zips” them into a list</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0129.xhtml#note27" id="text27"><span class="calibre4">1</span></a></sup> <span class="calibre4">of tuples where each tuple contains one element from each sequence.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1087"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This example zips a string and a list:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; s = 'abc'
+&gt;&gt;&gt; t = [0, 1, 2]
+&gt;&gt;&gt; zip(s, t)
+[('a', 0), ('b', 1), ('c', 2)]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The result is a list of tuples where each tuple contains a character from the string and the corresponding element from the list.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1088"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If the sequences are not the same length, the result has the length of the shorter one.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; zip('Anne', 'Elk')
+[('A', 'E'), ('n', 'l'), ('n', 'k')]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can use tuple assignment in a <tt class="calibre7">for</tt> loop to traverse a list of tuples:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1089"></a> <a class="calibre16" id="@default1090"></a> <a class="calibre16" id="@default1091"></a></p>
+  <pre class="verbatim"><span class="calibre20">t = [('a', 0), ('b', 1), ('c', 2)]
+for letter, number in t:
+    print number, letter
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Each time through the loop, Python selects the next tuple in the list and assigns the elements to <tt class="calibre7">letter</tt> and <tt class="calibre7">number</tt>. The output of this loop is:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1092"></a></p>
+  <pre class="verbatim"><span class="calibre20">0 a
+1 b
+2 c
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you combine <tt class="calibre7">zip</tt>, <tt class="calibre7">for</tt> and tuple assignment, you get a useful idiom for traversing two (or more) sequences at the same time. For example, <code class="calibre7">has_match</code> takes two sequences, <tt class="calibre7">t1</tt> and <tt class="calibre7">t2</tt>, and returns <tt class="calibre7">True</tt> if there is an index <tt class="calibre7">i</tt> such that <tt class="calibre7">t1[i] == t2[i]</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1093"></a></p>
+  <pre class="verbatim"><span class="calibre20">def has_match(t1, t2):
+    for x, y in zip(t1, t2):
+        if x == y:
+            return True
+    return False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you need to traverse the elements of a sequence and their indices, you can use the built-in function <tt class="calibre7">enumerate</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1094"></a> <a class="calibre16" id="@default1095"></a> <a class="calibre16" id="@default1096"></a></p>
+  <pre class="verbatim"><span class="calibre20">for index, element in enumerate('abc'):
+    print index, element
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The output of this loop is:</span></p>
+  <pre class="verbatim"><span class="calibre20">0 a
+1 b
+2 c
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Again.</span></p>
+</body>
+</html>

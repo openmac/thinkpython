@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc120"></a><a class="calibre14" id="htoc133"><span class="calibre18">11.1</span></a><span class="calibre18">&nbsp;&nbsp;Dictionary as a set of counters</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="histogram"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default931"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Suppose you are given a string and you want to count how many times each letter appears. There are several ways you could do it:</span></p>
+
+  <ol class="enumerate" type="1">
+    <li class="li-itemize"><span class="calibre4">You could create 26 variables, one for each letter of the alphabet. Then you could traverse the string and, for each character, increment the corresponding counter, probably using a chained conditional.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">You could create a list with 26 elements. Then you could convert each character to a number (using the built-in function <tt class="calibre7">ord</tt>), use the number as an index into the list, and increment the appropriate counter.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">You could create a dictionary with characters as keys and counters as the corresponding values. The first time you see a character, you would add an item to the dictionary. After that you would increment the value of an existing item.</span></li>
+  </ol>
+
+  <p class="calibre15"><span class="calibre4">Each of these options performs the same computation, but each of them implements that computation in a different way.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default932"></a></p>
+
+  <p class="calibre15"><span class="calibre4">An <b class="calibre19">implementation</b> is a way of performing a computation; some implementations are better than others. For example, an advantage of the dictionary implementation is that we don’t have to know ahead of time which letters appear in the string and we only have to make room for the letters that do appear.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is what the code might look like:</span></p>
+  <pre class="verbatim"><span class="calibre20">def histogram(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] += 1
+    return d
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The name of the function is <b class="calibre19">histogram</b>, which is a statistical term for a set of counters (or frequencies).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default933"></a> <a class="calibre16" id="@default934"></a> <a class="calibre16" id="@default935"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The first line of the function creates an empty dictionary. The <tt class="calibre7">for</tt> loop traverses the string. Each time through the loop, if the character <tt class="calibre7">c</tt> is not in the dictionary, we create a new item with key <tt class="calibre7">c</tt> and the initial value 1 (since we have seen this letter once). If <tt class="calibre7">c</tt> is already in the dictionary we increment <tt class="calibre7">d[c]</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default936"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s how it works:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; h = histogram('brontosaurus')
+&gt;&gt;&gt; print h
+{'a': 1, 'b': 1, 'o': 2, 'n': 1, 's': 2, 'r': 2, 'u': 2, 't': 1}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The histogram indicates that the letters <tt class="calibre7">’a’</tt> and <code class="calibre7">'b'</code> appear once; <code class="calibre7">'o'</code> appears twice, and so on.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default937"></a> <a class="calibre16" id="@default938"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Dictionaries have a method called <tt class="calibre7">get</tt> that takes a key and a default value. If the key appears in the dictionary, <tt class="calibre7">get</tt> returns the corresponding value; otherwise it returns the default value. For example:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">&gt;&gt;&gt; h = histogram('a')
+&gt;&gt;&gt; print h
+{'a': 1}
+&gt;&gt;&gt; h.get('a', 0)
+1
+&gt;&gt;&gt; h.get('b', 0)
+0
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Use <tt class="calibre7">get</tt> to write <tt class="calibre7">histogram</tt> more concisely. You should be able to eliminate the <tt class="calibre7">if</tt> statement.</em></span></p>
+  </div>
+</body>
+</html>

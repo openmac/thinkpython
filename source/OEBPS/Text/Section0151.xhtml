@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_14"><a class="calibre14" id="toc164"></a><a class="calibre14" id="htoc180"><span class="calibre18">14.12</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span> <a class="calibre16" id="urllib"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default1337"></a> <a class="calibre16" id="@default1338"></a> <a class="calibre16" id="@default1339"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The <tt class="calibre7">urllib</tt> module provides methods for manipulating URLs and downloading information from the web. The following example downloads and prints a secret message from <tt class="calibre7">thinkpython.com</tt>:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">import urllib
+
+conn = urllib.urlopen('http://thinkpython.com/secret.html')
+for line in conn.fp:
+    print line.strip()
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Run this code and follow the instructions you see there.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1340"></a> <a class="calibre16" id="@default1341"></a></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp;</span> <a class="calibre16" id="checksum"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default1342"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">In a large collection of MP3 files, there may be more than one copy of the same song, stored in different directories or with different file names. The goal of this exercise is to search for these duplicates.</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Write a program that searches a directory and all of its subdirectories, recursively, and returns a list of complete paths for all files with a given suffix (like <tt class="calibre7">.mp3</tt>). Hint: <tt class="calibre7">os.path</tt> provides several useful functions for manipulating file and path names.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1343"></a> <a class="calibre16" id="@default1344"></a> <a class="calibre16" id="@default1345"></a> <a class="calibre16" id="@default1346"></a></p>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">To recognize duplicates, you can use a hash function that reads the file and generates a short summary of the contents. For example, MD5 (Message-Digest algorithm 5) takes an arbitrarily-long “message” and returns a 128-bit “checksum.” The probability is very small that two files with different contents will return the same checksum.</em></span>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">You can read about MD5 at <tt class="calibre7">wikipedia.org/wiki/Md5</tt>. On a Unix system you can use the program <tt class="calibre7">md5sum</tt> and a pipe to compute checksums from Python.</em></span></p>
+
+        <p class="calibre15"><a class="calibre16" id="@default1347"></a></p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;7</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1348"></a> <a class="calibre16" id="@default1349"></a> <a class="calibre16" id="@default1350"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The Internet Movie Database (IMDb) is an online collection of information about movies. Their database is available in plain text format, so it is reasonably easy to read from Python. For this exercise, the files you need are <tt class="calibre7">actors.list.gz</tt> and <tt class="calibre7">actresses.list.gz</tt>; you can download them from <tt class="calibre7">www.imdb.com/interfaces#plain</tt>.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1351"></a> <a class="calibre16" id="@default1352"></a> <a class="calibre16" id="@default1353"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">I have written a program that parses these files and splits them into actor names, movie titles, etc. You can download it from <tt class="calibre7">thinkpython.com/code/imdb.py</tt>.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">If you run <tt class="calibre7">imdb.py</tt> as a script, it reads <tt class="calibre7">actors.list.gz</tt> and prints one actor-movie pair per line. Or, if you <tt class="calibre7">import imdb</tt> you can use the function <code class="calibre7">process_file</code> to, well, process the file. The arguments are a filename, a function object and an optional number of lines to process. Here is an example:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">import imdb
+
+def print_info(actor, date, title, role):
+    print actor, date, title, role
+
+imdb.process_file('actors.list.gz', print_info)
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">When you call <code class="calibre7">process_file</code>, it opens <tt class="calibre7">filename</tt>, reads the contents, and calls <code class="calibre7">print_info</code> once for each line in the file. <code class="calibre7">print_info</code> takes an actor, date, movie title and role as arguments and prints them.</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Write a program that reads <tt class="calibre7">actors.list.gz</tt> and <tt class="calibre7">actresses.list.gz</tt> and uses <tt class="calibre7">shelve</tt> to build a database that maps from each actor to a list of his or her films.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1354"></a> <a class="calibre16" id="@default1355"></a></p>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Two actors are “costars” if they have been in at least one movie together. Process the database you built in the previous step and build a second database that maps from each actor to a list of his or her costars.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1356"></a> <a class="calibre16" id="@default1357"></a></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a program that can play the “Six Degrees of Kevin Bacon,” which you can read about at <tt class="calibre7">wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon</tt>. This problem is challenging because it requires you to find the shortest path in a graph. You can read about shortest path algorithms at <tt class="calibre7">wikipedia.org/wiki/Shortest_path_problem</tt>.</em></span></li>
+    </ol>
+  </div>
+</body>
+</html>

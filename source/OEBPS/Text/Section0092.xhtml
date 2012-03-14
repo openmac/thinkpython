@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: word play</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default691"></a> <a class="calibre16" id="@default692"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc101"></a><a class="calibre14" id="htoc112"><span class="calibre18">9.4</span></a><span class="calibre18">&nbsp;&nbsp;Looping with indices</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default693"></a> <a class="calibre16" id="@default694"></a></p>
+
+  <p class="calibre15"><span class="calibre4">I wrote the functions in the previous section with <tt class="calibre7">for</tt> loops because I only needed the characters in the strings; I didn’t have to do anything with the indices.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For <code class="calibre7">is_abecedarian</code> we have to compare adjacent letters, which is a little tricky with a <tt class="calibre7">for</tt> loop:</span></p>
+  <pre class="verbatim"><span class="calibre20">def is_abecedarian(word):
+    previous = word[0]
+    for c in word:
+        if c &lt; previous:
+            return False
+        previous = c
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">An alternative is to use recursion:</span></p>
+  <pre class="verbatim"><span class="calibre20">def is_abecedarian(word):
+    if len(word) &lt;= 1:
+        return True
+    if word[0] &gt; word[1]:
+        return False
+    return is_abecedarian(word[1:])
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Another option is to use a <tt class="calibre7">while</tt> loop:</span></p>
+  <pre class="verbatim"><span class="calibre20">def is_abecedarian(word):
+    i = 0
+    while i &lt; len(word)-1:
+        if word[i+1] &lt; word[i]:
+            return False
+        i = i+1
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The loop starts at <tt class="calibre7">i=0</tt> and ends when <tt class="calibre7">i=len(word)-1</tt>. Each time through the loop, it compares the <i class="calibre9">i</i>th character (which you can think of as the current character) to the <i class="calibre9">i</i>+1th character (which you can think of as the next).</span></p>
+
+  <p class="calibre15"><span class="calibre4">If the next character is less than (alphabetically before) the current one, then we have discovered a break in the abecedarian trend, and we return <tt class="calibre7">False</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If we get to the end of the loop without finding a fault, then the word passes the test. To convince yourself that the loop ends correctly, consider an example like <code class="calibre7">'flossy'</code>. The length of the word is 6, so the last time the loop runs is when <tt class="calibre7">i</tt> is 4, which is the index of the second-to-last character. On the last iteration, it compares the second-to-last character to the last, which is what we want.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default695"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a version of <code class="calibre7">is_palindrome</code> (see Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0069.xhtml#palindrome"><span class="calibre4">6.6</span></a><span class="calibre4">) that uses two indices; one starts at the beginning and goes up; the other starts at the end and goes down.</span></p>
+  <pre class="verbatim"><span class="calibre20">def is_palindrome(word):
+    i = 0
+    j = len(word)-1
+
+    while i&lt;j:
+        if word[i] != word[j]:
+            return False
+        i = i+1
+        j = j-1
+
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Or, if you noticed that this is an instance of a previously-solved problem, you might have written:</span></p>
+  <pre class="verbatim"><span class="calibre20">def is_palindrome(word):
+    return is_reverse(word, word)
+</span></pre>
+
+  <p class="calibre15"><a class="calibre16" id="@default696"></a> <a class="calibre16" id="@default697"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Assuming you did Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0087.xhtml#is_reverse"><span class="calibre4">8.8</span></a><span class="calibre4">.</span></p>
+</body>
+</html>

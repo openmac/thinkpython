@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default783"></a> <a class="calibre16" id="@default784"></a> <a class="calibre16" id="@default785"></a> <a class="calibre16" id="@default786"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc111"></a><a class="calibre14" id="htoc123"><span class="calibre18">10.7</span></a><span class="calibre18">&nbsp;&nbsp;Map, filter and reduce</span></h2>
+
+  <p class="calibre15"><span class="calibre4">To add up all the numbers in a list, you can use a loop like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">def add_all(t):
+    total = 0
+    for x in t:
+        total += x
+    return total
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">total</tt> is initialized to 0. Each time through the loop, <tt class="calibre7">x</tt> gets one element from the list. The <tt class="calibre7">+=</tt> operator provides a short way to update a variable. This <b class="calibre19">augmented assignment statement</b>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default787"></a> <a class="calibre16" id="@default788"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default789"></a> <a class="calibre16" id="@default790"></a></p>
+  <pre class="verbatim"><span class="calibre20">    total += x
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">is equivalent to:</span></p>
+  <pre class="verbatim"><span class="calibre20">    total = total + x
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">As the loop executes, <tt class="calibre7">total</tt> accumulates the sum of the elements; a variable used this way is sometimes called an <b class="calibre19">accumulator</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default791"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Adding up the elements of a list is such a common operation that Python provides it as a built-in function, <tt class="calibre7">sum</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; sum(t)
+6
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">An operation like this that combines a sequence of elements into a single value is sometimes called <b class="calibre19">reduce</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default792"></a> <a class="calibre16" id="@default793"></a> <a class="calibre16" id="@default794"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Sometimes you want to traverse one list while building another. For example, the following function takes a list of strings and returns a new list that contains capitalized strings:</span></p>
+  <pre class="verbatim"><span class="calibre20">def capitalize_all(t):
+    res = []
+    for s in t:
+        res.append(s.capitalize())
+    return res
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">res</tt> is initialized with an empty list; each time through the loop, we append the next element. So <tt class="calibre7">res</tt> is another kind of accumulator.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default795"></a></p>
+
+  <p class="calibre15"><span class="calibre4">An operation like <code class="calibre7">capitalize_all</code> is sometimes called a <b class="calibre19">map</b> because it “maps” a function (in this case the method <tt class="calibre7">capitalize</tt>) onto each of the elements in a sequence.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default796"></a> <a class="calibre16" id="@default797"></a> <a class="calibre16" id="@default798"></a> <a class="calibre16" id="@default799"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Another common operation is to select some of the elements from a list and return a sublist. For example, the following function takes a list of strings and returns a list that contains only the uppercase strings:</span></p>
+  <pre class="verbatim"><span class="calibre20">def only_upper(t):
+    res = []
+    for s in t:
+        if s.isupper():
+            res.append(s)
+    return res
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">isupper</tt> is a string method that returns <tt class="calibre7">True</tt> if the string contains only upper case letters.</span></p>
+
+  <p class="calibre15"><span class="calibre4">An operation like <code class="calibre7">only_upper</code> is called a <b class="calibre19">filter</b> because it selects some of the elements and filters out the others.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Most common list operations can be expressed as a combination of map, filter and reduce. Because these operations are so common, Python provides language features to support them, including the built-in function <tt class="calibre7">map</tt> and an operator called a “list comprehension.”</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default800"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp;</span> <a class="calibre16" id="cumulative"></a> <a class="calibre16" id="@default801"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function that takes a list of numbers and returns the cumulative sum; that is, a new list where the <i class="calibre9">i</i>th element is the sum of the first <i class="calibre9">i</i>+1 elements from the original list. For example, the cumulative sum of <tt class="calibre7">[1, 2, 3]</tt> is <tt class="calibre7">[1, 3, 6]</tt>.</em></span></p>
+  </div>
+</body>
+</html>

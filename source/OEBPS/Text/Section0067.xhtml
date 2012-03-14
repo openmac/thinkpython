@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc73"></a><a class="calibre14" id="htoc81"><span class="calibre18">6.9</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="factdebug"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default496"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Breaking a large program into smaller functions creates natural checkpoints for debugging. If a function is not working, there are three possibilities to consider:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">There is something wrong with the arguments the function is getting; a precondition is violated.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">There is something wrong with the function; a postcondition is violated.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">There is something wrong with the return value or the way it is being used.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">To rule out the first possibility, you can add a <tt class="calibre7">print</tt> statement at the beginning of the function and display the values of the parameters (and maybe their types). Or you can write code that checks the preconditions explicitly.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default497"></a> <a class="calibre16" id="@default498"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If the parameters look good, add a <tt class="calibre7">print</tt> statement before each <tt class="calibre7">return</tt> statement that displays the return value. If possible, check the result by hand. Consider calling the function with values that make it easy to check the result (as in Section&nbsp;</span><a class="calibre3" href="#incremental%20development"><span class="calibre4">6.2</span></a><span class="calibre4">).</span></p>
+
+  <p class="calibre15"><span class="calibre4">If the function seems to be working, look at the function call to make sure the return value is being used correctly (or used at all!).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default499"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Adding print statements at the beginning and end of a function can help make the flow of execution more visible. For example, here is a version of <tt class="calibre7">factorial</tt> with print statements:</span></p>
+  <pre class="verbatim"><span class="calibre20">def factorial(n):
+    space = ' ' * (4 * n)
+    print space, 'factorial', n
+    if n == 0:
+        print space, 'returning 1'
+        return 1
+    else:
+        recurse = factorial(n-1)
+        result = n * recurse
+        print space, 'returning', result
+        return result
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">space</tt> is a string of space characters that controls the indentation of the output. Here is the result of <tt class="calibre7">factorial(5)</tt> :</span></p>
+  <pre class="verbatim"><span class="calibre20">                     factorial 5
+                 factorial 4
+             factorial 3
+         factorial 2
+     factorial 1
+ factorial 0
+ returning 1
+     returning 1
+         returning 2
+             returning 6
+                 returning 24
+                     returning 120
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you are confused about the flow of execution, this kind of output can be helpful. It takes some time to develop effective scaffolding, but a little bit of scaffolding can save a lot of debugging.</span></p>
+</body>
+</html>

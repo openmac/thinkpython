@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc112"></a><a class="calibre14" id="htoc124"><span class="calibre18">10.8</span></a><span class="calibre18">&nbsp;&nbsp;Deleting elements</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default802"></a> <a class="calibre16" id="@default803"></a></p>
+
+  <p class="calibre15"><span class="calibre4">There are several ways to delete elements from a list. If you know the index of the element you want, you can use <tt class="calibre7">pop</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default804"></a> <a class="calibre16" id="@default805"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ['a', 'b', 'c']
+&gt;&gt;&gt; x = t.pop(1)
+&gt;&gt;&gt; print t
+['a', 'c']
+&gt;&gt;&gt; print x
+b
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">pop</tt> modifies the list and returns the element that was removed. If you don’t provide an index, it deletes and returns the last element.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If you don’t need the removed value, you can use the <tt class="calibre7">del</tt> operator:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default806"></a> <a class="calibre16" id="@default807"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ['a', 'b', 'c']
+&gt;&gt;&gt; del t[1]
+&gt;&gt;&gt; print t
+['a', 'c']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you know the element you want to remove (but not the index), you can use <tt class="calibre7">remove</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default808"></a> <a class="calibre16" id="@default809"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ['a', 'b', 'c']
+&gt;&gt;&gt; t.remove('b')
+&gt;&gt;&gt; print t
+['a', 'c']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The return value from <tt class="calibre7">remove</tt> is <tt class="calibre7">None</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default810"></a> <a class="calibre16" id="@default811"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To remove more than one element, you can use <tt class="calibre7">del</tt> with a slice index:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ['a', 'b', 'c', 'd', 'e', 'f']
+&gt;&gt;&gt; del t[1:5]
+&gt;&gt;&gt; print t
+['a', 'f']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">As usual, the slice selects all the elements up to, but not including, the second index.</span></p>
+</body>
+</html>

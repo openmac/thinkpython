@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc52"></a><a class="calibre14" id="htoc59"><span class="calibre18">5.2</span></a><span class="calibre18">&nbsp;&nbsp;Boolean expressions</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default346"></a> <a class="calibre16" id="@default347"></a> <a class="calibre16" id="@default348"></a> <a class="calibre16" id="@default349"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">boolean expression</b> is an expression that is either true or false. The following examples use the operator <tt class="calibre7">==</tt>, which compares two operands and produces <tt class="calibre7">True</tt> if they are equal and <tt class="calibre7">False</tt> otherwise:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; 5 == 5
+True
+&gt;&gt;&gt; 5 == 6
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">True</tt> and <tt class="calibre7">False</tt> are special values that belong to the type <tt class="calibre7">bool</tt>; they are not strings:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default350"></a> <a class="calibre16" id="@default351"></a> <a class="calibre16" id="@default352"></a> <a class="calibre16" id="@default353"></a> <a class="calibre16" id="@default354"></a> <a class="calibre16" id="@default355"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; type(True)
+&lt;type 'bool'&gt;
+&gt;&gt;&gt; type(False)
+&lt;type 'bool'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">==</tt> operator is one of the <b class="calibre19">relational operators</b>; the others are:</span></p>
+  <pre class="verbatim"><span class="calibre20">      x != y               # x is not equal to y
+      x &gt; y                # x is greater than y
+      x &lt; y                # x is less than y
+      x &gt;= y               # x is greater than or equal to y
+      x &lt;= y               # x is less than or equal to y
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Although these operations are probably familiar to you, the Python symbols are different from the mathematical symbols. A common error is to use a single equal sign (<tt class="calibre7">=</tt>) instead of a double equal sign (<tt class="calibre7">==</tt>). Remember that <tt class="calibre7">=</tt> is an assignment operator and <tt class="calibre7">==</tt> is a relational operator. There is no such thing as <tt class="calibre7">=&lt;</tt> or <tt class="calibre7">=&gt;</tt>.</span></p>
+</body>
+</html>

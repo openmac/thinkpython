@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc122"></a><a class="calibre14" id="htoc135"><span class="calibre18">11.3</span></a><span class="calibre18">&nbsp;&nbsp;Reverse lookup</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default944"></a> <a class="calibre16" id="@default945"></a> <a class="calibre16" id="@default946"></a> <a class="calibre16" id="@default947"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Given a dictionary <tt class="calibre7">d</tt> and a key <tt class="calibre7">k</tt>, it is easy to find the corresponding value <tt class="calibre7">v = d[k]</tt>. This operation is called a <b class="calibre19">lookup</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">But what if you have <tt class="calibre7">v</tt> and you want to find <tt class="calibre7">k</tt>? You have two problems: first, there might be more than one key that maps to the value <tt class="calibre7">v</tt>. Depending on the application, you might be able to pick one, or you might have to make a list that contains all of them. Second, there is no simple syntax to do a <b class="calibre19">reverse lookup</b>; you have to search.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a function that takes a value and returns the first key that maps to that value:</span></p>
+  <pre class="verbatim"><span class="calibre20">def reverse_lookup(d, v):
+    for k in d:
+        if d[k] == v:
+            return k
+    raise ValueError
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This function is yet another example of the search pattern, but it uses a feature we haven’t seen before, <tt class="calibre7">raise</tt>. The <tt class="calibre7">raise</tt> statement causes an exception; in this case it causes a <tt class="calibre7">ValueError</tt>, which generally indicates that there is something wrong with the value of a parameter.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default948"></a> <a class="calibre16" id="@default949"></a> <a class="calibre16" id="@default950"></a> <a class="calibre16" id="@default951"></a> <a class="calibre16" id="@default952"></a> <a class="calibre16" id="@default953"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If we get to the end of the loop, that means <tt class="calibre7">v</tt> doesn’t appear in the dictionary as a value, so we raise an exception.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is an example of a successful reverse lookup:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; h = histogram('parrot')
+&gt;&gt;&gt; k = reverse_lookup(h, 2)
+&gt;&gt;&gt; print k
+r
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And an unsuccessful one:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; k = reverse_lookup(h, 3)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+  File "&lt;stdin&gt;", line 5, in reverse_lookup
+ValueError
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The result when you raise an exception is the same as when Python raises one: it prints a traceback and an error message.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default954"></a> <a class="calibre16" id="@default955"></a> <a class="calibre16" id="@default956"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">raise</tt> statement takes a detailed error message as an optional argument. For example:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; raise ValueError, 'value does not appear in the dictionary'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+ValueError: value does not appear in the dictionary
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">A reverse lookup is much slower than a forward lookup; if you have to do it often, or if the dictionary gets big, the performance of your program will suffer.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp; <em class="calibre9">Modify <code class="calibre7">reverse_lookup</code> so that it builds and returns a list of</em> all <em class="calibre9">keys that map to <tt class="calibre7">v</tt>, or an empty list if there are none.</em></span>
+  </div>
+</body>
+</html>

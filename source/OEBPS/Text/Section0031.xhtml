@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_13"><a class="calibre14" id="toc34"></a><a class="calibre14" id="htoc39"><span class="calibre18">3.11</span></a><span class="calibre18">&nbsp;&nbsp;Fruitful functions and void functions</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default251"></a> <a class="calibre16" id="@default252"></a> <a class="calibre16" id="@default253"></a> <a class="calibre16" id="@default254"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Some of the functions we are using, such as the math functions, yield results; for lack of a better name, I call them <b class="calibre19">fruitful functions</b>. Other functions, like <code class="calibre7">print_twice</code>, perform an action but don’t return a value. They are called <b class="calibre19">void functions</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">When you call a fruitful function, you almost always want to do something with the result; for example, you might assign it to a variable or use it as part of an expression:</span></p>
+  <pre class="verbatim"><span class="calibre20">x = math.cos(radians)
+golden = (math.sqrt(5) + 1) / 2
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you call a function in interactive mode, Python displays the result:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; math.sqrt(5)
+2.2360679774997898
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But in a script, if you call a fruitful function all by itself, the return value is lost forever!</span></p>
+  <pre class="verbatim"><span class="calibre20">math.sqrt(5)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This script computes the square root of 5, but since it doesn’t store or display the result, it is not very useful.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default255"></a> <a class="calibre16" id="@default256"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Void functions might display something on the screen or have some other effect, but they don’t have a return value. If you try to assign the result to a variable, you get a special value called <tt class="calibre7">None</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default257"></a> <a class="calibre16" id="@default258"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; result = print_twice('Bing')
+Bing
+Bing
+&gt;&gt;&gt; print result
+None
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The value <tt class="calibre7">None</tt> is not the same as the string <code class="calibre7">'None'</code>. It is a special value that has its own type:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print type(None)
+&lt;type 'NoneType'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The functions we have written so far are all void. We will start writing fruitful functions in a few chapters.</span></p>
+</body>
+</html>

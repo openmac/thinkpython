@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc135"></a><a class="calibre14" id="htoc149"><span class="calibre18">12.6</span></a><span class="calibre18">&nbsp;&nbsp;Dictionaries and tuples</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1097"></a> <a class="calibre16" id="@default1098"></a> <a class="calibre16" id="@default1099"></a> <a class="calibre16" id="@default1100"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Dictionaries have a method called <tt class="calibre7">items</tt> that returns a list of tuples, where each tuple is a key-value pair</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0129.xhtml#note28" id="text28"><span class="calibre4">2</span></a></sup><span class="calibre4">.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; d = {'a':0, 'b':1, 'c':2}
+&gt;&gt;&gt; t = d.items()
+&gt;&gt;&gt; print t
+[('a', 0), ('c', 2), ('b', 1)]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">As you should expect from a dictionary, the items are in no particular order.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1101"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Conversely, you can use a list of tuples to initialize a new dictionary:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = [('a', 0), ('c', 2), ('b', 1)]
+&gt;&gt;&gt; d = dict(t)
+&gt;&gt;&gt; print d
+{'a': 0, 'c': 2, 'b': 1}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Combining <tt class="calibre7">dict</tt> with <tt class="calibre7">zip</tt> yields a concise way to create a dictionary:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1102"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; d = dict(zip('abc', range(3)))
+&gt;&gt;&gt; print d
+{'a': 0, 'c': 2, 'b': 1}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The dictionary method <tt class="calibre7">update</tt> also takes a list of tuples and adds them, as key-value pairs, to an existing dictionary.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1103"></a> <a class="calibre16" id="@default1104"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1105"></a> <a class="calibre16" id="@default1106"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Combining <tt class="calibre7">items</tt>, tuple assignment and <tt class="calibre7">for</tt>, you get the idiom for traversing the keys and values of a dictionary:</span></p>
+  <pre class="verbatim"><span class="calibre20">for key, val in d.items():
+    print val, key
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The output of this loop is:</span></p>
+  <pre class="verbatim"><span class="calibre20">0 a
+2 c
+1 b
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Again.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1107"></a> <a class="calibre16" id="@default1108"></a></p>
+
+  <p class="calibre15"><span class="calibre4">It is common to use tuples as keys in dictionaries (primarily because you can’t use lists). For example, a telephone directory might map from last-name, first-name pairs to telephone numbers. Assuming that we have defined <tt class="calibre7">last</tt>, <tt class="calibre7">first</tt> and <tt class="calibre7">number</tt>, we could write:</span></p>
+  <pre class="verbatim"><span class="calibre20">directory[last,first] = number
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The expression in brackets is a tuple. We could use tuple assignment to traverse this dictionary.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1109"></a></p>
+  <pre class="verbatim"><span class="calibre20">for last, first in directory:
+    print first, last, directory[last,first]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This loop traverses the keys in <tt class="calibre7">directory</tt>, which are tuples. It assigns the elements of each tuple to <tt class="calibre7">last</tt> and <tt class="calibre7">first</tt>, then prints the name and corresponding telephone number.</span></p>
+
+  <p class="calibre15"><span class="calibre4">There are two ways to represent tuples in a state diagram. The more detailed version shows the indices and elements just as they appear in a list. For example, the tuple <code class="calibre7">('Cleese', 'John')</code> would appear:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1110"></a> <a class="calibre16" id="@default1111"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book020.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">But in a larger diagram you might want to leave out the details. For example, a diagram of the telephone directory might appear:</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book021.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">Here the tuples are shown using Python syntax as a graphical shorthand.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The telephone number in the diagram is the complaints line for the BBC, so please don’t call it.</span></p>
+</body>
+</html>

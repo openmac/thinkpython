@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc124"></a><a class="calibre14" id="htoc137"><span class="calibre18">11.5</span></a><span class="calibre18">&nbsp;&nbsp;Memos</span></h2>
+
+  <p class="calibre15"><span class="calibre4">If you played with the <tt class="calibre7">fibonacci</tt> function from Section&nbsp;</span><a class="calibre3" href="../Text/Section0065.xhtml#one%20more%20example"><span class="calibre4">6.7</span></a><span class="calibre4">, you might have noticed that the bigger the argument you provide, the longer the function takes to run. Furthermore, the run time increases very quickly.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default969"></a> <a class="calibre16" id="@default970"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To understand why, consider this <b class="calibre19">call graph</b> for <tt class="calibre7">fibonacci</tt> with <tt class="calibre7">n=4</tt>:</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book019.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">A call graph shows a set of function frames, with lines connecting each frame to the frames of the functions it calls. At the top of the graph, <tt class="calibre7">fibonacci</tt> with <tt class="calibre7">n=4</tt> calls <tt class="calibre7">fibonacci</tt> with <tt class="calibre7">n=3</tt> and <tt class="calibre7">n=2</tt>. In turn, <tt class="calibre7">fibonacci</tt> with <tt class="calibre7">n=3</tt> calls <tt class="calibre7">fibonacci</tt> with <tt class="calibre7">n=2</tt> and <tt class="calibre7">n=1</tt>. And so on.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default971"></a> <a class="calibre16" id="@default972"></a> <a class="calibre16" id="@default973"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Count how many times <tt class="calibre7">fibonacci(0)</tt> and <tt class="calibre7">fibonacci(1)</tt> are called. This is an inefficient solution to the problem, and it gets worse as the argument gets bigger.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default974"></a></p>
+
+  <p class="calibre15"><span class="calibre4">One solution is to keep track of values that have already been computed by storing them in a dictionary. A previously computed value that is stored for later use is called a <b class="calibre19">memo</b></span><sup class="calibre10"><a class="calibre3" href="../Text/Section0119.xhtml#note23" id="text23"><span class="calibre4">1</span></a></sup><span class="calibre4">. Here is an implementation of <tt class="calibre7">fibonacci</tt> using memos:</span></p>
+  <pre class="verbatim"><span class="calibre20">known = {0:0, 1:1}
+
+def fibonacci(n):
+    if n in known:
+        return known[n]
+
+    res = fibonacci(n-1) + fibonacci(n-2)
+    known[n] = res
+    return res
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">known</tt> is a dictionary that keeps track of the Fibonacci numbers we already know. It starts with two items: 0 maps to 0 and 1 maps to 1.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Whenever <tt class="calibre7">fibonacci</tt> is called, it checks <tt class="calibre7">known</tt>. If the result is already there, it can return immediately. Otherwise it has to compute the new value, add it to the dictionary, and return it.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp; <em class="calibre9">Run this version of <tt class="calibre7">fibonacci</tt> and the original with a range of parameters and compare their run times.</em></span>
+  </div>
+</body>
+</html>

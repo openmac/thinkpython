@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc27"></a><a class="calibre14" id="htoc32"><span class="calibre18">3.4</span></a><span class="calibre18">&nbsp;&nbsp;Composition</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default211"></a></p>
+
+  <p class="calibre15"><span class="calibre4">So far, we have looked at the elements of a program&mdash;variables, expressions, and statements&mdash;in isolation, without talking about how to combine them.</span></p>
+
+  <p class="calibre15"><span class="calibre4">One of the most useful features of programming languages is their ability to take small building blocks and <b class="calibre19">compose</b> them. For example, the argument of a function can be any kind of expression, including arithmetic operators:</span></p>
+  <pre class="verbatim"><span class="calibre20">x = math.sin(degrees / 360.0 * 2 * math.pi)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And even function calls:</span></p>
+  <pre class="verbatim"><span class="calibre20">x = math.exp(math.log(x+1))
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Almost anywhere you can put a value, you can put an arbitrary expression, with one exception: the left side of an assignment statement has to be a variable name. Any other expression on the left side is a syntax error</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0035.xhtml#note6" id="text6"><span class="calibre4">1</span></a></sup><span class="calibre4">.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; minutes = hours * 60                 # right
+&gt;&gt;&gt; hours * 60 = minutes                 # wrong!
+SyntaxError: can't assign to operator
+</span></pre>
+</body>
+</html>

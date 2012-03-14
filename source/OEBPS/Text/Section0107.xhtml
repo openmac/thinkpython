@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_15"><a class="calibre14" id="toc117"></a><a class="calibre14" id="htoc129"><span class="calibre18">10.13</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default858"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Careless use of lists (and other mutable objects) can lead to long hours of debugging. Here are some common pitfalls and ways to avoid them:</span></p>
+
+  <ol class="enumerate" type="1">
+    <li class="li-itemize">
+      <span class="calibre4">Don’t forget that most list methods modify the argument and return <tt class="calibre7">None</tt>. This is the opposite of the string methods, which return a new string and leave the original alone.</span>
+
+      <p class="calibre15"><span class="calibre4">If you are used to writing string code like this:</span></p>
+      <pre class="verbatim"><span class="calibre20">word = word.strip()
+</span></pre>
+
+      <p class="calibre15"><span class="calibre4">It is tempting to write list code like this:</span></p>
+      <pre class="verbatim"><span class="calibre20">t = t.sort()           # WRONG!
+</span></pre>
+
+      <p class="calibre15"><a class="calibre16" id="@default859"></a> <a class="calibre16" id="@default860"></a></p>
+
+      <p class="calibre15"><span class="calibre4">Because <tt class="calibre7">sort</tt> returns <tt class="calibre7">None</tt>, the next operation you perform with <tt class="calibre7">t</tt> is likely to fail.</span></p>
+
+      <p class="calibre15"><span class="calibre4">Before using list methods and operators, you should read the documentation carefully and then test them in interactive mode. The methods and operators that lists share with other sequences (like strings) are documented at <tt class="calibre7">docs.python.org/lib/typesseq.html</tt>. The methods and operators that only apply to mutable sequences are documented at <tt class="calibre7">docs.python.org/lib/typesseq-mutable.html</tt>.</span></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Pick an idiom and stick with it.</span>
+
+      <p class="calibre15"><span class="calibre4">Part of the problem with lists is that there are too many ways to do things. For example, to remove an element from a list, you can use <tt class="calibre7">pop</tt>, <tt class="calibre7">remove</tt>, <tt class="calibre7">del</tt>, or even a slice assignment.</span></p>
+
+      <p class="calibre15"><span class="calibre4">To add an element, you can use the <tt class="calibre7">append</tt> method or the <tt class="calibre7">+</tt> operator. Assuming that <tt class="calibre7">t</tt> is a list and <tt class="calibre7">x</tt> is a list element, these are right:</span></p>
+      <pre class="verbatim"><span class="calibre20">t.append(x)
+t = t + [x]
+</span></pre>
+
+      <p class="calibre15"><span class="calibre4">And these are wrong:</span></p>
+      <pre class="verbatim"><span class="calibre20">t.append([x])          # WRONG!
+t = t.append(x)        # WRONG!
+t + [x]                # WRONG!
+t = t + x              # WRONG!
+</span></pre>
+
+      <p class="calibre15"><span class="calibre4">Try out each of these examples in interactive mode to make sure you understand what they do. Notice that only the last one causes a runtime error; the other three are legal, but they do the wrong thing.</span></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Make copies to avoid aliasing.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default861"></a> <a class="calibre16" id="@default862"></a></p>
+
+      <p class="calibre15"><span class="calibre4">If you want to use a method like <tt class="calibre7">sort</tt> that modifies the argument, but you need to keep the original list as well, you can make a copy.</span></p>
+      <pre class="verbatim"><span class="calibre20">orig = t[:]
+t.sort()
+</span></pre>
+
+      <p class="calibre15"><span class="calibre4">In this example you could also use the built-in function <tt class="calibre7">sorted</tt>, which returns a new, sorted list and leaves the original alone. But in that case you should avoid using <tt class="calibre7">sorted</tt> as a variable name!</span></p>
+    </li>
+  </ol>
+</body>
+</html>

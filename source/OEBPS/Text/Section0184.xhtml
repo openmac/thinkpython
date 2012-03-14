@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc201"></a><a class="calibre14" id="htoc221"><span class="calibre18">18.9</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1652"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Inheritance can make debugging a challenge because when you invoke a method on an object, you might not know which method will be invoked.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1653"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Suppose you are writing a function that works with Hand objects. You would like it to work with all kinds of Hands, like PokerHands, BridgeHands, etc. If you invoke a method like <tt class="calibre7">shuffle</tt>, you might get the one defined in <tt class="calibre7">Deck</tt>, but if any of the subclasses override this method, you’ll get that version instead.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1654"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Any time you are unsure about the flow of execution through your program, the simplest solution is to add print statements at the beginning of the relevant methods. If <tt class="calibre7">Deck.shuffle</tt> prints a message that says something like <tt class="calibre7">Running Deck.shuffle</tt>, then as the program runs it traces the flow of execution.</span></p>
+
+  <p class="calibre15"><span class="calibre4">As an alternative, you could use this function, which takes an object and a method name (as a string) and returns the class that provides the definition of the method:</span></p>
+  <pre class="verbatim"><span class="calibre20">def find_defining_class(obj, meth_name):
+    for ty in type(obj).mro():
+        if meth_name in ty.__dict__:
+            return ty
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here’s an example:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; hand = Hand()
+&gt;&gt;&gt; print find_defining_class(hand, 'shuffle')
+&lt;class 'Card.Deck'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">So the <tt class="calibre7">shuffle</tt> method for this Hand is the one in <tt class="calibre7">Deck</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1655"></a> <a class="calibre16" id="@default1656"></a> <a class="calibre16" id="@default1657"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">find_defining_class</code> uses the <tt class="calibre7">mro</tt> method to get the list of class objects (types) that will be searched for methods. “MRO” stands for “method resolution order.”</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1658"></a> <a class="calibre16" id="@default1659"></a> <a class="calibre16" id="@default1660"></a> <a class="calibre16" id="@default1661"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s a program design suggestion: whenever you override a method, the interface of the new method should be the same as the old. It should take the same parameters, return the same type, and obey the same preconditions and postconditions. If you obey this rule, you will find that any function designed to work with an instance of a superclass, like a Deck, will also work with instances of subclasses like a Hand or PokerHand.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If you violate this rule, your code will collapse like (sorry) a house of cards.</span></p>
+</body>
+</html>

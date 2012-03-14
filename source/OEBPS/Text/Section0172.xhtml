@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc188"></a><a class="calibre14" id="htoc207"><span class="calibre18">17.8</span></a><span class="calibre18">&nbsp;&nbsp;Type-based dispatch</span></h2>
+
+  <p class="calibre15"><span class="calibre4">In the previous section we added two Time objects, but you also might want to add an integer to a Time object. The following is a version of <code class="calibre7">__add__</code> that checks the type of <tt class="calibre7">other</tt> and invokes either <code class="calibre7">add_time</code> or <tt class="calibre7">increment</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Time:
+
+    def __add__(self, other):
+        if isinstance(other, Time):
+            return self.add_time(other)
+        else:
+            return self.increment(other)
+
+    def add_time(self, other):
+        seconds = self.time_to_int() + other.time_to_int()
+        return int_to_time(seconds)
+
+    def increment(self, seconds):
+        seconds += self.time_to_int()
+        return int_to_time(seconds)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The built-in function <tt class="calibre7">isinstance</tt> takes a value and a class object, and returns <tt class="calibre7">True</tt> if the value is an instance of the class.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1526"></a> <a class="calibre16" id="@default1527"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If <tt class="calibre7">other</tt> is a Time object, <code class="calibre7">__add__</code> invokes <code class="calibre7">add_time</code>. Otherwise it assumes that the parameter is a number and invokes <tt class="calibre7">increment</tt>. This operation is called a <b class="calibre19">type-based dispatch</b> because it dispatches the computation to different methods based on the type of the arguments.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1528"></a> <a class="calibre16" id="@default1529"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here are examples that use the <tt class="calibre7">+</tt> operator with different types:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; start = Time(9, 45)
+&gt;&gt;&gt; duration = Time(1, 35)
+&gt;&gt;&gt; print start + duration
+11:20:00
+&gt;&gt;&gt; print start + 1337
+10:07:17
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Unfortunately, this implementation of addition is not commutative. If the integer is the first operand, you get</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1530"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print 1337 + start
+TypeError: unsupported operand type(s) for +: 'int' and 'instance'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The problem is, instead of asking the Time object to add an integer, Python is asking an integer to add a Time object, and it doesn’t know how to do that. But there is a clever solution for this problem: the special method <code class="calibre7">__radd__</code>, which stands for “right-side add.” This method is invoked when a Time object appears on the right side of the <tt class="calibre7">+</tt> operator. Here’s the definition:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1531"></a> <a class="calibre16" id="@default1532"></a></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Time:
+
+    def __radd__(self, other):
+        return self.__add__(other)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And here’s how it’s used:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print 1337 + start
+10:07:17
+</span></pre>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp; <em class="calibre9">Write an <tt class="calibre7">add</tt> method for Points that works with either a Point object or a tuple:</em></span>
+
+    <ul class="calibre6">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">If the second operand is a Point, the method should return a new Point whose <i class="calibre9">x</i> coordinate is the sum of the <i class="calibre9">x</i> coordinates of the operands, and likewise for the <i class="calibre9">y</i> coordinates.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">If the second operand is a tuple, the method should add the first element of the tuple to the <i class="calibre9">x</i> coordinate and the second element to the <i class="calibre9">y</i> coordinate, and return a new Point with the result.</em></span></li>
+    </ul>
+  </div>
+</body>
+</html>

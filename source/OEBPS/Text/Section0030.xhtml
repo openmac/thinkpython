@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default244"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc33"></a><a class="calibre14" id="htoc38"><span class="calibre18">3.10</span></a><span class="calibre18">&nbsp;&nbsp;Stack diagrams</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="stackdiagram"></a> <a class="calibre16" id="@default245"></a> <a class="calibre16" id="@default246"></a> <a class="calibre16" id="@default247"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To keep track of which variables can be used where, it is sometimes useful to draw a <b class="calibre19">stack diagram</b>. Like state diagrams, stack diagrams show the value of each variable, but they also show the function each variable belongs to.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default248"></a> <a class="calibre16" id="@default249"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Each function is represented by a <b class="calibre19">frame</b>. A frame is a box with the name of a function beside it and the parameters and variables of the function inside it. The stack diagram for the previous example looks like this:</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book004.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">The frames are arranged in a stack that indicates which function called which, and so on. In this example, <code class="calibre7">print_twice</code> was called by <code class="calibre7">cat_twice</code>, and <code class="calibre7">cat_twice</code> was called by <code class="calibre7">__main__</code>, which is a special name for the topmost frame. When you create a variable outside of any function, it belongs to <code class="calibre7">__main__</code>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Each parameter refers to the same value as its corresponding argument. So, <tt class="calibre7">part1</tt> has the same value as <tt class="calibre7">line1</tt>, <tt class="calibre7">part2</tt> has the same value as <tt class="calibre7">line2</tt>, and <tt class="calibre7">bruce</tt> has the same value as <tt class="calibre7">cat</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If an error occurs during a function call, Python prints the name of the function, and the name of the function that called it, and the name of the function that called <em class="calibre9">that</em>, all the way back to <code class="calibre7">__main__</code>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, if you try to access <tt class="calibre7">cat</tt> from within <code class="calibre7">print_twice</code>, you get a <tt class="calibre7">NameError</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">Traceback (innermost last):
+  File "test.py", line 13, in __main__
+    cat_twice(line1, line2)
+  File "test.py", line 5, in cat_twice
+    print_twice(cat)
+  File "test.py", line 9, in print_twice
+    print cat
+NameError: name 'cat' is not defined
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This list of functions is called a <b class="calibre19">traceback</b>. It tells you what program file the error occurred in, and what line, and what functions were executing at the time. It also shows the line of code that caused the error.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default250"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The order of the functions in the traceback is the same as the order of the frames in the stack diagram. The function that is currently running is at the bottom.</span></p>
+</body>
+</html>

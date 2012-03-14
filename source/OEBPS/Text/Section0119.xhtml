@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc129"></a><a class="calibre14" id="htoc142"><span class="calibre18">11.10</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;8</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default1022"></a>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">If you did Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0109.xhtml#duplicate"><span class="calibre4">10.5</span></a><span class="calibre4">, you already have a function named <code class="calibre7">has_duplicates</code> that takes a list as a parameter and returns <tt class="calibre7">True</tt> if there is any object that appears more than once in the list.</span></em></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Use a dictionary to write a faster, simpler version of <code class="calibre7">has_duplicates</code>.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;9</b>&nbsp;&nbsp;</span> <a class="calibre16" id="exrotatepairs"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default1023"></a> <a class="calibre16" id="@default1024"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">Two words are “rotate pairs” if you can rotate one of them and get the other (see <code class="calibre7">rotate_word</code> in Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0089.xhtml#exrotate"><span class="calibre4">8.12</span></a><span class="calibre4">).</span></em></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a program that reads a wordlist and finds all the rotate pairs.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;10</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default1025"></a> <a class="calibre16" id="@default1026"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Here’s another Puzzler from</em> Car Talk</span><em class="calibre9"><sup class="calibre10"><a class="calibre3" href="#note26" id="text26"><span class="calibre4">4</span></a></sup><span class="calibre4">:</span></em></p>
+
+    <blockquote class="quote">
+      <span class="calibre4"><em class="calibre9">This was sent in by a fellow named Dan O’Leary. He came upon a common one-syllable, five-letter word recently that has the following unique property. When you remove the first letter, the remaining letters form a homophone of the original word, that is a word that sounds exactly the same. Replace the first letter, that is, put it back and remove the second letter and the result is yet another homophone of the original word. And the question is, what’s the word?</em></span>
+
+      <p class="calibre15"><span class="calibre4"><em class="calibre9">Now I’m going to give you an example that doesn’t work. Let’s look at the five-letter word, ‘wrack.’ W-R-A-C-K, you know like to ‘wrack with pain.’ If I remove the first letter, I am left with a four-letter word, ’R-A-C-K.’ As in, ‘Holy cow, did you see the rack on that buck! It must have been a nine-pointer!’ It’s a perfect homophone. If you put the ‘w’ back, and remove the ‘r,’ instead, you’re left with the word, ‘wack,’ which is a real word, it’s just not a homophone of the other two words.</em></span></p>
+
+      <p class="calibre15"><span class="calibre4"><em class="calibre9">But there is, however, at least one word that Dan and we know of, which will yield two homophones if you remove either of the first two letters to make two, new four-letter words. The question is, what’s the word?</em></span></p>
+    </blockquote>
+
+    <p class="calibre15"><a class="calibre16" id="@default1027"></a> <a class="calibre16" id="@default1028"></a> <a class="calibre16" id="@default1029"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">You can use the dictionary from Exercise&nbsp;</span><a class="calibre3" href="#wordlist2"><span class="calibre4">11.1</span></a> <span class="calibre4">to check whether a string is in the word list.</span></em></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">To check whether two words are homophones, you can use the CMU Pronouncing Dictionary. You can download it from <tt class="calibre7">www.speech.cs.cmu.edu/cgi-bin/cmudict</tt> or from <tt class="calibre7">thinkpython.com/code/c06d</tt> and you can also download <tt class="calibre7">thinkpython.com/code/pronounce.py</tt>, which provides a function named <code class="calibre7">read_dictionary</code> that reads the pronouncing dictionary and returns a Python dictionary that maps from each word to a string that describes its primary pronunciation.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a program that lists all the words that solve the Puzzler. You can see my solution at <tt class="calibre7">thinkpython.com/code/homophone.py</tt>.</em></span></p>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text23" id="note23"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Memoization</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text24" id="note24"><span class="calibre4">2</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">In Python 3.0, type <tt class="calibre7">long</tt> is gone; all integers, even really big ones, are type <tt class="calibre7">int</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text25" id="note25"><span class="calibre4">3</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/RSA</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text26" id="note26"><span class="calibre4">4</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">www.cartalk.com/content/puzzler/transcripts/200717</tt>.</span></dd>
+  </dl>
+</body>
+</html>

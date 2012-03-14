@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc171"></a><a class="calibre14" id="htoc188"><span class="calibre18">15.7</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="hasattr"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1414"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you start working with objects, you are likely to encounter some new exceptions. If you try to access an attribute that doesn’t exist, you get an <tt class="calibre7">AttributeError</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1415"></a> <a class="calibre16" id="@default1416"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; p = Point()
+&gt;&gt;&gt; print p.z
+AttributeError: Point instance has no attribute 'z'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you are not sure what type an object is, you can ask:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1417"></a> <a class="calibre16" id="@default1418"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; type(p)
+&lt;type '__main__.Point'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you are not sure whether an object has a particular attribute, you can use the built-in function <tt class="calibre7">hasattr</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1419"></a> <a class="calibre16" id="@default1420"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; hasattr(p, 'x')
+True
+&gt;&gt;&gt; hasattr(p, 'z')
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first argument can be any object; the second argument is a <em class="calibre9">string</em> that contains the name of the attribute.</span></p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Tuples</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc131"></a><a class="calibre14" id="htoc145"><span class="calibre18">12.2</span></a><span class="calibre18">&nbsp;&nbsp;Tuple assignment</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="tuple assignment"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1050"></a> <a class="calibre16" id="@default1051"></a> <a class="calibre16" id="@default1052"></a> <a class="calibre16" id="@default1053"></a></p>
+
+  <p class="calibre15"><span class="calibre4">It is often useful to swap the values of two variables. With conventional assignments, you have to use a temporary variable. For example, to swap <tt class="calibre7">a</tt> and <tt class="calibre7">b</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; temp = a
+&gt;&gt;&gt; a = b
+&gt;&gt;&gt; b = temp
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This solution is cumbersome; <b class="calibre19">tuple assignment</b> is more elegant:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; a, b = b, a
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The left side is a tuple of variables; the right side is a tuple of expressions. Each value is assigned to its respective variable. All the expressions on the right side are evaluated before any of the assignments.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The number of variables on the left and the number of values on the right have to be the same:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1054"></a> <a class="calibre16" id="@default1055"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; a, b = 1, 2, 3
+ValueError: too many values to unpack
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">More generally, the right side can be any kind of sequence (string, list or tuple). For example, to split an email address into a user name and a domain, you could write:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1056"></a> <a class="calibre16" id="@default1057"></a> <a class="calibre16" id="@default1058"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; addr = 'monty@python.org'
+&gt;&gt;&gt; uname, domain = addr.split('@')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The return value from <tt class="calibre7">split</tt> is a list with two elements; the first element is assigned to <tt class="calibre7">uname</tt>, the second to <tt class="calibre7">domain</tt>.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print uname
+monty
+&gt;&gt;&gt; print domain
+python.org
+</span></pre>
+</body>
+</html>

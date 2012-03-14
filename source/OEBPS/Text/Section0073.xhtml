@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Iteration</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc80"></a><a class="calibre14" id="htoc89"><span class="calibre18">7.5</span></a><span class="calibre18">&nbsp;&nbsp;Square roots</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default543"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Loops are often used in programs that compute numerical results by starting with an approximate answer and iteratively improving it.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default544"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For example, one way of computing square roots is Newton’s method. Suppose that you want to know the square root of <i class="calibre9">a</i>. If you start with almost any estimate, <i class="calibre9">x</i>, you can compute a better estimate with the following formula:</span></p>
+
+  <table class="display">
+    <tbody class="calibre23">
+      <tr class="calibre24" valign="middle">
+        <td class="dcell"><span class="calibre4"><i class="calibre9">y</i>&nbsp;=&nbsp;</span></td>
+
+        <td class="dcell">
+          <table class="display2">
+            <tbody class="calibre23">
+              <tr class="calibre24">
+                <td class="dcell1"><span class="calibre4"><i class="calibre9">x</i>&nbsp;+&nbsp;<i class="calibre9">a</i>/<i class="calibre9">x</i></span></td>
+              </tr>
+
+              <tr class="calibre24">
+                <td class="hbar"></td>
+              </tr>
+
+              <tr class="calibre24">
+                <td class="dcell1"><span class="calibre4">2</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+
+        <td class="dcell"><span class="calibre4">&nbsp;</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="calibre15"><span class="calibre4">For example, if <i class="calibre9">a</i> is 4 and <i class="calibre9">x</i> is 3:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; a = 4.0
+&gt;&gt;&gt; x = 3.0
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; print y
+2.16666666667
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Which is closer to the correct answer (√<span class="calibre32">4</span> = 2). If we repeat the process with the new estimate, it gets even closer:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; print y
+2.00641025641
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">After a few more updates, the estimate is almost exact:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default545"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; print y
+2.00001024003
+&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; print y
+2.00000000003
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In general we don’t know ahead of time how many steps it takes to get to the right answer, but we know when we get there because the estimate stops changing:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; print y
+2.0
+&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; print y
+2.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When <tt class="calibre7">y == x</tt>, we can stop. Here is a loop that starts with an initial estimate, <tt class="calibre7">x</tt>, and improves it until it stops changing:</span></p>
+  <pre class="verbatim"><span class="calibre20">while True:
+    print x
+    y = (x + a/x) / 2
+    if y == x:
+        break
+    x = y
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">For most values of <tt class="calibre7">a</tt> this works fine, but in general it is dangerous to test <tt class="calibre7">float</tt> equality. Floating-point values are only approximately right: most rational numbers, like 1/3, and irrational numbers, like √<span class="calibre32">2</span>, can’t be represented exactly with a <tt class="calibre7">float</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default546"></a> <a class="calibre16" id="@default547"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Rather than checking whether <tt class="calibre7">x</tt> and <tt class="calibre7">y</tt> are exactly equal, it is safer to use the built-in function <tt class="calibre7">abs</tt> to compute the absolute value, or magnitude, of the difference between them:</span></p>
+  <pre class="verbatim"><span class="calibre20">    if abs(y-x) &lt; epsilon:
+        break
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Where <code class="calibre7">epsilon</code> has a value like <tt class="calibre7">0.0000001</tt> that determines how close is close enough.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span> <a class="calibre16" id="square_root"></a> <a class="calibre16" id="@default548"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Encapsulate this loop in a function called <code class="calibre7">square_root</code> that takes <tt class="calibre7">a</tt> as a parameter, chooses a reasonable value of <tt class="calibre7">x</tt>, and returns an estimate of the square root of <tt class="calibre7">a</tt>.</em></span></p>
+  </div>
+</body>
+</html>

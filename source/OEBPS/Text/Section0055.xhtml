@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc60"></a><a class="calibre14" id="htoc67"><span class="calibre18">5.10</span></a><span class="calibre18">&nbsp;&nbsp;Infinite recursion</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default396"></a> <a class="calibre16" id="@default397"></a> <a class="calibre16" id="@default398"></a> <a class="calibre16" id="@default399"></a> <a class="calibre16" id="@default400"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If a recursion never reaches a base case, it goes on making recursive calls forever, and the program never terminates. This is known as <b class="calibre19">infinite recursion</b>, and it is generally not a good idea. Here is a minimal program with an infinite recursion:</span></p>
+  <pre class="verbatim"><span class="calibre20">def recurse():
+    recurse()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In most programming environments, a program with infinite recursion does not really run forever. Python reports an error message when the maximum recursion depth is reached:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default401"></a> <a class="calibre16" id="@default402"></a></p>
+  <pre class="verbatim"><span class="calibre20">  File "&lt;stdin&gt;", line 2, in recurse
+  File "&lt;stdin&gt;", line 2, in recurse
+  File "&lt;stdin&gt;", line 2, in recurse
+                  .   
+                  .
+                  .
+  File "&lt;stdin&gt;", line 2, in recurse
+RuntimeError: Maximum recursion depth exceeded
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This traceback is a little bigger than the one we saw in the previous chapter. When the error occurs, there are 1000 <tt class="calibre7">recurse</tt> frames on the stack!</span></p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc145"></a><a class="calibre14" id="htoc160"><span class="calibre18">13.5</span></a><span class="calibre18">&nbsp;&nbsp;Optional parameters</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1197"></a> <a class="calibre16" id="@default1198"></a></p>
+
+  <p class="calibre15"><span class="calibre4">We have seen built-in functions and methods that take a variable number of arguments. It is possible to write user-defined functions with optional arguments, too. For example, here is a function that prints the most common words in a histogram</span></p>
+  <pre class="verbatim"><span class="calibre20">def print_most_common(hist, num=10):
+    t = most_common(hist)
+    print 'The most common words are:'
+    for freq, word in t[0:num]:
+        print word, '\t', freq
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first parameter is required; the second is optional. The <b class="calibre19">default value</b> of <tt class="calibre7">num</tt> is 10.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1199"></a> <a class="calibre16" id="@default1200"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you only provide one argument:</span></p>
+  <pre class="verbatim"><span class="calibre20">print_most_common(hist)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">num</tt> gets the default value. If you provide two arguments:</span></p>
+  <pre class="verbatim"><span class="calibre20">print_most_common(hist, 20)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">num</tt> gets the value of the argument instead. In other words, the optional argument <b class="calibre19">overrides</b> the default value.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1201"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If a function has both required and optional parameters, all the required parameters have to come first, followed by the optional ones.</span></p>
+</body>
+</html>

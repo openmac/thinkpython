@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Dictionaries</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc125"></a><a class="calibre14" id="htoc138"><span class="calibre18">11.6</span></a><span class="calibre18">&nbsp;&nbsp;Global variables</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default975"></a> <a class="calibre16" id="@default976"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In the previous example, <tt class="calibre7">known</tt> is created outside the function, so it belongs to the special frame called <code class="calibre7">__main__</code>. Variables in <code class="calibre7">__main__</code> are sometimes called <b class="calibre19">global</b> because they can be accessed from any function. Unlike local variables, which disappear when their function ends, global variables persist from one function call to the next.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default977"></a></p>
+
+  <p class="calibre15"><span class="calibre4">It is common to use global variables for <b class="calibre19">flags</b>; that is, boolean variables that indicate (“flag”) whether a condition is true. For example, some programs use a flag named <tt class="calibre7">verbose</tt> to control the level of detail in the output:</span></p>
+  <pre class="verbatim"><span class="calibre20">verbose = True
+
+def example1():
+    if verbose:
+        print 'Running example1'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you try to reassign a global variable, you might be surprised. The following example is supposed to keep track of whether the function has been called:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default978"></a> <a class="calibre16" id="@default979"></a></p>
+  <pre class="verbatim"><span class="calibre20">been_called = False
+
+def example2():
+    been_called = True         # WRONG
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But if you run it you will see that the value of <code class="calibre7">been_called</code> doesn’t change. The problem is that <tt class="calibre7">example2</tt> creates a new local variable named <code class="calibre7">been_called</code>. The local variable goes away when the function ends, and has no effect on the global variable.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default980"></a> <a class="calibre16" id="@default981"></a> <a class="calibre16" id="@default982"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To reassign a global variable inside a function you have to <b class="calibre19">declare</b> the global variable before you use it:</span></p>
+  <pre class="verbatim"><span class="calibre20">been_called = False
+
+def example2():
+    global been_called 
+    been_called = True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">global</tt> statement tells the interpreter something like, “In this function, when I say <code class="calibre7">been_called</code>, I mean the global variable; don’t create a local one.”</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default983"></a> <a class="calibre16" id="@default984"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s an example that tries to update a global variable:</span></p>
+  <pre class="verbatim"><span class="calibre20">count = 0
+
+def example3():
+    count = count + 1          # WRONG
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you run it you get:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default985"></a> <a class="calibre16" id="@default986"></a></p>
+  <pre class="verbatim"><span class="calibre20">UnboundLocalError: local variable 'count' referenced before assignment
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Python assumes that <tt class="calibre7">count</tt> is local, which means that you are reading it before writing it. The solution, again, is to declare <tt class="calibre7">count</tt> global.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default987"></a></p>
+  <pre class="verbatim"><span class="calibre20">def example3():
+    global count
+    count += 1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If the global value is mutable, you can modify it without declaring it:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default988"></a></p>
+  <pre class="verbatim"><span class="calibre20">known = {0:0, 1:1}
+
+def example4():
+    known[2] = 1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">So you can add, remove and replace elements of a global list or dictionary, but if you want to reassign the variable, you have to declare it:</span></p>
+  <pre class="verbatim"><span class="calibre20">def example5():
+    global known
+    known = dict()
+</span></pre>
+</body>
+</html>

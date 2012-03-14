@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc200"></a><a class="calibre14" id="htoc220"><span class="calibre18">18.8</span></a><span class="calibre18">&nbsp;&nbsp;Class diagrams</span></h2>
+
+  <p class="calibre15"><span class="calibre4">So far we have seen stack diagrams, which show the state of a program, and object diagrams, which show the attributes of an object and their values. These diagrams represent a snapshot in the execution of a program, so they change as the program runs.</span></p>
+
+  <p class="calibre15"><span class="calibre4">They are also highly detailed; for some purposes, too detailed. A class diagram is a more abstract representation of the structure of a program. Instead of showing individual objects, it shows classes and the relationships between them.</span></p>
+
+  <p class="calibre15"><span class="calibre4">There are several kinds of relationship between classes:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">Objects in one class might contain references to objects in another class. For example, each Rectangle contains a reference to a Point, and each Deck contains references to many Cards. This kind of relationship is called <b class="calibre19">HAS-A</b>, as in, “a Rectangle has a Point.”</span></li>
+
+    <li class="li-itemize"><span class="calibre4">One class might inherit from another. This relationship is called <b class="calibre19">IS-A</b>, as in, “a Hand is a kind of a Deck.”</span></li>
+
+    <li class="li-itemize"><span class="calibre4">One class might depend on another in the sense that changes in one class would require changes in the other.</span></li>
+  </ul>
+
+  <p class="calibre15"><a class="calibre16" id="@default1646"></a> <a class="calibre16" id="@default1647"></a> <a class="calibre16" id="@default1648"></a> <a class="calibre16" id="@default1649"></a> <a class="calibre16" id="@default1650"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">class diagram</b> is a graphical representation of these relationships</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0186.xhtml#note34" id="text34"><span class="calibre4">2</span></a></sup><span class="calibre4">. For example, this diagram shows the relationships between <tt class="calibre7">Card</tt>, <tt class="calibre7">Deck</tt> and <tt class="calibre7">Hand</tt>.</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book027.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">The arrow with a hollow triangle head represents an IS-A relationship; in this case it indicates that Hand inherits from Deck.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The standard arrow head represents a HAS-A relationship; in this case a Deck has references to Card objects.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1651"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The star (<tt class="calibre7">*</tt>) near the arrow head is a <b class="calibre19">multiplicity</b>; it indicates how many Cards a Deck has. A multiplicity can be a simple number, like <tt class="calibre7">52</tt>, a range, like <tt class="calibre7">5..7</tt> or a star, which indicates that a Deck can have any number of Cards.</span></p>
+
+  <p class="calibre15"><span class="calibre4">A more detailed diagram might show that a Deck actually contains a <em class="calibre9">list</em> of Cards, but built-in types like list and dict are usually not included in class diagrams.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp; <em class="calibre9">Read <tt class="calibre7">TurtleWorld.py</tt>, <tt class="calibre7">World.py</tt> and <tt class="calibre7">Gui.py</tt> and draw a class diagram that shows the relationships among the classes defined there.</em></span>
+  </div>
+</body>
+</html>

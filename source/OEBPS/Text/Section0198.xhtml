@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Debugging</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc216"></a><a class="calibre14" id="htoc239"><span class="calibre18">A.2</span></a><span class="calibre18">&nbsp;&nbsp;Runtime errors</span></h2>
+
+  <p class="calibre15"><span class="calibre4">Once your program is syntactically correct, Python can compile it and at least start running it. What could possibly go wrong?</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc240"><span class="calibre18">A.2.1</span></a><span class="calibre18">&nbsp;&nbsp;My program does absolutely nothing.</span></h3>
+
+  <p class="calibre15"><span class="calibre4">This problem is most common when your file consists of functions and classes but does not actually invoke anything to start execution. This may be intentional if you only plan to import this module to supply classes and functions.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If it is not intentional, make sure that you are invoking a function to start execution, or execute one from the interactive prompt. Also see the “Flow of Execution” section below.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc241"><span class="calibre18">A.2.2</span></a><span class="calibre18">&nbsp;&nbsp;My program hangs.</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="@default1805"></a> <a class="calibre16" id="@default1806"></a> <a class="calibre16" id="@default1807"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If a program stops and seems to be doing nothing, it is “hanging.” Often that means that it is caught in an infinite loop or infinite recursion.</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize">
+      <span class="calibre4">If there is a particular loop that you suspect is the problem, add a <tt class="calibre7">print</tt> statement immediately before the loop that says “entering the loop” and another immediately after that says “exiting the loop.”</span>
+
+      <p class="calibre15"><span class="calibre4">Run the program. If you get the first message and not the second, you’ve got an infinite loop. Go to the “Infinite Loop” section below.</span></p>
+    </li>
+
+    <li class="li-itemize">
+      <span class="calibre4">Most of the time, an infinite recursion will cause the program to run for a while and then produce a “RuntimeError: Maximum recursion depth exceeded” error. If that happens, go to the “Infinite Recursion” section below.</span>
+
+      <p class="calibre15"><span class="calibre4">If you are not getting this error but you suspect there is a problem with a recursive method or function, you can still use the techniques in the “Infinite Recursion” section.</span></p>
+    </li>
+
+    <li class="li-itemize"><span class="calibre4">If neither of those steps works, start testing other loops and other recursive functions and methods.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">If that doesn’t work, then it is possible that you don’t understand the flow of execution in your program. Go to the “Flow of Execution” section below.</span></li>
+  </ul>
+
+  <h4 class="subsubsection sigilNotInTOC"><span class="calibre4">Infinite Loop</span></h4>
+
+  <p class="calibre15"><a class="calibre16" id="@default1808"></a> <a class="calibre16" id="@default1809"></a> <a class="calibre16" id="@default1810"></a> <a class="calibre16" id="@default1811"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you think you have an infinite loop and you think you know what loop is causing the problem, add a <tt class="calibre7">print</tt> statement at the end of the loop that prints the values of the variables in the condition and the value of the condition.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example:</span></p>
+  <pre class="verbatim"><span class="calibre20">while x &gt; 0 and y &lt; 0 :
+    # do something to x
+    # do something to y
+
+    print  "x: ", x
+    print  "y: ", y
+    print  "condition: ", (x &gt; 0 and y &lt; 0)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Now when you run the program, you will see three lines of output for each time through the loop. The last time through the loop, the condition should be <tt class="calibre7">false</tt>. If the loop keeps going, you will be able to see the values of <tt class="calibre7">x</tt> and <tt class="calibre7">y</tt>, and you might figure out why they are not being updated correctly.</span></p>
+
+  <h4 class="subsubsection sigilNotInTOC"><span class="calibre4">Infinite Recursion</span></h4>
+
+  <p class="calibre15"><a class="calibre16" id="@default1812"></a> <a class="calibre16" id="@default1813"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Most of the time, an infinite recursion will cause the program to run for a while and then produce a <tt class="calibre7">Maximum recursion depth exceeded</tt> error.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If you suspect that a function or method is causing an infinite recursion, start by checking to make sure that there is a base case. In other words, there should be some condition that will cause the function or method to return without making a recursive invocation. If not, then you need to rethink the algorithm and identify a base case.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If there is a base case but the program doesn’t seem to be reaching it, add a <tt class="calibre7">print</tt> statement at the beginning of the function or method that prints the parameters. Now when you run the program, you will see a few lines of output every time the function or method is invoked, and you will see the parameters. If the parameters are not moving toward the base case, you will get some ideas about why not.</span></p>
+
+  <h4 class="subsubsection sigilNotInTOC"><span class="calibre4">Flow of Execution</span></h4>
+
+  <p class="calibre15"><a class="calibre16" id="@default1814"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you are not sure how the flow of execution is moving through your program, add <tt class="calibre7">print</tt> statements to the beginning of each function with a message like “entering function <tt class="calibre7">foo</tt>,” where <tt class="calibre7">foo</tt> is the name of the function.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Now when you run the program, it will print a trace of each function as it is invoked.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc242"><span class="calibre18">A.2.3</span></a><span class="calibre18">&nbsp;&nbsp;When I run the program I get an exception.</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="@default1815"></a> <a class="calibre16" id="@default1816"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If something goes wrong during runtime, Python prints a message that includes the name of the exception, the line of the program where the problem occurred, and a traceback.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1817"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The traceback identifies the function that is currently running, and then the function that invoked it, and then the function that invoked <em class="calibre9">that</em>, and so on. In other words, it traces the sequence of function invocations that got you to where you are. It also includes the line number in your file where each of these calls occurs.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The first step is to examine the place in the program where the error occurred and see if you can figure out what happened. These are some of the most common runtime errors:</span></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">NameError:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">You are trying to use a variable that doesn’t exist in the current environment. Remember that local variables are local. You cannot refer to them from outside the function where they are defined.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1818"></a> <a class="calibre16" id="@default1819"></a> <a class="calibre16" id="@default1820"></a> <a class="calibre16" id="@default1821"></a></p>
+    </dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">TypeError:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">There are several possible causes:</span>
+
+      <ul class="itemize">
+        <li class="li-itemize">
+          <span class="calibre4">You are trying to use a value improperly. Example: indexing a string, list, or tuple with something other than an integer.</span>
+
+          <p class="calibre15"><a class="calibre16" id="@default1822"></a></p>
+        </li>
+
+        <li class="li-itemize">
+          <span class="calibre4">There is a mismatch between the items in a format string and the items passed for conversion. This can happen if either the number of items does not match or an invalid conversion is called for.</span>
+
+          <p class="calibre15"><a class="calibre16" id="@default1823"></a> <a class="calibre16" id="@default1824"></a></p>
+        </li>
+
+        <li class="li-itemize"><span class="calibre4">You are passing the wrong number of arguments to a function or method. For methods, look at the method definition and check that the first parameter is <tt class="calibre7">self</tt>. Then look at the method invocation; make sure you are invoking the method on an object with the right type and providing the other arguments correctly.</span></li>
+      </ul>
+    </dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">KeyError:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">You are trying to access an element of a dictionary using a key that the dictionary does not contain.</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1825"></a> <a class="calibre16" id="@default1826"></a> <a class="calibre16" id="@default1827"></a></p>
+    </dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">AttributeError:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">You are trying to access an attribute or method that does not exist. Check the spelling! You can use <tt class="calibre7">dir</tt> to list the attributes that do exist.</span>
+
+      <p class="calibre15"><span class="calibre4">If an AttributeError indicates that an object has <tt class="calibre7">NoneType</tt>, that means that it is <tt class="calibre7">None</tt>. One common cause is forgetting to return a value from a function; if you get to the end of a function without hitting a <tt class="calibre7">return</tt> statement, it returns <tt class="calibre7">None</tt>. Another common cause is using the result from a list method, like <tt class="calibre7">sort</tt>, that returns <tt class="calibre7">None</tt>.</span></p>
+
+      <p class="calibre15"><a class="calibre16" id="@default1828"></a> <a class="calibre16" id="@default1829"></a></p>
+    </dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">IndexError:</span></dt>
+
+    <dd class="dd-description">
+      <span class="calibre4">The index you are using to access a list, string, or tuple is greater than its length minus one. Immediately before the site of the error, add a <tt class="calibre7">print</tt> statement to display the value of the index and the length of the array. Is the array the right size? Is the index the right value?</span>
+
+      <p class="calibre15"><a class="calibre16" id="@default1830"></a> <a class="calibre16" id="@default1831"></a></p>
+    </dd>
+  </dl>
+
+  <p class="calibre15"><a class="calibre16" id="@default1832"></a> <a class="calibre16" id="@default1833"></a> <a class="calibre16" id="@default1834"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The Python debugger (<tt class="calibre7">pdb</tt>) is useful for tracking down Exceptions because it allows you to examine the state of the program immediately before the error. You can read about <tt class="calibre7">pdb</tt> at <tt class="calibre7">docs.python.org/lib/module-pdb.html</tt>.</span></p>
+
+  <h3 class="subsection sigilNotInTOC"><a class="calibre14" id="htoc243"><span class="calibre18">A.2.4</span></a><span class="calibre18">&nbsp;&nbsp;I added so many <tt class="calibre22">print</tt> statements I get inundated with output.</span></h3>
+
+  <p class="calibre15"><a class="calibre16" id="@default1835"></a> <a class="calibre16" id="@default1836"></a></p>
+
+  <p class="calibre15"><span class="calibre4">One of the problems with using <tt class="calibre7">print</tt> statements for debugging is that you can end up buried in output. There are two ways to proceed: simplify the output or simplify the program.</span></p>
+
+  <p class="calibre15"><span class="calibre4">To simplify the output, you can remove or comment out <tt class="calibre7">print</tt> statements that aren’t helping, or combine them, or format the output so it is easier to understand.</span></p>
+
+  <p class="calibre15"><span class="calibre4">To simplify the program, there are several things you can do. First, scale down the problem the program is working on. For example, if you are searching a list, search a <em class="calibre9">small</em> list. If the program takes input from the user, give it the simplest input that causes the problem.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1837"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Second, clean up the program. Remove dead code and reorganize the program to make it as easy to read as possible. For example, if you suspect that the problem is in a deeply nested part of the program, try rewriting that part with simpler structure. If you suspect a large function, try splitting it into smaller functions and testing them separately.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1838"></a> <a class="calibre16" id="@default1839"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Often the process of finding the minimal test case leads you to the bug. If you find that a program works in one situation but not in another, that gives you a clue about what is going on.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Similarly, rewriting a piece of code can help you find subtle bugs. If you make a change that you think shouldn’t affect the program, and it does, that can tip you off.</span></p>
+</body>
+</html>

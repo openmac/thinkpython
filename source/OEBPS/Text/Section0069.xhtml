@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_13"><a class="calibre14" id="toc75"></a><a class="calibre14" id="htoc83"><span class="calibre18">6.11</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default509"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Draw a stack diagram for the following program. What does the program print?</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">def b(z):
+    prod = a(z, z)
+    print z, prod
+    return prod
+
+def a(x, y):
+    x = x + 1
+    return x * y
+
+def c(x, y, z):
+    sum = x + y + z
+    pow = b(sum)**2
+    return pow
+
+x = 1
+y = x + 1
+print c(x, y+3, x+y)
+</em></span></pre>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default510"></a> <a class="calibre16" id="@default511"></a>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">The Ackermann function, <i class="calibre9">A</i>(<i class="calibre9">m</i>, <i class="calibre9">n</i>), is defined</span><sup class="calibre10"><a class="calibre3" href="#note13" id="text13"><span class="calibre4">3</span></a></sup><span class="calibre4">:</span></em></p>
+
+    <table class="display">
+      <tbody class="calibre23">
+        <tr class="calibre24" valign="middle">
+          <td class="dcell"><span class="calibre4"><em class="calibre9">&nbsp;&nbsp;<img alt="" src="../Images/ackermann.gif" /></em></span><em class="calibre9">&nbsp;</em></td>
+
+          <td class="dcell">
+            <table cellpadding="0" cellspacing="6" class="calibre30">
+              <tbody class="calibre23">
+                <tr class="calibre24">
+                  <td class="calibre28" nowrap="nowrap"><br /></td>
+
+                  <td class="calibre27" nowrap="nowrap"><br /></td>
+
+                  <td class="calibre29" nowrap="nowrap"><br /></td>
+
+                  <td class="calibre28" nowrap="nowrap"><br /></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function named <tt class="calibre7">ack</tt> that evaluates Ackerman’s function. Use your function to evaluate <tt class="calibre7">ack(3, 4)</tt>, which should be 125. What happens for larger values of <tt class="calibre7">m</tt> and <tt class="calibre7">n</tt>?</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp;</span> <a class="calibre16" id="palindrome"></a>
+
+    <p class="calibre15"><a class="calibre16" id="@default512"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">A palindrome is a word that is spelled the same backward and forward, like “noon” and “redivider”. Recursively, a word is a palindrome if the first and last letters are the same and the middle is a palindrome.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The following are functions that take a string argument and return the first, last, and middle letters:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">def first(word):
+    return word[0]
+
+def last(word):
+    return word[-1]
+
+def middle(word):
+    return word[1:-1]
+</em></span></pre>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">We’ll see how they work in Chapter&nbsp;</span><a class="calibre3" href="../Text/book009.html#strings"><span class="calibre4">8</span></a><span class="calibre4">.</span></em></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Type these functions into a file named <tt class="calibre7">palindrome.py</tt> and test them out. What happens if you call <tt class="calibre7">middle</tt> with a string with two letters? One letter? What about the empty string, which is written <code class="calibre7">''</code> and contains no letters?</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">is_palindrome</code> that takes a string argument and returns <tt class="calibre7">True</tt> if it is a palindrome and <tt class="calibre7">False</tt> otherwise. Remember that you can use the built-in function <tt class="calibre7">len</tt> to check the length of a string.</em></span></li>
+    </ol>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;7</b>&nbsp;&nbsp; <em class="calibre9">A number, <i class="calibre9">a</i>, is a power of <i class="calibre9">b</i> if it is divisible by <i class="calibre9">b</i> and <i class="calibre9">a</i>/<i class="calibre9">b</i> is a power of <i class="calibre9">b</i>. Write a function called <code class="calibre7">is_power</code> that takes parameters <tt class="calibre7">a</tt> and <tt class="calibre7">b</tt> and returns <tt class="calibre7">True</tt> if <tt class="calibre7">a</tt> is a power of <tt class="calibre7">b</tt>. Note: you will have to think about the base case.</em></span>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;8</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default513"></a> <a class="calibre16" id="@default514"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">The greatest common divisor (GCD) of <i class="calibre9">a</i> and <i class="calibre9">b</i> is the largest number that divides both of them with no remainder</span><sup class="calibre10"><a class="calibre3" href="#note14" id="text14"><span class="calibre4">4</span></a></sup><span class="calibre4">.</span></em></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">One way to find the GCD of two numbers is Euclid’s algorithm, which is based on the observation that if <i class="calibre9">r</i> is the remainder when <i class="calibre9">a</i> is divided by <i class="calibre9">b</i>, then <i class="calibre9">gcd</i>(<i class="calibre9">a</i>, <i class="calibre9">b</i>) = <i class="calibre9">gcd</i>(<i class="calibre9">b</i>, <i class="calibre9">r</i>). As a base case, we can consider <i class="calibre9">gcd</i>(<i class="calibre9">a</i>, 0) = <i class="calibre9">a</i>.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default515"></a> <a class="calibre16" id="@default516"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">gcd</code> that takes parameters <tt class="calibre7">a</tt> and <tt class="calibre7">b</tt> and returns their greatest common divisor. If you need help, see <tt class="calibre7">wikipedia.org/wiki/Euclidean_algorithm</tt>.</em></span></p>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text11" id="note11"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Fibonacci_number</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text12" id="note12"><span class="calibre4">2</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Gamma_function</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text13" id="note13"><span class="calibre4">3</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Ackermann_function</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text14" id="note14"><span class="calibre4">4</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">This exercise is based on an example from Abelson and Sussman’s <em class="calibre9">Structure and Interpretation of Computer Programs</em>.</span></dd>
+  </dl>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc69"></a><a class="calibre14" id="htoc77"><span class="calibre18">6.5</span></a><span class="calibre18">&nbsp;&nbsp;More recursion</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default466"></a> <a class="calibre16" id="@default467"></a> <a class="calibre16" id="@default468"></a> <a class="calibre16" id="@default469"></a> <a class="calibre16" id="@default470"></a></p>
+
+  <p class="calibre15"><span class="calibre4">We have only covered a small subset of Python, but you might be interested to know that this subset is a <em class="calibre9">complete</em> programming language, which means that anything that can be computed can be expressed in this language. Any program ever written could be rewritten using only the language features you have learned so far (actually, you would need a few commands to control devices like the keyboard, mouse, disks, etc., but that’s all).</span></p>
+
+  <p class="calibre15"><span class="calibre4">Proving that claim is a nontrivial exercise first accomplished by Alan Turing, one of the first computer scientists (some would argue that he was a mathematician, but a lot of early computer scientists started as mathematicians). Accordingly, it is known as the Turing Thesis. For a more complete (and accurate) discussion of the Turing Thesis, I recommend Michael Sipser’s book <em class="calibre9">Introduction to the Theory of Computation</em>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">To give you an idea of what you can do with the tools you have learned so far, we’ll evaluate a few recursively defined mathematical functions. A recursive definition is similar to a circular definition, in the sense that the definition contains a reference to the thing being defined. A truly circular definition is not very useful:</span></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">frabjous:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">An adjective used to describe something that is frabjous.</span></dd>
+  </dl>
+
+  <p class="calibre15"><a class="calibre16" id="@default471"></a> <a class="calibre16" id="@default472"></a> <a class="calibre16" id="@default473"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you saw that definition in the dictionary, you might be annoyed. On the other hand, if you looked up the definition of the factorial function, denoted with the symbol !, you might get something like this:</span></p>
+
+  <table class="display">
+    <tbody class="calibre23">
+      <tr class="calibre24" valign="middle">
+        <td class="dcell">
+          <table cellpadding="0" cellspacing="6" class="calibre26">
+            <tbody class="calibre23">
+              <tr class="calibre24">
+                <td class="calibre28" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre27" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre29" nowrap="nowrap"><span class="calibre4">0!&nbsp;=&nbsp;1&nbsp;</span></td>
+              </tr>
+
+              <tr class="calibre24">
+                <td class="calibre28" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre27" nowrap="nowrap">&nbsp;</td>
+
+                <td class="calibre29" nowrap="nowrap"><span class="calibre4"><i class="calibre9">n</i>!&nbsp;=&nbsp;<i class="calibre9">n</i>&nbsp;(<i class="calibre9">n</i>−1)!</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="calibre15"><span class="calibre4">This definition says that the factorial of 0 is 1, and the factorial of any other value, <i class="calibre9">n</i>, is <i class="calibre9">n</i> multiplied by the factorial of <i class="calibre9">n</i>−1.</span></p>
+
+  <p class="calibre15"><span class="calibre4">So 3! is 3 times 2!, which is 2 times 1!, which is 1 times 0!. Putting it all together, 3! equals 3 times 2 times 1 times 1, which is 6.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default474"></a> <a class="calibre16" id="@default475"></a> <a class="calibre16" id="@default476"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you can write a recursive definition of something, you can usually write a Python program to evaluate it. The first step is to decide what the parameters should be. In this case it should be clear that <tt class="calibre7">factorial</tt> takes an integer:</span></p>
+  <pre class="verbatim"><span class="calibre20">def factorial(n):
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If the argument happens to be 0, all we have to do is return 1:</span></p>
+  <pre class="verbatim"><span class="calibre20">def factorial(n):
+    if n == 0:
+        return 1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Otherwise, and this is the interesting part, we have to make a recursive call to find the factorial of <i class="calibre9">n</i>−1 and then multiply it by <i class="calibre9">n</i>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        recurse = factorial(n-1)
+        result = n * recurse
+        return result
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The flow of execution for this program is similar to the flow of <tt class="calibre7">countdown</tt> in Section&nbsp;</span><a class="calibre3" href="../Text/Section0053.xhtml#recursion"><span class="calibre4">5.8</span></a><span class="calibre4">. If we call <tt class="calibre7">factorial</tt> with the value 3:</span></p>
+
+  <p class="calibre15"><span class="calibre4">Since 3 is not 0, we take the second branch and calculate the factorial of <tt class="calibre7">n-1</tt>...</span></p>
+
+  <blockquote class="quote">
+    <span class="calibre4">Since 2 is not 0, we take the second branch and calculate the factorial of <tt class="calibre7">n-1</tt>...</span>
+
+    <blockquote class="quote">
+      <span class="calibre4">Since 1 is not 0, we take the second branch and calculate the factorial of <tt class="calibre7">n-1</tt>...</span>
+
+      <blockquote class="quote">
+        <span class="calibre4">Since 0 <em class="calibre9">is</em> 0, we take the first branch and return 1 without making any more recursive calls.</span>
+      </blockquote>
+
+      <p class="calibre15"><span class="calibre4">The return value (1) is multiplied by <i class="calibre9">n</i>, which is 1, and the result is returned.</span></p>
+    </blockquote>
+
+    <p class="calibre15"><span class="calibre4">The return value (1) is multiplied by <i class="calibre9">n</i>, which is 2, and the result is returned.</span></p>
+  </blockquote>
+
+  <p class="calibre15"><span class="calibre4">The return value (2) is multiplied by <i class="calibre9">n</i>, which is 3, and the result, 6, becomes the return value of the function call that started the whole process.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default477"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here is what the stack diagram looks like for this sequence of function calls:</span></p>
+
+  <p class="calibre15"><br class="calibre17" /></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book009.gif" /></span>
+  </div>
+
+  <p class="calibre15"><br class="calibre17" /></p>
+
+  <p class="calibre15"><span class="calibre4">The return values are shown being passed back up the stack. In each frame, the return value is the value of <tt class="calibre7">result</tt>, which is the product of <tt class="calibre7">n</tt> and <tt class="calibre7">recurse</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default478"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In the last frame, the local variables <tt class="calibre7">recurse</tt> and <tt class="calibre7">result</tt> do not exist, because the branch that creates them does not execute.</span></p>
+</body>
+</html>

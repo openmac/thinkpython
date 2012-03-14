@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem">
+    <p class="calibre15"><a class="calibre16" id="@default124"></a></p>
+  </div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc14"></a><a class="calibre14" id="htoc18"><span class="calibre18">2.3</span></a><span class="calibre18">&nbsp;&nbsp;Variable names and keywords</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default125"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Programmers generally choose names for their variables that are meaningful&mdash;they document what the variable is used for.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Variable names can be arbitrarily long. They can contain both letters and numbers, but they have to begin with a letter. It is legal to use uppercase letters, but it is a good idea to begin variable names with a lowercase letter (you’ll see why later).</span></p>
+
+  <p class="calibre15"><span class="calibre4">The underscore character (<code class="calibre7">_</code>) can appear in a name. It is often used in names with multiple words, such as <code class="calibre7">my_name</code> or <code class="calibre7">airspeed_of_unladen_swallow</code>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default126"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you give a variable an illegal name, you get a syntax error:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; 76trombones = 'big parade'
+SyntaxError: invalid syntax
+&gt;&gt;&gt; more@ = 1000000
+SyntaxError: invalid syntax
+&gt;&gt;&gt; class = 'Advanced Theoretical Zymurgy'
+SyntaxError: invalid syntax
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">76trombones</tt> is illegal because it does not begin with a letter. <tt class="calibre7">more@</tt> is illegal because it contains an illegal character, <tt class="calibre7">@</tt>. But what’s wrong with <tt class="calibre7">class</tt>?</span></p>
+
+  <p class="calibre15"><span class="calibre4">It turns out that <tt class="calibre7">class</tt> is one of Python’s <b class="calibre19">keywords</b>. The interpreter uses keywords to recognize the structure of the program, and they cannot be used as variable names.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default127"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Python has 31 keywords</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0021.xhtml#note4" id="text4"><span class="calibre4">1</span></a></sup><span class="calibre4">:</span></p>
+  <pre class="verbatim"><span class="calibre20">and       del       from      not       while    
+as        elif      global    or        with     
+assert    else      if        pass      yield    
+break     except    import    print              
+class     exec      in        raise              
+continue  finally   is        return             
+def       for       lambda    try
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You might want to keep this list handy. If the interpreter complains about one of your variable names and you don’t know why, see if it is on this list.</span></p>
+</body>
+</html>

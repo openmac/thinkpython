@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc113"></a><a class="calibre14" id="htoc125"><span class="calibre18">10.9</span></a><span class="calibre18">&nbsp;&nbsp;Lists and strings</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default812"></a> <a class="calibre16" id="@default813"></a> <a class="calibre16" id="@default814"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A string is a sequence of characters and a list is a sequence of values, but a list of characters is not the same as a string. To convert from a string to a list of characters, you can use <tt class="calibre7">list</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default815"></a> <a class="calibre16" id="@default816"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; s = 'spam'
+&gt;&gt;&gt; t = list(s)
+&gt;&gt;&gt; print t
+['s', 'p', 'a', 'm']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Because <tt class="calibre7">list</tt> is the name of a built-in function, you should avoid using it as a variable name. I also avoid <tt class="calibre7">l</tt> because it looks too much like <tt class="calibre7">1</tt>. So that’s why I use <tt class="calibre7">t</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">list</tt> function breaks a string into individual letters. If you want to break a string into words, you can use the <tt class="calibre7">split</tt> method:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default817"></a> <a class="calibre16" id="@default818"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; s = 'pining for the fjords'
+&gt;&gt;&gt; t = s.split()
+&gt;&gt;&gt; print t
+['pining', 'for', 'the', 'fjords']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">An optional argument called a <b class="calibre19">delimiter</b> specifies which characters to use as word boundaries. The following example uses a hyphen as a delimiter:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default819"></a> <a class="calibre16" id="@default820"></a> <a class="calibre16" id="@default821"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; s = 'spam-spam-spam'
+&gt;&gt;&gt; delimiter = '-'
+&gt;&gt;&gt; s.split(delimiter)
+['spam', 'spam', 'spam']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">join</tt> is the inverse of <tt class="calibre7">split</tt>. It takes a list of strings and concatenates the elements. <tt class="calibre7">join</tt> is a string method, so you have to invoke it on the delimiter and pass the list as a parameter:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default822"></a> <a class="calibre16" id="@default823"></a> <a class="calibre16" id="@default824"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ['pining', 'for', 'the', 'fjords']
+&gt;&gt;&gt; delimiter = ' '
+&gt;&gt;&gt; delimiter.join(t)
+'pining for the fjords'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In this case the delimiter is a space character, so <tt class="calibre7">join</tt> puts a space between words. To concatenate strings without spaces, you can use the empty string, <code class="calibre7">''</code>, as a delimiter.</span></p>
+</body>
+</html>

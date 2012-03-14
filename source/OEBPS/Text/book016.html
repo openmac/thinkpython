@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc181">Chapter&nbsp;15</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc181"></a>Classes and objects</h1>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc165"></a><a class="calibre14" id="htoc182"><span class="calibre18">15.1</span></a><span class="calibre18">&nbsp;&nbsp;User-defined types</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="point"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1358"></a> <a class="calibre16" id="@default1359"></a></p>
+
+  <p class="calibre15"><span class="calibre4">We have used many of Python’s built-in types; now we are going to define a new type. As an example, we will create a type called <tt class="calibre7">Point</tt> that represents a point in two-dimensional space.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1360"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In mathematical notation, points are often written in parentheses with a comma separating the coordinates. For example, (0, 0) represents the origin, and (<i class="calibre9">x</i>, <i class="calibre9">y</i>) represents the point <i class="calibre9">x</i> units to the right and <i class="calibre9">y</i> units up from the origin.</span></p>
+
+  <p class="calibre15"><span class="calibre4">There are several ways we might represent points in Python:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">We could store the coordinates separately in two variables, <tt class="calibre7">x</tt> and <tt class="calibre7">y</tt>.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">We could store the coordinates as elements in a list or tuple.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">We could create a new type to represent points as objects.</span></li>
+  </ul>
+
+  <p class="calibre15"><a class="calibre16" id="@default1361"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Creating a new type is (a little) more complicated than the other options, but it has advantages that will be apparent soon.</span></p>
+
+  <p class="calibre15"><span class="calibre4">A user-defined type is also called a <b class="calibre19">class</b>. A class definition looks like this:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1362"></a> <a class="calibre16" id="@default1363"></a> <a class="calibre16" id="@default1364"></a> <a class="calibre16" id="@default1365"></a></p>
+  <pre class="verbatim"><span class="calibre20">class Point(object):
+    """represents a point in 2-D space"""
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This header indicates that the new class is a <tt class="calibre7">Point</tt>, which is a kind of <tt class="calibre7">object</tt>, which is a built-in type.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1366"></a> <a class="calibre16" id="@default1367"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The body is a docstring that explains what the class is for. You can define variables and functions inside a class definition, but we will get back to that later.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1368"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Defining a class named <tt class="calibre7">Point</tt> creates a class object.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print Point
+&lt;class '__main__.Point'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Because <tt class="calibre7">Point</tt> is defined at the top level, its “full name” is <code class="calibre7">__main__.Point</code>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1369"></a> <a class="calibre16" id="@default1370"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The class object is like a factory for creating objects. To create a Point, you call <tt class="calibre7">Point</tt> as if it were a function.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; blank = Point()
+&gt;&gt;&gt; print blank
+&lt;__main__.Point instance at 0xb7e9d3ac&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The return value is a reference to a Point object, which we assign to <tt class="calibre7">blank</tt>. Creating a new object is called <b class="calibre19">instantiation</b>, and the object is an <b class="calibre19">instance</b> of the class.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1371"></a> <a class="calibre16" id="@default1372"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you print an instance, Python tells you what class it belongs to and where it is stored in memory (the prefix <tt class="calibre7">0x</tt> means that the following number is in hexadecimal).</span></p>
+</body>
+</html>

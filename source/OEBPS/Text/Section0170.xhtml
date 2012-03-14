@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc186"></a><a class="calibre14" id="htoc205"><span class="calibre18">17.6</span></a><span class="calibre18">&nbsp;&nbsp;The <tt class="calibre22">__str__</tt> method</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1518"></a> <a class="calibre16" id="@default1519"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">__str__</code> is a special method, like <code class="calibre7">__init__</code>, that is supposed to return a string representation of an object.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1520"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For example, here is a <tt class="calibre7">str</tt> method for Time objects:</span></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Time:
+
+    def __str__(self):
+        return '%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you <tt class="calibre7">print</tt> an object, Python invokes the <tt class="calibre7">str</tt> method:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1521"></a> <a class="calibre16" id="@default1522"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; time = Time(9, 45)
+&gt;&gt;&gt; print time
+09:45:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When I write a new class, I almost always start by writing <code class="calibre7">__init__</code>, which makes it easier to instantiate objects, and <code class="calibre7">__str__</code>, which is useful for debugging.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Write a <tt class="calibre7">str</tt> method for the <tt class="calibre7">Point</tt> class. Create a Point object and print it.</em></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_14"><a class="calibre14" id="toc116"></a><a class="calibre14" id="htoc128"><span class="calibre18">10.12</span></a><span class="calibre18">&nbsp;&nbsp;List arguments</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default845"></a> <a class="calibre16" id="@default846"></a> <a class="calibre16" id="@default847"></a> <a class="calibre16" id="@default848"></a> <a class="calibre16" id="@default849"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you pass a list to a function, the function gets a reference to the list. If the function modifies a list parameter, the caller sees the change. For example, <code class="calibre7">delete_head</code> removes the first element from a list:</span></p>
+  <pre class="verbatim"><span class="calibre20">def delete_head(t):
+    del t[0]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here’s how it is used:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; letters = ['a', 'b', 'c']
+&gt;&gt;&gt; delete_head(letters)
+&gt;&gt;&gt; print letters
+['b', 'c']
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The parameter <tt class="calibre7">t</tt> and the variable <tt class="calibre7">letters</tt> are aliases for the same object. The stack diagram looks like this:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default850"></a> <a class="calibre16" id="@default851"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book017.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">Since the list is shared by two frames, I drew it between them.</span></p>
+
+  <p class="calibre15"><span class="calibre4">It is important to distinguish between operations that modify lists and operations that create new lists. For example, the <tt class="calibre7">append</tt> method modifies a list, but the <tt class="calibre7">+</tt> operator creates a new list:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default852"></a> <a class="calibre16" id="@default853"></a> <a class="calibre16" id="@default854"></a> <a class="calibre16" id="@default855"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t1 = [1, 2]
+&gt;&gt;&gt; t2 = t1.append(3)
+&gt;&gt;&gt; print t1
+[1, 2, 3]
+&gt;&gt;&gt; print t2
+None
+
+&gt;&gt;&gt; t3 = t1 + [4]
+&gt;&gt;&gt; print t3
+[1, 2, 3, 4]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This difference is important when you write functions that are supposed to modify lists. For example, this function <em class="calibre9">does not</em> delete the head of a list:</span></p>
+  <pre class="verbatim"><span class="calibre20">def bad_delete_head(t):
+    t = t[1:]              # WRONG!
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The slice operator creates a new list and the assignment makes <tt class="calibre7">t</tt> refer to it, but none of that has any effect on the list that was passed as an argument.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default856"></a> <a class="calibre16" id="@default857"></a></p>
+
+  <p class="calibre15"><span class="calibre4">An alternative is to write a function that creates and returns a new list. For example, <tt class="calibre7">tail</tt> returns all but the first element of a list:</span></p>
+  <pre class="verbatim"><span class="calibre20">def tail(t):
+    return t[1:]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This function leaves the original list unmodified. Here’s how it is used:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; letters = ['a', 'b', 'c']
+&gt;&gt;&gt; rest = tail(letters)
+&gt;&gt;&gt; print rest
+['b', 'c']
+</span></pre>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function called <tt class="calibre7">chop</tt> that takes a list and modifies it, removing the first and last elements, and returns <tt class="calibre7">None</tt>.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Then write a function called <tt class="calibre7">middle</tt> that takes a list and returns a new list that contains all but the first and last elements.</em></span></p>
+  </div>
+</body>
+</html>

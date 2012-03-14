@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_14"><a class="calibre14" id="toc192"></a><a class="calibre14" id="htoc211"><span class="calibre18">17.12</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1555"></a> <a class="calibre16" id="@default1556"></a> <a class="calibre16" id="@default1557"></a> <a class="calibre16" id="@default1558"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">This exercise is a cautionary tale about one of the most common, and difficult to find, errors in Python.</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <p class="calibre15"><a class="calibre16" id="@default1559"></a> <a class="calibre16" id="@default1560"></a></p><span class="calibre4"><em class="calibre9">Write a definition for a class named <tt class="calibre7">Kangaroo</tt> with the following methods:</em></span>
+
+        <ol class="enumerate1" type="a">
+          <li class="li-itemize"><span class="calibre4"><em class="calibre9">An <code class="calibre7">__init__</code> method that initializes an attribute named <code class="calibre7">pouch_contents</code> to an empty list.</em></span></li>
+
+          <li class="li-itemize"><span class="calibre4"><em class="calibre9">A method named <code class="calibre7">put_in_pouch</code> that takes an object of any type and adds it to <code class="calibre7">pouch_contents</code>.</em></span></li>
+
+          <li class="li-itemize"><span class="calibre4"><em class="calibre9">A <code class="calibre7">__str__</code> method that returns a string representation of the Kangaroo object and the contents of the pouch.</em></span></li>
+        </ol>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">Test your code by creating two <tt class="calibre7">Kangaroo</tt> objects, assigning them to variables named <tt class="calibre7">kanga</tt> and <tt class="calibre7">roo</tt>, and then adding <tt class="calibre7">roo</tt> to the contents of <tt class="calibre7">kanga</tt>’s pouch.</em></span></p>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Download <tt class="calibre7">thinkpython.com/code/BadKangaroo.py</tt>. It contains a solution to the previous problem with one big, nasty bug. Find and fix the bug.</em></span>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">If you get stuck, you can download <tt class="calibre7">thinkpython.com/code/GoodKangaroo.py</tt>, which explains the problem and demonstrates a solution.</em></span></p>
+
+        <p class="calibre15"><a class="calibre16" id="@default1561"></a> <a class="calibre16" id="@default1562"></a> <a class="calibre16" id="@default1563"></a></p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;7</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1564"></a> <a class="calibre16" id="@default1565"></a> <a class="calibre16" id="@default1566"></a> <a class="calibre16" id="@default1567"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Visual is a Python module that provides 3-D graphics. It is not always included in a Python installation, so you might have to install it from your software repository or, if it’s not there, from <tt class="calibre7">vpython.org</tt>.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The following example creates a 3-D space that is 256 units wide, long and high, and sets the “center” to be the point (128, 128, 128). Then it draws a blue sphere.</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">from visual import *
+
+scene.range = (256, 256, 256)
+scene.center = (128, 128, 128)
+
+color = (0.1, 0.1, 0.9)          # mostly blue
+sphere(pos=scene.center, radius=128, color=color)
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9"><tt class="calibre7">color</tt> is an RGB tuple; that is, the elements are Red-Green-Blue levels between 0.0 and 1.0 (see <tt class="calibre7">wikipedia.org/wiki/RGB_color_model</tt>).</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">If you run this code, you should see a window with a black background and a blue sphere. If you drag the middle button up and down, you can zoom in and out. You can also rotate the scene by dragging the right button, but with only one sphere in the world, it is hard to tell the difference.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The following loop creates a cube of spheres:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">t = range(0, 256, 51)
+for x in t:
+    for y in t:
+        for z in t:
+            pos = x, y, z
+            sphere(pos=pos, radius=10, color=color)
+</em></span></pre>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Put this code in a script and make sure it works for you.</em></span></li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Modify the program so that each sphere in the cube has the color that corresponds to its position in RGB space. Notice that the coordinates are in the range 0&ndash;255, but the RGB tuples are in the range 0.0&ndash;1.0.</em></span>
+
+        <p class="calibre15"><a class="calibre16" id="@default1568"></a> <a class="calibre16" id="@default1569"></a></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Download <tt class="calibre7">thinkpython.com/code/color_list.py</tt> and use the function <code class="calibre7">read_colors</code> to generate a list of the available colors on your system, their names and RGB values. For each named color draw a sphere in the position that corresponds to its RGB values.</em></span></li>
+    </ol>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can see my solution at <tt class="calibre7">thinkpython.com/code/color_space.py</tt>.</em></span></p>
+  </div>
+</body>
+</html>

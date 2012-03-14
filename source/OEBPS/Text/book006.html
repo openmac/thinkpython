@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc57">Chapter&nbsp;5</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc57"></a>Conditionals and recursion</h1>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc51"></a><a class="calibre14" id="htoc58"><span class="calibre18">5.1</span></a><span class="calibre18">&nbsp;&nbsp;Modulus operator</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default343"></a> <a class="calibre16" id="@default344"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <b class="calibre19">modulus operator</b> works on integers and yields the remainder when the first operand is divided by the second. In Python, the modulus operator is a percent sign (<code class="calibre7">%</code>). The syntax is the same as for other operators:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; quotient = 7 / 3
+&gt;&gt;&gt; print quotient
+2
+&gt;&gt;&gt; remainder = 7 % 3
+&gt;&gt;&gt; print remainder
+1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">So 7 divided by 3 is 2 with 1 left over.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The modulus operator turns out to be surprisingly useful. For example, you can check whether one number is divisible by another&mdash;if <tt class="calibre7">x % y</tt> is zero, then <tt class="calibre7">x</tt> is divisible by <tt class="calibre7">y</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default345"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Also, you can extract the right-most digit or digits from a number. For example, <tt class="calibre7">x % 10</tt> yields the right-most digit of <tt class="calibre7">x</tt> (in base 10). Similarly <tt class="calibre7">x % 100</tt> yields the last two digits.</span></p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc88"></a><a class="calibre14" id="htoc98"><span class="calibre18">8.4</span></a><span class="calibre18">&nbsp;&nbsp;String slices</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="slice"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default594"></a> <a class="calibre16" id="@default595"></a> <a class="calibre16" id="@default596"></a> <a class="calibre16" id="@default597"></a> <a class="calibre16" id="@default598"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A segment of a string is called a <b class="calibre19">slice</b>. Selecting a slice is similar to selecting a character:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; s = 'Monty Python'
+&gt;&gt;&gt; print s[0:5]
+Monty
+&gt;&gt;&gt; print s[6:12]
+Python
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The operator <tt class="calibre7">[n:m]</tt> returns the part of the string from the “n-eth” character to the “m-eth” character, including the first but excluding the last. This behavior is counterintuitive, but it might help to imagine the indices pointing <em class="calibre9">between</em> the characters, as in the following diagram:</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book011.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">If you omit the first index (before the colon), the slice starts at the beginning of the string. If you omit the second index, the slice goes to the end of the string:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fruit = 'banana'
+&gt;&gt;&gt; fruit[:3]
+'ban'
+&gt;&gt;&gt; fruit[3:]
+'ana'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If the first index is greater than or equal to the second the result is an <b class="calibre19">empty string</b>, represented by two quotation marks:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default599"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fruit = 'banana'
+&gt;&gt;&gt; fruit[3:3]
+''
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">An empty string contains no characters and has length 0, but other than that, it is the same as any other string.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Given that <tt class="calibre7">fruit</tt> is a string, what does <tt class="calibre7">fruit[:]</tt> mean?</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default600"></a> <a class="calibre16" id="@default601"></a></p>
+  </div>
+</body>
+</html>

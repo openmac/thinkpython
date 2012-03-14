@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc150"></a><a class="calibre14" id="htoc165"><span class="calibre18">13.10</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1221"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you are debugging a program, and especially if you are working on a hard bug, there are four things to try:</span></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">reading:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">Examine your code, read it back to yourself, and check that it says what you meant to say.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">running:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">Experiment by making changes and running different versions. Often if you display the right thing at the right place in the program, the problem becomes obvious, but sometimes you have to spend some time to build scaffolding.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">ruminating:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">Take some time to think! What kind of error is it: syntax, runtime, semantic? What information can you get from the error messages, or from the output of the program? What kind of error could cause the problem you’re seeing? What did you change last, before the problem appeared?</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">retreating:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">At some point, the best thing to do is back off, undoing recent changes, until you get back to a program that works and that you understand. Then you can start rebuilding.</span></dd>
+  </dl>
+
+  <p class="calibre15"><span class="calibre4">Beginning programmers sometimes get stuck on one of these activities and forget the others. Each activity comes with its own failure mode.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1222"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For example, reading your code might help if the problem is a typographical error, but not if the problem is a conceptual misunderstanding. If you don’t understand what your program does, you can read it 100 times and never see the error, because the error is in your head.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1223"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Running experiments can help, especially if you run small, simple tests. But if you run experiments without thinking or reading your code, you might fall into a pattern I call “random walk programming,” which is the process of making random changes until the program does the right thing. Needless to say, random walk programming can take a long time.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1224"></a> <a class="calibre16" id="@default1225"></a></p>
+
+  <p class="calibre15"><span class="calibre4">You have to take time to think. Debugging is like an experimental science. You should have at least one hypothesis about what the problem is. If there are two or more possibilities, try to think of a test that would eliminate one of them.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Taking a break helps with the thinking. So does talking. If you explain the problem to someone else (or even yourself), you will sometimes find the answer before you finish asking the question.</span></p>
+
+  <p class="calibre15"><span class="calibre4">But even the best debugging techniques will fail if there are too many errors, or if the code you are trying to fix is too big and complicated. Sometimes the best option is to retreat, simplifying the program until you get to something that works and that you understand.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Beginning programmers are often reluctant to retreat because they can’t stand to delete a line of code (even if it’s wrong). If it makes you feel better, copy your program into another file before you start stripping it down. Then you can paste the pieces back in a little bit at a time.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Finding a hard bug requires reading, running, ruminating, and sometimes retreating. If you get stuck on one of these activities, try the others.</span></p>
+</body>
+</html>

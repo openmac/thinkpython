@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc31"></a><a class="calibre14" id="htoc36"><span class="calibre18">3.8</span></a><span class="calibre18">&nbsp;&nbsp;Parameters and arguments</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="parameters"></a> <a class="calibre16" id="@default231"></a> <a class="calibre16" id="@default232"></a> <a class="calibre16" id="@default233"></a> <a class="calibre16" id="@default234"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Some of the built-in functions we have seen require arguments. For example, when you call <tt class="calibre7">math.sin</tt> you pass a number as an argument. Some functions take more than one argument: <tt class="calibre7">math.pow</tt> takes two, the base and the exponent.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Inside the function, the arguments are assigned to variables called <b class="calibre19">parameters</b>. Here is an example of a user-defined function that takes an argument:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default235"></a></p>
+  <pre class="verbatim"><span class="calibre20">def print_twice(bruce):
+    print bruce
+    print bruce
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This function assigns the argument to a parameter named <tt class="calibre7">bruce</tt>. When the function is called, it prints the value of the parameter (whatever it is) twice.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This function works with any value that can be printed.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print_twice('Spam')
+Spam
+Spam
+&gt;&gt;&gt; print_twice(17)
+17
+17
+&gt;&gt;&gt; print_twice(math.pi)
+3.14159265359
+3.14159265359
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The same rules of composition that apply to built-in functions also apply to user-defined functions, so we can use any kind of expression as an argument for <code class="calibre7">print_twice</code>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default236"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print_twice('Spam '*4)
+Spam Spam Spam Spam
+Spam Spam Spam Spam
+&gt;&gt;&gt; print_twice(math.cos(math.pi))
+-1.0
+-1.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The argument is evaluated before the function is called, so in the examples the expressions <code class="calibre7">'Spam '*4</code> and <tt class="calibre7">math.cos(math.pi)</tt> are only evaluated once.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default237"></a></p>
+
+  <p class="calibre15"><span class="calibre4">You can also use a variable as an argument:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; michael = 'Eric, the half a bee.'
+&gt;&gt;&gt; print_twice(michael)
+Eric, the half a bee.
+Eric, the half a bee.
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The name of the variable we pass as an argument (<tt class="calibre7">michael</tt>) has nothing to do with the name of the parameter (<tt class="calibre7">bruce</tt>). It doesn’t matter what the value was called back home (in the caller); here in <code class="calibre7">print_twice</code>, we call everybody <tt class="calibre7">bruce</tt>.</span></p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc40"></a><a class="calibre14" id="htoc46"><span class="calibre18">4.2</span></a><span class="calibre18">&nbsp;&nbsp;Simple repetition</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="repetition"></a> <a class="calibre16" id="@default295"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Chances are you wrote something like this (leaving out the code that creates TurtleWorld and waits for the user):</span></p>
+  <pre class="verbatim"><span class="calibre4">fd(bob, 100)
+lt(bob)
+
+fd(bob, 100)
+lt(bob)
+
+fd(bob, 100)
+lt(bob)
+
+fd(bob, 100)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">We can do the same thing more concisely with a <tt class="calibre7">for</tt> statement. Add this example to <tt class="calibre7">polygon.py</tt> and run it again:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default296"></a> <a class="calibre16" id="@default297"></a> <a class="calibre16" id="@default298"></a></p>
+  <pre class="verbatim"><span class="calibre20">for i in range(4):
+    print 'Hello!'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You should see something like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">Hello!
+Hello!
+Hello!
+Hello!
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This is the simplest use of the <tt class="calibre7">for</tt> statement; we will see more later. But that should be enough to let you rewrite your square-drawing program. Don’t go on until you do.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a <tt class="calibre7">for</tt> statement that draws a square:</span></p>
+  <pre class="verbatim"><span class="calibre20">for i in range(4):
+    fd(bob, 100)
+    lt(bob)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The syntax of a <tt class="calibre7">for</tt> statement is similar to a function definition. It has a header that ends with a colon and an indented body. The body can contain any number of statements.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default299"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <tt class="calibre7">for</tt> statement is sometimes called a <b class="calibre19">loop</b> because the flow of execution runs through the body and then loops back to the top. In this case, it runs the body four times.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This version is actually a little different from the previous square-drawing code because it makes another turn after drawing the last side of the square. The extra turn takes a little more time, but it simplifies the code if we do the same thing every time through the loop. This version also has the effect of leaving the turtle back in the starting position, facing in the starting direction.</span></p>
+</body>
+</html>

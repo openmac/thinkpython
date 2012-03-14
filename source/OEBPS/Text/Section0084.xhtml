@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc92"></a><a class="calibre14" id="htoc102"><span class="calibre18">8.8</span></a><span class="calibre18">&nbsp;&nbsp;<tt class="calibre22">string</tt> methods</span></h2>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">method</b> is similar to a function&mdash;it takes arguments and returns a value&mdash;but the syntax is different. For example, the method <tt class="calibre7">upper</tt> takes a string and returns a new string with all uppercase letters:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default622"></a> <a class="calibre16" id="@default623"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Instead of the function syntax <tt class="calibre7">upper(word)</tt>, it uses the method syntax <tt class="calibre7">word.upper()</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default624"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; word = 'banana'
+&gt;&gt;&gt; new_word = word.upper()
+&gt;&gt;&gt; print new_word
+BANANA
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This form of dot notation specifies the name of the method, <tt class="calibre7">upper</tt>, and the name of the string to apply the method to, <tt class="calibre7">word</tt>. The empty parentheses indicate that this method takes no argument.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default625"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A method call is called an <b class="calibre19">invocation</b>; in this case, we would say that we are invoking <tt class="calibre7">upper</tt> on the <tt class="calibre7">word</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default626"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As it turns out, there is a string method named <tt class="calibre7">find</tt> that is remarkably similar to the function we wrote:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; word = 'banana'
+&gt;&gt;&gt; index = word.find('a')
+&gt;&gt;&gt; print index
+1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In this example, we invoke <tt class="calibre7">find</tt> on <tt class="calibre7">word</tt> and pass the letter we are looking for as a parameter.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Actually, the <tt class="calibre7">find</tt> method is more general than our function; it can find substrings, not just characters:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; word.find('na')
+2
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">It can take as a second argument the index where it should start:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default627"></a> <a class="calibre16" id="@default628"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; word.find('na', 3)
+4
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And as a third argument the index where it should stop:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; name = 'bob'
+&gt;&gt;&gt; name.find('b', 1, 2)
+-1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This search fails because <tt class="calibre7">b</tt> does not appear in the index range from <tt class="calibre7">1</tt> to <tt class="calibre7">2</tt> (not including <tt class="calibre7">2</tt>).</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;7</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default629"></a> <a class="calibre16" id="@default630"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">There is a string method called <tt class="calibre7">count</tt> that is similar to the function in the previous exercise. Read the documentation of this method and write an invocation that counts the number of <tt class="calibre7">a</tt>s in <code class="calibre7">'banana'</code>.</em></span></p>
+  </div>
+</body>
+</html>

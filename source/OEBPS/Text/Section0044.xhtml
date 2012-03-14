@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc48"></a><a class="calibre14" id="htoc54"><span class="calibre18">4.10</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default321"></a> <a class="calibre16" id="@default322"></a></p>
+
+  <p class="calibre15"><span class="calibre4">An interface is like a contract between a function and a caller. The caller agrees to provide certain parameters and the function agrees to do certain work.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For example, <tt class="calibre7">polyline</tt> requires four arguments: <tt class="calibre7">t</tt> has to be a Turtle; <tt class="calibre7">n</tt> is the number of line segments, so it has to be an integer; <tt class="calibre7">length</tt> should be a positive number; and <tt class="calibre7">angle</tt> has to be a number, which is understood to be in degrees.</span></p>
+
+  <p class="calibre15"><span class="calibre4">These requirements are called <b class="calibre19">preconditions</b> because they are supposed to be true before the function starts executing. Conversely, conditions at the end of the function are <b class="calibre19">postconditions</b>. Postconditions include the intended effect of the function (like drawing line segments) and any side effects (like moving the Turtle or making other changes in the World).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default323"></a> <a class="calibre16" id="@default324"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Preconditions are the responsibility of the caller. If the caller violates a (properly documented!) precondition and the function doesn’t work correctly, the bug is in the caller, not the function.</span></p>
+</body>
+</html>

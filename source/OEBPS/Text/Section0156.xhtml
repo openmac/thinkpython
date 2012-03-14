@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc170"></a><a class="calibre14" id="htoc187"><span class="calibre18">15.6</span></a><span class="calibre18">&nbsp;&nbsp;Copying</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1396"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Aliasing can make a program difficult to read because changes in one place might have unexpected effects in another place. It is hard to keep track of all the variables that might refer to a given object.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1397"></a> <a class="calibre16" id="@default1398"></a> <a class="calibre16" id="@default1399"></a> <a class="calibre16" id="@default1400"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Copying an object is often an alternative to aliasing. The <tt class="calibre7">copy</tt> module contains a function called <tt class="calibre7">copy</tt> that can duplicate any object:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; p1 = Point()
+&gt;&gt;&gt; p1.x = 3.0
+&gt;&gt;&gt; p1.y = 4.0
+
+&gt;&gt;&gt; import copy
+&gt;&gt;&gt; p2 = copy.copy(p1)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">p1</tt> and <tt class="calibre7">p2</tt> contain the same data, but they are not the same Point.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print_point(p1)
+(3.0, 4.0)
+&gt;&gt;&gt; print_point(p2)
+(3.0, 4.0)
+&gt;&gt;&gt; p1 is p2
+False
+&gt;&gt;&gt; p1 == p2
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">is</tt> operator indicates that <tt class="calibre7">p1</tt> and <tt class="calibre7">p2</tt> are not the same object, which is what we expected. But you might have expected <tt class="calibre7">==</tt> to yield <tt class="calibre7">True</tt> because these points contain the same data. In that case, you will be disappointed to learn that for instances, the default behavior of the <tt class="calibre7">==</tt> operator is the same as the <tt class="calibre7">is</tt> operator; it checks object identity, not object equivalence. This behavior can be changed&mdash;we’ll see how later.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1401"></a> <a class="calibre16" id="@default1402"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you use <tt class="calibre7">copy.copy</tt> to duplicate a Rectangle, you will find that it copies the Rectangle object but not the embedded Point.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1403"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; box2 = copy.copy(box)
+&gt;&gt;&gt; box2 is box
+False
+&gt;&gt;&gt; box2.corner is box.corner
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here is what the object diagram looks like:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1404"></a> <a class="calibre16" id="@default1405"></a> <a class="calibre16" id="@default1406"></a> <a class="calibre16" id="@default1407"></a></p>
+
+  <p class="calibre15"><br class="calibre17" /></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book024.gif" /></span>
+  </div>
+
+  <p class="calibre15"><br class="calibre17" /></p>
+
+  <p class="calibre15"><span class="calibre4">This operation is called a <b class="calibre19">shallow copy</b> because it copies the object and any references it contains, but not the embedded objects.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1408"></a> <a class="calibre16" id="@default1409"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For most applications, this is not what you want. In this example, invoking <code class="calibre7">grow_rectangle</code> on one of the Rectangles would not affect the other, but invoking <code class="calibre7">move_rectangle</code> on either would affect both! This behavior is confusing and error-prone.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1410"></a> <a class="calibre16" id="@default1411"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Fortunately, the <tt class="calibre7">copy</tt> module contains a method named <tt class="calibre7">deepcopy</tt> that copies not only the object but also the objects it refers to, and the objects <em class="calibre9">they</em> refer to, and so on. You will not be surprised to learn that this operation is called a <b class="calibre19">deep copy</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1412"></a> <a class="calibre16" id="@default1413"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; box3 = copy.deepcopy(box)
+&gt;&gt;&gt; box3 is box
+False
+&gt;&gt;&gt; box3.corner is box.corner
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">box3</tt> and <tt class="calibre7">box</tt> are completely separate objects.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Write a version of <code class="calibre7">move_rectangle</code> that creates and returns a new Rectangle instead of modifying the old one.</em></span>
+  </div>
+</body>
+</html>

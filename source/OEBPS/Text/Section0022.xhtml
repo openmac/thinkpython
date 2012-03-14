@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default187"></a> <a class="calibre16" id="@default188"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc25"></a><a class="calibre14" id="htoc30"><span class="calibre18">3.2</span></a><span class="calibre18">&nbsp;&nbsp;Type conversion functions</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default189"></a> <a class="calibre16" id="@default190"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Python provides built-in functions that convert values from one type to another. The <tt class="calibre7">int</tt> function takes any value and converts it to an integer, if it can, or complains otherwise:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default191"></a> <a class="calibre16" id="@default192"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; int('32')
+32
+&gt;&gt;&gt; int('Hello')
+ValueError: invalid literal for int(): Hello
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">int</tt> can convert floating-point values to integers, but it doesn’t round off; it chops off the fraction part:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; int(3.99999)
+3
+&gt;&gt;&gt; int(-2.3)
+-2
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">float</tt> converts integers and strings to floating-point numbers:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default193"></a> <a class="calibre16" id="@default194"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; float(32)
+32.0
+&gt;&gt;&gt; float('3.14159')
+3.14159
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Finally, <tt class="calibre7">str</tt> converts its argument to a string:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default195"></a> <a class="calibre16" id="@default196"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; str(32)
+'32'
+&gt;&gt;&gt; str(3.14159)
+'3.14159'
+</span></pre>
+</body>
+</html>

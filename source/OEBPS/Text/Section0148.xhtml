@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc161"></a><a class="calibre14" id="htoc177"><span class="calibre18">14.9</span></a><span class="calibre18">&nbsp;&nbsp;Writing modules</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="modules"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1310"></a> <a class="calibre16" id="@default1311"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Any file that contains Python code can be imported as a module. For example, suppose you have a file named <tt class="calibre7">wc.py</tt> with the following code:</span></p>
+  <pre class="verbatim"><span class="calibre20">def linecount(filename):
+    count = 0
+    for line in open(filename):
+        count += 1
+    return count
+
+print linecount('wc.py')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you run this program, it reads itself and prints the number of lines in the file, which is 7. You can also import it like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; import wc
+7
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Now you have a module object <tt class="calibre7">wc</tt>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1312"></a> <a class="calibre16" id="@default1313"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print wc
+&lt;module 'wc' from 'wc.py'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">That provides a function called <code class="calibre7">linecount</code>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; wc.linecount('wc.py')
+7
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">So that’s how you write modules in Python.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The only problem with this example is that when you import the module it executes the test code at the bottom. Normally when you import a module, it defines new functions but it doesn’t execute them.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1314"></a> <a class="calibre16" id="@default1315"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Programs that will be imported as modules often use the following idiom:</span></p>
+  <pre class="verbatim"><span class="calibre20">if __name__ == '__main__':
+    print linecount('wc.py')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">__name__</code> is a built-in variable that is set when the program starts. If the program is running as a script, <code class="calibre7">__name__</code> has the value <code class="calibre7">__main__</code>; in that case, the test code is executed. Otherwise, if the module is being imported, the test code is skipped.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp; <em class="calibre9">Type this example into a file named <tt class="calibre7">wc.py</tt> and run it as a script. Then run the Python interpreter and <tt class="calibre7">import wc</tt>. What is the value of <code class="calibre7">__name__</code> when the module is being imported?</em></span>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Warning: If you import a module that has already been imported, Python does nothing. It does not re-read the file, even if it has changed.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1316"></a> <a class="calibre16" id="@default1317"></a> <a class="calibre16" id="@default1318"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">If you want to reload a module, you can use the built-in function <tt class="calibre7">reload</tt>, but it can be tricky, so the safest thing to do is restart the interpreter and then import the module again.</em></span></p>
+  </div>
+</body>
+</html>

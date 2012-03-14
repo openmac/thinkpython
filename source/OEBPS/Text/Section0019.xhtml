@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc21"></a><a class="calibre14" id="htoc25"><span class="calibre18">2.10</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default153"></a></p>
+
+  <p class="calibre15"><span class="calibre4">At this point the syntax error you are most likely to make is an illegal variable name, like <tt class="calibre7">class</tt> and <tt class="calibre7">yield</tt>, which are keywords, or <code class="calibre7">odd~job</code> and <code class="calibre7">US$</code>, which contain illegal characters.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default154"></a> <a class="calibre16" id="@default155"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you put a space in a variable name, Python thinks it is two operands without an operator:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; bad name = 5
+SyntaxError: invalid syntax
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">For syntax errors, the error messages don’t help much. The most common messages are <tt class="calibre7">SyntaxError: invalid syntax</tt> and <tt class="calibre7">SyntaxError: invalid token</tt>, neither of which is very informative.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default156"></a> <a class="calibre16" id="@default157"></a> <a class="calibre16" id="@default158"></a> <a class="calibre16" id="@default159"></a> <a class="calibre16" id="@default160"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The runtime error you are most likely to make is a “use before def;” that is, trying to use a variable before you have assigned a value. This can happen if you spell a variable name wrong:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; principal = 327.68
+&gt;&gt;&gt; interest = principle * rate
+NameError: name 'principle' is not defined
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Variables names are case sensitive, so <tt class="calibre7">LaTeX</tt> is not the same as <tt class="calibre7">latex</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default161"></a> <a class="calibre16" id="@default162"></a> <a class="calibre16" id="@default163"></a></p>
+
+  <p class="calibre15"><span class="calibre4">At this point the most likely cause of a semantic error is the order of operations. For example, to evaluate 1/2 π, you might be tempted to write</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; 1.0 / 2.0 * pi
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But the division happens first, so you would get π / 2, which is not the same thing! There is no way for Python to know what you meant to write, so in this case you don’t get an error message; you just get the wrong answer.</span></p>
+</body>
+</html>

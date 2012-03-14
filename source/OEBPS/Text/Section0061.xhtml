@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc67"></a><a class="calibre14" id="htoc75"><span class="calibre18">6.3</span></a><span class="calibre18">&nbsp;&nbsp;Composition</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default460"></a> <a class="calibre16" id="@default461"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As you should expect by now, you can call one function from within another. This ability is called <b class="calibre19">composition</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">As an example, we’ll write a function that takes two points, the center of the circle and a point on the perimeter, and computes the area of the circle.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Assume that the center point is stored in the variables <tt class="calibre7">xc</tt> and <tt class="calibre7">yc</tt>, and the perimeter point is in <tt class="calibre7">xp</tt> and <tt class="calibre7">yp</tt>. The first step is to find the radius of the circle, which is the distance between the two points. We just wrote a function, <tt class="calibre7">distance</tt>, that does that:</span></p>
+  <pre class="verbatim"><span class="calibre20">radius = distance(xc, yc, xp, yp)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The next step is to find the area of a circle with that radius; we just wrote that, too:</span></p>
+  <pre class="verbatim"><span class="calibre20">result = area(radius)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Encapsulating these steps in a function, we get:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default462"></a></p>
+  <pre class="verbatim"><span class="calibre20">def circle_area(xc, yc, xp, yp):
+    radius = distance(xc, yc, xp, yp)
+    result = area(radius)
+    return result
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The temporary variables <tt class="calibre7">radius</tt> and <tt class="calibre7">result</tt> are useful for development and debugging, but once the program is working, we can make it more concise by composing the function calls:</span></p>
+  <pre class="verbatim"><span class="calibre20">def circle_area(xc, yc, xp, yp):
+    return area(distance(xc, yc, xp, yp))
+</span></pre>
+</body>
+</html>

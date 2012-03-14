@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc211"></a><a class="calibre14" id="htoc232"><span class="calibre18">19.8</span></a><span class="calibre18">&nbsp;&nbsp;Binding</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1732"></a> <a class="calibre16" id="@default1733"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">binding</b> is an association between a widget, an event and a callback: when an event (like a button press) happens on a widget, the callback is invoked.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Many widgets have default bindings. For example, when you press a button, the default binding changes the relief of the button to make it look depressed. When you release the button, the binding restores the appearance of the button and invokes the callback specified with the <tt class="calibre7">command</tt> option.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You can use the <tt class="calibre7">bind</tt> method to override these default bindings or to add new ones. For example, this code creates a binding for a canvas (you can download the code in this section from <tt class="calibre7">thinkpython.com/code/draggable_demo.py</tt>):</span></p>
+  <pre class="verbatim"><span class="calibre20">ca.bind('&lt;ButtonPress-1&gt;', make_circle)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first argument is an event string; this event is triggered when the user presses the left mouse button. Other mouse events include <tt class="calibre7">ButtonMotion</tt>, <tt class="calibre7">ButtonRelease</tt> and <tt class="calibre7">Double-Button</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1734"></a> <a class="calibre16" id="@default1735"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The second argument is an event handler. An event handler is a function or bound method, like a callback, but an important difference is that an event handler takes an Event object as a parameter. Here is an example:</span></p>
+  <pre class="verbatim"><span class="calibre20">def make_circle(event):
+    pos = ca.canvas_coords([event.x, event.y])
+    item = ca.circle(pos, 5, fill='red')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The Event object contains information about the type of event and details like the coordinates of the mouse pointer. In this example the information we need is the location of the mouse click. These values are in “pixel coordinates,” which are defined by the underlying graphical system. The method <code class="calibre7">canvas_coords</code> translates them to “Canvas coordinates,” which are compatible with Canvas methods like <tt class="calibre7">circle</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1736"></a> <a class="calibre16" id="@default1737"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For Entry widgets, it is common to bind the <code class="calibre7">&lt;Return&gt;</code> event, which is triggered when the user presses the <span class="calibre31">Return</span> or <span class="calibre31">Enter</span> key. For example, the following code creates a Button and an Entry.</span></p>
+  <pre class="verbatim"><span class="calibre20">bu = g.bu('Make text item:', make_text)
+en = g.en()
+en.bind('&lt;Return&gt;', make_text)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">make_text</code> is called when the Button is pressed or when the user hits <span class="calibre31">Return</span> while typing in the Entry. To make this work, we need a function that can be called as a command (with no arguments) or as an event handler (with an Event as an argument):</span></p>
+  <pre class="verbatim"><span class="calibre20">def make_text(event=None):
+    text = en.get()
+    item = ca.text([0,0], text)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">make_text</code> gets the contents of the Entry and displays it as a Text item in the Canvas.</span></p>
+
+  <p class="calibre15"><span class="calibre4">It is also possible to create bindings for Canvas items. The following is a class definition for <tt class="calibre7">Draggable</tt>, which is a child class of <tt class="calibre7">Item</tt> that provides bindings that implement drag-and-drop capability.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1738"></a></p>
+  <pre class="verbatim"><span class="calibre20">class Draggable(Item):
+
+    def __init__(self, item):
+        self.canvas = item.canvas
+        self.tag = item.tag
+        self.bind('&lt;Button-3&gt;', self.select)
+        self.bind('&lt;B3-Motion&gt;', self.drag)
+        self.bind('&lt;Release-3&gt;', self.drop)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The init method takes an Item as a parameter. It copies the attributes of the Item and then creates bindings for three events: a button press, button motion, and button release.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The event handler <tt class="calibre7">select</tt> stores the coordinates of the current event and the original color of the item, then changes the color to yellow:</span></p>
+  <pre class="verbatim"><span class="calibre20">    def select(self, event):
+        self.dragx = event.x
+        self.dragy = event.y
+
+        self.fill = self.cget('fill')
+        self.config(fill='yellow')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">cget</tt> stands for “get configuration;” it takes the name of an option as a string and returns the current value of that option.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">drag</tt> computes how far the object has moved relative to the starting place, updates the stored coordinates, and then moves the item.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1739"></a></p>
+  <pre class="verbatim"><span class="calibre20">    def drag(self, event):
+        dx = event.x - self.dragx
+        dy = event.y - self.dragy
+
+        self.dragx = event.x
+        self.dragy = event.y
+
+        self.move(dx, dy)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This computation is done in pixel coordinates; there is no need to convert to Canvas coordinates.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1740"></a> <a class="calibre16" id="@default1741"></a> <a class="calibre16" id="@default1742"></a> <a class="calibre16" id="@default1743"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Finally, <tt class="calibre7">drop</tt> restores the original color of the item:</span></p>
+  <pre class="verbatim"><span class="calibre20">    def drop(self, event):
+        self.config(fill=self.fill)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can use the <tt class="calibre7">Draggable</tt> class to add drag-and-drop capability to an existing item. For example, here is a modified version of <code class="calibre7">make_circle</code> that uses <tt class="calibre7">circle</tt> to create an Item and <tt class="calibre7">Draggable</tt> to make it draggable:</span></p>
+  <pre class="verbatim"><span class="calibre20">def make_circle(event):
+    pos = ca.canvas_coords([event.x, event.y])
+    item = ca.circle(pos, 5, fill='red')
+    item = Draggable(item)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This example demonstrates one of the benefits of inheritance: you can modify the capabilities of a parent class without modifying its definition. This is particularly useful if you want to change behavior defined in a module you did not write.</span></p>
+</body>
+</html>

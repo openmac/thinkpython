@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Lists</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default825"></a> <a class="calibre16" id="@default826"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc114"></a><a class="calibre14" id="htoc126"><span class="calibre18">10.10</span></a><span class="calibre18">&nbsp;&nbsp;Objects and values</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default827"></a> <a class="calibre16" id="@default828"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If we execute these assignment statements:</span></p>
+  <pre class="verbatim"><span class="calibre20">a = 'banana'
+b = 'banana'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">We know that <tt class="calibre7">a</tt> and <tt class="calibre7">b</tt> both refer to a string, but we don’t know whether they refer to the <em class="calibre9">same</em> string. There are two possible states:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default829"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book014.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">In one case, <tt class="calibre7">a</tt> and <tt class="calibre7">b</tt> refer to two different objects that have the same value. In the second case, they refer to the same object.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default830"></a> <a class="calibre16" id="@default831"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To check whether two variables refer to the same object, you can use the <tt class="calibre7">is</tt> operator.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; a = 'banana'
+&gt;&gt;&gt; b = 'banana'
+&gt;&gt;&gt; a is b
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In this example, Python only created one string object, and both <tt class="calibre7">a</tt> and <tt class="calibre7">b</tt> refer to it.</span></p>
+
+  <p class="calibre15"><span class="calibre4">But when you create two lists, you get two objects:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [1, 2, 3]
+&gt;&gt;&gt; a is b
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">So the state diagram looks like this:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default832"></a> <a class="calibre16" id="@default833"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book015.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">In this case we would say that the two lists are <b class="calibre19">equivalent</b>, because they have the same elements, but not <b class="calibre19">identical</b>, because they are not the same object. If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default834"></a> <a class="calibre16" id="@default835"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Until now, we have been using “object” and “value” interchangeably, but it is more precise to say that an object has a value. If you execute <tt class="calibre7">[1,2,3]</tt>, you get a list object whose value is a sequence of integers. If another list has the same elements, we say it has the same value, but it is not the same object.</span></p>
+</body>
+</html>

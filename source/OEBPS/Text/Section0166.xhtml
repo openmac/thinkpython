@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc182"></a><a class="calibre14" id="htoc201"><span class="calibre18">17.2</span></a><span class="calibre18">&nbsp;&nbsp;Printing objects</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="print_time"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1496"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In Chapter&nbsp;</span><a class="calibre3" href="../Text/book017.html#time"><span class="calibre4">16</span></a><span class="calibre4">, we defined a class named <tt class="calibre7">Time</tt> and in Exercise&nbsp;</span><a class="calibre3" href="../Text/book017.html#printtime"><span class="calibre4">16.1</span></a><span class="calibre4">, you wrote a function named <code class="calibre7">print_time</code>:</span></p>
+  <pre class="verbatim"><span class="calibre20">class Time(object):
+    """represents the time of day.
+       attributes: hour, minute, second"""
+
+def print_time(time):
+    print '%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">To call this function, you have to pass a <tt class="calibre7">Time</tt> object as an argument:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; start = Time()
+&gt;&gt;&gt; start.hour = 9
+&gt;&gt;&gt; start.minute = 45
+&gt;&gt;&gt; start.second = 00
+&gt;&gt;&gt; print_time(start)
+09:45:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">To make <code class="calibre7">print_time</code> a method, all we have to do is move the function definition inside the class definition. Notice the change in indentation.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1497"></a></p>
+  <pre class="verbatim"><span class="calibre20">class Time(object):
+    def print_time(time):
+        print '%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Now there are two ways to call <code class="calibre7">print_time</code>. The first (and less common) way is to use function syntax:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1498"></a> <a class="calibre16" id="@default1499"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; Time.print_time(start)
+09:45:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In this use of dot notation, <tt class="calibre7">Time</tt> is the name of the class, and <code class="calibre7">print_time</code> is the name of the method. <tt class="calibre7">start</tt> is passed as a parameter.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The second (and more concise) way is to use method syntax:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1500"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; start.print_time()
+09:45:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In this use of dot notation, <code class="calibre7">print_time</code> is the name of the method (again), and <tt class="calibre7">start</tt> is the object the method is invoked on, which is called the <b class="calibre19">subject</b>. Just as the subject of a sentence is what the sentence is about, the subject of a method invocation is what the method is about.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1501"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Inside the method, the subject is assigned to the first parameter, so in this case <tt class="calibre7">start</tt> is assigned to <tt class="calibre7">time</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1502"></a> <a class="calibre16" id="@default1503"></a></p>
+
+  <p class="calibre15"><span class="calibre4">By convention, the first parameter of a method is called <tt class="calibre7">self</tt>, so it would be more common to write <code class="calibre7">print_time</code> like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">class Time(object):
+    def print_time(self):
+        print '%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The reason for this convention is an implicit metaphor:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1504"></a></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">The syntax for a function call, <code class="calibre7">print_time(start)</code>, suggests that the function is the active agent. It says something like, “Hey <code class="calibre7">print_time</code>! Here’s an object for you to print.”</span></li>
+
+    <li class="li-itemize"><span class="calibre4">In object-oriented programming, the objects are the active agents. A method invocation like <code class="calibre7">start.print_time()</code> says “Hey <tt class="calibre7">start</tt>! Please print yourself.”</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">This change in perspective might be more polite, but it is not obvious that it is useful. In the examples we have seen so far, it may not be. But sometimes shifting responsibility from the functions onto the objects makes it possible to write more versatile functions, and makes it easier to maintain and reuse code.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <a class="calibre16" id="convert"></a> <em class="calibre9">Rewrite <code class="calibre7">time_to_int</code> (from Section&nbsp;</em></span><em class="calibre9"><a class="calibre3" href="../Text/Section0162.xhtml#prototype"><span class="calibre4">16.4</span></a></em><span class="calibre4"><em class="calibre9">) as a method. It is probably not appropriate to rewrite</em></span> <span class="calibre4"><em class="calibre9"><code class="calibre7">int_to_time</code></em></span> <span class="calibre4"><em class="calibre9">as a method; it’s not clear what object you would invoke it on!</em></span>
+  </div>
+</body>
+</html>

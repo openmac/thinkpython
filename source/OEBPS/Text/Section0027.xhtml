@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc30"></a><a class="calibre14" id="htoc35"><span class="calibre18">3.7</span></a><span class="calibre18">&nbsp;&nbsp;Flow of execution</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default230"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In order to ensure that a function is defined before its first use, you have to know the order in which statements are executed, which is called the <b class="calibre19">flow of execution</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Execution always begins at the first statement of the program. Statements are executed one at a time, in order from top to bottom.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Function definitions do not alter the flow of execution of the program, but remember that statements inside the function are not executed until the function is called.</span></p>
+
+  <p class="calibre15"><span class="calibre4">A function call is like a detour in the flow of execution. Instead of going to the next statement, the flow jumps to the body of the function, executes all the statements there, and then comes back to pick up where it left off.</span></p>
+
+  <p class="calibre15"><span class="calibre4">That sounds simple enough, until you remember that one function can call another. While in the middle of one function, the program might have to execute the statements in another function. But while executing that new function, the program might have to execute yet another function!</span></p>
+
+  <p class="calibre15"><span class="calibre4">Fortunately, Python is good at keeping track of where it is, so each time a function completes, the program picks up where it left off in the function that called it. When it gets to the end of the program, it terminates.</span></p>
+
+  <p class="calibre15"><span class="calibre4">What’s the moral of this sordid tale? When you read a program, you don’t always want to read from top to bottom. Sometimes it makes more sense if you follow the flow of execution.</span></p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc54"></a><a class="calibre14" id="htoc61"><span class="calibre18">5.4</span></a><span class="calibre18">&nbsp;&nbsp;Conditional execution</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="conditional execution"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default366"></a> <a class="calibre16" id="@default367"></a> <a class="calibre16" id="@default368"></a> <a class="calibre16" id="@default369"></a> <a class="calibre16" id="@default370"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In order to write useful programs, we almost always need the ability to check conditions and change the behavior of the program accordingly. <b class="calibre19">Conditional statements</b> give us this ability. The simplest form is the <tt class="calibre7">if</tt> statement:</span></p>
+  <pre class="verbatim"><span class="calibre20">if x &gt; 0:
+    print 'x is positive'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The boolean expression after the <tt class="calibre7">if</tt> statement is called the <b class="calibre19">condition</b>. If it is true, then the indented statement gets executed. If not, nothing happens.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default371"></a> <a class="calibre16" id="@default372"></a> <a class="calibre16" id="@default373"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">if</tt> statements have the same structure as function definitions: a header followed by an indented body. Statements like this are called <b class="calibre19">compound statements</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">There is no limit on the number of statements that can appear in the body, but there has to be at least one. Occasionally, it is useful to have a body with no statements (usually as a place keeper for code you haven’t written yet). In that case, you can use the <tt class="calibre7">pass</tt> statement, which does nothing.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default374"></a> <a class="calibre16" id="@default375"></a></p>
+  <pre class="verbatim"><span class="calibre20">if x &lt; 0:
+    pass          # need to handle negative values!
+</span></pre>
+</body>
+</html>

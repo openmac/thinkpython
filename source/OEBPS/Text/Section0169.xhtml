@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc185"></a><a class="calibre14" id="htoc204"><span class="calibre18">17.5</span></a><span class="calibre18">&nbsp;&nbsp;The init method</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1510"></a> <a class="calibre16" id="@default1511"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The init method (short for “initialization”) is a special method that gets invoked when an object is instantiated. Its full name is <code class="calibre7">__init__</code> (two underscore characters, followed by <tt class="calibre7">init</tt>, and then two more underscores). An init method for the <tt class="calibre7">Time</tt> class might look like this:</span></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Time:
+
+    def __init__(self, hour=0, minute=0, second=0):
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">It is common for the parameters of <code class="calibre7">__init__</code> to have the same names as the attributes. The statement</span></p>
+  <pre class="verbatim"><span class="calibre20">        self.hour = hour
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">stores the value of the parameter <tt class="calibre7">hour</tt> as an attribute of <tt class="calibre7">self</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1512"></a> <a class="calibre16" id="@default1513"></a> <a class="calibre16" id="@default1514"></a> <a class="calibre16" id="@default1515"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The parameters are optional, so if you call <tt class="calibre7">Time</tt> with no arguments, you get the default values.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; time = Time()
+&gt;&gt;&gt; time.print_time()
+00:00:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you provide one argument, it overrides <tt class="calibre7">hour</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; time = Time (9)
+&gt;&gt;&gt; time.print_time()
+09:00:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you provide two arguments, they override <tt class="calibre7">hour</tt> and <tt class="calibre7">minute</tt>.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; time = Time(9, 45)
+&gt;&gt;&gt; time.print_time()
+09:45:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And if you provide three arguments, they override all three default values.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default1516"></a> <a class="calibre16" id="@default1517"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write an init method for the <tt class="calibre7">Point</tt> class that takes <tt class="calibre7">x</tt> and <tt class="calibre7">y</tt> as optional parameters and assigns them to the corresponding attributes.</em></span></p>
+  </div>
+</body>
+</html>

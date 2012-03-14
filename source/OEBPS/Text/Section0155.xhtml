@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_7"><a class="calibre14" id="toc169"></a><a class="calibre14" id="htoc186"><span class="calibre18">15.5</span></a><span class="calibre18">&nbsp;&nbsp;Objects are mutable</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1394"></a> <a class="calibre16" id="@default1395"></a></p>
+
+  <p class="calibre15"><span class="calibre4">You can change the state of an object by making an assignment to one of its attributes. For example, to change the size of a rectangle without changing its position, you can modify the values of <tt class="calibre7">width</tt> and <tt class="calibre7">height</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">box.width = box.width + 50
+box.height = box.width + 100
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You can also write functions that modify objects. For example, <code class="calibre7">grow_rectangle</code> takes a Rectangle object and two numbers, <tt class="calibre7">dwidth</tt> and <tt class="calibre7">dheight</tt>, and adds the numbers to the width and height of the rectangle:</span></p>
+  <pre class="verbatim"><span class="calibre20">def grow_rectangle(rect, dwidth, dheight) :
+    rect.width += dwidth
+    rect.height += dheight
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here is an example that demonstrates the effect:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print box.width
+100.0
+&gt;&gt;&gt; print box.height
+200.0
+&gt;&gt;&gt; grow_rectangle(box, 50, 100)
+&gt;&gt;&gt; print box.width
+150.0
+&gt;&gt;&gt; print box.height
+300.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Inside the function, <tt class="calibre7">rect</tt> is an alias for <tt class="calibre7">box</tt>, so if the function modifies <tt class="calibre7">rect</tt>, <tt class="calibre7">box</tt> changes.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp; <em class="calibre9">Write a function named <code class="calibre7">move_rectangle</code> that takes a Rectangle and two numbers named <tt class="calibre7">dx</tt> and <tt class="calibre7">dy</tt>. It should change the location of the rectangle by adding <tt class="calibre7">dx</tt> to the <tt class="calibre7">x</tt> coordinate of <tt class="calibre7">corner</tt> and adding <tt class="calibre7">dy</tt> to the <tt class="calibre7">y</tt> coordinate of <tt class="calibre7">corner</tt>.</em></span>
+  </div>
+</body>
+</html>

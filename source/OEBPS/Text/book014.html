@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc155">Chapter&nbsp;13</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc155"></a>Case study: data structure selection</h1>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc141"></a><a class="calibre14" id="htoc156"><span class="calibre18">13.1</span></a><span class="calibre18">&nbsp;&nbsp;Word frequency analysis</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="analysis"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As usual, you should at least attempt the following exercises before you read my solutions.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Write a program that reads a file, breaks each line into words, strips whitespace and punctuation from the words, and converts them to lowercase.</em></span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1164"></a> <a class="calibre16" id="@default1165"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Hint: The <tt class="calibre7">string</tt> module provides strings named <tt class="calibre7">whitespace</tt>, which contains space, tab, newline, etc., and <tt class="calibre7">punctuation</tt> which contains the punctuation characters. Let’s see if we can make Python swear:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">&gt;&gt;&gt; import string
+&gt;&gt;&gt; print string.punctuation
+!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Also, you might consider using the string methods <tt class="calibre7">strip</tt>, <tt class="calibre7">replace</tt> and <tt class="calibre7">translate</tt>.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1166"></a> <a class="calibre16" id="@default1167"></a> <a class="calibre16" id="@default1168"></a> <a class="calibre16" id="@default1169"></a> <a class="calibre16" id="@default1170"></a> <a class="calibre16" id="@default1171"></a></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;2</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1172"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Go to Project Gutenberg (<tt class="calibre7">gutenberg.org</tt>) and download your favorite out-of-copyright book in plain text format.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1173"></a> <a class="calibre16" id="@default1174"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Modify your program from the previous exercise to read the book you downloaded, skip over the header information at the beginning of the file, and process the rest of the words as before.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Then modify the program to count the total number of words in the book, and the number of times each word is used.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1175"></a> <a class="calibre16" id="@default1176"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Print the number of different words used in the book. Compare different books by different authors, written in different eras. Which author uses the most extensive vocabulary?</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Modify the program from the previous exercise to print the 20 most frequently-used words in the book.</em></span>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp; <em class="calibre9">Modify the previous program to read a word list (see Section&nbsp;</em></span><em class="calibre9"><a class="calibre3" href="../Text/book010.html#wordlist"><span class="calibre4">9.1</span></a></em><span class="calibre4"><em class="calibre9">) and then print all the words in the book that are not in the word list. How many of them are typos? How many of them are common words that</em> should <em class="calibre9">be in the word list, and how many of them are really obscure?</em></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_13"><a class="calibre14" id="toc203"></a><a class="calibre14" id="htoc223"><span class="calibre18">18.11</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default1677"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The following are the possible hands in poker, in increasing order of value (and decreasing order of probability):</em></span></p>
+
+    <dl class="calibre15">
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">pair:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">two cards with the same rank</em></span></dd>
+
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">two pair:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">two pairs of cards with the same rank</em></span></dd>
+
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">three of a kind:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">three cards with the same rank</em></span></dd>
+
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">straight:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">five cards with ranks in sequence (aces can be high or low, so <tt class="calibre7">Ace-2-3-4-5</tt> is a straight and so is <tt class="calibre7">10-Jack-Queen-King-Ace</tt>, but <tt class="calibre7">Queen-King-Ace-2-3</tt> is not.)</em></span></dd>
+
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">flush:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">five cards with the same suit</em></span></dd>
+
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">full house:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">three cards with one rank, two cards with another</em></span></dd>
+
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">four of a kind:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">four cards with the same rank</em></span></dd>
+
+      <dt class="dt-description"><span class="calibre4 calibre19 sgc-1"><em class="calibre9">straight flush:</em></span></dt>
+
+      <dd class="dd-description"><span class="calibre4"><em class="calibre9">five cards in sequence (as defined above) and with the same suit</em></span></dd>
+    </dl>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The goal of these exercises is to estimate the probability of drawing these various hands.</em></span></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Download the following files from <tt class="calibre7">thinkpython.com/code</tt>:</em></span>
+
+        <dl class="dt-description">
+          <dt class="dt-description"><span class="calibre4"><tt class="calibre7 calibre19 sgc-2"><em class="calibre9">Card.py</em></tt></span></dt>
+
+          <dd class="dd-description"><span class="calibre4"><em class="calibre9">: A complete version of the <tt class="calibre7">Card</tt>, <tt class="calibre7">Deck</tt> and <tt class="calibre7">Hand</tt> classes in this chapter.</em></span></dd>
+
+          <dt class="dt-description"><span class="calibre4"><tt class="calibre7 calibre19 sgc-2"><em class="calibre9">PokerHand.py</em></tt></span></dt>
+
+          <dd class="dd-description"><span class="calibre4"><em class="calibre9">: An incomplete implementation of a class that represents a poker hand, and some code that tests it.</em></span></dd>
+        </dl>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">If you run <tt class="calibre7">PokerHand.py</tt>, it deals seven 7-card poker hands and checks to see if any of them contains a flush. Read this code carefully before you go on.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Add methods to <tt class="calibre7">PokerHand.py</tt> named <code class="calibre7">has_pair</code>, <code class="calibre7">has_twopair</code>, etc. that return True or False according to whether or not the hand meets the relevant criteria. Your code should work correctly for “hands” that contain any number of cards (although 5 and 7 are the most common sizes).</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Write a method named <tt class="calibre7">classify</tt> that figures out the highest-value classification for a hand and sets the <tt class="calibre7">label</tt> attribute accordingly. For example, a 7-card hand might contain a flush and a pair; it should be labeled “flush”.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">When you are convinced that your classification methods are working, the next step is to estimate the probabilities of the various hands. Write a function in <tt class="calibre7">PokerHand.py</tt> that shuffles a deck of cards, divides it into hands, classifies the hands, and counts the number of times various classifications appear.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Print a table of the classifications and their probabilities. Run your program with larger and larger numbers of hands until the output values converge to a reasonable degree of accuracy. Compare your results to the values at <tt class="calibre7">wikipedia.org/wiki/Hand_rankings</tt>.</em></span></li>
+    </ol>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1678"></a> <a class="calibre16" id="@default1679"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">This exercise uses TurtleWorld from Chapter&nbsp;</span><a class="calibre3" href="../Text/book005.html#turtlechap"><span class="calibre4">4</span></a><span class="calibre4">. You will write code that makes Turtles play tag. If you are not familiar with the rules of tag, see <tt class="calibre7">wikipedia.org/wiki/Tag_(game)</tt>.</span></em></p>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Download <tt class="calibre7">thinkpython.com/code/Wobbler.py</tt> and run it. You should see a TurtleWorld with three Turtles. If you press the <span class="calibre31">Run</span> button, the Turtles wander at random.</em></span></li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Read the code and make sure you understand how it works. The <tt class="calibre7">Wobbler</tt> class inherits from <tt class="calibre7">Turtle</tt>, which means that the <tt class="calibre7">Turtle</tt> methods <tt class="calibre7">lt</tt>, <tt class="calibre7">rt</tt>, <tt class="calibre7">fd</tt> and <tt class="calibre7">bk</tt> work on Wobblers.</em></span>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">The <tt class="calibre7">step</tt> method gets invoked by TurtleWorld. It invokes <tt class="calibre7">steer</tt>, which turns the Turtle in the desired direction, <tt class="calibre7">wobble</tt>, which makes a random turn in proportion to the Turtle’s clumsiness, and <tt class="calibre7">move</tt>, which moves forward a few pixels, depending on the Turtle’s speed.</em></span></p>
+
+        <p class="calibre15"><a class="calibre16" id="@default1680"></a></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Create a file named <tt class="calibre7">Tagger.py</tt>. Import everything from <tt class="calibre7">Wobbler</tt>, then define a class named <tt class="calibre7">Tagger</tt> that inherits from <tt class="calibre7">Wobbler</tt>. Call <code class="calibre7">make_world</code> passing the <tt class="calibre7">Tagger</tt> class object as an argument.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Add a <tt class="calibre7">steer</tt> method to <tt class="calibre7">Tagger</tt> to override the one in <tt class="calibre7">Wobbler</tt>. As a starting place, write a version that always points the Turtle toward the origin. Hint: use the math function <tt class="calibre7">atan2</tt> and the Turtle attributes <tt class="calibre7">x</tt>, <tt class="calibre7">y</tt> and <tt class="calibre7">heading</tt>.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Modify <tt class="calibre7">steer</tt> so that the Turtles stay in bounds. For debugging, you might want to use the <span class="calibre31">Step</span> button, which invokes <tt class="calibre7">step</tt> once on each Turtle.</em></span></li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Modify <tt class="calibre7">steer</tt> so that each Turtle points toward its nearest neighbor. Hint: Turtles have an attribute, <tt class="calibre7">world</tt>, that is a reference to the TurtleWorld they live in, and the TurtleWorld has an attribute, <tt class="calibre7">animals</tt>, that is a list of all Turtles in the world.</em></span></li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Modify <tt class="calibre7">steer</tt> so the Turtles play tag. You can add methods to <tt class="calibre7">Tagger</tt> and you can override <tt class="calibre7">steer</tt> and <code class="calibre7">__init__</code>, but you may not modify or override <tt class="calibre7">step</tt>, <tt class="calibre7">wobble</tt> or <tt class="calibre7">move</tt>. Also, <tt class="calibre7">steer</tt> is allowed to change the heading of the Turtle but not the position.</em></span>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">Adjust the rules and your <tt class="calibre7">steer</tt> method for good quality play; for example, it should be possible for the slow Turtle to tag the faster Turtles eventually.</em></span></p>
+      </li>
+    </ol>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can get my solution from <tt class="calibre7">thinkpython.com/code/Tagger.py</tt>.</em></span></p>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text33" id="note33"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Bottom_dealing</tt></span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text34" id="note34"><span class="calibre4">2</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">The diagrams I am using here are similar to UML (see <tt class="calibre7">wikipedia.org/wiki/Unified_Modeling_Language</tt>), with a few simplifications.</span></dd>
+  </dl>
+</body>
+</html>

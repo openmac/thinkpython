@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_10"><a class="calibre14" id="toc58"></a><a class="calibre14" id="htoc65"><span class="calibre18">5.8</span></a><span class="calibre18">&nbsp;&nbsp;Recursion</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="recursion"></a> <a class="calibre16" id="@default386"></a></p>
+
+  <p class="calibre15"><span class="calibre4">It is legal for one function to call another; it is also legal for a function to call itself. It may not be obvious why that is a good thing, but it turns out to be one of the most magical things a program can do. For example, look at the following function:</span></p>
+  <pre class="verbatim"><span class="calibre20">def countdown(n):
+    if n &lt;= 0:
+        print 'Blastoff!'
+    else:
+        print n
+        countdown(n-1)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If <tt class="calibre7">n</tt> is 0 or negative, it outputs the word, “Blastoff!” Otherwise, it outputs <tt class="calibre7">n</tt> and then calls a function named <tt class="calibre7">countdown</tt>&mdash;itself&mdash;passing <tt class="calibre7">n-1</tt> as an argument.</span></p>
+
+  <p class="calibre15"><span class="calibre4">What happens if we call this function like this?</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; countdown(3)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The execution of <tt class="calibre7">countdown</tt> begins with <tt class="calibre7">n=3</tt>, and since <tt class="calibre7">n</tt> is greater than 0, it outputs the value 3, and then calls itself...</span></p>
+
+  <blockquote class="quote">
+    <span class="calibre4">The execution of <tt class="calibre7">countdown</tt> begins with <tt class="calibre7">n=2</tt>, and since <tt class="calibre7">n</tt> is greater than 0, it outputs the value 2, and then calls itself...</span>
+
+    <blockquote class="quote">
+      <span class="calibre4">The execution of <tt class="calibre7">countdown</tt> begins with <tt class="calibre7">n=1</tt>, and since <tt class="calibre7">n</tt> is greater than 0, it outputs the value 1, and then calls itself...</span>
+
+      <blockquote class="quote">
+        <span class="calibre4">The execution of <tt class="calibre7">countdown</tt> begins with <tt class="calibre7">n=0</tt>, and since <tt class="calibre7">n</tt> is not greater than 0, it outputs the word, “Blastoff!” and then returns.</span>
+      </blockquote>
+
+      <p class="calibre15"><span class="calibre4">The <tt class="calibre7">countdown</tt> that got <tt class="calibre7">n=1</tt> returns.</span></p>
+    </blockquote>
+
+    <p class="calibre15"><span class="calibre4">The <tt class="calibre7">countdown</tt> that got <tt class="calibre7">n=2</tt> returns.</span></p>
+  </blockquote>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">countdown</tt> that got <tt class="calibre7">n=3</tt> returns.</span></p>
+
+  <p class="calibre15"><span class="calibre4">And then you’re back in <code class="calibre7">__main__</code>. So, the total output looks like this:</span></p>
+  <pre class="verbatim"><span class="calibre20">3
+2
+1
+Blastoff!
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">A function that calls itself is <b class="calibre19">recursive</b>; the process is called <b class="calibre19">recursion</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default387"></a> <a class="calibre16" id="@default388"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As another example, we can write a function that prints a string <tt class="calibre7">n</tt> times.</span></p>
+  <pre class="verbatim"><span class="calibre20">def print_n(s, n):
+    if n &lt;= 0:
+        return
+    print s
+    print_n(s, n-1)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If <tt class="calibre7">n &lt;= 0</tt> the <tt class="calibre7">return</tt> statement exits the function. The flow of execution immediately returns to the caller, and the remaining lines of the function are not executed.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default389"></a> <a class="calibre16" id="@default390"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The rest of the function is similar to <tt class="calibre7">countdown</tt>: if <tt class="calibre7">n</tt> is greater than 0, it displays <tt class="calibre7">s</tt> and then calls itself to display <tt class="calibre7">s</tt> <i class="calibre9">n</i>−1 additional times. So the number of lines of output is <tt class="calibre7">1 + (n - 1)</tt>, which adds up to <tt class="calibre7">n</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For simple examples like this, it is probably easier to use a <tt class="calibre7">for</tt> loop. But we will see examples later that are hard to write with a <tt class="calibre7">for</tt> loop and easy to write with recursion, so it is good to start early.</span></p>
+</body>
+</html>

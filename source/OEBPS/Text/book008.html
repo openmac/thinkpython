@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Iteration</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc84">Chapter&nbsp;7</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc84"></a>Iteration</h1>
+
+  <p class="calibre15"><a class="calibre16" id="@default517"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc76"></a><a class="calibre14" id="htoc85"><span class="calibre18">7.1</span></a><span class="calibre18">&nbsp;&nbsp;Multiple assignment</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default518"></a> <a class="calibre16" id="@default519"></a> <a class="calibre16" id="@default520"></a></p>
+
+  <p class="calibre15"><span class="calibre4">As you may have discovered, it is legal to make more than one assignment to the same variable. A new assignment makes an existing variable refer to a new value (and stop referring to the old value).</span></p>
+  <pre class="verbatim"><span class="calibre20">bruce = 5
+print bruce,
+bruce = 7
+print bruce
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The output of this program is <tt class="calibre7">5 7</tt>, because the first time <tt class="calibre7">bruce</tt> is printed, its value is 5, and the second time, its value is 7. The comma at the end of the first <tt class="calibre7">print</tt> statement suppresses the newline, which is why both outputs appear on the same line.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default521"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here is what <b class="calibre19">multiple assignment</b> looks like in a state diagram:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default522"></a> <a class="calibre16" id="@default523"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book010.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">With multiple assignment it is especially important to distinguish between an assignment operation and a statement of equality. Because Python uses the equal sign (<tt class="calibre7">=</tt>) for assignment, it is tempting to interpret a statement like <tt class="calibre7">a = b</tt> as a statement of equality. It is not!</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default524"></a></p>
+
+  <p class="calibre15"><span class="calibre4">First, equality is a symmetric relation and assignment is not. For example, in mathematics, if <i class="calibre9">a</i> = 7 then 7 = <i class="calibre9">a</i>. But in Python, the statement <tt class="calibre7">a = 7</tt> is legal and <tt class="calibre7">7 = a</tt> is not.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Furthermore, in mathematics, a statement of equality is either true or false, for all time. If <i class="calibre9">a</i> = <i class="calibre9">b</i> now, then <i class="calibre9">a</i> will always equal <i class="calibre9">b</i>. In Python, an assignment statement can make two variables equal, but they don’t have to stay that way:</span></p>
+  <pre class="verbatim"><span class="calibre20">a = 5
+b = a    # a and b are now equal
+a = 3    # a and b are no longer equal
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The third line changes the value of <tt class="calibre7">a</tt> but does not change the value of <tt class="calibre7">b</tt>, so they are no longer equal.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Although multiple assignment is frequently helpful, you should use it with caution. If the values of variables change frequently, it can make the code difficult to read and debug.</span></p>
+</body>
+</html>

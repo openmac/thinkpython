@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and methods</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc189"></a><a class="calibre14" id="htoc208"><span class="calibre18">17.9</span></a><span class="calibre18">&nbsp;&nbsp;Polymorphism</span></h2>
+
+  <p class="calibre15"><span class="calibre4">Type-based dispatch is useful when it is necessary, but (fortunately) it is not always necessary. Often you can avoid it by writing functions that work correctly for arguments with different types.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1533"></a> <a class="calibre16" id="@default1534"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Many of the functions we wrote for strings will actually work for any kind of sequence. For example, in Section&nbsp;</span><a class="calibre3" href="../Text/Section0110.xhtml#histogram"><span class="calibre4">11.1</span></a> <span class="calibre4">we used <tt class="calibre7">histogram</tt> to count the number of times each letter appears in a word.</span></p>
+  <pre class="verbatim"><span class="calibre20">def histogram(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] = d[c]+1
+    return d
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This function also works for lists, tuples, and even dictionaries, as long as the elements of <tt class="calibre7">s</tt> are hashable, so they can be used as keys in <tt class="calibre7">d</tt>.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t = ['spam', 'egg', 'spam', 'spam', 'bacon', 'spam']
+&gt;&gt;&gt; histogram(t)
+{'bacon': 1, 'egg': 1, 'spam': 4}
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Functions that can work with several types are called <b class="calibre19">polymorphic</b>. Polymorphism can facilitate code reuse. For example, the built-in function <tt class="calibre7">sum</tt>, which adds the elements of a sequence, works as long as the elements of the sequence support addition.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1535"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Since Time objects provide an <tt class="calibre7">add</tt> method, they work with <tt class="calibre7">sum</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t1 = Time(7, 43)
+&gt;&gt;&gt; t2 = Time(7, 41)
+&gt;&gt;&gt; t3 = Time(7, 37)
+&gt;&gt;&gt; total = sum([t1, t2, t3])
+&gt;&gt;&gt; print total
+23:01:00
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In general, if all of the operations inside a function work with a given type, then the function works with that type.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The best kind of polymorphism is the unintentional kind, where you discover that a function you already wrote can be applied to a type you never planned for.</span></p>
+</body>
+</html>

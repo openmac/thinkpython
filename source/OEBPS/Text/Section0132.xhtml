@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc144"></a><a class="calibre14" id="htoc159"><span class="calibre18">13.4</span></a><span class="calibre18">&nbsp;&nbsp;Most common words</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1195"></a> <a class="calibre16" id="@default1196"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To find the most common words, we can apply the DSU pattern; <code class="calibre7">most_common</code> takes a histogram and returns a list of word-frequency tuples, sorted in reverse order by frequency:</span></p>
+  <pre class="verbatim"><span class="calibre20">def most_common(h):
+    t = []
+    for key, value in h.items():
+        t.append((value, key))
+
+    t.sort(reverse=True)
+    return t
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here is a loop that prints the ten most common words:</span></p>
+  <pre class="verbatim"><span class="calibre20">t = most_common(hist)
+print 'The most common words are:'
+for freq, word in t[0:10]:
+    print word, '\t', freq
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And here are the results from <em class="calibre9">Emma</em>:</span></p>
+  <pre class="verbatim"><span class="calibre20">The most common words are:
+to      5242
+the     5204
+and     4897
+of      4293
+i       3191
+a       3130
+it      2529
+her     2483
+was     2400
+she     2364
+</span></pre>
+</body>
+</html>

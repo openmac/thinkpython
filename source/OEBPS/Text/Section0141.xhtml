@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default1238"></a> <a class="calibre16" id="@default1239"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc154"></a><a class="calibre14" id="htoc170"><span class="calibre18">14.2</span></a><span class="calibre18">&nbsp;&nbsp;Reading and writing</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1240"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A text file is a sequence of characters stored on a permanent medium like a hard drive, flash memory, or CD-ROM. We saw how to open and read a file in Section&nbsp;</span><a class="calibre3" href="../Text/book010.html#wordlist"><span class="calibre4">9.1</span></a><span class="calibre4">.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1241"></a> <a class="calibre16" id="@default1242"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To write a file, you have to open it with mode <code class="calibre7">'w'</code> as a second parameter:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fout = open('output.txt', 'w')
+&gt;&gt;&gt; print fout
+&lt;open file 'output.txt', mode 'w' at 0xb7eb2410&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If the file already exists, opening it in write mode clears out the old data and starts fresh, so be careful! If the file doesn’t exist, a new one is created.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">write</tt> method puts data into the file.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; line1 = "This here's the wattle,\n"
+&gt;&gt;&gt; fout.write(line1)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Again, the file object keeps track of where it is, so if you call <tt class="calibre7">write</tt> again, it adds the new data to the end.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; line2 = "the emblem of our land.\n"
+&gt;&gt;&gt; fout.write(line2)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">When you are done writing, you have to close the file.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; fout.close()
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <h2 class="section sigilNotInTOC" id="heading_id_4"><a class="calibre14" id="toc194"></a><a class="calibre14" id="htoc214"><span class="calibre18">18.2</span></a><span class="calibre18">&nbsp;&nbsp;Class attributes</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1583"></a> <a class="calibre16" id="@default1584"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In order to print Card objects in a way that people can easily read, we need a mapping from the integer codes to the corresponding ranks and suits. A natural way to do that is with lists of strings. We assign these lists to <b class="calibre19">class attributes</b>:</span></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Card:
+
+    suit_names = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+    rank_names = [None, 'Ace', '2', '3', '4', '5', '6', '7', 
+              '8', '9', '10', 'Jack', 'Queen', 'King']
+
+    def __str__(self):
+        return '%s of %s' % (Card.rank_names[self.rank],
+                             Card.suit_names[self.suit])
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Variables like <code class="calibre7">suit_names</code> and <code class="calibre7">rank_names</code>, which are defined inside a class but outside of any method, are called class attributes because they are associated with the class object <tt class="calibre7">Card</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1585"></a> <a class="calibre16" id="@default1586"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This term distinguishes them from variables like <tt class="calibre7">suit</tt> and <tt class="calibre7">rank</tt>, which are called <b class="calibre19">instance attributes</b> because they are associated with a particular instance.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1587"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Both kinds of attribute are accessed using dot notation. For example, in <code class="calibre7">__str__</code>, <tt class="calibre7">self</tt> is a Card object, and <tt class="calibre7">self.rank</tt> is its rank. Similarly, <tt class="calibre7">Card</tt> is a class object, and <code class="calibre7">Card.rank_names</code> is a list of strings associated with the class.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Every card has its own <tt class="calibre7">suit</tt> and <tt class="calibre7">rank</tt>, but there is only one copy of <code class="calibre7">suit_names</code> and <code class="calibre7">rank_names</code>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Putting it all together, the expression <code class="calibre7">Card.rank_names[self.rank]</code> means “use the attribute <tt class="calibre7">rank</tt> from the object <tt class="calibre7">self</tt> as an index into the list <code class="calibre7">rank_names</code> from the class <tt class="calibre7">Card</tt>, and select the appropriate string.”</span></p>
+
+  <p class="calibre15"><span class="calibre4">The first element of <code class="calibre7">rank_names</code> is <tt class="calibre7">None</tt> because there is no card with rank zero. By including <tt class="calibre7">None</tt> as a place-keeper, we get a mapping with the nice property that the index 2 maps to the string <code class="calibre7">'2'</code>, and so on. To avoid this tweak, we could have used a dictionary instead of a list.</span></p>
+
+  <p class="calibre15"><span class="calibre4">With the methods we have so far, we can create and print cards:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; card1 = Card(2, 11)
+&gt;&gt;&gt; print card1
+Jack of Hearts
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here is a diagram that shows the <tt class="calibre7">Card</tt> class object and one Card instance:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1588"></a> <a class="calibre16" id="@default1589"></a> <a class="calibre16" id="@default1590"></a> <a class="calibre16" id="@default1591"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book026.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">Card</tt> is a class object, so it has type <tt class="calibre7">type</tt>. <tt class="calibre7">card1</tt> has type <tt class="calibre7">Card</tt>. (To save space, I didn’t draw the contents of <code class="calibre7">suit_names</code> and <code class="calibre7">rank_names</code>).</span></p>
+</body>
+</html>

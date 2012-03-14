@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default611"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc90"></a><a class="calibre14" id="htoc100"><span class="calibre18">8.6</span></a><span class="calibre18">&nbsp;&nbsp;Searching</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="find"></a></p>
+
+  <p class="calibre15"><span class="calibre4">What does the following function do?</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default612"></a> <a class="calibre16" id="@default613"></a></p>
+  <pre class="verbatim"><span class="calibre20">def find(word, letter):
+    index = 0
+    while index &lt; len(word):
+        if word[index] == letter:
+            return index
+        index = index + 1
+    return -1
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In a sense, <tt class="calibre7">find</tt> is the opposite of the <tt class="calibre7">[]</tt> operator. Instead of taking an index and extracting the corresponding character, it takes a character and finds the index where that character appears. If the character is not found, the function returns <tt class="calibre7">-1</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This is the first example we have seen of a <tt class="calibre7">return</tt> statement inside a loop. If <tt class="calibre7">word[index] == letter</tt>, the function breaks out of the loop and returns immediately.</span></p>
+
+  <p class="calibre15"><span class="calibre4">If the character doesn’t appear in the string, the program exits the loop normally and returns <tt class="calibre7">-1</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This pattern of computation&mdash;traversing a sequence and returning when we find what we are looking for&mdash;is called a <b class="calibre19">search</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default614"></a> <a class="calibre16" id="@default615"></a> <a class="calibre16" id="@default616"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp; <em class="calibre9">Modify <tt class="calibre7">find</tt> so that it has a third parameter, the index in <tt class="calibre7">word</tt> where it should start looking.</em></span>
+  </div>
+</body>
+</html>

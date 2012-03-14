@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc177"></a><a class="calibre14" id="htoc195"><span class="calibre18">16.4</span></a><span class="calibre18">&nbsp;&nbsp;Prototyping versus planning</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="prototype"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1462"></a> <a class="calibre16" id="@default1463"></a> <a class="calibre16" id="@default1464"></a> <a class="calibre16" id="@default1465"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The development plan I am demonstrating is called “prototype and patch.” For each function, I wrote a prototype that performed the basic calculation and then tested it, patching errors along the way.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This approach can be effective, especially if you don’t yet have a deep understanding of the problem. But incremental corrections can generate code that is unnecessarily complicated&mdash;since it deals with many special cases&mdash;and unreliable&mdash;since it is hard to know if you have found all the errors.</span></p>
+
+  <p class="calibre15"><span class="calibre4">An alternative is <b class="calibre19">planned development</b>, in which high-level insight into the problem can make the programming much easier. In this case, the insight is that a Time object is really a three-digit number in base 60 (see <tt class="calibre7">wikipedia.org/wiki/Sexagesimal</tt>.)! The <tt class="calibre7">second</tt> attribute is the “ones column,” the <tt class="calibre7">minute</tt> attribute is the “sixties column,” and the <tt class="calibre7">hour</tt> attribute is the “thirty-six hundreds column.”</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1466"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When we wrote <code class="calibre7">add_time</code> and <tt class="calibre7">increment</tt>, we were effectively doing addition in base 60, which is why we had to carry from one column to the next.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1467"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This observation suggests another approach to the whole problem&mdash;we can convert Time objects to integers and take advantage of the fact that the computer knows how to do integer arithmetic.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is a function that converts Times to integers:</span></p>
+  <pre class="verbatim"><span class="calibre20">def time_to_int(time):
+    minutes = time.hour * 60 + time.minute
+    seconds = minutes * 60 + time.second
+    return seconds
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And here is the function that converts integers to Times (recall that <tt class="calibre7">divmod</tt> divides the first argument by the second and returns the quotient and remainder as a tuple).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1468"></a></p>
+  <pre class="verbatim"><span class="calibre20">def int_to_time(seconds):
+    time = Time()
+    minutes, time.second = divmod(seconds, 60)
+    time.hour, time.minute = divmod(minutes, 60)
+    return time
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">You might have to think a bit, and run some tests, to convince yourself that these functions are correct. One way to test them is to check that <code class="calibre7">time_to_int(int_to_time(x)) == x</code> for many values of <tt class="calibre7">x</tt>. This is an example of a consistency check.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1469"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Once you are convinced they are correct, you can use them to rewrite <code class="calibre7">add_time</code>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def add_time(t1, t2):
+    seconds = time_to_int(t1) + time_to_int(t2)
+    return int_to_time(seconds)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This version is shorter than the original, and easier to verify.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp; <em class="calibre9">Rewrite <tt class="calibre7">increment</tt> using <code class="calibre7">time_to_int</code> and <code class="calibre7">int_to_time</code>.</em></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">In some ways, converting from base 60 to base 10 and back is harder than just dealing with times. Base conversion is more abstract; our intuition for dealing with time values is better.</span></p>
+
+  <p class="calibre15"><span class="calibre4">But if we have the insight to treat times as base 60 numbers and make the investment of writing the conversion functions (<code class="calibre7">time_to_int</code> and <code class="calibre7">int_to_time</code>), we get a program that is shorter, easier to read and debug, and more reliable.</span></p>
+
+  <p class="calibre15"><span class="calibre4">It is also easier to add features later. For example, imagine subtracting two Times to find the duration between them. The naïve approach would be to implement subtraction with borrowing. Using the conversion functions would be easier and more likely to be correct.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1470"></a> <a class="calibre16" id="@default1471"></a> <a class="calibre16" id="@default1472"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Ironically, sometimes making a problem harder (or more general) makes it easier (because there are fewer special cases and fewer opportunities for error).</span></p>
+</body>
+</html>

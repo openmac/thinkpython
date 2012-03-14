@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc68"></a><a class="calibre14" id="htoc76"><span class="calibre18">6.4</span></a><span class="calibre18">&nbsp;&nbsp;Boolean functions</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="boolean"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default463"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Functions can return booleans, which is often convenient for hiding complicated tests inside functions. For example:</span></p>
+  <pre class="verbatim"><span class="calibre20">def is_divisible(x, y):
+    if x % y == 0:
+        return True
+    else:
+        return False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">It is common to give boolean functions names that sound like yes/no questions; <code class="calibre7">is_divisible</code> returns either <tt class="calibre7">True</tt> or <tt class="calibre7">False</tt> to indicate whether <tt class="calibre7">x</tt> is divisible by <tt class="calibre7">y</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is an example:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt;   is_divisible(6, 4)
+False
+&gt;&gt;&gt;   is_divisible(6, 3)
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The result of the <tt class="calibre7">==</tt> operator is a boolean, so we can write the function more concisely by returning it directly:</span></p>
+  <pre class="verbatim"><span class="calibre20">def is_divisible(x, y):
+    return x % y == 0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Boolean functions are often used in conditional statements:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default464"></a> <a class="calibre16" id="@default465"></a></p>
+  <pre class="verbatim"><span class="calibre20">if is_divisible(x, y):
+    print 'x is divisible by y'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">It might be tempting to write something like:</span></p>
+  <pre class="verbatim"><span class="calibre20">if is_divisible(x, y) == True:
+    print 'x is divisible by y'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But the extra comparison is unnecessary.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Write a function <code class="calibre7">is_between(x, y, z)</code> that returns <tt class="calibre7">True</tt> if <i class="calibre9">x</i> ≤ <i class="calibre9">y</i> ≤ <i class="calibre9">z</i> or <tt class="calibre7">False</tt> otherwise.</em></span>
+  </div>
+</body>
+</html>

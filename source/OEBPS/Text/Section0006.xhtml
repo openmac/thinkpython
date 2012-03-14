@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>The way of the program</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc7"></a><a class="calibre14" id="htoc10"><span class="calibre18">1.4</span></a><span class="calibre18">&nbsp;&nbsp;Formal and natural languages</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default50"></a> <a class="calibre16" id="@default51"></a> <a class="calibre16" id="@default52"></a> <a class="calibre16" id="@default53"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><b class="calibre19">Natural languages</b> are the languages people speak, such as English, Spanish, and French. They were not designed by people (although people try to impose some order on them); they evolved naturally.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><b class="calibre19">Formal languages</b> are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols. Chemists use a formal language to represent the chemical structure of molecules. And most importantly:</span></p>
+
+  <blockquote class="quote">
+    <span class="calibre4 calibre19 sgc-1">Programming languages are formal languages that have been designed to express computations.</span>
+  </blockquote>
+
+  <p class="calibre15"><span class="calibre4">Formal languages tend to have strict rules about syntax. For example, 3 + 3 = 6 is a syntactically correct mathematical statement, but 3 + = 3 $ 6 is not. <i class="calibre9">H</i><sub class="calibre11">2</sub><i class="calibre9">O</i> is a syntactically correct chemical formula, but <sub class="calibre11">2</sub><i class="calibre9">Zz</i> is not.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Syntax rules come in two flavors, pertaining to <b class="calibre19">tokens</b> and structure. Tokens are the basic elements of the language, such as words, numbers, and chemical elements. One of the problems with 3 + = 3 $ 6 is that $ is not a legal token in mathematics (at least as far as I know). Similarly, <sub class="calibre11">2</sub><i class="calibre9">Zz</i> is not legal because there is no element with the abbreviation <i class="calibre9">Zz</i>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default54"></a> <a class="calibre16" id="@default55"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The second type of syntax error pertains to the structure of a statement; that is, the way the tokens are arranged. The statement 3 + = 3 $ 6 is illegal because even though + and = are legal tokens, you can’t have one right after the other. Similarly, in a chemical formula the subscript comes after the element name, not before.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp; <em class="calibre9">Write a well-structured English sentence with invalid tokens in it. Then write another sentence with all valid tokens but with invalid structure.</em></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is (although in a natural language you do this subconsciously). This process is called <b class="calibre19">parsing</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default56"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For example, when you hear the sentence, “The penny dropped,” you understand that “the penny” is the subject and “dropped” is the predicate. Once you have parsed a sentence, you can figure out what it means, or the semantics of the sentence. Assuming that you know what a penny is and what it means to drop, you will understand the general implication of this sentence.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Although formal and natural languages have many features in common&mdash;tokens, structure, syntax, and semantics&mdash;there are some differences:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default57"></a> <a class="calibre16" id="@default58"></a> <a class="calibre16" id="@default59"></a></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">ambiguity:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">Natural languages are full of ambiguity, which people deal with by using contextual clues and other information. Formal languages are designed to be nearly or completely unambiguous, which means that any statement has exactly one meaning, regardless of context.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">redundancy:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">In order to make up for ambiguity and reduce misunderstandings, natural languages employ lots of redundancy. As a result, they are often verbose. Formal languages are less redundant and more concise.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">literalness:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">Natural languages are full of idiom and metaphor. If I say, “The penny dropped,” there is probably no penny and nothing dropping</span><sup class="calibre10"><a class="calibre3" href="../Text/Section0010.xhtml#note1" id="text1"><span class="calibre4">1</span></a></sup><span class="calibre4">. Formal languages mean exactly what they say.</span></dd>
+  </dl>
+
+  <p class="calibre15"><span class="calibre4">People who grow up speaking a natural language&mdash;everyone&mdash;often have a hard time adjusting to formal languages. In some ways, the difference between formal and natural language is like the difference between poetry and prose, but more so:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default60"></a> <a class="calibre16" id="@default61"></a></p>
+
+  <dl class="calibre15">
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Poetry:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">Words are used for their sounds as well as for their meaning, and the whole poem together creates an effect or emotional response. Ambiguity is not only common but often deliberate.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Prose:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">The literal meaning of words is more important, and the structure contributes more meaning. Prose is more amenable to analysis than poetry but still often ambiguous.</span></dd>
+
+    <dt class="dt-description"><span class="calibre4 calibre19 sgc-1">Programs:</span></dt>
+
+    <dd class="dd-description"><span class="calibre4">The meaning of a computer program is unambiguous and literal, and can be understood entirely by analysis of the tokens and structure.</span></dd>
+  </dl>
+
+  <p class="calibre15"><span class="calibre4">Here are some suggestions for reading programs (and other formal languages). First, remember that formal languages are much more dense than natural languages, so it takes longer to read them. Also, the structure is very important, so it is usually not a good idea to read from top to bottom, left to right. Instead, learn to parse the program in your head, identifying the tokens and interpreting the structure. Finally, the details matter. Small errors in spelling and punctuation, which you can get away with in natural languages, can make a big difference in a formal language.</span></p>
+</body>
+</html>

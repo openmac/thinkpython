@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Classes and objects</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc167"></a><a class="calibre14" id="htoc184"><span class="calibre18">15.3</span></a><span class="calibre18">&nbsp;&nbsp;Rectangles</span></h2>
+
+  <p class="calibre15"><span class="calibre4">Sometimes it is obvious what the attributes of an object should be, but other times you have to make decisions. For example, imagine you are designing a class to represent rectangles. What attributes would you use to specify the location and size of a rectangle? You can ignore angle; to keep things simple, assume that the rectangle is either vertical or horizontal.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1383"></a></p>
+
+  <p class="calibre15"><span class="calibre4">There are at least two possibilities:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">You could specify one corner of the rectangle (or the center), the width, and the height.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">You could specify two opposing corners.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">At this point it is hard to say whether either is better than the other, so we’ll implement the first one, just as an example.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1384"></a> <a class="calibre16" id="@default1385"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Here is the class definition:</span></p>
+  <pre class="verbatim"><span class="calibre20">class Rectangle(object):
+    """represent a rectangle. 
+       attributes: width, height, corner.
+    """
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The docstring lists the attributes: <tt class="calibre7">width</tt> and <tt class="calibre7">height</tt> are numbers; <tt class="calibre7">corner</tt> is a Point object that specifies the lower-left corner.</span></p>
+
+  <p class="calibre15"><span class="calibre4">To represent a rectangle, you have to instantiate a Rectangle object and assign values to the attributes:</span></p>
+  <pre class="verbatim"><span class="calibre20">box = Rectangle()
+box.width = 100.0
+box.height = 200.0
+box.corner = Point()
+box.corner.x = 0.0
+box.corner.y = 0.0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The expression <tt class="calibre7">box.corner.x</tt> means, “Go to the object <tt class="calibre7">box</tt> refers to and select the attribute named <tt class="calibre7">corner</tt>; then go to that object and select the attribute named <tt class="calibre7">x</tt>.”</span></p>
+
+  <p class="calibre15"><span class="calibre4">The figure shows the state of this object:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1386"></a> <a class="calibre16" id="@default1387"></a> <a class="calibre16" id="@default1388"></a> <a class="calibre16" id="@default1389"></a></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book023.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">An object that is an attribute of another object is <b class="calibre19">embedded</b>.</span></p>
+</body>
+</html>

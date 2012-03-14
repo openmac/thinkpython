@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default356"></a> <a class="calibre16" id="@default357"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc53"></a><a class="calibre14" id="htoc60"><span class="calibre18">5.3</span></a><span class="calibre18">&nbsp;&nbsp;Logical operators</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default358"></a> <a class="calibre16" id="@default359"></a></p>
+
+  <p class="calibre15"><span class="calibre4">There are three <b class="calibre19">logical operators</b>: <tt class="calibre7">and</tt>, <tt class="calibre7">or</tt>, and <tt class="calibre7">not</tt>. The semantics (meaning) of these operators is similar to their meaning in English. For example, <tt class="calibre7">x &gt; 0 and x &lt; 10</tt> is true only if <tt class="calibre7">x</tt> is greater than 0 <em class="calibre9">and</em> less than 10.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default360"></a> <a class="calibre16" id="@default361"></a> <a class="calibre16" id="@default362"></a> <a class="calibre16" id="@default363"></a> <a class="calibre16" id="@default364"></a> <a class="calibre16" id="@default365"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">n%2 == 0 or n%3 == 0</tt> is true if <em class="calibre9">either</em> of the conditions is true, that is, if the number is divisible by 2 <em class="calibre9">or</em> 3.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Finally, the <tt class="calibre7">not</tt> operator negates a boolean expression, so <tt class="calibre7">not (x &gt; y)</tt> is true if <tt class="calibre7">x &gt; y</tt> is false, that is, if <tt class="calibre7">x</tt> is less than or equal to <tt class="calibre7">y</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Strictly speaking, the operands of the logical operators should be boolean expressions, but Python is not very strict. Any nonzero number is interpreted as “true.”</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; 17 and True
+True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This flexibility can be useful, but there are some subtleties to it that might be confusing. You might want to avoid it (unless you know what you are doing).</span></p>
+</body>
+</html>

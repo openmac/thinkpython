@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Inheritance</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  tt.sgc-2 {font-weight: bold}
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-3 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-3">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc199"></a><a class="calibre14" id="htoc219"><span class="calibre18">18.7</span></a><span class="calibre18">&nbsp;&nbsp;Inheritance</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1630"></a> <a class="calibre16" id="@default1631"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The language feature most often associated with object-oriented programming is <b class="calibre19">inheritance</b>. Inheritance is the ability to define a new class that is a modified version of an existing class.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1632"></a> <a class="calibre16" id="@default1633"></a> <a class="calibre16" id="@default1634"></a> <a class="calibre16" id="@default1635"></a> <a class="calibre16" id="@default1636"></a></p>
+
+  <p class="calibre15"><span class="calibre4">It is called “inheritance” because the new class inherits the methods of the existing class. Extending this metaphor, the existing class is called the <b class="calibre19">parent</b> and the new class is called the <b class="calibre19">child</b>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">As an example, let’s say we want a class to represent a “hand,” that is, the set of cards held by one player. A hand is similar to a deck: both are made up of a set of cards, and both require operations like adding and removing cards.</span></p>
+
+  <p class="calibre15"><span class="calibre4">A hand is also different from a deck; there are operations we want for hands that don’t make sense for a deck. For example, in poker we might compare two hands to see which one wins. In bridge, we might compute a score for a hand in order to make a bid.</span></p>
+
+  <p class="calibre15"><span class="calibre4">This relationship between classes&mdash;similar, but different&mdash;lends itself to inheritance.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The definition of a child class is like other class definitions, but the name of the parent class appears in parentheses:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1637"></a> <a class="calibre16" id="@default1638"></a> <a class="calibre16" id="@default1639"></a> <a class="calibre16" id="@default1640"></a> <a class="calibre16" id="@default1641"></a></p>
+  <pre class="verbatim"><span class="calibre20">class Hand(Deck):
+    """represents a hand of playing cards"""
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This definition indicates that <tt class="calibre7">Hand</tt> inherits from <tt class="calibre7">Deck</tt>; that means we can use methods like <code class="calibre7">pop_card</code> and <code class="calibre7">add_card</code> for Hands as well as Decks.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">Hand</tt> also inherits <code class="calibre7">__init__</code> from <tt class="calibre7">Deck</tt>, but it doesn’t really do what we want: instead of populating the hand with 52 new cards, the init method for Hands should initialize <tt class="calibre7">cards</tt> with an empty list.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1642"></a> <a class="calibre16" id="@default1643"></a> <a class="calibre16" id="@default1644"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If we provide an init method in the <tt class="calibre7">Hand</tt> class, it overrides the one in the <tt class="calibre7">Deck</tt> class:</span></p>
+  <pre class="verbatim"><span class="calibre20"># inside class Hand:
+
+    def __init__(self, label=''):
+        self.cards = []
+        self.label = label
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">So when you create a Hand, Python invokes this init method:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; hand = Hand('new hand')
+&gt;&gt;&gt; print hand.cards
+[]
+&gt;&gt;&gt; print hand.label
+new hand
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">But the other methods are inherited from <tt class="calibre7">Deck</tt>, so we can use <code class="calibre7">pop_card</code> and <code class="calibre7">add_card</code> to deal a card:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; deck = Deck()
+&gt;&gt;&gt; card = deck.pop_card()
+&gt;&gt;&gt; hand.add_card(card)
+&gt;&gt;&gt; print hand
+King of Spades
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">A natural next step is to encapsulate this code in a method called <code class="calibre7">move_cards</code>:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1645"></a></p>
+  <pre class="verbatim"><span class="calibre20">#inside class Deck:
+
+    def move_cards(self, hand, num):
+        for i in range(num):
+            hand.add_card(self.pop_card())
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">move_cards</code> takes two arguments, a Hand object and the number of cards to deal. It modifies both <tt class="calibre7">self</tt> and <tt class="calibre7">hand</tt>, and returns <tt class="calibre7">None</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">In some games, cards are moved from one hand to another, or from a hand back to the deck. You can use <code class="calibre7">move_cards</code> for any of these operations: <tt class="calibre7">self</tt> can be either a Deck or a Hand, and <tt class="calibre7">hand</tt>, despite the name, can also be a <tt class="calibre7">Deck</tt>.</span></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp; <em class="calibre9">Write a Deck method called <code class="calibre7">deal_hands</code> that takes two parameters, the number of hands and the number of cards per hand, and that creates new Hand objects, deals the appropriate number of cards per hand, and returns a list of Hand objects.</em></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">Inheritance is a useful feature. Some programs that would be repetitive without inheritance can be written more elegantly with it. Inheritance can facilitate code reuse, since you can customize the behavior of parent classes without having to modify them. In some cases, the inheritance structure reflects the natural structure of the problem, which makes the program easier to understand.</span></p>
+
+  <p class="calibre15"><span class="calibre4">On the other hand, inheritance can make programs difficult to read. When a method is invoked, it is sometimes not clear where to find its definition. The relevant code may be scattered among several modules. Also, many of the things that can be done using inheritance can be done as well or better without it.</span></p>
+</body>
+</html>

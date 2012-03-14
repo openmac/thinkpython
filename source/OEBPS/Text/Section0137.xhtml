@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc149"></a><a class="calibre14" id="htoc164"><span class="calibre18">13.9</span></a><span class="calibre18">&nbsp;&nbsp;Data structures</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1215"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Using Markov analysis to generate random text is fun, but there is also a point to this exercise: data structure selection. In your solution to the previous exercises, you had to choose:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">How to represent the prefixes.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">How to represent the collection of possible suffixes.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">How to represent the mapping from each prefix to the collection of possible suffixes.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">Ok, the last one is the easy; the only mapping type we have seen is a dictionary, so it is the natural choice.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For the prefixes, the most obvious options are string, list of strings, or tuple of strings. For the suffixes, one option is a list; another is a histogram (dictionary).</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1216"></a></p>
+
+  <p class="calibre15"><span class="calibre4">How should you choose? The first step is to think about the operations you will need to implement for each data structure. For the prefixes, we need to be able to remove words from the beginning and add to the end. For example, if the current prefix is “Half a,” and the next word is “bee,” you need to be able to form the next prefix, “a bee.”</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1217"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Your first choice might be a list, since it is easy to add and remove elements, but we also need to be able to use the prefixes as keys in a dictionary, so that rules out lists. With tuples, you can’t append or remove, but you can use the addition operator to form a new tuple:</span></p>
+  <pre class="verbatim"><span class="calibre20">def shift(prefix, word):
+    return prefix[1:] + (word,)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">shift</tt> takes a tuple of words, <tt class="calibre7">prefix</tt>, and a string, <tt class="calibre7">word</tt>, and forms a new tuple that has all the words in <tt class="calibre7">prefix</tt> except the first, and <tt class="calibre7">word</tt> added to the end.</span></p>
+
+  <p class="calibre15"><span class="calibre4">For the collection of suffixes, the operations we need to perform include adding a new suffix (or increasing the frequency of an existing one), and choosing a random suffix.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Adding a new suffix is equally easy for the list implementation or the histogram. Choosing a random element from a list is easy; choosing from a histogram is harder to do efficiently (see Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0140.xhtml#randhist"><span class="calibre4">13.7</span></a><span class="calibre4">).</span></p>
+
+  <p class="calibre15"><span class="calibre4">So far we have been talking mostly about ease of implementation, but there are other factors to consider in choosing data structures. One is run time. Sometimes there is a theoretical reason to expect one data structure to be faster than other; for example, I mentioned that the <tt class="calibre7">in</tt> operator is faster for dictionaries than for lists, at least when the number of elements is large.</span></p>
+
+  <p class="calibre15"><span class="calibre4">But often you don’t know ahead of time which implementation will be faster. One option is to implement both of them and see which is better. This approach is called <b class="calibre19">benchmarking</b>. A practical alternative is to choose the data structure that is easiest to implement, and then see if it is fast enough for the intended application. If so, there is no need to go on. If not, there are tools, like the <tt class="calibre7">profile</tt> module, that can identify the places in a program that take the most time.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1218"></a> <a class="calibre16" id="@default1219"></a> <a class="calibre16" id="@default1220"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The other factor to consider is storage space. For example, using a histogram for the collection of suffixes might take less space because you only have to store each word once, no matter how many times it appears in the text. In some cases, saving space can also make your program run faster, and in the extreme, your program might not run at all if you run out of memory. But for many applications, space is a secondary consideration after run time.</span></p>
+
+  <p class="calibre15"><span class="calibre4">One final thought: in this discussion, I have implied that we should use one data structure for both analysis and generation. But since these are separate phases, it would also be possible to use one structure for analysis and then convert to another structure for generation. This would be a net win if the time saved during generation exceeded the time spent in conversion.</span></p>
+</body>
+</html>

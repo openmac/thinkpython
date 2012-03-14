@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_6"><a class="calibre14" id="toc207"></a><a class="calibre14" id="htoc228"><span class="calibre18">19.4</span></a><span class="calibre18">&nbsp;&nbsp;Coordinate sequences</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1709"></a> <a class="calibre16" id="@default1710"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">rectangle</tt> method takes a sequence of coordinates that specify opposite corners of the rectangle. This example draws a green rectangle with the lower left corner at the origin and the upper right corner at (200, 100):</span></p>
+  <pre class="verbatim"><span class="calibre20">canvas.rectangle([[0, 0], [200, 100]], 
+                 fill='blue', outline='orange', width=10)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This way of specifying corners is called a <b class="calibre19">bounding box</b> because the two points bound the rectangle.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1711"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">oval</tt> takes a bounding box and draws an oval within the specified rectangle:</span></p>
+  <pre class="verbatim"><span class="calibre20">canvas.oval([[0, 0], [200, 100]], outline='orange', width=10)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">line</tt> takes a sequence of coordinates and draws a line that connects the points. This example draws two legs of a triangle:</span></p>
+  <pre class="verbatim"><span class="calibre20">canvas.line([[0, 100], [100, 200], [200, 100]], width=10)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">polygon</tt> takes the same arguments, but it draws the last leg of the polygon (if necessary) and fills it in:</span></p>
+  <pre class="verbatim"><span class="calibre20">canvas.polygon([[0, 100], [100, 200], [200, 100]],
+               fill='red', outline='orange', width=10)
+</span></pre>
+</body>
+</html>

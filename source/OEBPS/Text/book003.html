@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Variables, expressions and statements</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc15">Chapter&nbsp;2</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc15"></a>Variables, expressions and statements</h1>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc12"></a><a class="calibre14" id="htoc16"><span class="calibre18">2.1</span></a><span class="calibre18">&nbsp;&nbsp;Values and types</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default104"></a> <a class="calibre16" id="@default105"></a> <a class="calibre16" id="@default106"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">value</b> is one of the basic things a program works with, like a letter or a number. The values we have seen so far are <tt class="calibre7">1</tt>, <tt class="calibre7">2</tt>, and <code class="calibre7">'Hello, World!'</code>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">These values belong to different <b class="calibre19">types</b>: <tt class="calibre7">2</tt> is an integer, and <code class="calibre7">'Hello, World!'</code> is a <b class="calibre19">string</b>, so-called because it contains a “string” of letters. You (and the interpreter) can identify strings because they are enclosed in quotation marks.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default107"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The print statement also works for integers.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print 4
+4
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">If you are not sure what type a value has, the interpreter can tell you.</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; type('Hello, World!')
+&lt;type 'str'&gt;
+&gt;&gt;&gt; type(17)
+&lt;type 'int'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Not surprisingly, strings belong to the type <tt class="calibre7">str</tt> and integers belong to the type <tt class="calibre7">int</tt>. Less obviously, numbers with a decimal point belong to a type called <tt class="calibre7">float</tt>, because these numbers are represented in a format called <b class="calibre19">floating-point</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default108"></a> <a class="calibre16" id="@default109"></a> <a class="calibre16" id="@default110"></a> <a class="calibre16" id="@default111"></a> <a class="calibre16" id="@default112"></a> <a class="calibre16" id="@default113"></a> <a class="calibre16" id="@default114"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; type(3.2)
+&lt;type 'float'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">What about values like <code class="calibre7">'17'</code> and <code class="calibre7">'3.2'</code>? They look like numbers, but they are in quotation marks like strings.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default115"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; type('17')
+&lt;type 'str'&gt;
+&gt;&gt;&gt; type('3.2')
+&lt;type 'str'&gt;
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">They’re strings.</span></p>
+
+  <p class="calibre15"><span class="calibre4">When you type a large integer, you might be tempted to use commas between groups of three digits, as in <tt class="calibre7">1,000,000</tt>. This is not a legal integer in Python, but it is legal:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print 1,000,000
+1 0 0
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Well, that’s not what we expected at all! Python interprets <tt class="calibre7">1,000,000</tt> as a comma-separated sequence of integers, which it prints with spaces between.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default116"></a> <a class="calibre16" id="@default117"></a> <a class="calibre16" id="@default118"></a></p>
+
+  <p class="calibre15"><span class="calibre4">This is the first example we have seen of a semantic error: the code runs without producing an error message, but it doesn’t do the “right” thing.</span></p>
+</body>
+</html>

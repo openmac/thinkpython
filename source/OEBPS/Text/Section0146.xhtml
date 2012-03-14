@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default1285"></a> <a class="calibre16" id="@default1286"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_9"><a class="calibre14" id="toc159"></a><a class="calibre14" id="htoc175"><span class="calibre18">14.7</span></a><span class="calibre18">&nbsp;&nbsp;Pickling</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1287"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A limitation of <tt class="calibre7">anydbm</tt> is that the keys and values have to be strings. If you try to use any other type, you get an error.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1288"></a> <a class="calibre16" id="@default1289"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">pickle</tt> module can help. It translates almost any type of object into a string suitable for storage in a database, and then translates strings back into objects.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">pickle.dumps</tt> takes an object as a parameter and returns a string representation (<tt class="calibre7">dumps</tt> is short for “dump string”):</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; import pickle
+&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; pickle.dumps(t)
+'(lp0\nI1\naI2\naI3\na.'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The format isn’t obvious to human readers; it is meant to be easy for <tt class="calibre7">pickle</tt> to interpret. <tt class="calibre7">pickle.loads</tt> (“load string”) reconstitutes the object:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t1 = [1, 2, 3]
+&gt;&gt;&gt; s = pickle.dumps(t1)
+&gt;&gt;&gt; t2 = pickle.loads(s)
+&gt;&gt;&gt; print t2
+[1, 2, 3]
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Although the new object has the same value as the old, it is not (in general) the same object:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; t1 == t2
+True
+&gt;&gt;&gt; t1 is t2
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">In other words, pickling and then unpickling has the same effect as copying the object.</span></p>
+
+  <p class="calibre15"><span class="calibre4">You can use <tt class="calibre7">pickle</tt> to store non-strings in a database. In fact, this combination is so common that it has been encapsulated in a module called <tt class="calibre7">shelve</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1290"></a> <a class="calibre16" id="@default1291"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1292"></a> <a class="calibre16" id="@default1293"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">If you did Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0129.xhtml#anagrams"><span class="calibre4">12.4</span></a><span class="calibre4">, modify your solution so that it creates a database that maps from each word in the list to a list of words that use the same set of letters.</span></em></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a different program that opens the database and prints the contents in a human-readable format.</em></span></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Conditionals and recursion</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <p class="calibre15"><a class="calibre16" id="@default379"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc56"></a><a class="calibre14" id="htoc63"><span class="calibre18">5.6</span></a><span class="calibre18">&nbsp;&nbsp;Chained conditionals</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default380"></a> <a class="calibre16" id="@default381"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Sometimes there are more than two possibilities and we need more than two branches. One way to express a computation like that is a <b class="calibre19">chained conditional</b>:</span></p>
+  <pre class="verbatim"><span class="calibre20">if x &lt; y:
+    print 'x is less than y'
+elif x &gt; y:
+    print 'x is greater than y'
+else:
+    print 'x and y are equal'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">elif</tt> is an abbreviation of “else if.” Again, exactly one branch will be executed. There is no limit on the number of <tt class="calibre7">elif</tt> statements. If there is an <tt class="calibre7">else</tt> clause, it has to be at the end, but there doesn’t have to be one.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default382"></a> <a class="calibre16" id="@default383"></a></p>
+  <pre class="verbatim"><span class="calibre20">if choice == 'a':
+    draw_a()
+elif choice == 'b':
+    draw_b()
+elif choice == 'c':
+    draw_c()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Each condition is checked in order. If the first is false, the next is checked, and so on. If one of them is true, the corresponding branch executes, and the statement ends. Even if more than one condition is true, only the first true branch executes.</span></p>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Fruitful functions</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc72">Chapter&nbsp;6</a></h1>
+
+  <h1 class="chapter" id="heading_id_2"><a class="calibre14" id="htoc72"></a>Fruitful functions</h1>
+
+  <p class="calibre15"><a class="calibre16" id="fruitchap"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_3"><a class="calibre14" id="toc65"></a><a class="calibre14" id="htoc73"><span class="calibre18">6.1</span></a><span class="calibre18">&nbsp;&nbsp;Return values</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default440"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Some of the built-in functions we have used, such as the math functions, produce results. Calling the function generates a value, which we usually assign to a variable or use as part of an expression.</span></p>
+  <pre class="verbatim"><span class="calibre20">e = math.exp(1.0)
+height = radius * math.sin(radians)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">All of the functions we have written so far are void; they print something or move turtles around, but their return value is <tt class="calibre7">None</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">In this chapter, we are (finally) going to write fruitful functions. The first example is <tt class="calibre7">area</tt>, which returns the area of a circle with the given radius:</span></p>
+  <pre class="verbatim"><span class="calibre20">def area(radius):
+    temp = math.pi * radius**2
+    return temp
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">We have seen the <tt class="calibre7">return</tt> statement before, but in a fruitful function the <tt class="calibre7">return</tt> statement includes an expression. This statement means: “Return immediately from this function and use the following expression as a return value.” The expression can be arbitrarily complicated, so we could have written this function more concisely:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default441"></a> <a class="calibre16" id="@default442"></a></p>
+  <pre class="verbatim"><span class="calibre20">def area(radius):
+    return math.pi * radius**2
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">On the other hand, <b class="calibre19">temporary variables</b> like <tt class="calibre7">temp</tt> often make debugging easier.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default443"></a> <a class="calibre16" id="@default444"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Sometimes it is useful to have multiple return statements, one in each branch of a conditional:</span></p>
+  <pre class="verbatim"><span class="calibre20">def absolute_value(x):
+    if x &lt; 0:
+        return -x
+    else:
+        return x
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Since these <tt class="calibre7">return</tt> statements are in an alternative conditional, only one will be executed.</span></p>
+
+  <p class="calibre15"><span class="calibre4">As soon as a return statement executes, the function terminates without executing any subsequent statements. Code that appears after a <tt class="calibre7">return</tt> statement, or any other place the flow of execution can never reach, is called <b class="calibre19">dead code</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default445"></a></p>
+
+  <p class="calibre15"><span class="calibre4">In a fruitful function, it is a good idea to ensure that every possible path through the program hits a <tt class="calibre7">return</tt> statement. For example:</span></p>
+  <pre class="verbatim"><span class="calibre20">def absolute_value(x):
+    if x &lt; 0:
+        return -x
+    if x &gt; 0:
+        return x
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This function is incorrect because if <tt class="calibre7">x</tt> happens to be 0, neither condition is true, and the function ends without hitting a <tt class="calibre7">return</tt> statement. If the flow of execution gets to the end of a function, the return value is <tt class="calibre7">None</tt>, which is not the absolute value of 0.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default446"></a> <a class="calibre16" id="@default447"></a></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print absolute_value(0)
+None
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">By the way, Python provides a built-in function called <tt class="calibre7">abs</tt> that computes absolute values.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default448"></a> <a class="calibre16" id="@default449"></a></p>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;1</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default450"></a> <a class="calibre16" id="@default451"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a <tt class="calibre7">compare</tt> function that returns <tt class="calibre7">1</tt> if <tt class="calibre7">x &gt; y</tt>, <tt class="calibre7">0</tt> if <tt class="calibre7">x == y</tt>, and <tt class="calibre7">-1</tt> if <tt class="calibre7">x &lt; y</tt>.</em></span></p>
+  </div>
+</body>
+</html>

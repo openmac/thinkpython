@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Strings</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc93"></a><a class="calibre14" id="htoc103"><span class="calibre18">8.9</span></a><span class="calibre18">&nbsp;&nbsp;The <tt class="calibre22">in</tt> operator</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="inboth"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default631"></a> <a class="calibre16" id="@default632"></a> <a class="calibre16" id="@default633"></a> <a class="calibre16" id="@default634"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The word <tt class="calibre7">in</tt> is a boolean operator that takes two strings and returns <tt class="calibre7">True</tt> if the first appears as a substring in the second:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; 'a' in 'banana'
+True
+&gt;&gt;&gt; 'seed' in 'banana'
+False
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">For example, the following function prints all the letters from <tt class="calibre7">word1</tt> that also appear in <tt class="calibre7">word2</tt>:</span></p>
+  <pre class="verbatim"><span class="calibre20">def in_both(word1, word2):
+    for letter in word1:
+        if letter in word2:
+            print letter
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">With well-chosen variable names, Python sometimes reads like English. You could read this loop, “for (each) letter in (the first) word, if (the) letter (appears) in (the second) word, print (the) letter.”</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here’s what you get if you compare apples and oranges:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; in_both('apples', 'oranges')
+a
+e
+s
+</span></pre>
+</body>
+</html>

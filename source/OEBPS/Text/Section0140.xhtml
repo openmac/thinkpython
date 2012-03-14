@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_14"><a class="calibre14" id="toc152"></a><a class="calibre14" id="htoc167"><span class="calibre18">13.12</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;9</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1231"></a> <a class="calibre16" id="@default1232"></a> <a class="calibre16" id="@default1233"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The “rank” of a word is its position in a list of words sorted by frequency: the most common word has rank 1, the second most common has rank 2, etc.</em></span></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">Zipf’s law describes a relationship between the ranks and frequencies of words in natural languages</span><sup class="calibre10"><a class="calibre3" href="#note32" id="text32"><span class="calibre4">2</span></a></sup><span class="calibre4">. Specifically, it predicts that the frequency, <i class="calibre9">f</i>, of the word with rank <i class="calibre9">r</i> is:</span></em></p>
+
+    <table class="display">
+      <tbody class="calibre23">
+        <tr class="calibre24" valign="middle">
+          <td class="dcell"><span class="calibre4"><em class="calibre9"><i class="calibre9">f</i>&nbsp;=&nbsp;<i class="calibre9">c</i>&nbsp;<i class="calibre9">r</i><sup class="calibre10">−<i class="calibre9">s</i></sup>&nbsp;</em></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">where <i class="calibre9">s</i> and <i class="calibre9">c</i> are parameters that depend on the language and the text. If you take the logarithm of both sides of this equation, you get:</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1234"></a></p>
+
+    <table class="display">
+      <tbody class="calibre23">
+        <tr class="calibre24" valign="middle">
+          <td class="dcell"><span class="calibre4"><em class="calibre9">log<i class="calibre9">f</i>&nbsp;=&nbsp;log<i class="calibre9">c</i>&nbsp;−&nbsp;<i class="calibre9">s</i>&nbsp;log<i class="calibre9">r</i>&nbsp;</em></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">So if you plot log<i class="calibre9">f</i> versus log<i class="calibre9">r</i>, you should get a straight line with slope −<i class="calibre9">s</i> and intercept log<i class="calibre9">c</i>.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a program that reads a text from a file, counts word frequencies, and prints one line for each word, in descending order of frequency, with log<i class="calibre9">f</i> and log<i class="calibre9">r</i>. Use the graphing program of your choice to plot the results and check whether they form a straight line. Can you estimate the value of <i class="calibre9">s</i>?</em></span></p>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text31" id="note31"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">This case study is based on an example from Kernighan and Pike, <em class="calibre9">The Practice of Programming</em>, 1999.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text32" id="note32"><span class="calibre4">2</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Zipf's_law</tt>.</span></dd>
+  </dl>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: word play</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <p class="calibre15"><a class="calibre16" id="@default685"></a></p>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc100"></a><a class="calibre14" id="htoc111"><span class="calibre18">9.3</span></a><span class="calibre18">&nbsp;&nbsp;Search</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default686"></a> <a class="calibre16" id="@default687"></a></p>
+
+  <p class="calibre15"><span class="calibre4">All of the exercises in the previous section have something in common; they can be solved with the search pattern we saw in Section&nbsp;</span><a class="calibre3" href="../Text/Section0082.xhtml#find"><span class="calibre4">8.6</span></a><span class="calibre4">. The simplest example is:</span></p>
+  <pre class="verbatim"><span class="calibre20">def has_no_e(word):
+    for letter in word:
+        if letter == 'e':
+            return False
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The <tt class="calibre7">for</tt> loop traverses the characters in <tt class="calibre7">word</tt>. If we find the letter “e”, we can immediately return <tt class="calibre7">False</tt>; otherwise we have to go to the next letter. If we exit the loop normally, that means we didn’t find an “e”, so we return <tt class="calibre7">True</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default688"></a></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default689"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">avoids</tt> is a more general version of <code class="calibre7">has_no_e</code> but it has the same structure:</span></p>
+  <pre class="verbatim"><span class="calibre20">def avoids(word, forbidden):
+    for letter in word:
+        if letter in forbidden:
+            return False
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">We can return <tt class="calibre7">False</tt> as soon as we find a forbidden letter; if we get to the end of the loop, we return <tt class="calibre7">True</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">uses_only</code> is similar except that the sense of the condition is reversed:</span></p>
+  <pre class="verbatim"><span class="calibre20">def uses_only(word, available):
+    for letter in word: 
+        if letter not in available:
+            return False
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Instead of a list of forbidden letters, we have a list of available letters. If we find a letter in <tt class="calibre7">word</tt> that is not in <tt class="calibre7">available</tt>, we can return <tt class="calibre7">False</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">uses_all</code> is similar except that we reverse the role of the word and the string of letters:</span></p>
+  <pre class="verbatim"><span class="calibre20">def uses_all(word, required):
+    for letter in required: 
+        if letter not in word:
+            return False
+    return True
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Instead of traversing the letters in <tt class="calibre7">word</tt>, the loop traverses the required letters. If any of the required letters do not appear in the word, we can return <tt class="calibre7">False</tt>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default690"></a></p>
+
+  <p class="calibre15"><span class="calibre4">If you were really thinking like a computer scientist, you would have recognized that <code class="calibre7">uses_all</code> was an instance of a previously-solved problem, and you would have written:</span></p>
+  <pre class="verbatim"><span class="calibre20">def uses_all(word, required):
+    return uses_only(required, word)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This is an example of a program development method called <b class="calibre19">problem recognition</b>, which means that you recognize the problem you are working on as an instance of a previously-solved problem, and apply a previously-developed solution.</span></p>
+</body>
+</html>

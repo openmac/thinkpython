@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_8"><a class="calibre14" id="toc209"></a><a class="calibre14" id="htoc230"><span class="calibre18">19.6</span></a><span class="calibre18">&nbsp;&nbsp;Packing widgets</span></h2>
+
+  <p class="calibre15"><span class="calibre4">So far we have been stacking widgets in a single column, but in most GUIs the layout is more complicated. For example, here is a slightly simplified version of TurtleWorld (see Chapter&nbsp;</span><a class="calibre3" href="../Text/book005.html#turtlechap"><span class="calibre4">4</span></a><span class="calibre4">).</span></p>
+
+  <div class="center">
+    <span class="calibre4"><img alt="" class="calibre21" src="../Images/book028.gif" /></span>
+  </div>
+
+  <p class="calibre15"><span class="calibre4">This section presents the code that creates this GUI, broken into a series of steps. You can download the complete example from <tt class="calibre7">thinkpython.com/code/SimpleTurtleWorld.py</tt>.</span></p>
+
+  <p class="calibre15"><span class="calibre4">At the top level, this GUI contains two widgets&mdash;a Canvas and a Frame&mdash;arranged in a row. So the first step is to create the row.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1716"></a> <a class="calibre16" id="@default1717"></a></p>
+  <pre class="verbatim"><span class="calibre20">class SimpleTurtleWorld(TurtleWorld):
+    """This class is identical to TurtleWorld, but the code that
+    lays out the GUI is simplified for explanatory purposes."""
+
+    def setup(self):
+        self.row()
+        ...
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">setup</tt> is the function that creates and arranges the widgets. Arranging widgets in a GUI is called <b class="calibre19">packing</b>.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1718"></a> <a class="calibre16" id="@default1719"></a> <a class="calibre16" id="@default1720"></a> <a class="calibre16" id="@default1721"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">row</tt> creates a row Frame and makes it the “current Frame.” Until this Frame is closed or another Frame is created, all subsequent widgets are packed in a row.</span></p>
+
+  <p class="calibre15"><span class="calibre4">Here is the code that creates the Canvas and the column Frame that hold the other widgets:</span></p>
+  <pre class="verbatim"><span class="calibre20">        self.canvas = self.ca(width=400, height=400, bg='white')
+        self.col()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first widget in the column is a grid Frame, which contains four buttons arranged two-by-two:</span></p>
+  <pre class="verbatim"><span class="calibre20">        self.gr(cols=2)
+        self.bu(text='Print canvas', command=self.canvas.dump)
+        self.bu(text='Quit', command=self.quit)
+        self.bu(text='Make Turtle', command=self.make_turtle)
+        self.bu(text='Clear', command=self.clear)
+        self.endgr()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">gr</tt> creates the grid; the argument is the number of columns. Widgets in the grid are laid out left-to-right, top-to-bottom.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1722"></a> <a class="calibre16" id="@default1723"></a> <a class="calibre16" id="@default1724"></a> <a class="calibre16" id="@default1725"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The first button uses <tt class="calibre7">self.canvas.dump</tt> as a callback; the second uses <tt class="calibre7">self.quit</tt>. These are <b class="calibre19">bound methods</b>, which means they are associated with a particular object. When they are invoked, they are invoked on the object.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The next widget in the column is a row Frame that contains a Button and an Entry:</span></p>
+  <pre class="verbatim"><span class="calibre20">        self.row([0,1], pady=30)
+        self.bu(text='Run file', command=self.run_file)
+        self.en_file = self.en(text='snowflake.py', width=5)
+        self.endrow()
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The first argument to <tt class="calibre7">row</tt> is a list of weights that determines how extra space is allocated between widgets. The list <tt class="calibre7">[0,1]</tt> means that all extra space is allocated to the second widget, which is the Entry. If you run this code and resize the window, you will see that the Entry grows and the Button doesn’t.</span></p>
+
+  <p class="calibre15"><span class="calibre4">The option <tt class="calibre7">pady</tt> “pads” this row in the <i class="calibre9">y</i> direction, adding 30 pixels of space above and below.</span></p>
+
+  <p class="calibre15"><span class="calibre4"><tt class="calibre7">endrow</tt> ends this row of widgets, so subsequent widgets are packed in the column Frame. <tt class="calibre7">Gui.py</tt> keeps a stack of Frames:</span></p>
+
+  <ul class="calibre6">
+    <li class="li-itemize"><span class="calibre4">When you use <tt class="calibre7">row</tt>, <tt class="calibre7">col</tt> or <tt class="calibre7">gr</tt> to create a Frame, it goes on top of the stack and becomes the current Frame.</span></li>
+
+    <li class="li-itemize"><span class="calibre4">When you use <tt class="calibre7">endrow</tt>, <tt class="calibre7">endcol</tt> or <tt class="calibre7">endgr</tt> to close a Frame, it gets popped off the stack and the previous Frame on the stack becomes the current Frame.</span></li>
+  </ul>
+
+  <p class="calibre15"><span class="calibre4">The method <code class="calibre7">run_file</code> reads the contents of the Entry, uses it as a filename, reads the contents and passes it to <code class="calibre7">run_code</code>. <tt class="calibre7">self.inter</tt> is an Interpreter object that knows how to take a string and execute it as Python code.</span></p>
+  <pre class="verbatim"><span class="calibre20">    def run_file(self):
+        filename = self.en_file.get()
+        fp = open(filename)
+        source = fp.read()
+        self.inter.run_code(source, filename)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The last two widgets are a Text widget and a Button:</span></p>
+  <pre class="verbatim"><span class="calibre20">        self.te_code = self.te(width=25, height=10)
+        self.te_code.insert(END, 'world.clear()\n')
+        self.te_code.insert(END, 'bob = Turtle(world)\n')
+
+        self.bu(text='Run code', command=self.run_text)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">run_text</code> is similar to <code class="calibre7">run_file</code> except that it takes the code from the Text widget instead of from a file:</span></p>
+  <pre class="verbatim"><span class="calibre20">    def run_text(self):
+        source = self.te_code.get(1.0, END)
+        self.inter.run_code(source, '&lt;user-provided code&gt;')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Unfortunately, the details of widget layout are different in other languages, and in different Python modules. Tkinter alone provides three different mechanisms for arranging widgets. These mechanisms are called <b class="calibre19">geometry managers</b>. The one I demonstrated in this section is the “grid” geometry manager; the others are called “pack” and “place”.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1726"></a></p>
+
+  <p class="calibre15"><span class="calibre4">Fortunately, most of the concepts in this section apply to other GUI modules and other languages.</span></p>
+</body>
+</html>

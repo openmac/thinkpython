@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Iteration</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc84"></a><a class="calibre14" id="htoc93"><span class="calibre18">7.9</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;3</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default564"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">To test the square root algorithm in this chapter, you could compare it with <tt class="calibre7">math.sqrt</tt>. Write a function named <code class="calibre7">test_square_root</code> that prints a table like this:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">1.0 1.0           1.0           0.0
+2.0 1.41421356237 1.41421356237 2.22044604925e-16
+3.0 1.73205080757 1.73205080757 0.0
+4.0 2.0           2.0           0.0
+5.0 2.2360679775  2.2360679775  0.0
+6.0 2.44948974278 2.44948974278 0.0
+7.0 2.64575131106 2.64575131106 0.0
+8.0 2.82842712475 2.82842712475 4.4408920985e-16
+9.0 3.0           3.0           0.0
+
+</em></span></pre>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">The first column is a number, <i class="calibre9">a</i>; the second column is the square root of <i class="calibre9">a</i> computed with the function from Exercise&nbsp;</span><a class="calibre3" href="#square_root"><span class="calibre4">7.2</span></a><span class="calibre4">; the third column is the square root computed by <tt class="calibre7">math.sqrt</tt>; the fourth column is the absolute value of the difference between the two estimates.</span></em></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default565"></a> <a class="calibre16" id="@default566"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The built-in function <tt class="calibre7">eval</tt> takes a string and evaluates it using the Python interpreter. For example:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">&gt;&gt;&gt; eval('1 + 2 * 3')
+7
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; eval('math.sqrt(5)')
+2.2360679774997898
+&gt;&gt;&gt; eval('type(math.pi)')
+&lt;type 'float'&gt;
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">eval_loop</code> that iteratively prompts the user, takes the resulting input and evaluates it using <tt class="calibre7">eval</tt>, and prints the result.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">It should continue until the user enters <code class="calibre7">'done'</code>, and then return the value of the last expression it evaluated.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default567"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">The brilliant mathematician Srinivasa Ramanujan found an infinite series</span><sup class="calibre10"><a class="calibre3" href="#note16" id="text16"><span class="calibre4">2</span></a></sup> <span class="calibre4">that can be used to generate a numerical approximation of π:</span></em></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default568"></a></p>
+
+    <table class="display">
+      <tbody class="calibre23">
+        <tr class="calibre24" valign="middle">
+          <td class="dcell">
+            <table class="display1">
+              <tbody class="calibre23">
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre4"><em class="calibre9">1</em></span></td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="hbar"></td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre4"><em class="calibre9">π</em></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+          <td class="dcell"><span class="calibre4"><em class="calibre9">&nbsp;=&nbsp;</em></span></td>
+
+          <td class="dcell">
+            <table class="display1">
+              <tbody class="calibre23">
+                <tr class="calibre24">
+                  <td class="dcell1">
+                    <table class="display1">
+                      <tbody class="calibre23">
+                        <tr class="calibre24" valign="middle">
+                          <td class="dcell"><span class="calibre4"><em class="calibre9">2</em></span></td>
+
+                          <td class="dcell"><span class="calibre25"><em class="calibre9">√</em></span></td>
+
+                          <td class="dcell">
+                            <table border="0" cellpadding="0" cellspacing="1" class="calibre30">
+                              <tbody class="calibre23">
+                                <tr class="calibre24">
+                                  <td class="hbar"></td>
+                                </tr>
+
+                                <tr class="calibre24">
+                                  <td class="calibre27" nowrap="nowrap"><span class="calibre4"><em class="calibre9">2</em></span></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="hbar"></td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre4"><em class="calibre9">9801</em></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+          <td class="dcell"><span class="calibre4"><em class="calibre9">&nbsp;</em></span></td>
+
+          <td class="dcell">
+            <table class="display1">
+              <tbody class="calibre23">
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre4"><em class="calibre9">∞</em></span></td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre33"><em class="calibre9">∑</em></span></td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre4"><em class="calibre9"><i class="calibre9">k</i>=0</em></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+          <td class="dcell"><span class="calibre4"><em class="calibre9">&nbsp;</em></span></td>
+
+          <td class="dcell">
+            <table class="display1">
+              <tbody class="calibre23">
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre4"><em class="calibre9">(4<i class="calibre9">k</i>)!(1103+26390<i class="calibre9">k</i>)</em></span></td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="hbar"></td>
+                </tr>
+
+                <tr class="calibre24">
+                  <td class="dcell1"><span class="calibre4"><em class="calibre9">(<i class="calibre9">k</i>!)<sup class="calibre10">4</sup>&nbsp;396<sup class="calibre10">4<i class="calibre9">k</i></sup></em></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+          <td class="dcell"><span class="calibre4"><em class="calibre9">&nbsp;</em></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a function called <code class="calibre7">estimate_pi</code> that uses this formula to compute and return an estimate of π. It should use a <tt class="calibre7">while</tt> loop to compute terms of the summation until the last term is smaller than <tt class="calibre7">1e-15</tt> (which is Python notation for 10<sup class="calibre10">−15</sup>). You can check the result by comparing it to <tt class="calibre7">math.pi</tt>.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can see my solution at <tt class="calibre7">thinkpython.com/code/pi.py</tt>.</em></span></p>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text15" id="note15"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Collatz_conjecture</tt>.</span></dd>
+
+    <dt class="dt-description"><a class="calibre3" href="#text16" id="note16"><span class="calibre4">2</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Pi</tt>.</span></dd>
+  </dl>
+</body>
+</html>

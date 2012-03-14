@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: Tkinter</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre">
+  <h2 class="section sigilNotInTOC" id="heading_id_13"><a class="calibre14" id="toc214"></a><a class="calibre14" id="htoc235"><span class="calibre18">19.11</span></a><span class="calibre18">&nbsp;&nbsp;Exercises</span></h2>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;4</b>&nbsp;&nbsp;</span> <a class="calibre16" id="@default1763"></a>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">For this exercise, you will write an image viewer. Here is a simple example:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">g = Gui()
+canvas = g.ca(width=300)
+photo = PhotoImage(file='danger.gif')
+canvas.image([0,0], image=photo)
+g.mainloop()
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9"><tt class="calibre7">PhotoImage</tt> reads a file and returns a <tt class="calibre7">PhotoImage</tt> object that Tkinter can display. <tt class="calibre7">Canvas.image</tt> puts the image on the canvas, centered on the given coordinates. You can also put images on labels, buttons, and some other widgets:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">g.la(image=photo)
+g.bu(image=photo)
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">PhotoImage can only handle a few image formats, like GIF and PPM, but we can use the Python Imaging Library (PIL) to read other files.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1764"></a> <a class="calibre16" id="@default1765"></a> <a class="calibre16" id="@default1766"></a> <a class="calibre16" id="@default1767"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The name of the PIL module is <tt class="calibre7">Image</tt>, but Tkinter defines an object with the same name. To avoid the conflict, you can use <tt class="calibre7">import...as</tt> like this:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">import Image as PIL
+import ImageTk
+</em></span></pre>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">The first line imports <tt class="calibre7">Image</tt> and gives it the local name <tt class="calibre7">PIL</tt>. The second line imports <tt class="calibre7">ImageTk</tt>, which can translate a PIL image into a Tkinter PhotoImage. Here’s an example:</em></span></p>
+    <pre class="verbatim"><span class="calibre20"><em class="calibre9">image = PIL.open('allen.png')
+photo2 = ImageTk.PhotoImage(image)
+g.la(image=photo2)
+</em></span></pre>
+
+    <ol class="enumerate" type="1">
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">Download <code class="calibre7">image_demo.py</code>, <code class="calibre7">danger.gif</code> and <code class="calibre7">allen.png</code> from <tt class="calibre7">thinkpython.com/code</tt>. Run <code class="calibre7">image_demo.py</code>. You might have to install <tt class="calibre7">PIL</tt> and <tt class="calibre7">ImageTk</tt>. They are probably in your software repository, but if not you can get them from <tt class="calibre7">pythonware.com/products/pil/</tt>.</em></span></li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">In <code class="calibre7">image_demo.py</code> change the name of the second PhotoImage from <tt class="calibre7">photo2</tt> to <tt class="calibre7">photo</tt> and run the program again. You should see the second PhotoImage but not the first.</em></span>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">The problem is that when you reassign <tt class="calibre7">photo</tt> it overwrites the reference to the first PhotoImage, which then disappears. The same thing happens if you assign a PhotoImage to a local variable; it disappears when the function ends.</em></span></p>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">To avoid this problem, you have to store a reference to each PhotoImage you want to keep. You can use a global variable, or store PhotoImages in a data structure or as an attribute of an object.</em></span></p>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">This behavior can be frustrating, which is why I am warning you (and why the example image says “Danger!”).</em></span></p>
+
+        <p class="calibre15"><a class="calibre16" id="@default1768"></a> <a class="calibre16" id="@default1769"></a></p>
+      </li>
+
+      <li class="li-itemize">
+        <span class="calibre4"><em class="calibre9">Starting with this example, write a program that takes the name of a directory and loops through all the files, displaying any files that PIL recognizes as images. You can use a <tt class="calibre7">try</tt> statement to catch the files PIL doesn’t recognize.</em></span>
+
+        <p class="calibre15"><span class="calibre4"><em class="calibre9">When the user clicks on the image, the program should display the next one.</em></span></p>
+      </li>
+
+      <li class="li-itemize"><span class="calibre4"><em class="calibre9">PIL provides a variety of methods for manipulating images. You can read about them at <tt class="calibre7">pythonware.com/library/pil/handbook</tt>. As a challenge, choose a few of these methods and provide a GUI for applying them to images.</em></span></li>
+    </ol>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">You can download a simple solution from <tt class="calibre7">thinkpython.com/code/ImageBrowser.py</tt>.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;5</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><a class="calibre16" id="@default1770"></a> <a class="calibre16" id="@default1771"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">A vector graphics editor is a program that allows users to draw and edit shapes on the screen and generate output files in vector graphics formats like Postscript and SVG</span><sup class="calibre10"><a class="calibre3" href="#note35" id="text35"><span class="calibre4">1</span></a></sup><span class="calibre4">.</span></em></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Write a simple vector graphics editor using Tkinter. At a minimum, it should allow users to draw lines, circles and rectangles, and it should use <tt class="calibre7">Canvas.dump</tt> to generate a Postscript description of the contents of the Canvas.</em></span></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">As a challenge, you could allow users to select and resize items on the Canvas.</em></span></p>
+  </div>
+
+  <div class="theorem">
+    <span class="calibre4"><b class="calibre19">Exercise&nbsp;6</b>&nbsp;&nbsp;</span>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">Use Tkinter to write a basic web browser. It should have a Text widget where the user can enter a URL and a Canvas to display the contents of the page.</em></span></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1772"></a> <a class="calibre16" id="@default1773"></a> <a class="calibre16" id="@default1774"></a> <a class="calibre16" id="@default1775"></a> <a class="calibre16" id="@default1776"></a></p>
+
+    <p class="calibre15"><em class="calibre9"><span class="calibre4">You can use the <tt class="calibre7">urllib</tt> module to download files (see Exercise&nbsp;</span><a class="calibre3" href="../Text/Section0151.xhtml#urllib"><span class="calibre4">14.5</span></a><span class="calibre4">) and the <tt class="calibre7">HTMLParser</tt> module to parse the HTML tags (see <tt class="calibre7">docs.python.org/lib/module-HTMLParser.html</tt>).</span></em></p>
+
+    <p class="calibre15"><a class="calibre16" id="@default1777"></a> <a class="calibre16" id="@default1778"></a> <a class="calibre16" id="@default1779"></a></p>
+
+    <p class="calibre15"><span class="calibre4"><em class="calibre9">At a minimum your browser should handle plain text and hyperlinks. As a challenge you could handle background colors, text formatting tags and images.</em></span></p>
+  </div>
+  <hr class="footnoterule" />
+
+  <dl class="thefootnotes">
+    <dt class="dt-description"><a class="calibre3" href="#text35" id="note35"><span class="calibre4">1</span></a></dt>
+
+    <dd class="dd-thefootnotes"><span class="calibre4">See <tt class="calibre7">wikipedia.org/wiki/Vector_graphics_editor</tt>.</span></dd>
+  </dl>
+</body>
+</html>

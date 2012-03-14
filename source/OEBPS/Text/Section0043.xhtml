@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: interface design</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <h2 class="section sigilNotInTOC" id="heading_id_11"><a class="calibre14" id="toc47"></a><a class="calibre14" id="htoc53"><span class="calibre18">4.9</span></a><span class="calibre18">&nbsp;&nbsp;docstring</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="docstring"></a> <a class="calibre16" id="@default315"></a></p>
+
+  <p class="calibre15"><span class="calibre4">A <b class="calibre19">docstring</b> is a string at the beginning of a function that explains the interface (“doc” is short for “documentation”). Here is an example:</span></p>
+  <pre class="verbatim"><span class="calibre20">def polyline(t, n, length, angle):
+    """Draw n line segments with the given length and
+    angle (in degrees) between them.  t is a turtle.
+    """    
+    for i in range(n):
+        fd(t, length)
+        lt(t, angle)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This docstring is a triple-quoted string, also known as a multiline string because the triple quotes allow the string to span more than one line.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default316"></a> <a class="calibre16" id="@default317"></a> <a class="calibre16" id="@default318"></a> <a class="calibre16" id="@default319"></a> <a class="calibre16" id="@default320"></a></p>
+
+  <p class="calibre15"><span class="calibre4">It is terse, but it contains the essential information someone would need to use this function. It explains concisely what the function does (without getting into the details of how it does it). It explains what effect each parameter has on the behavior of the function and what type each parameter should be (if it is not obvious).</span></p>
+
+  <p class="calibre15"><span class="calibre4">Writing this kind of documentation is an important part of interface design. A well-designed interface should be simple to explain; if you are having a hard time explaining one of your functions, that might be a sign that the interface could be improved.</span></p>
+</body>
+</html>

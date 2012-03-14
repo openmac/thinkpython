@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Files</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_12"><a class="calibre14" id="toc162"></a><a class="calibre14" id="htoc178"><span class="calibre18">14.10</span></a><span class="calibre18">&nbsp;&nbsp;Debugging</span></h2>
+
+  <p class="calibre15"><a class="calibre16" id="@default1319"></a> <a class="calibre16" id="@default1320"></a></p>
+
+  <p class="calibre15"><span class="calibre4">When you are reading and writing files, you might run into problems with whitespace. These errors can be hard to debug because spaces, tabs and newlines are normally invisible:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; s = '1 2\t 3\n 4'
+&gt;&gt;&gt; print s
+1 2  3
+ 4
+</span></pre>
+
+  <p class="calibre15"><a class="calibre16" id="@default1321"></a> <a class="calibre16" id="@default1322"></a> <a class="calibre16" id="@default1323"></a></p>
+
+  <p class="calibre15"><span class="calibre4">The built-in function <tt class="calibre7">repr</tt> can help. It takes any object as an argument and returns a string representation of the object. For strings, it represents whitespace characters with backslash sequences:</span></p>
+  <pre class="verbatim"><span class="calibre20">&gt;&gt;&gt; print repr(s)
+'1 2\t 3\n 4'
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This can be helpful for debugging.</span></p>
+
+  <p class="calibre15"><span class="calibre4">One other problem you might run into is that different systems use different characters to indicate the end of a line. Some systems use a newline, represented <code class="calibre7">\n</code>. Others use a return character, represented <code class="calibre7">\r</code>. Some use both. If you move files between different systems, these inconsistencies might cause problems.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1324"></a></p>
+
+  <p class="calibre15"><span class="calibre4">For most systems, there are applications to convert from one format to another. You can find them (and read more about this issue) at <tt class="calibre7">wikipedia.org/wiki/Newline</tt>. Or, of course, you could write one yourself.</span></p>
+</body>
+</html>

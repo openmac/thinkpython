@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="hevea 1.10" name="GENERATOR" />
+
+  <title>Case study: data structure selection</title>
+  <link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
+
+  @page { margin-bottom: 5.000000pt; margin-top: 5.000000pt; }
+
+  span.sgc-1 {font-weight: bold}
+
+  body.sgc-2 {word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;}
+  /*]]>*/
+  </style>
+</head>
+
+<body class="calibre sgc-2">
+  <div class="theorem"></div>
+
+  <h2 class="section sigilNotInTOC" id="heading_id_5"><a class="calibre14" id="toc143"></a><a class="calibre14" id="htoc158"><span class="calibre18">13.3</span></a><span class="calibre18">&nbsp;&nbsp;Word histogram</span></h2>
+
+  <p class="calibre15"><span class="calibre4">Here is a program that reads a file and builds a histogram of the words in the file:</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1190"></a></p>
+  <pre class="verbatim"><span class="calibre20">import string
+
+def process_file(filename):
+    h = dict()
+    fp = open(filename)
+    for line in fp:
+        process_line(line, h)
+    return h
+
+def process_line(line, h):
+    line = line.replace('-', ' ')
+    
+    for word in line.split():
+        word = word.strip(string.punctuation + string.whitespace)
+        word = word.lower()
+
+        h[word] = h.get(word, 0) + 1
+
+hist = process_file('emma.txt')
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">This program reads <tt class="calibre7">emma.txt</tt>, which contains the text of <em class="calibre9">Emma</em> by Jane Austen.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1191"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">process_file</code> loops through the lines of the file, passing them one at a time to <code class="calibre7">process_line</code>. The histogram <tt class="calibre7">h</tt> is being used as an accumulator.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1192"></a> <a class="calibre16" id="@default1193"></a></p>
+
+  <p class="calibre15"><span class="calibre4"><code class="calibre7">process_line</code> uses the string method <tt class="calibre7">replace</tt> to replace hyphens with spaces before using <tt class="calibre7">split</tt> to break the line into a list of strings. It traverses the list of words and uses <tt class="calibre7">strip</tt> and <tt class="calibre7">lower</tt> to remove punctuation and convert to lower case. (It is a shorthand to say that strings are “converted;” remember that string are immutable, so methods like <tt class="calibre7">strip</tt> and <tt class="calibre7">lower</tt> return new strings.)</span></p>
+
+  <p class="calibre15"><span class="calibre4">Finally, <code class="calibre7">process_line</code> updates the histogram by creating a new item or incrementing an existing one.</span></p>
+
+  <p class="calibre15"><a class="calibre16" id="@default1194"></a></p>
+
+  <p class="calibre15"><span class="calibre4">To count the total number of words in the file, we can add up the frequencies in the histogram:</span></p>
+  <pre class="verbatim"><span class="calibre20">def total_words(h):
+    return sum(h.values())
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">The number of different words is just the number of items in the dictionary:</span></p>
+  <pre class="verbatim"><span class="calibre20">def different_words(h):
+    return len(h)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">Here is some code to print the results:</span></p>
+  <pre class="verbatim"><span class="calibre20">print 'Total number of words:', total_words(hist)
+print 'Number of different words:', different_words(hist)
+</span></pre>
+
+  <p class="calibre15"><span class="calibre4">And the results:</span></p>
+  <pre class="verbatim"><span class="calibre20">Total number of words: 161073
+Number of different words: 7212
+</span></pre>
+</body>
+</html>
